@@ -1,0 +1,82 @@
+info:
+  name: Send Notification
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/contracts/value-depletion/notification"
+  body:
+    type: json
+    data: |-
+      [
+          {
+              "contract_id": "5d1d5d44-cc2a-4203-854f-8e2c08967a49",
+              "contract_number": "333",
+              "contract_value": "Rp50.000.000",
+              "contract_expired_date": "30/04/2025",
+              "expired_reason": "Contract Value will enter an estimated warning"
+          },
+          {
+              "contract_id": "f57c58be-882a-4f69-ade9-ed97555a8ef2",
+              "contract_number": "1122332",
+              "contract_value": "Rp3.000.000.000",
+              "contract_expired_date": "31/05/2025",
+              "expired_reason": "Contract Value will enter an estimated warning"
+          }
+      ]
+  auth:
+    type: basic
+    username: "{{basic_auth_username}}"
+    password: "{{basic_auth_password}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/contracts/value-depletion/notification"
+      method: POST
+      body:
+        type: json
+        data: |-
+          [
+              {
+                  "contract_id": "5a33c96e-3ee2-4f1d-9c32-e5a322582d81",
+                  "contract_number": "333",
+                  "contract_value": "Rp50.000.000",
+                  "contract_expired_date": "30/04/2025",
+                  "expired_reason": "Contract Value will enter an estimated warning"
+              },
+              {
+                  "contract_id": "a1aa80b5-c9c4-4798-863c-35bcc6e2bb67",
+                  "contract_number": "1122332",
+                  "contract_value": "Rp3.000.000.000",
+                  "contract_expired_date": "31/05/2025",
+                  "expired_reason": "Contract Value will enter an estimated warning"
+              }
+          ]
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Fri, 03 May 2024 04:11:28 GMT
+        - name: Content-Length
+          value: "119"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "119ms",
+              "status": "success",
+              "code": "",
+              "message": "Send contract depletion warning notification succeed"
+          }

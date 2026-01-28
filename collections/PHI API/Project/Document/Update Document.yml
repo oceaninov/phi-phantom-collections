@@ -1,0 +1,76 @@
+info:
+  name: Update Document
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: "{{base_url}}/api/v1/projects/:ID/documents/:documentID/file"
+  params:
+    - name: ID
+      value: 20d18de3-ccf7-43f3-88ed-2c95bb7fe32d
+      type: path
+      description: Project ID
+    - name: documentID
+      value: 795aa385-4e18-4cf0-af83-ddd3dcb91512
+      type: path
+      description: Document ID
+  body:
+    type: multipart-form
+    data:
+      - name: file
+        type: file
+        value:
+          - /home/zombozo12/Downloads/test.xlsx
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Success
+    request:
+      url: "{{base_url}}/api/v1/projects/:ID/documents/:documentID"
+      method: PUT
+      params:
+        - name: ID
+          value: 20d18de3-ccf7-43f3-88ed-2c95bb7fe32d
+          type: path
+          description: Project ID
+        - name: documentID
+          value: 795aa385-4e18-4cf0-af83-ddd3dcb91512
+          type: path
+          description: Document ID
+      body:
+        type: multipart-form
+        data:
+          - name: file
+            type: file
+            value:
+              - /home/zombozo12/Downloads/test.xlsx
+          - name: description
+            type: text
+            value: test 1
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 18 Mar 2024 08:00:25 GMT
+        - name: Content-Length
+          value: "90"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "336ms",
+              "status": "success",
+              "code": "",
+              "message": "Update document succeed"
+          }

@@ -1,0 +1,72 @@
+info:
+  name: Login
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/pertamina/login"
+  headers:
+    - name: X-Client-ID
+      value: r3lax
+  body:
+    type: json
+    data: |-
+      {
+          "username": "r3test.vicep",
+          "password": "Pertamina@321",
+          "otp": "668558"
+      }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/pertamina/login"
+      method: POST
+      headers:
+        - name: X-Client-ID
+          value: r3lax
+      body:
+        type: json
+        data: |-
+          {
+              "username": "r3test.vicep",
+              "password": "Pertamina@321",
+              "otp": "906550"
+          }
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 21 Jan 2025 07:32:04 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "873ms",
+              "status": "success",
+              "code": "",
+              "message": "Login to pertamina IAM succeed",
+              "data": {
+                  "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJWZ1BCMDVobV9EbllROWNYOUJSeldOYkpMWFV0T19KTWtmSjJRdVdfQUVrIn0.eyJleHAiOjE3Mzg2NTQzMjQsImlhdCI6MTczNzQ0NDcyNCwianRpIjoiNmVlY2U3MjAtMmY4OC00MjI2LWExZDAtOGYzY2Q1NzFiZTQyIiwiaXNzIjoiaHR0cDovL2ludHJhLnBoaS5wZXJ0YW1pbmEuY29tL3Izb2F1dGgvcmVhbG1zL1IzTEFYIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjQ1Mzk4YjY4LTg0ZGQtNDY2Yy1iYzdjLTEyMTFiOTk2YTkzOSIsInR5cCI6IkJlYXJlciIsImF6cCI6IlIzTEFYIiwic2lkIjoiYTAzYzE4YmQtNjNjMy00MjdlLWJhZGMtOTQ0MmVlMmM5YmY4IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIqIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsImRlZmF1bHQtcm9sZXMtcjNsYXgiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6InIzdGVzdC52aWNlcCIsInByZWZlcnJlZF91c2VybmFtZSI6InIzdGVzdC52aWNlcCIsImdpdmVuX25hbWUiOiJyM3Rlc3QudmljZXAifQ.LedEE4tlSxDVMQjTPB4gRjdRDyiwGtn7R0AVoHvz6ma-of3pMstyn-ZeXiIgWxL-tLguhRwC-HdL9oLqt6QVv6djZD7YUTgkxwon112RxlWwjeSlrwwDegJ_loQB7xiyzTLx17I6vcgWAhABIu7NoE2vUliT86aYC67DbiFYrDJQwdhpnKdoLJR4FjMlNVHkO_PFPdPMSzXtd-5y4E143v2KRdl2vzOqhOw7uEXMtsW-jVjy644Nc8nvbH3JJNIo4UprWyYjZtc7jCBlczb-tERxXSsvxNCwW1uRe8oVrN0LVehX5f2gzcGUyyha5VqIi2AcyvhVunG75QNCc6sSCQ",
+                  "expires_in": 1209600,
+                  "refresh_token": "eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJiMzQ0YWIzYi03ZTc5LTQyNmUtYjc1NS0xMzVlNzUzZDZjMWQifQ.eyJleHAiOjE3Mzg3NDA3MjQsImlhdCI6MTczNzQ0NDcyNCwianRpIjoiMGFkYWEwZjAtMDA1Zi00ZWY5LWIyNzYtMmFhMWRlNzFmZjdjIiwiaXNzIjoiaHR0cDovL2ludHJhLnBoaS5wZXJ0YW1pbmEuY29tL3Izb2F1dGgvcmVhbG1zL1IzTEFYIiwiYXVkIjoiaHR0cDovL2ludHJhLnBoaS5wZXJ0YW1pbmEuY29tL3Izb2F1dGgvcmVhbG1zL1IzTEFYIiwic3ViIjoiNDUzOThiNjgtODRkZC00NjZjLWJjN2MtMTIxMWI5OTZhOTM5IiwidHlwIjoiUmVmcmVzaCIsImF6cCI6IlIzTEFYIiwic2lkIjoiYTAzYzE4YmQtNjNjMy00MjdlLWJhZGMtOTQ0MmVlMmM5YmY4Iiwic2NvcGUiOiJyb2xlcyBlbWFpbCBiYXNpYyBwcm9maWxlIHdlYi1vcmlnaW5zIGFjciJ9.71f8gGGHMa-18CKu9rmgMDErQ_czZh35Qbr99g7Km9zr2nZ9f1XKYOyFhwqmuiBDaiNpphgW6nANra1RZMuI3g",
+                  "refresh_expires_in": 1296000,
+                  "token_type": "Bearer",
+                  "not_before_policy": 0,
+                  "session_state": "a03c18bd-63c3-427e-badc-9442ee2c9bf8",
+                  "scope": "email profile"
+              }
+          }

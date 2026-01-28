@@ -1,0 +1,138 @@
+info:
+  name: Update custom configuration
+  type: http
+  seq: 4
+
+http:
+  method: PUT
+  url: "{{base_url}}/api/v1/custom-configurations/e1efb8b1-42c1-412e-92d7-6af3e58cbc42"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"name\": \"usd_rate\",\r
+
+      \    \"description\": \"Configuration for USD rate to Rupiah\",\r
+
+      \    \"detail\": [\r
+
+      \        {\r
+
+      \            \"key\": \"rate\",\r
+
+      \            \"value\": 15000,\r
+
+      \            \"note\": \"Valid value is integer\"\r
+
+      \        }\r
+
+      \    ]\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/custom-configurations/e1efb8b1-42c1-412e-92d7-6af3e58cbc42"
+      method: PUT
+      body:
+        type: json
+        data: "{\r
+
+          \    \"name\": \"usd_rate\",\r
+
+          \    \"description\": \"Configuration for USD rate to Rupiah\",\r
+
+          \    \"detail\": [\r
+
+          \        {\r
+
+          \            \"key\": \"rate\",\r
+
+          \            \"value\": 15500,\r
+
+          \            \"note\": \"Valid value is integer\"\r
+
+          \        }\r
+
+          \    ]\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 22 Nov 2023 02:41:09 GMT
+        - name: Content-Length
+          value: "101"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "69ms",
+              "status": "success",
+              "code": "",
+              "message": "Update custom configuration succeed"
+          }
+  - name: failed request validation
+    request:
+      url: "{{base_url}}/api/v1/custom-configurations/e1efb8b1-42c1-412e-92d7-6af3e58cbc42"
+      method: PUT
+      body:
+        type: json
+        data: "{\r
+
+          \    \"name\": \"usd_rate\",\r
+
+          \    \"detail\": [\r
+
+          \        {\r
+
+          \            \"key\": \"rate\",\r
+
+          \            \"value\": 15000,\r
+
+          \            \"note\": \"Valid value is integer\"\r
+
+          \        }\r
+
+          \    ]\r
+
+          }"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "0ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Description: cannot be blank.",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Description: cannot be blank.",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

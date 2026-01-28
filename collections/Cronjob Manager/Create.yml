@@ -1,0 +1,107 @@
+info:
+  name: Create
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/cronjobs"
+  body:
+    type: json
+    data: |-
+      {
+          "name": "Cronjob every minutes",
+          "frequency": "* * * * *",
+          "url": "https://phi-api-dev.phizona9-digital.com/api/v1/auth/login",
+          "status": "active",
+          "headers": {
+              "X-Signature": "xxx"
+          },
+          "payload": {
+              "field1": "value1"
+          },
+          "parameters": {
+              "param1": "value1"
+          },
+          "auth_type": "basic_auth", //none/basic_auth
+          "username": "admin",
+          "password": "admin"
+      }
+  auth:
+    type: basic
+    username: "{{basic_auth_username}}"
+    password: "{{basic_auth_password}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/cronjobs"
+      method: POST
+      body:
+        type: json
+        data: |-
+          {
+              "name": "Cronjob every minutes",
+              "frequency": "* * * * *",
+              "url": "https://phi-api-dev.phizona9-digital.com/api/v1/auth/login",
+              "status": "active",
+              "headers": {
+                  "X-Signature": "xxx"
+              },
+              "payload": {
+                  "field1": "value1"
+              },
+              "parameters": {
+                  "param1": "value1"
+              },
+              "auth_type": "basic_auth", //none/basic_auth
+              "username": "admin",
+              "password": "admin"
+          }
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Fri, 01 Aug 2025 13:58:33 GMT
+        - name: Content-Length
+          value: "454"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "672ms",
+              "status": "success",
+              "code": "",
+              "message": "Add new cronjob succeed",
+              "data": {
+                  "id": 6,
+                  "name": "Cronjob every minutes",
+                  "frequency": "* * * * *",
+                  "url": "https://phi-api-dev.phizona9-digital.com/api/v1/auth/login",
+                  "headers": {
+                      "X-Signature": "xxx"
+                  },
+                  "parameters": {
+                      "param1": "value1"
+                  },
+                  "payload": {
+                      "field1": "value1"
+                  },
+                  "status": "active",
+                  "auth_type": "",
+                  "username": "",
+                  "password": "",
+                  "created_at": "01-08-2025 20:58:33",
+                  "updated_at": "01-08-2025 20:58:33"
+              }
+          }

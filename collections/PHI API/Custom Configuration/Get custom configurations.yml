@@ -1,0 +1,146 @@
+info:
+  name: Get custom configurations
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/custom-configurations?page=1&page_size=10&search=awd"
+  params:
+    - name: page
+      value: "1"
+      type: query
+    - name: page_size
+      value: "10"
+      type: query
+    - name: search
+      value: awd
+      type: query
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/custom-configurations?page=1&page_size=10&search=rupiah"
+      method: GET
+      params:
+        - name: page
+          value: "1"
+          type: query
+        - name: page_size
+          value: "10"
+          type: query
+        - name: search
+          value: rupiah
+          type: query
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 06 May 2024 08:55:11 GMT
+        - name: Content-Length
+          value: "472"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "80ms",
+              "status": "success",
+              "code": "",
+              "message": "Get custom configurations succeed",
+              "data": {
+                  "list": [
+                      {
+                          "id": "e1efb8b1-42c1-412e-92d7-6af3e58cbc42",
+                          "name": "usd_rate",
+                          "description": "Configuration for USD rate to Rupiah",
+                          "detail": [
+                              {
+                                  "key": "rate",
+                                  "value": 15000,
+                                  "note": "Valid value is integer"
+                              }
+                          ],
+                          "created_at": "12-11-2023 17:32:33",
+                          "created_by": "Super Admin",
+                          "updated_at": "22-11-2023 09:44:40",
+                          "updated_by": "Super Admin",
+                          "deleted_at": "",
+                          "deleted_by": ""
+                      }
+                  ],
+                  "count": 3
+              }
+          }
+  - name: empty data
+    request:
+      url: "{{base_url}}/api/v1/custom-configurations?page=1&page_size=10&search=awd"
+      method: GET
+      params:
+        - name: page
+          value: "1"
+          type: query
+        - name: page_size
+          value: "10"
+          type: query
+        - name: search
+          value: awd
+          type: query
+    response:
+      statusText: "200"
+      headers:
+        - name: Date
+          value: Fri, 10 May 2024 07:38:42 GMT
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Transfer-Encoding
+          value: chunked
+        - name: Connection
+          value: keep-alive
+        - name: Vary
+          value: Origin
+        - name: Access-Control-Allow-Methods
+          value: "*"
+        - name: Access-Control-Allow-Headers
+          value: CoreAccessToken,CoreAuthID,DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization,Connection,X-Accel-Buffering
+        - name: Access-Control-Allow-Origin
+          value: "*"
+        - name: CF-Cache-Status
+          value: DYNAMIC
+        - name: Report-To
+          value: '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=u5F6n35mCjzlZ7LDCpatvaBz8deuSkx1ntKftyBSWNQ5tkr49UtLXCTdz2nrhslF14OeTNGO9hRato4y%2FAjI0VoWKP%2B4C4N95Ym4niQ28alfTaRNniEnVYUTb%2BH3ZQdlCDKne0H4lMLKqafr7p3mT5yD2Q%3D%3D"}],"group":"cf-nel","max_age":604800}'
+        - name: NEL
+          value: '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+        - name: Server
+          value: cloudflare
+        - name: CF-RAY
+          value: 8818456efa847152-HKG
+        - name: Content-Encoding
+          value: br
+        - name: alt-svc
+          value: h3=":443"; ma=86400
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "4ms",
+              "status": "success",
+              "code": "",
+              "message": "Get custom configurations succeed",
+              "data": {
+                  "list": [],
+                  "count": 0
+              }
+          }

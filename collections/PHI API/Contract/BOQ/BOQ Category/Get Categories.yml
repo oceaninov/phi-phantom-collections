@@ -1,0 +1,163 @@
+info:
+  name: Get Categories
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/contracts/boqs/categories"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/contracts/boqs/categories"
+      method: GET
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Fri, 18 Aug 2023 02:27:50 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "35ms",
+              "status": "success",
+              "code": "",
+              "message": "Get BOQ categories succeed",
+              "data": [
+                  {
+                      "id": "7f9e9cf6-3f74-4525-b0c4-eb59cd581935",
+                      "name": "Engineering",
+                      "file_templates": [
+                          {
+                              "id": "8e0b2b94-5cda-4350-8c90-016d1b6da9a3",
+                              "name": "Type 3",
+                              "file_url": "https://storage.googleapis.com/phi-dev-bucket/assets/boq-template-type3"
+                          }
+                      ]
+                  },
+                  {
+                      "id": "9b2373d6-d108-4b5f-994c-17f7e171010a",
+                      "name": "QEA",
+                      "file_templates": [
+                          {
+                              "id": "38469f0e-0be3-407b-8d41-516b2d1562d8",
+                              "name": "Type 4",
+                              "file_url": "https://storage.googleapis.com/phi-dev-bucket/assets/boq-template-type4"
+                          }
+                      ]
+                  },
+                  {
+                      "id": "41caabeb-e536-4398-ade5-3d1305c56b24",
+                      "name": "Mechanical",
+                      "file_templates": [
+                          {
+                              "id": "84c490ee-b814-4fb8-b644-71bf142cb7b2",
+                              "name": "Type 1",
+                              "file_url": "https://storage.googleapis.com/phi-dev-bucket/assets/boq-template-type1"
+                          },
+                          {
+                              "id": "8c1eb61b-13a6-4019-9404-367a71817fad",
+                              "name": "Type 2",
+                              "file_url": "https://storage.googleapis.com/phi-dev-bucket/assets/boq-template-type2"
+                          }
+                      ]
+                  },
+                  {
+                      "id": "c7f00212-00d0-4d3d-8cb4-8eec8a3cf8b9",
+                      "name": "Electrical",
+                      "file_templates": [
+                          {
+                              "id": "84c490ee-b814-4fb8-b644-71bf142cb7b2",
+                              "name": "Type 1",
+                              "file_url": "https://storage.googleapis.com/phi-dev-bucket/assets/boq-template-type1"
+                          },
+                          {
+                              "id": "8c1eb61b-13a6-4019-9404-367a71817fad",
+                              "name": "Type 2",
+                              "file_url": "https://storage.googleapis.com/phi-dev-bucket/assets/boq-template-type2"
+                          }
+                      ]
+                  },
+                  {
+                      "id": "7b9c7653-7207-48be-a32d-3303c7a3ba35",
+                      "name": "Instrument",
+                      "file_templates": [
+                          {
+                              "id": "84c490ee-b814-4fb8-b644-71bf142cb7b2",
+                              "name": "Type 1",
+                              "file_url": "https://storage.googleapis.com/phi-dev-bucket/assets/boq-template-type1"
+                          },
+                          {
+                              "id": "8c1eb61b-13a6-4019-9404-367a71817fad",
+                              "name": "Type 2",
+                              "file_url": "https://storage.googleapis.com/phi-dev-bucket/assets/boq-template-type2"
+                          }
+                      ]
+                  },
+                  {
+                      "id": "8e77050b-c08a-4bdc-8d7f-2701bc67bc40",
+                      "name": "Material",
+                      "file_templates": [
+                          {
+                              "id": "84c490ee-b814-4fb8-b644-71bf142cb7b2",
+                              "name": "Type 1",
+                              "file_url": "https://storage.googleapis.com/phi-dev-bucket/assets/boq-template-type1"
+                          },
+                          {
+                              "id": "8c1eb61b-13a6-4019-9404-367a71817fad",
+                              "name": "Type 2",
+                              "file_url": "https://storage.googleapis.com/phi-dev-bucket/assets/boq-template-type2"
+                          }
+                      ]
+                  },
+                  {
+                      "id": "bd6ad67c-402e-4a2f-a60d-250f267c9b83",
+                      "name": "Civil",
+                      "file_templates": [
+                          {
+                              "id": "84c490ee-b814-4fb8-b644-71bf142cb7b2",
+                              "name": "Type 1",
+                              "file_url": "https://storage.googleapis.com/phi-dev-bucket/assets/boq-template-type1"
+                          },
+                          {
+                              "id": "8c1eb61b-13a6-4019-9404-367a71817fad",
+                              "name": "Type 2",
+                              "file_url": "https://storage.googleapis.com/phi-dev-bucket/assets/boq-template-type2"
+                          }
+                      ]
+                  },
+                  {
+                      "id": "313f7979-94b4-4632-bcc1-36506dcd2ccb",
+                      "name": "Construction",
+                      "file_templates": [
+                          {
+                              "id": "84c490ee-b814-4fb8-b644-71bf142cb7b2",
+                              "name": "Type 1",
+                              "file_url": "https://storage.googleapis.com/phi-dev-bucket/assets/boq-template-type1"
+                          },
+                          {
+                              "id": "8c1eb61b-13a6-4019-9404-367a71817fad",
+                              "name": "Type 2",
+                              "file_url": "https://storage.googleapis.com/phi-dev-bucket/assets/boq-template-type2"
+                          }
+                      ]
+                  }
+              ]
+          }

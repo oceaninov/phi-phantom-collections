@@ -1,0 +1,301 @@
+info:
+  name: Get Project Task Schedule For Mobile
+  type: http
+  seq: 7
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/projects/tasks/a94fe84d-c3a6-4575-8796-64428ee3b91e/schedule/mobile"
+  params:
+    - name: start_date
+      value: 01-01-2023
+      type: query
+      disabled: true
+    - name: end_date
+      value: 02-01-2023
+      type: query
+      disabled: true
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/projects/tasks/99ee09eb-7e65-4c99-bb91-6ef2697bf8cb/schedule/mobile"
+      method: GET
+      params:
+        - name: start_date
+          value: 01-01-2023
+          type: query
+          disabled: true
+        - name: end_date
+          value: 02-01-2023
+          type: query
+          disabled: true
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 04 Oct 2023 04:31:23 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "23ms",
+              "status": "success",
+              "code": "",
+              "message": "Get project task schedule succeed",
+              "data": [
+                  {
+                      "period": "January 2023",
+                      "list": [
+                          {
+                              "id": "1ef63bbf-1169-4dc2-bf10-8b0e7a38233c",
+                              "project_task_id": "99ee09eb-7e65-4c99-bb91-6ef2697bf8cb",
+                              "date": "01-01-2023",
+                              "plan_weight": 0.02,
+                              "plan_weight_accumulation": 0.02,
+                              "plan_volume": 0,
+                              "plan_volume_accumulation": 0,
+                              "plan_progress": 8.33,
+                              "plan_progress_accumulation": 8.33,
+                              "plan_cost": 1650000,
+                              "actual_cost": 0,
+                              "actual_cost_weight": 0,
+                              "actual_cost_weight_accumulation": 0,
+                              "actual_cost_progress": 0,
+                              "actual_cost_progress_accumulation": 0,
+                              "actual_progress": 0,
+                              "actual_progress_accumulation": 0
+                          },
+                          {
+                              "id": "9924c8c0-00e1-4c6a-80b4-4081db08cfd0",
+                              "project_task_id": "99ee09eb-7e65-4c99-bb91-6ef2697bf8cb",
+                              "date": "02-01-2023",
+                              "plan_weight": 0.02,
+                              "plan_weight_accumulation": 0.04,
+                              "plan_volume": 0,
+                              "plan_volume_accumulation": 0,
+                              "plan_progress": 8.33,
+                              "plan_progress_accumulation": 16.67,
+                              "plan_cost": 1650000,
+                              "actual_cost": 0,
+                              "actual_cost_weight": 0,
+                              "actual_cost_weight_accumulation": 0,
+                              "actual_cost_progress": 0,
+                              "actual_cost_progress_accumulation": 0,
+                              "actual_progress": 8.33,
+                              "actual_progress_accumulation": 16.67
+                          },
+                          {
+                              "id": "0898c866-e5c4-495e-a36b-f19548b7d59e",
+                              "project_task_id": "99ee09eb-7e65-4c99-bb91-6ef2697bf8cb",
+                              "date": "03-01-2023",
+                              "plan_weight": 0.02,
+                              "plan_weight_accumulation": 0.06,
+                              "plan_volume": 0,
+                              "plan_volume_accumulation": 0,
+                              "plan_progress": 8.33,
+                              "plan_progress_accumulation": 25,
+                              "plan_cost": 1650000,
+                              "actual_cost": 0,
+                              "actual_cost_weight": 0,
+                              "actual_cost_weight_accumulation": 0,
+                              "actual_cost_progress": 0,
+                              "actual_cost_progress_accumulation": 0,
+                              "actual_progress": 0,
+                              "actual_progress_accumulation": 0
+                          },
+                          {
+                              "id": "a2d01087-39ef-44d5-8ec8-07190075756e",
+                              "project_task_id": "99ee09eb-7e65-4c99-bb91-6ef2697bf8cb",
+                              "date": "04-01-2023",
+                              "plan_weight": 0.02,
+                              "plan_weight_accumulation": 0.07,
+                              "plan_volume": 0,
+                              "plan_volume_accumulation": 0,
+                              "plan_progress": 8.33,
+                              "plan_progress_accumulation": 33.33,
+                              "plan_cost": 1650000,
+                              "actual_cost": 0,
+                              "actual_cost_weight": 0,
+                              "actual_cost_weight_accumulation": 0,
+                              "actual_cost_progress": 0,
+                              "actual_cost_progress_accumulation": 0,
+                              "actual_progress": 0,
+                              "actual_progress_accumulation": 0
+                          },
+                          {
+                              "id": "08d3c88b-582b-46b4-beab-307ec4dae3dc",
+                              "project_task_id": "99ee09eb-7e65-4c99-bb91-6ef2697bf8cb",
+                              "date": "05-01-2023",
+                              "plan_weight": 0.02,
+                              "plan_weight_accumulation": 0.09,
+                              "plan_volume": 0,
+                              "plan_volume_accumulation": 0,
+                              "plan_progress": 8.33,
+                              "plan_progress_accumulation": 41.67,
+                              "plan_cost": 1650000,
+                              "actual_cost": 0,
+                              "actual_cost_weight": 0,
+                              "actual_cost_weight_accumulation": 0,
+                              "actual_cost_progress": 0,
+                              "actual_cost_progress_accumulation": 0,
+                              "actual_progress": 0,
+                              "actual_progress_accumulation": 0
+                          },
+                          {
+                              "id": "050395cb-0b72-4c69-af44-b949c01fc96d",
+                              "project_task_id": "99ee09eb-7e65-4c99-bb91-6ef2697bf8cb",
+                              "date": "06-01-2023",
+                              "plan_weight": 0.02,
+                              "plan_weight_accumulation": 0.11,
+                              "plan_volume": 0,
+                              "plan_volume_accumulation": 0,
+                              "plan_progress": 8.33,
+                              "plan_progress_accumulation": 50,
+                              "plan_cost": 1650000,
+                              "actual_cost": 0,
+                              "actual_cost_weight": 0,
+                              "actual_cost_weight_accumulation": 0,
+                              "actual_cost_progress": 0,
+                              "actual_cost_progress_accumulation": 0,
+                              "actual_progress": 0,
+                              "actual_progress_accumulation": 0
+                          },
+                          {
+                              "id": "3a82431e-7b10-4203-8162-9fc2ca379e09",
+                              "project_task_id": "99ee09eb-7e65-4c99-bb91-6ef2697bf8cb",
+                              "date": "07-01-2023",
+                              "plan_weight": 0.02,
+                              "plan_weight_accumulation": 0.13,
+                              "plan_volume": 0,
+                              "plan_volume_accumulation": 0,
+                              "plan_progress": 8.33,
+                              "plan_progress_accumulation": 58.33,
+                              "plan_cost": 1650000,
+                              "actual_cost": 0,
+                              "actual_cost_weight": 0,
+                              "actual_cost_weight_accumulation": 0,
+                              "actual_cost_progress": 0,
+                              "actual_cost_progress_accumulation": 0,
+                              "actual_progress": 0,
+                              "actual_progress_accumulation": 0
+                          },
+                          {
+                              "id": "886b76ce-17e1-4e44-b3b4-933c94002c83",
+                              "project_task_id": "99ee09eb-7e65-4c99-bb91-6ef2697bf8cb",
+                              "date": "08-01-2023",
+                              "plan_weight": 0.02,
+                              "plan_weight_accumulation": 0.15,
+                              "plan_volume": 0,
+                              "plan_volume_accumulation": 0,
+                              "plan_progress": 8.33,
+                              "plan_progress_accumulation": 66.67,
+                              "plan_cost": 1650000,
+                              "actual_cost": 0,
+                              "actual_cost_weight": 0,
+                              "actual_cost_weight_accumulation": 0,
+                              "actual_cost_progress": 0,
+                              "actual_cost_progress_accumulation": 0,
+                              "actual_progress": 0,
+                              "actual_progress_accumulation": 0
+                          },
+                          {
+                              "id": "c9426cc3-4bf6-46c4-91c9-b113055ea8f0",
+                              "project_task_id": "99ee09eb-7e65-4c99-bb91-6ef2697bf8cb",
+                              "date": "09-01-2023",
+                              "plan_weight": 0.02,
+                              "plan_weight_accumulation": 0.17,
+                              "plan_volume": 0,
+                              "plan_volume_accumulation": 0,
+                              "plan_progress": 8.33,
+                              "plan_progress_accumulation": 75,
+                              "plan_cost": 1650000,
+                              "actual_cost": 0,
+                              "actual_cost_weight": 0,
+                              "actual_cost_weight_accumulation": 0,
+                              "actual_cost_progress": 0,
+                              "actual_cost_progress_accumulation": 0,
+                              "actual_progress": 0,
+                              "actual_progress_accumulation": 0
+                          },
+                          {
+                              "id": "adf625c0-1b1e-4d42-ab11-fe9336113a2d",
+                              "project_task_id": "99ee09eb-7e65-4c99-bb91-6ef2697bf8cb",
+                              "date": "10-01-2023",
+                              "plan_weight": 0.02,
+                              "plan_weight_accumulation": 0.18,
+                              "plan_volume": 0,
+                              "plan_volume_accumulation": 0,
+                              "plan_progress": 8.33,
+                              "plan_progress_accumulation": 83.33,
+                              "plan_cost": 1650000,
+                              "actual_cost": 0,
+                              "actual_cost_weight": 0,
+                              "actual_cost_weight_accumulation": 0,
+                              "actual_cost_progress": 0,
+                              "actual_cost_progress_accumulation": 0,
+                              "actual_progress": 0,
+                              "actual_progress_accumulation": 0
+                          },
+                          {
+                              "id": "cf40a4e3-0df2-497c-bf90-0a197bf2122e",
+                              "project_task_id": "99ee09eb-7e65-4c99-bb91-6ef2697bf8cb",
+                              "date": "11-01-2023",
+                              "plan_weight": 0.02,
+                              "plan_weight_accumulation": 0.2,
+                              "plan_volume": 0,
+                              "plan_volume_accumulation": 0,
+                              "plan_progress": 8.33,
+                              "plan_progress_accumulation": 91.67,
+                              "plan_cost": 1650000,
+                              "actual_cost": 0,
+                              "actual_cost_weight": 0,
+                              "actual_cost_weight_accumulation": 0,
+                              "actual_cost_progress": 0,
+                              "actual_cost_progress_accumulation": 0,
+                              "actual_progress": 0,
+                              "actual_progress_accumulation": 0
+                          }
+                      ]
+                  },
+                  {
+                      "period": "February 2023",
+                      "list": [
+                          {
+                              "id": "2a04c4df-c348-42e5-9361-693d89fec780",
+                              "project_task_id": "99ee09eb-7e65-4c99-bb91-6ef2697bf8cb",
+                              "date": "01-02-2023",
+                              "plan_weight": 0.02,
+                              "plan_weight_accumulation": 0.22,
+                              "plan_volume": 0,
+                              "plan_volume_accumulation": 0,
+                              "plan_progress": 8.33,
+                              "plan_progress_accumulation": 100,
+                              "plan_cost": 1650000,
+                              "actual_cost": 0,
+                              "actual_cost_weight": 0,
+                              "actual_cost_weight_accumulation": 0,
+                              "actual_cost_progress": 0,
+                              "actual_cost_progress_accumulation": 0,
+                              "actual_progress": 0,
+                              "actual_progress_accumulation": 0
+                          }
+                      ]
+                  }
+              ]
+          }

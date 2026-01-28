@@ -1,0 +1,49 @@
+info:
+  name: Delete
+  type: http
+  seq: 14
+
+http:
+  method: DELETE
+  url: "{{base_url}}/api/v1/tenders/:ID"
+  params:
+    - name: ID
+      value: 6c7c4977-06c8-4e8a-a0e8-9c9e06727e0a
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Success
+    request:
+      url: "{{base_url}}/api/v1/tenders/:ID"
+      method: DELETE
+      params:
+        - name: ID
+          value: 036f9085-956b-4893-b27e-b28a0402c296
+          type: path
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 18 Jan 2024 05:59:59 GMT
+        - name: Content-Length
+          value: "86"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "2ms",
+              "status": "success",
+              "code": "",
+              "message": "Delete tender succeed"
+          }

@@ -1,0 +1,82 @@
+info:
+  name: Add Progress
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: ""
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/projects/tasks/progress"
+      method: POST
+      body:
+        type: multipart-form
+        data:
+          - name: project_task_id
+            type: text
+            value: ee59a351-15f4-4c80-8647-10437fb3da39
+          - name: date
+            type: text
+            value: 20-09-2024
+          - name: progress_addition
+            type: text
+            value: "5"
+          - name: remarks
+            type: text
+            value: Tambah progress 5%
+          - name: attachments
+            type: file
+            value:
+              - /Users/ocean.innovation/Downloads/0ebc1943-ef6b-43eb-8e01-fa781c33ff32_FAC48D30AB96F16F.jpg
+    response:
+      statusText: "201"
+      headers:
+        - name: Date
+          value: Wed, 09 Oct 2024 07:04:38 GMT
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Content-Length
+          value: "103"
+        - name: Connection
+          value: keep-alive
+        - name: vary
+          value: Origin
+        - name: access-control-allow-origin
+          value: "*"
+        - name: access-control-allow-headers
+          value: CoreAccessToken, CoreAuthID, DNT, X-CustomHeader, Keep-Alive, User-Agent, X-Requested-With, If-Modified-Since, Cache-Control, Content-Type, Authorization
+        - name: access-control-max-age
+          value: "3628800"
+        - name: access-control-allow-methods
+          value: GET, DELETE, OPTIONS, POST, PUT, PATCH
+        - name: access-control-expose-headers
+          value: Content-Disposision
+        - name: cf-cache-status
+          value: DYNAMIC
+        - name: Report-To
+          value: '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=8bkY6ACaxcW4KNFCObTs4fBGr%2FsfF%2FR%2Bu3i70X7UT2GMlu3YS0H0CYjV176M0toIzYHsEbVJ0o9SO8XD13W%2BR39QmQYsXENwW9rkP7VZJrYDeK7T7qM1YU762uKOyN14Cw3Gk3ct"}],"group":"cf-nel","max_age":604800}'
+        - name: NEL
+          value: '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+        - name: Server
+          value: cloudflare
+        - name: CF-RAY
+          value: 8cfc848658ca3dc9-SIN
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "120ms",
+              "status": "success",
+              "code": "",
+              "message": "Create project task progress succeed"
+          }

@@ -1,0 +1,9 @@
+info:
+  name: Trash
+  type: folder
+  seq: 24
+
+request:
+  auth:
+    type: bearer
+    token: "{{access_token}}"

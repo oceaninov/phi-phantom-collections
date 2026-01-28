@@ -1,0 +1,98 @@
+info:
+  name: Submit SPK
+  type: http
+  seq: 13
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/spks/submit"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"spk_id\": \"a88aafe7-5132-425e-bedb-9a558250f353\",\r
+
+      \    \"remarks\": \"Submit SPK No 001/SPK/4710007207/PPZ9/2024\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/spks/submit"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"spk_id\": \"eea573e4-6173-4679-af37-7a2c3a8b3d5a\",\r
+
+          \    \"remarks\": \"Submit SPK SPK00002\"\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 19 Sep 2023 07:11:12 GMT
+        - name: Content-Length
+          value: "85"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "205ms",
+              "status": "success",
+              "code": "",
+              "message": "Submit SPK succeed"
+          }
+  - name: failed
+    request:
+      url: "{{base_url}}/api/v1/spks/submit"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"spk_id\": \"2fccc9a3-6343-4238-a6a6-d60d3262f46f\",\r
+
+          \    \"remarks\": \"Submit SPK No 000004/spk/C0001/PPZ9/2023\"\r
+
+          }"
+    response:
+      statusText: "404"
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "1ms",
+              "status": "failed",
+              "code": "05",
+              "message": "Data not found",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Data not found",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

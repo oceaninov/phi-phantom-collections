@@ -1,0 +1,191 @@
+info:
+  name: Get Single SA
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/service-acceptances/:ID"
+  params:
+    - name: ID
+      value: d6c350f9-2a1f-42bf-9f01-15f7d448e082
+      type: path
+  body:
+    type: json
+    data: ""
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Get Single SA
+    request:
+      url: "{{base_url}}/api/v1/service-acceptances/:ID"
+      method: GET
+      params:
+        - name: ID
+          value: 01e843bf-fd53-44a4-b62b-d6935a97a581
+          type: path
+      body:
+        type: json
+        data: ""
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 12 Mar 2024 09:26:18 GMT
+        - name: Content-Length
+          value: "1287"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "1207ms",
+              "status": "success",
+              "code": "",
+              "message": "Get service acceptance succeed",
+              "data": {
+                  "id": "01e843bf-fd53-44a4-b62b-d6935a97a581",
+                  "sa_no": "2222",
+                  "contract": {
+                      "id": "c7240515-4664-4f22-933b-78057dd318b7",
+                      "contract_title": "Test Contract Baru",
+                      "contract_no": "564/new/990/2023",
+                      "vendor_id": "eb8a9754-bc2f-43d3-805a-77113a1c73f3",
+                      "vendor_name": "PT. Kaliraya Sari",
+                      "bank_id": "df7c1ca3-9fe8-4bd0-bda1-ed0d16412d3b",
+                      "bank_code": "002",
+                      "bank_name": "BANK BRI",
+                      "bank_account_number": "",
+                      "bank_branch": "",
+                      "bank_account_name": ""
+                  },
+                  "ro": {
+                      "id": "280e12ec-1f8c-420b-9e16-8943c4cf541e",
+                      "ro_no": "669",
+                      "ro_amount": "7504800"
+                  },
+                  "cost": "100000",
+                  "currency": "IDR",
+                  "document_date": "08-03-2024",
+                  "status": "partially_paid",
+                  "working_area": "PHSS",
+                  "sa_remaining": "-149900000",
+                  "invoice_amount": "150000000",
+                  "invoice": [
+                      {
+                          "id": "3c109b05-420d-45bb-8045-d77a519119da",
+                          "invoice_no": "INV/PHI00001/2024-03",
+                          "invoice_date": "12-02-2024",
+                          "bast_no": "017/BAST/PHSS/MEI/V/23",
+                          "description": "Pekerjaan pipa penyalur",
+                          "receipt": "12345",
+                          "currency": "",
+                          "sa_amount": "150000000"
+                      }
+                  ],
+                  "created_at": "08-03-2024",
+                  "created_by": {
+                      "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                      "full_name": "Super Admin",
+                      "status": ""
+                  },
+                  "updated_at": "12-03-2024",
+                  "updated_by": {
+                      "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                      "full_name": "Super Admin",
+                      "status": ""
+                  }
+              }
+          }
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/service-acceptances/:ID"
+      method: GET
+      params:
+        - name: ID
+          value: d6c350f9-2a1f-42bf-9f01-15f7d448e082
+          type: path
+      body:
+        type: json
+        data: ""
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 19 Jun 2024 10:06:37 GMT
+        - name: Content-Length
+          value: "1154"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "71ms",
+              "status": "success",
+              "code": "",
+              "message": "Get service acceptance succeed",
+              "data": {
+                  "id": "d6c350f9-2a1f-42bf-9f01-15f7d448e082",
+                  "sa_no": "SA00112347",
+                  "contract": {
+                      "id": "392031e6-308e-4507-a7ee-c1e4d70a9bee",
+                      "contract_title": "Engineering OLD",
+                      "contract_no": "1231231111",
+                      "vendor_id": "a53dcb7e-a34d-4152-8a61-32b2d8aae261",
+                      "vendor_name": "PT. Berca Engineering",
+                      "bank_id": "",
+                      "bank_code": "",
+                      "bank_name": "",
+                      "bank_account_number": "",
+                      "bank_branch": "",
+                      "bank_account_name": ""
+                  },
+                  "ro": {
+                      "id": "3f5c566f-29bb-4df4-986f-9e8b6834afdd",
+                      "ro_no": "13122023",
+                      "ro_amount": "1060000",
+                      "has_sa": false
+                  },
+                  "cost": "10000",
+                  "currency": "IDR",
+                  "document_date": "18-06-2024",
+                  "status": "unpaid",
+                  "working_area": "PHSS",
+                  "sa_remaining": "10000",
+                  "invoice_amount": "0",
+                  "invoice": [],
+                  "created_at": "19-06-2024",
+                  "created_by": {
+                      "id": "7ae8e931-1628-4562-bf24-1c2cdd2b4cf4",
+                      "full_name": "Dany M Pradana",
+                      "status": ""
+                  },
+                  "updated_at": "19-06-2024",
+                  "updated_by": {
+                      "id": "7ae8e931-1628-4562-bf24-1c2cdd2b4cf4",
+                      "full_name": "Dany M Pradana",
+                      "status": ""
+                  },
+                  "project": {
+                      "id": "cb92ae99-ee99-45d0-88f1-448904e16913",
+                      "project_no": "1106241",
+                      "description": "Project Unjuk rasa",
+                      "wbs": "WBS Unjuk Rasa"
+                  },
+                  "line_item": 4
+              }
+          }

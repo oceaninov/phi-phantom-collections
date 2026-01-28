@@ -1,0 +1,200 @@
+info:
+  name: Get All Contractors
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/contractors?sort_column=created_at&sort_order=DESC&is_active=1"
+  params:
+    - name: sort_column
+      value: created_at
+      type: query
+    - name: sort_order
+      value: DESC
+      type: query
+    - name: search
+      value: "100001"
+      type: query
+      description: |-
+        filter data based on columns:
+        code (vendor number)
+        name (vendor Name)
+      disabled: true
+    - name: code
+      value: P0003
+      type: query
+      disabled: true
+    - name: name
+      value: jaya
+      type: query
+      disabled: true
+    - name: is_active
+      value: "1"
+      type: query
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/contractors?sort_column=created_at&sort_order=DESC&is_active=1"
+      method: GET
+      params:
+        - name: sort_column
+          value: created_at
+          type: query
+        - name: sort_order
+          value: DESC
+          type: query
+        - name: search
+          value: "100001"
+          type: query
+          description: |-
+            filter data based on columns:
+            code (vendor number)
+            name (vendor Name)
+          disabled: true
+        - name: code
+          value: P0003
+          type: query
+          disabled: true
+        - name: name
+          value: jaya
+          type: query
+          disabled: true
+        - name: is_active
+          value: "1"
+          type: query
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 17 Oct 2023 04:04:42 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "34ms",
+              "status": "success",
+              "code": "",
+              "message": "Get contractors succeed",
+              "data": {
+                  "list": [
+                      {
+                          "id": "50e81116-bb9f-42ad-9e24-10707d45b8fd",
+                          "code": "4613",
+                          "name": "Valentino Rossi silalahi",
+                          "address": "Italia pojok",
+                          "telephone": "88971",
+                          "fax": "085744541",
+                          "email": "rossifumi@yahoo.com",
+                          "bank": {
+                              "id": "7388c92c-c96f-4b41-bf0b-b345f6671c7b",
+                              "code": "bca",
+                              "name": "Bank Central Asia"
+                          },
+                          "bank_branch": "Italia sono",
+                          "bank_key": "123",
+                          "is_active": 1,
+                          "created_at": "16-10-2023 19:08:23",
+                          "created_by": {
+                              "id": "87f3d131-8d74-446d-bef9-d0d263dcb325",
+                              "full_name": "Yudhi Pratama"
+                          },
+                          "updated_at": "17-10-2023 07:50:46",
+                          "updated_by": {
+                              "id": "87f3d131-8d74-446d-bef9-d0d263dcb325",
+                              "full_name": "Yudhi Pratama"
+                          }
+                      },
+                      {
+                          "id": "538b0fd9-10f4-4e89-8758-0b88565af4a7",
+                          "code": "0001",
+                          "name": "PT ABC",
+                          "address": "Jl. XYZ No. 8",
+                          "telephone": "",
+                          "fax": "",
+                          "email": "",
+                          "bank": {
+                              "id": "7388c92c-c96f-4b41-bf0b-b345f6671c7b",
+                              "code": "bca",
+                              "name": "Bank Central Asia"
+                          },
+                          "bank_branch": "",
+                          "bank_key": "",
+                          "is_active": 1,
+                          "created_at": "16-10-2023 11:26:09",
+                          "created_by": {
+                              "id": "d6ef115d-88de-4ff8-8998-51f97e7dd575",
+                              "full_name": "Fia PHI"
+                          },
+                          "updated_at": "16-10-2023 13:47:40",
+                          "updated_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          }
+                      },
+                      {
+                          "id": "b01e5f9b-c6bd-460c-a7b9-4a87e9f217d5",
+                          "code": "10001",
+                          "name": "PT. SYNERGY ENGINEERING 1",
+                          "address": "address",
+                          "telephone": "021000001",
+                          "fax": "021000002",
+                          "email": "syn@test.com",
+                          "bank": null,
+                          "bank_branch": "jakarta",
+                          "bank_key": "",
+                          "is_active": 1,
+                          "created_at": "11-08-2023 09:49:29",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          },
+                          "updated_at": "17-10-2023 08:48:41",
+                          "updated_by": {
+                              "id": "b279b3e0-0dea-40a0-96c4-97f5b0e49d8a",
+                              "full_name": "Indra Lasmana"
+                          }
+                      },
+                      {
+                          "id": "50b1b65e-b4fe-4ae2-8670-caf9ba1a4826",
+                          "code": "100001",
+                          "name": "PT MEINDO ELANG INDAH",
+                          "address": "",
+                          "telephone": "",
+                          "fax": "",
+                          "email": "",
+                          "bank": null,
+                          "bank_branch": "",
+                          "bank_key": "",
+                          "is_active": 1,
+                          "created_at": "11-08-2023 09:48:53",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          },
+                          "updated_at": "17-10-2023 07:46:54",
+                          "updated_by": {
+                              "id": "87f3d131-8d74-446d-bef9-d0d263dcb325",
+                              "full_name": "Yudhi Pratama"
+                          }
+                      }
+                  ],
+                  "count": 4
+              }
+          }

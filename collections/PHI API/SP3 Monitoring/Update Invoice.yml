@@ -1,0 +1,352 @@
+info:
+  name: Update Invoice
+  type: http
+  seq: 2
+
+http:
+  method: PUT
+  url: "{{base_url}}/api/v1/invoices/8a09505b-f79f-4b4b-b26d-a86088501b87"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"invoice_no\": \"INV/PHI00025/2024-06\",\r
+
+      \    \"invoice_date\": \"12-02-2024\",\r
+
+      \    \"invoice_from\": \"Manager Project Zona 9\",\r
+
+      \    \"invoice_to\": \"Manager Finance Accounting\",\r
+
+      \    \"receipt\": \"12345\",\r
+
+      \    \"tax_invoice\": \"12345\",\r
+
+      \    \"bast_no\": \"017/BAST/PHSS/MEI/V/23\",\r
+
+      \    \"description\": \"Pembayaran retensi SPK (edited)\",\r
+
+      \    \"currency\": \"idr\",\r
+
+      \    \"sa_amount\": \"0\",\r
+
+      \    \"retention_amount\": \"600000.00\",\r
+
+      \    \"service_acceptances\": [],\r
+
+      \    \"cost_reductions\": [\r
+
+      \        {\r
+
+      \            \"description\": \"Penalti (edited)\",\r
+
+      \            \"cost\": \"1500000.00\",\r
+
+      \            \"is_removable\": true\r
+
+      \        },\r
+
+      \        {\r
+
+      \            \"description\": \"Komisi\",\r
+
+      \            \"cost\": \"1000000.00\",\r
+
+      \            \"is_removable\": false\r
+
+      \        }\r
+
+      \    ],\r
+
+      \    \"additional_costs\": [\r
+
+      \        {\r
+
+      \            \"description\": \"Pajak PPN 11% (edited)\",\r
+
+      \            \"cost\": \"1000000.00\"\r
+
+      \        },\r
+
+      \        {\r
+
+      \            \"description\": \"Pajak Lainnya\",\r
+
+      \            \"cost\": \"500000.00\"\r
+
+      \        }\r
+
+      \    ],\r
+
+      \    \"attachments\": [\r
+
+      \        {\r
+
+      \            \"file_upload_id\": \"48a882a6-220f-44f3-9324-0831c5e8c381\"\r
+
+      \        }\r
+
+      \    ]\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/invoices/d94496c5-59c0-46af-8443-3d81afb5574b"
+      method: PUT
+      body:
+        type: json
+        data: "{\r
+
+          \    \"sp3_no\": \"11223345\",\r
+
+          \    \"invoice_no\": \"INV/PHI00005/2024-04\",\r
+
+          \    \"invoice_date\": \"12-02-2024\",\r
+
+          \    \"invoice_from\": \"Manager Project Zona 9\",\r
+
+          \    \"invoice_to\": \"Manager Finance Accounting\",\r
+
+          \    \"receipt\": \"12345\",\r
+
+          \    \"tax_invoice\": \"12345\",\r
+
+          \    \"bast_no\": \"017/BAST/PHSS/MEI/V/23\",\r
+
+          \    \"description\": \"Pekerjaan pipa penyalur (edited)\",\r
+
+          \    \"currency\": \"idr\",\r
+
+          \    \"sa_amount\": \"150000000.00\",\r
+
+          \    \"service_acceptances\": [\r
+
+          \        {\r
+
+          \            \"service_acceptance_id\": \"ee2d5db7-8eb9-4041-ad3a-39959ab1f3cf\",\r
+
+          \            \"sa_amount\": \"125000000.00\"\r
+
+          \        }\r
+
+          \    ],\r
+
+          \    \"cost_reductions\": [\r
+
+          \        {\r
+
+          \            \"description\": \"Penalti (edited)\",\r
+
+          \            \"cost\": \"1500000.00\",\r
+
+          \            \"is_removable\": true\r
+
+          \        },\r
+
+          \        {\r
+
+          \            \"description\": \"Komisi (baru)\",\r
+
+          \            \"cost\": \"1000000.00\",\r
+
+          \            \"is_removable\": true\r
+
+          \        }\r
+
+          \    ],\r
+
+          \    \"additional_costs\": [\r
+
+          \        {\r
+
+          \            \"description\": \"Pajak PPN 11% (edited)\",\r
+
+          \            \"cost\": \"1000000.00\"\r
+
+          \        },\r
+
+          \        {\r
+
+          \            \"description\": \"Pajak Lainnya (baru)\",\r
+
+          \            \"cost\": \"500000.00\"\r
+
+          \        }\r
+
+          \    ],\r
+
+          \    \"attachments\": [\r
+
+          \        {\r
+
+          \            \"file_upload_id\": \"9fd0dc18-228a-429a-a74d-87c3acd068f6\"\r
+
+          \        },\r
+
+          \        {\r
+
+          \            \"file_upload_id\": \"48a882a6-220f-44f3-9324-0831c5e8c381\"\r
+
+          \        }\r
+
+          \    ]\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "128ms",
+              "status": "success",
+              "code": "",
+              "message": "Update invoice succeed"
+          }
+  - name: failed
+    request:
+      url: "{{base_url}}/api/v1/invoices/ba4075c2-7d13-459c-8e6f-6c4901d3089b"
+      method: PUT
+      body:
+        type: json
+        data: "{\r
+
+          \    \"invoice_date\": \"12-02-2024\",\r
+
+          \    \"invoice_from\": \"Manager Project Zona 9\",\r
+
+          \    \"invoice_to\": \"Manager Finance Accounting\",\r
+
+          \    \"receipt\": \"12345\",\r
+
+          \    \"tax_invoice\": \"12345\",\r
+
+          \    \"bast_no\": \"017/BAST/PHSS/MEI/V/23\",\r
+
+          \    //\"description\": \"Pekerjaan pipa penyalur (edited)\",\r
+
+          \    \"currency\": \"idr\",\r
+
+          \    \"sa_amount\": \"150000000.00\",\r
+
+          \    \"service_acceptances\": [\r
+
+          \        {\r
+
+          \            \"service_acceptance_id\": \"ee2d5db7-8eb9-4041-ad3a-39959ab1f3cf\",\r
+
+          \            \"sa_amount\": \"125000000.00\"\r
+
+          \        }\r
+
+          \    ],\r
+
+          \    \"cost_reductions\": [\r
+
+          \        {\r
+
+          \            \"description\": \"Penalti (edited)\",\r
+
+          \            \"cost\": \"1500000.00\"\r
+
+          \        },\r
+
+          \        {\r
+
+          \            \"description\": \"Komisi\",\r
+
+          \            \"cost\": \"1000000.00\"\r
+
+          \        }\r
+
+          \    ],\r
+
+          \    \"additional_costs\": [\r
+
+          \        {\r
+
+          \            \"description\": \"Pajak PPN 11% (edited)\",\r
+
+          \            \"cost\": \"1000000.00\"\r
+
+          \        },\r
+
+          \        {\r
+
+          \            \"description\": \"Pajak Lainnya\",\r
+
+          \            \"cost\": \"500000.00\"\r
+
+          \        }\r
+
+          \    ],\r
+
+          \    \"attachments\": [\r
+
+          \        {\r
+
+          \            \"file_upload_id\": \"9fd0dc18-228a-429a-a74d-87c3acd068f6\"\r
+
+          \        },\r
+
+          \        {\r
+
+          \            \"file_upload_id\": \"48a882a6-220f-44f3-9324-0831c5e8c381\"\r
+
+          \        }\r
+
+          \    ]\r
+
+          }"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: "{\r
+
+          \    \"process_time\": \"0ms\",\r
+
+          \    \"status\": \"failed\",\r
+
+          \    \"code\": \"17\",\r
+
+          \    \"message\": \"Description: cannot be blank.\",\r
+
+          \    \"error_data\": {\r
+
+          \        \"title\": \"Failed\",\r
+
+          \        \"description\": \"Description: cannot be blank.\",\r
+
+          \        \"icon\": \"https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png\",\r
+
+          \        \"primary_text\": \"OK\",\r
+
+          \        \"secondary_text\": \"\",\r
+
+          \        \"primary_link\": \"\",\r
+
+          \        \"secondary_link\": \"\",\r
+
+          \        \"dismissed_link\": \"\"\r
+
+          \    }\r
+
+          }"

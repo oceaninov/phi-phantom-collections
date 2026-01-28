@@ -1,0 +1,96 @@
+info:
+  name: Update
+  type: http
+  seq: 4
+
+http:
+  method: PUT
+  url: "{{base_url}}/api/v1/tenders/process-categories/3249c4c7-5bee-4d7f-8a6d-64be57eca19a"
+  body:
+    type: json
+    data: |-
+      {
+          "description": "Update 1 Test 1",
+          "order": 100
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Success
+    request:
+      url: "{{base_url}}/api/v1/tenders/process-categories/3249c4c7-5bee-4d7f-8a6d-64be57eca19a"
+      method: PUT
+      body:
+        type: json
+        data: |-
+          {
+              "description": "Update Test 1",
+              "order": 100
+          }
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 11 Jan 2024 07:27:29 GMT
+        - name: Content-Length
+          value: "105"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "5ms",
+              "status": "success",
+              "code": "",
+              "message": "Update tender process categories succeed"
+          }
+  - name: Error not found
+    request:
+      url: "{{base_url}}/api/v1/tenders/process-categories/3249c4c7-5bee-4d7f-8a6d-64be57eca19a"
+      method: PUT
+      body:
+        type: json
+        data: |-
+          {
+              "description": "Update 1 Test 1",
+              "order": 100
+          }
+    response:
+      statusText: "404"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 11 Jan 2024 07:30:43 GMT
+        - name: Content-Length
+          value: "319"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "1ms",
+              "status": "failed",
+              "code": "05",
+              "message": "Data not found",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Data not found",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

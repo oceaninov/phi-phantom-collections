@@ -1,0 +1,284 @@
+info:
+  name: Get List SPK Boq
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/spks/boqsx?spk_id=ff291308-45a0-4ed3-93b7-66dee1ac0b30"
+  params:
+    - name: sort_column
+      value: created_at
+      type: query
+      disabled: true
+    - name: sort_order
+      value: ASC
+      type: query
+      disabled: true
+    - name: search
+      value: A.1.
+      type: query
+      description: search by description / breakdown
+      disabled: true
+    - name: spk_id
+      value: ff291308-45a0-4ed3-93b7-66dee1ac0b30
+      type: query
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: failed
+    request:
+      url: "{{base_url}}/api/v1/spks/boqs?spk_id=538b76df-1810-4312-9ea1-e49fbf9001e3&sort_column=created_at&sort_order=ASCX&search=A.1."
+      method: GET
+      params:
+        - name: spk_id
+          value: 538b76df-1810-4312-9ea1-e49fbf9001e3
+          type: query
+        - name: sort_column
+          value: created_at
+          type: query
+        - name: sort_order
+          value: ASCX
+          type: query
+        - name: search
+          value: A.1.
+          type: query
+          description: search by description / breakdown
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "0ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Sort Order: must be a valid value.",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Sort Order: must be a valid value.",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/spks/boqs?spk_id=ff291308-45a0-4ed3-93b7-66dee1ac0b30"
+      method: GET
+      params:
+        - name: sort_column
+          value: created_at
+          type: query
+          disabled: true
+        - name: sort_order
+          value: ASC
+          type: query
+          disabled: true
+        - name: search
+          value: A.1.
+          type: query
+          description: search by description / breakdown
+          disabled: true
+        - name: spk_id
+          value: ff291308-45a0-4ed3-93b7-66dee1ac0b30
+          type: query
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Fri, 02 Feb 2024 07:29:53 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "579ms",
+              "status": "success",
+              "code": "",
+              "message": "Get spk boqs succeed",
+              "data": {
+                  "list": [
+                      {
+                          "id": "4cdf8a34-f3b8-4c58-84db-ad522bab37a9",
+                          "description": "Tes",
+                          "start_date": "02-02-2024",
+                          "end_date": "31-08-2024",
+                          "weighted_project_task": "96.62",
+                          "weighted_spk": "96.62",
+                          "physical_progress": "0.00",
+                          "physical_progress_weighted": "0.00",
+                          "actual_volume": "0.00",
+                          "volume": "15.50",
+                          "unit": {
+                              "id": "1b60d8a6-338c-48e6-b71d-297bb71ea588",
+                              "name": "Terminal"
+                          },
+                          "total_price": "1284750000.00",
+                          "actual_progress_cost": "0.00",
+                          "remarks": "test come",
+                          "type": "custom",
+                          "project_task_id": "654b55fd-a69d-4a94-9794-f68f07dcfd29",
+                          "spk_id": "ff291308-45a0-4ed3-93b7-66dee1ac0b30",
+                          "project_task_boq_id": "52b1d12d-2538-4979-a98e-bb070b04d47b",
+                          "spk_boq_details": [
+                              {
+                                  "id": "49aaaf2b-1af5-48f9-8b7a-ef47a6d0ccea",
+                                  "boq": {
+                                      "id": "8bb88096-139f-4829-9c45-0d24f79a7da0",
+                                      "boq_id": "5781a2a5-40d6-46ee-b2e9-5f97047aac26",
+                                      "origin_number": 2,
+                                      "breakdown": " A.1.",
+                                      "description": "1. Survey, Laporan Survey dan Engineering",
+                                      "kind": "Upah",
+                                      "quantity": 12,
+                                      "total": "162000000.00",
+                                      "unit_price": "",
+                                      "remark": "| | | |",
+                                      "data_type": "item",
+                                      "boq_library_id": "",
+                                      "unit": {
+                                          "id": "4eba7051-8ef7-4deb-9b21-7b5ed914568e",
+                                          "name": "Paket"
+                                      }
+                                  },
+                                  "unit": {
+                                      "id": "4eba7051-8ef7-4deb-9b21-7b5ed914568e",
+                                      "name": "Paket"
+                                  },
+                                  "volume": "0.50",
+                                  "unit_price": "13500000.00",
+                                  "total_price": "6750000.00"
+                              },
+                              {
+                                  "id": "df33a89f-50fb-44a8-a2d2-b09cda7cb607",
+                                  "boq": {
+                                      "id": "34cdfa9c-77ab-4d75-8e23-ca8486cdeaa8",
+                                      "boq_id": "5781a2a5-40d6-46ee-b2e9-5f97047aac26",
+                                      "origin_number": 20,
+                                      "breakdown": "  B.2.3.",
+                                      "description": "3. Panel CT/VT",
+                                      "kind": "Material",
+                                      "quantity": 2,
+                                      "total": "360000000.00",
+                                      "unit_price": "",
+                                      "remark": "ABB | Panel Metering Type SFV | | | Data teknis terlampir",
+                                      "data_type": "item",
+                                      "boq_library_id": "",
+                                      "unit": {
+                                          "id": "60f87a3e-e1f6-4ef5-86b4-e19e584a2451",
+                                          "name": "Set"
+                                      }
+                                  },
+                                  "unit": {
+                                      "id": "60f87a3e-e1f6-4ef5-86b4-e19e584a2451",
+                                      "name": "Set"
+                                  },
+                                  "volume": "7.10",
+                                  "unit_price": "180000000.00",
+                                  "total_price": "1278000000.00"
+                              }
+                          ],
+                          "created_at": "02-02-2024 11:02:29",
+                          "created_by": {
+                              "id": "76b2cda5-023b-4d40-880a-beacffa41c1a",
+                              "full_name": "AEka",
+                              "status": ""
+                          },
+                          "updated_at": "02-02-2024 11:02:29",
+                          "updated_by": {
+                              "id": "76b2cda5-023b-4d40-880a-beacffa41c1a",
+                              "full_name": "AEka",
+                              "status": ""
+                          },
+                          "plan_volume": "0.07"
+                      },
+                      {
+                          "id": "9fef6ac9-acce-45d1-a5fa-7354f8e0488d",
+                          "description": "4. Panel Bus Tie 6.6 kV",
+                          "start_date": "02-02-2024",
+                          "end_date": "29-02-2024",
+                          "weighted_project_task": "3.38",
+                          "weighted_spk": "3.38",
+                          "physical_progress": "55.62",
+                          "physical_progress_weighted": "1.88",
+                          "actual_volume": "5.00",
+                          "volume": "8.99",
+                          "unit": {
+                              "id": "60f87a3e-e1f6-4ef5-86b4-e19e584a2451",
+                              "name": "Set"
+                          },
+                          "total_price": "44950000.00",
+                          "actual_progress_cost": "25000000.00",
+                          "remarks": "ABB | Panel Bustie CB Panel Type SBM | | | Data teknis terlampir",
+                          "type": "inline",
+                          "project_task_id": "654b55fd-a69d-4a94-9794-f68f07dcfd29",
+                          "spk_id": "ff291308-45a0-4ed3-93b7-66dee1ac0b30",
+                          "project_task_boq_id": "be92bb29-050b-45a3-9f97-d89a4eb523ef",
+                          "spk_boq_details": [
+                              {
+                                  "id": "0e8e9170-4e55-49c5-a6a0-c91050709755",
+                                  "boq": {
+                                      "id": "4c9b37c6-1509-47c8-80e1-bcfecb6e7ee6",
+                                      "boq_id": "5781a2a5-40d6-46ee-b2e9-5f97047aac26",
+                                      "origin_number": 21,
+                                      "breakdown": "  B.2.4.",
+                                      "description": "4. Panel Bus Tie 6.6 kV",
+                                      "kind": "Upah",
+                                      "quantity": 2,
+                                      "total": "10000000.00",
+                                      "unit_price": "",
+                                      "remark": "ABB | Panel Bustie CB Panel Type SBM | | | Data teknis terlampir",
+                                      "data_type": "item",
+                                      "boq_library_id": "",
+                                      "unit": {
+                                          "id": "60f87a3e-e1f6-4ef5-86b4-e19e584a2451",
+                                          "name": "Set"
+                                      }
+                                  },
+                                  "unit": {
+                                      "id": "60f87a3e-e1f6-4ef5-86b4-e19e584a2451",
+                                      "name": "Set"
+                                  },
+                                  "volume": "8.99",
+                                  "unit_price": "5000000.00",
+                                  "total_price": "44950000.00"
+                              }
+                          ],
+                          "created_at": "02-02-2024 11:02:29",
+                          "created_by": {
+                              "id": "76b2cda5-023b-4d40-880a-beacffa41c1a",
+                              "full_name": "AEka",
+                              "status": ""
+                          },
+                          "updated_at": "02-02-2024 11:08:19",
+                          "updated_by": {
+                              "id": "76b2cda5-023b-4d40-880a-beacffa41c1a",
+                              "full_name": "AEka",
+                              "status": ""
+                          },
+                          "plan_volume": "0.32"
+                      }
+                  ],
+                  "count": 2
+              }
+          }

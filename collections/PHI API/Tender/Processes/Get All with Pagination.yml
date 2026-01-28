@@ -1,0 +1,312 @@
+info:
+  name: Get All with Pagination
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/tenders/processes/?page=1&page_size=10"
+  params:
+    - name: page
+      value: "1"
+      type: query
+    - name: page_size
+      value: "10"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Success
+    request:
+      url: "{{base_url}}/api/v1/tenders/processes/?page=1&page_size=10"
+      method: GET
+      params:
+        - name: page
+          value: "1"
+          type: query
+        - name: page_size
+          value: "10"
+          type: query
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 01 Apr 2024 05:12:35 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "76ms",
+              "status": "success",
+              "code": "",
+              "message": "Get tender processes succeed",
+              "data": {
+                  "list": [
+                      {
+                          "category": {
+                              "id": "405f0dcc-cee8-43e6-b415-b1ff2cfd654b",
+                              "description": "Submit GEP",
+                              "order": 1
+                          },
+                          "processes": [
+                              {
+                                  "id": "2f24bfd5-939c-4c62-8e7f-e874a9f9a9fa",
+                                  "description": "Approval",
+                                  "duration": 3,
+                                  "order": 2
+                              },
+                              {
+                                  "id": "a4e7d232-0ae4-4b30-bc27-9c5a96112755",
+                                  "description": "Submit",
+                                  "duration": 10,
+                                  "order": 3
+                              },
+                              {
+                                  "id": "0513b876-91f2-4385-a57f-411c0c369fc6",
+                                  "description": "Input",
+                                  "duration": 10,
+                                  "order": 4
+                              }
+                          ]
+                      },
+                      {
+                          "category": {
+                              "id": "714606f5-e700-40af-a5f9-7852c52d4ae2",
+                              "description": "Penunjukan Buyer",
+                              "order": 2
+                          },
+                          "processes": [
+                              {
+                                  "id": "d4c56d0b-d44d-4352-8fe8-6bc3ae491acc",
+                                  "description": "Buyer",
+                                  "duration": 10,
+                                  "order": 1
+                              }
+                          ]
+                      },
+                      {
+                          "category": {
+                              "id": "2283601c-386a-4c70-a4b6-13d8e11a4c9d",
+                              "description": "PQ",
+                              "order": 3
+                          },
+                          "processes": [
+                              {
+                                  "id": "5ce3c8c1-630e-4477-a2f2-c0187f736b81",
+                                  "description": "Persiapan",
+                                  "duration": 1,
+                                  "order": 1
+                              },
+                              {
+                                  "id": "21568384-814c-43a8-aa7a-e7886dab45d4",
+                                  "description": "Pengumuman / Mengundang &  Pendaftaran",
+                                  "duration": 10,
+                                  "order": 2
+                              },
+                              {
+                                  "id": "3e5011f7-6239-4676-9fb3-b0337334ff91",
+                                  "description": "Penilaian Kualifikasi / Prakualifikasi",
+                                  "duration": 20,
+                                  "order": 3
+                              },
+                              {
+                                  "id": "65e7cd4d-32ab-432f-8bab-85c71dbf7ea5",
+                                  "description": "Pengumuman Penilaian Kualifikasi / Prakualifikasi",
+                                  "duration": 10,
+                                  "order": 4
+                              },
+                              {
+                                  "id": "1ae8b4c8-f8c1-49ca-951f-46ac9ff8806a",
+                                  "description": "Keberatan / Pertanyaan Hasil Kualifikasi",
+                                  "duration": 10,
+                                  "order": 5
+                              }
+                          ]
+                      },
+                      {
+                          "category": {
+                              "id": "02a1e690-aafd-46f6-9ac5-5aa6c8c9ef52",
+                              "description": "Prebid",
+                              "order": 4
+                          },
+                          "processes": [
+                              {
+                                  "id": "64b7b43b-4416-416c-93fd-e705b16182b6",
+                                  "description": "Undangan Proses Tender",
+                                  "duration": 10,
+                                  "order": 1
+                              },
+                              {
+                                  "id": "5cbb9419-163d-4230-a561-2c46d14036ed",
+                                  "description": "Prebid / Klarifikasi / Perubahan Dokumen Tender / Draft RKS",
+                                  "duration": 10,
+                                  "order": 2
+                              }
+                          ]
+                      },
+                      {
+                          "category": {
+                              "id": "e0853d2f-7ddf-4018-a014-91241c1bb05f",
+                              "description": "Penawaran (Incld Pembukaan Dok.)",
+                              "order": 5
+                          },
+                          "processes": [
+                              {
+                                  "id": "b8cfafa0-3e83-4fb5-8550-16ddb90c7340",
+                                  "description": "Pemasukan Dokumen Penawaran",
+                                  "duration": 10,
+                                  "order": 1
+                              },
+                              {
+                                  "id": "7e7321af-b66e-47ee-8daa-9b4f66bc151f",
+                                  "description": "Pembukaan Penawaran",
+                                  "duration": 10,
+                                  "order": 2
+                              }
+                          ]
+                      },
+                      {
+                          "category": {
+                              "id": "864a6bff-1c7f-4f62-8309-459f264cb732",
+                              "description": "Evaluasi Teknis (Incld. Persetujuan & Pengumuman)",
+                              "order": 6
+                          },
+                          "processes": [
+                              {
+                                  "id": "355b8c24-3271-4f07-a05f-a1999def0f94",
+                                  "description": "Evaluasi Teknis",
+                                  "duration": 10,
+                                  "order": 1
+                              },
+                              {
+                                  "id": "d0115cd9-ac31-4ae2-a6e4-82e40ff3842f",
+                                  "description": "Persetujuan",
+                                  "duration": 10,
+                                  "order": 2
+                              },
+                              {
+                                  "id": "54347674-a71c-40b3-b690-fc1a953002a3",
+                                  "description": "Pengumuman Hasil Evaluasi Teknis / Admin",
+                                  "duration": 10,
+                                  "order": 3
+                              },
+                              {
+                                  "id": "5131fbc1-aa7c-4b15-a80d-9629fdc6d5a3",
+                                  "description": "Masa Sanggah Sampul 1",
+                                  "duration": 10,
+                                  "order": 4
+                              }
+                          ]
+                      },
+                      {
+                          "category": {
+                              "id": "b1cd7ceb-76a2-42f9-9ebf-29de0620262e",
+                              "description": "Evaluasi Komersil (Incld. Persetujuan & Pengumuman)",
+                              "order": 7
+                          },
+                          "processes": [
+                              {
+                                  "id": "8b928f50-b5dd-4581-9703-3a8f4fd33e90",
+                                  "description": "Evaluasi Komersil",
+                                  "duration": 10,
+                                  "order": 1
+                              },
+                              {
+                                  "id": "2e3d421f-a58b-474d-8116-0ca44d5dab65",
+                                  "description": "Persetujuan",
+                                  "duration": 10,
+                                  "order": 2
+                              },
+                              {
+                                  "id": "fa7cf3af-b9b3-43bb-8ef3-6a54ac0cc5b1",
+                                  "description": "Pengumuman Hasil Evaluasi Komersil / Admin",
+                                  "duration": 10,
+                                  "order": 3
+                              },
+                              {
+                                  "id": "3062ba3a-cb9f-4764-8556-fbb90641bfc2",
+                                  "description": "Masa Sanggah Sampul 2",
+                                  "duration": 10,
+                                  "order": 4
+                              }
+                          ]
+                      },
+                      {
+                          "category": {
+                              "id": "a5203d5c-deec-489e-8bd7-26b40a0b38e4",
+                              "description": "Negosiasi",
+                              "order": 8
+                          },
+                          "processes": [
+                              {
+                                  "id": "ca2e320d-4744-4108-8bd9-23427840337c",
+                                  "description": "Negosiasi",
+                                  "duration": 10,
+                                  "order": 1
+                              },
+                              {
+                                  "id": "f2f9bb84-ed7e-473b-b728-e6b5919d4d10",
+                                  "description": "Hasil Pelaksanaan Tender",
+                                  "duration": 10,
+                                  "order": 2
+                              },
+                              {
+                                  "id": "90309b29-f76a-4c30-ae38-8384855521a3",
+                                  "description": "Pengumuman Pemenang",
+                                  "duration": 10,
+                                  "order": 3
+                              },
+                              {
+                                  "id": "a09eed10-ebab-4022-b968-358d6ec40287",
+                                  "description": "Masa Sanggah Sampul 1 / Sampul 2 (Tahap 2)",
+                                  "duration": 10,
+                                  "order": 4
+                              }
+                          ]
+                      },
+                      {
+                          "category": {
+                              "id": "176cfb6d-93ca-444b-8512-7f81da8a0760",
+                              "description": "Penunjukan Pemenang (Incld. Masa Sanggah)",
+                              "order": 9
+                          },
+                          "processes": [
+                              {
+                                  "id": "07e9a1bd-0cb7-4d56-9c8f-dc12034bc22a",
+                                  "description": "Penunjukan Pemenang (Incld. Masa Sanggah)",
+                                  "duration": 10,
+                                  "order": 1
+                              }
+                          ]
+                      },
+                      {
+                          "category": {
+                              "id": "7fc38e3c-5f20-4687-a42c-5cdc43708a8c",
+                              "description": "Pre - Kick of Meeting",
+                              "order": 10
+                          },
+                          "processes": [
+                              {
+                                  "id": "9efb9b75-d639-47d8-ae7d-413d8d677fe2",
+                                  "description": "Pre - Kick of Meeting",
+                                  "duration": 10,
+                                  "order": 1
+                              }
+                          ]
+                      }
+                  ],
+                  "count": 12
+              }
+          }

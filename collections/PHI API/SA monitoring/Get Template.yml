@@ -1,0 +1,94 @@
+info:
+  name: Get Template
+  type: http
+  seq: 5
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/service-acceptances/template"
+  body:
+    type: json
+    data: ""
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Get Single SA
+    request:
+      url: "{{base_url}}/api/v1/service-acceptances/:ID"
+      method: GET
+      params:
+        - name: ID
+          value: 13b0f62b-ed2b-4435-b034-eeb065520a31
+          type: path
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 26 Feb 2024 05:49:00 GMT
+        - name: Content-Length
+          value: "694"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "9ms",
+              "status": "success",
+              "code": "",
+              "message": "Get service acceptance succeed",
+              "data": {
+                  "id": "13b0f62b-ed2b-4435-b034-eeb065520a31",
+                  "sa_no": "1",
+                  "contract": {
+                      "id": "c7240515-4664-4f22-933b-78057dd318b7",
+                      "contract_title": "Test Contract Baru",
+                      "vendor_id": "c7240515-4664-4f22-933b-78057dd318b7",
+                      "vendor_name": "PT Kusuma Raharja"
+                  },
+                  "ro": {
+                      "id": "00000000-0000-0000-0000-000000000000",
+                      "ro_no": "34444",
+                      "ro_amount": "12312"
+                  },
+                  "cost": "10000",
+                  "currency": "IDR",
+                  "agreement_date": "01-01-0001",
+                  "document_date": "30-01-2028",
+                  "status": "unpaid",
+                  "working_area": "PHSS",
+                  "invoice_amount": "110000",
+                  "invoices": [
+                      {
+                          "id": "ba4075c2-7d13-459c-8e6f-6c4901d3089b",
+                          "invoice_no": "INV/PHI00001/2024-02",
+                          "invoice_date": "12-02-2024",
+                          "bast_no": "017/BAST/PHSS/MEI/V/23",
+                          "description": "Pekerjaan pipa penyalur (edited)",
+                          "sa_amount": "150000000"
+                      }
+                  ],  
+                  "created_at": "22-02-2024",
+                  "created_by": {
+                      "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                      "full_name": "Super Admin",
+                      "status": ""
+                  },
+                  "updated_at": "26-02-2024",
+                  "updated_by": {
+                      "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                      "full_name": "Super Admin",
+                      "status": ""
+                  }
+              }
+          }

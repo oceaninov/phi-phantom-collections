@@ -1,0 +1,673 @@
+info:
+  name: Set Project Task BoQ (Enhancement)
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/projects/tasks/boqs"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"contract_id\": \"a74e0251-a9e2-4d0f-8fbf-65c2c6913e9a\",\r
+
+      \    \"project_task_id\": \"b5ce094d-32d9-4b61-a1d0-4d2bf0b4d790\",\r
+
+      \    \"spk_boqs\": [\r
+
+      \        {\r
+
+      \            \"description\": \"≤ 2\\\" sch 80 - 120\",\r
+
+      \            \"unit_id\": \"d7190ea2-d2c1-407a-b45f-6e710bb3e8cc\",\r
+
+      \            \"volume\": 12,\r
+
+      \            \"total_price\": 900000,\r
+
+      \            \"start_date\": \"12-12-2023\",\r
+
+      \            \"end_date\": \"31-12-2023\",\r
+
+      \            \"boq_details\": [\r
+
+      \                {\r
+
+      \                    \"boq_detail_id\": \"bb6d0c51-2a66-489d-9f91-50eed9222888\",\r
+
+      \                    \"unit_id\": \"d7190ea2-d2c1-407a-b45f-6e710bb3e8cc\",\r
+
+      \                    \"volume\": 12,\r
+
+      \                    \"unit_price\": 75000,\r
+
+      \                    \"total_price\": 900000\r
+
+      \                }\r
+
+      \            ],\r
+
+      \            \"type\": \"inline\",\r
+
+      \            \"remarks\": \"test\"\r
+
+      \        }\r
+
+      \    ]\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/projects/tasks/boqs"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"project_task_id\": \"99e9d7e9-eb67-44e5-9df1-6638aefb9e20\",\r
+
+          \    \"contract_id\": \"617abe21-86d2-4422-a065-93fa81057307\",\r
+
+          \    \"spk_boqs\": [\r
+
+          \        {\r
+
+          \            \"description\": \"Survey dan Pembuatan Dokumen\",\r
+
+          \            \"unit_id\": \"4eba7051-8ef7-4deb-9b21-7b5ed914568e\",\r
+
+          \            \"volume\": 4,\r
+
+          \            \"boq_details\": [\r
+
+          \                {\r
+
+          \                    \"boq_detail_id\": \"d26ee889-57c3-4e82-9973-25140037628c\",\r
+
+          \                    \"unit_id\": \"4eba7051-8ef7-4deb-9b21-7b5ed914568e\",\r
+
+          \                    \"volume\": 2\r
+
+          \                },\r
+
+          \                {\r
+
+          \                    \"boq_detail_id\": \"6cfaa23e-98eb-4b10-a957-3b383c607851\",\r
+
+          \                    \"unit_id\": \"7e51efee-b75e-43e4-8533-a622bb034685\",\r
+
+          \                    \"volume\": 2\r
+
+          \                }\r
+
+          \            ],\r
+
+          \            \"type\": \"custom\"\r
+
+          \        },\r
+
+          \        {\r
+
+          \            \"description\": \"Laporan Pekerjaan, Dokumentasi Pekerjaan, As Built Drawing, MDR\",\r
+
+          \            \"unit_id\": \"4eba7051-8ef7-4deb-9b21-7b5ed914568e\",\r
+
+          \            \"volume\": 2,\r
+
+          \            \"boq_details\": [\r
+
+          \                {\r
+
+          \                    \"boq_detail_id\": \"26f5fa92-f829-4dab-9e79-0c9ed9547fe0\",\r
+
+          \                    \"unit_id\": \"4eba7051-8ef7-4deb-9b21-7b5ed914568e\",\r
+
+          \                    \"volume\": 2\r
+
+          \                }\r
+
+          \            ],\r
+
+          \            \"type\": \"inline\"\r
+
+          \        }\r
+
+          \    ]\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "56ms",
+              "status": "success",
+              "code": "",
+              "message": "Set project task boq succeed"
+          }
+  - name: success - enhancement
+    request:
+      url: "{{base_url}}/api/v1/projects/tasks/boqs"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"contract_id\": \"639d726a-4483-46e7-a59b-39ffa0a2298f\",\r
+
+          \    \"project_task_id\": \"c270a579-adac-4f25-9a19-bd38925a46bf\",\r
+
+          \    \"spk_boqs\": [\r
+
+          \        {\r
+
+          \            \"code\": \"B.3.1.2.\",\r
+
+          \            \"description\": \"2. Kabel TR, NYFGbY, 0.6/1kV, 2Cx4 sqmm + 4 sqmm (earth)\",\r
+
+          \            \"kind\": \"Upah\",\r
+
+          \            \"unit_id\": \"d7190ea2-d2c1-407a-b45f-6e710bb3e8cc\",\r
+
+          \            \"volume\": 100,\r
+
+          \            \"total_price\": 400000,\r
+
+          \            \"start_date\": \"13-02-2024\",\r
+
+          \            \"end_date\": \"29-02-2024\",\r
+
+          \            \"boq_details\": [\r
+
+          \                {\r
+
+          \                    \"boq_detail_id\": \"62f722da-2e3c-4797-87ec-c5c4fd25598f\",\r
+
+          \                    \"unit_id\": \"d7190ea2-d2c1-407a-b45f-6e710bb3e8cc\",\r
+
+          \                    \"volume\": 100,\r
+
+          \                    \"unit_price\": 4000,\r
+
+          \                    \"total_price\": 400000\r
+
+          \                }\r
+
+          \            ],\r
+
+          \            \"type\": \"inline\",\r
+
+          \            \"remarks\": \"Voksel | NYFGbY ( Cu/PVC/SFA/PVC) 2 X 4 + 4 mm² - Str - 0.6/1kV | | |\"\r
+
+          \        },\r
+
+          \        {\r
+
+          \            \"code\": \"B.3.1.2.\",\r
+
+          \            \"description\": \"2. Kabel TR, NYFGbY, 0.6/1kV, 2Cx4 sqmm + 4 sqmm (earth)\",\r
+
+          \            \"kind\": \"Material\",\r
+
+          \            \"unit_id\": \"d7190ea2-d2c1-407a-b45f-6e710bb3e8cc\",\r
+
+          \            \"volume\": 100,\r
+
+          \            \"total_price\": 400000,\r
+
+          \            \"start_date\": \"13-02-2024\",\r
+
+          \            \"end_date\": \"29-02-2024\",\r
+
+          \            \"boq_details\": [\r
+
+          \                {\r
+
+          \                    \"boq_detail_id\": \"9f96fd64-7bdd-4a32-bb44-400c482b4569\",\r
+
+          \                    \"unit_id\": \"d7190ea2-d2c1-407a-b45f-6e710bb3e8cc\",\r
+
+          \                    \"volume\": 100,\r
+
+          \                    \"unit_price\": 4000,\r
+
+          \                    \"total_price\": 400000\r
+
+          \                }\r
+
+          \            ],\r
+
+          \            \"type\": \"inline\",\r
+
+          \            \"remarks\": \"Voksel | NYFGbY ( Cu/PVC/SFA/PVC) 2 X 4 + 4 mm² - Str - 0.6/1kV | | |\"\r
+
+          \        },\r
+
+          \        {\r
+
+          \            \"code\": \"B.1.1.\",\r
+
+          \            \"description\": \"1. Immersed oil Trafo 250 KVA, 6.6kV/0.44-0.38kV, Dyn 5, insulation class B, as per datasheet (attached)\",\r
+
+          \            \"kind\": \"Upah\",\r
+
+          \            \"unit_id\": \"d93aef0a-2efc-47ac-8322-b95774bcfbe9\",\r
+
+          \            \"volume\": 2,\r
+
+          \            \"total_price\": 50000000,\r
+
+          \            \"start_date\": \"13-02-2024\",\r
+
+          \            \"end_date\": \"29-02-2024\",\r
+
+          \            \"boq_details\": [\r
+
+          \                {\r
+
+          \                    \"boq_detail_id\": \"7858c183-122d-4be3-8842-919ab06823bb\",\r
+
+          \                    \"unit_id\": \"d93aef0a-2efc-47ac-8322-b95774bcfbe9\",\r
+
+          \                    \"volume\": 2,\r
+
+          \                    \"unit_price\": 25000000,\r
+
+          \                    \"total_price\": 50000000\r
+
+          \                }\r
+
+          \            ],\r
+
+          \            \"type\": \"inline\",\r
+
+          \            \"remarks\": \"B & D | Trafo 250 KVA, 6.6kV/0.44-0.38kV | | | Data teknis terlampir\"\r
+
+          \        }\r
+
+          \    ]\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "141ms",
+              "status": "success",
+              "code": "",
+              "message": "Set project task boq succeed"
+          }
+  - name: failed project task not found
+    request:
+      url: "{{base_url}}/api/v1/projects/tasks/boqs"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"project_task_id\": \"111eabbd-82b6-4da9-9f30-fbcc4db53e12\",\r
+
+          \    \"contract_id\": \"617abe21-86d2-4422-a065-93fa81057307\",\r
+
+          \    \"spk_boqs\": [\r
+
+          \        {\r
+
+          \            \"description\": \"Survey dan Pembuatan Dokumen Lanjutan\",\r
+
+          \            \"unit_id\": \"4eba7051-8ef7-4deb-9b21-7b5ed914568e\",\r
+
+          \            \"volume\": 100,\r
+
+          \            \"total_price\": 1500,\r
+
+          \            \"start_date\": \"01-12-2023\",\r
+
+          \            \"end_date\": \"31-12-2023\",\r
+
+          \            \"boq_details\": [\r
+
+          \                {\r
+
+          \                    \"boq_detail_id\": \"d26ee889-57c3-4e82-9973-25140037628c\",\r
+
+          \                    \"unit_id\": \"4eba7051-8ef7-4deb-9b21-7b5ed914568e\",\r
+
+          \                    \"volume\": 2,\r
+
+          \                    \"unit_price\": 500,\r
+
+          \                    \"total_price\": 1000\r
+
+          \                },\r
+
+          \                {\r
+
+          \                    \"boq_detail_id\": \"6cfaa23e-98eb-4b10-a957-3b383c607851\",\r
+
+          \                    \"unit_id\": \"7e51efee-b75e-43e4-8533-a622bb034685\",\r
+
+          \                    \"volume\": 2,\r
+
+          \                    \"unit_price\": 250,\r
+
+          \                    \"total_price\": 500\r
+
+          \                }\r
+
+          \            ],\r
+
+          \            \"remarks\": \"coba remark\",\r
+
+          \            \"type\": \"custom\"\r
+
+          \        },\r
+
+          \        {\r
+
+          \            \"description\": \"Laporan Pekerjaan, Dokumentasi Pekerjaan, As Built Drawing, MDR\",\r
+
+          \            \"unit_id\": \"4eba7051-8ef7-4deb-9b21-7b5ed914568e\",\r
+
+          \            \"volume\": 2,\r
+
+          \            \"total_price\": 500,\r
+
+          \            \"start_date\": \"01-12-2023\",\r
+
+          \            \"end_date\": \"31-12-2023\",\r
+
+          \            \"boq_details\": [\r
+
+          \                {\r
+
+          \                    \"boq_detail_id\": \"26f5fa92-f829-4dab-9e79-0c9ed9547fe0\",\r
+
+          \                    \"unit_id\": \"4eba7051-8ef7-4deb-9b21-7b5ed914568e\",\r
+
+          \                    \"volume\": 2,\r
+
+          \                    \"unit_price\": 250,\r
+
+          \                    \"total_price\": 500\r
+
+          \                }\r
+
+          \            ],\r
+
+          \            \"remarks\": \"coba remark\",\r
+
+          \            \"type\": \"inline\"\r
+
+          \        }\r
+
+          \    ]\r
+
+          }"
+    response:
+      statusText: "404"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 20 Nov 2023 08:55:11 GMT
+        - name: Content-Length
+          value: "320"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "59ms",
+              "status": "failed",
+              "code": "05",
+              "message": "Data not found",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Data not found",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }
+  - name: failed can't set BoQ when project not in progress
+    request:
+      url: "{{base_url}}/api/v1/projects/tasks/boqs"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"project_task_id\": \"111eabbd-82b6-4da9-9f30-fbcc4db53e12\",\r
+
+          \    \"contract_id\": \"617abe21-86d2-4422-a065-93fa81057306\",\r
+
+          \    \"spk_boqs\": [\r
+
+          \        {\r
+
+          \            \"description\": \"Survey dan Pembuatan Dokumen Lanjutan\",\r
+
+          \            \"unit_id\": \"4eba7051-8ef7-4deb-9b21-7b5ed914568e\",\r
+
+          \            \"volume\": 100,\r
+
+          \            \"total_price\": 1500,\r
+
+          \            \"start_date\": \"01-12-2023\",\r
+
+          \            \"end_date\": \"31-12-2023\",\r
+
+          \            \"boq_details\": [\r
+
+          \                {\r
+
+          \                    \"boq_detail_id\": \"d26ee889-57c3-4e82-9973-25140037628c\",\r
+
+          \                    \"unit_id\": \"4eba7051-8ef7-4deb-9b21-7b5ed914568e\",\r
+
+          \                    \"volume\": 2,\r
+
+          \                    \"unit_price\": 500,\r
+
+          \                    \"total_price\": 1000\r
+
+          \                },\r
+
+          \                {\r
+
+          \                    \"boq_detail_id\": \"6cfaa23e-98eb-4b10-a957-3b383c607851\",\r
+
+          \                    \"unit_id\": \"7e51efee-b75e-43e4-8533-a622bb034685\",\r
+
+          \                    \"volume\": 2,\r
+
+          \                    \"unit_price\": 250,\r
+
+          \                    \"total_price\": 500\r
+
+          \                }\r
+
+          \            ],\r
+
+          \            \"remarks\": \"coba remark\",\r
+
+          \            \"type\": \"custom\"\r
+
+          \        },\r
+
+          \        {\r
+
+          \            \"description\": \"Laporan Pekerjaan, Dokumentasi Pekerjaan, As Built Drawing, MDR\",\r
+
+          \            \"unit_id\": \"4eba7051-8ef7-4deb-9b21-7b5ed914568e\",\r
+
+          \            \"volume\": 2,\r
+
+          \            \"total_price\": 500,\r
+
+          \            \"start_date\": \"01-12-2023\",\r
+
+          \            \"end_date\": \"31-12-2023\",\r
+
+          \            \"boq_details\": [\r
+
+          \                {\r
+
+          \                    \"boq_detail_id\": \"26f5fa92-f829-4dab-9e79-0c9ed9547fe0\",\r
+
+          \                    \"unit_id\": \"4eba7051-8ef7-4deb-9b21-7b5ed914568e\",\r
+
+          \                    \"volume\": 2,\r
+
+          \                    \"unit_price\": 250,\r
+
+          \                    \"total_price\": 500\r
+
+          \                }\r
+
+          \            ],\r
+
+          \            \"remarks\": \"coba remark\",\r
+
+          \            \"type\": \"inline\"\r
+
+          \        }\r
+
+          \    ]\r
+
+          }"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 20 Nov 2023 08:57:14 GMT
+        - name: Content-Length
+          value: "462"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "69ms",
+              "status": "failed",
+              "code": "17",
+              "message": "You cannot set the SPK BoQ because the Project Details' status is not yet In Progress",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "You cannot set the SPK BoQ because the Project Details' status is not yet In Progress",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }
+  - name: failed boq detail id
+    request:
+      url: "{{base_url}}/api/v1/projects/tasks/boqs"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"contract_id\": \"a74e0251-a9e2-4d0f-8fbf-65c2c6913e9a\",\r
+
+          \    \"project_task_id\": \"b5ce094d-32d9-4b61-a1d0-4d2bf0b4d790\",\r
+
+          \    \"spk_boqs\": [\r
+
+          \        {\r
+
+          \            \"description\": \"≤ 2\\\" sch 80 - 120\",\r
+
+          \            \"unit_id\": \"d7190ea2-d2c1-407a-b45f-6e710bb3e8cc\",\r
+
+          \            \"volume\": 12,\r
+
+          \            \"total_price\": 900000,\r
+
+          \            \"start_date\": \"12-12-2023\",\r
+
+          \            \"end_date\": \"31-12-2023\",\r
+
+          \            \"boq_details\": [\r
+
+          \                {\r
+
+          \                    \"boq_detail_id\": \"bb6d0c51-2a66-489d-9f91-50eed9222888\",\r
+
+          \                    \"unit_id\": \"d7190ea2-d2c1-407a-b45f-6e710bb3e8cc\",\r
+
+          \                    \"volume\": 12,\r
+
+          \                    \"unit_price\": 75000,\r
+
+          \                    \"total_price\": 900000\r
+
+          \                }\r
+
+          \            ],\r
+
+          \            \"type\": \"inline\",\r
+
+          \            \"remarks\": \"test\"\r
+
+          \        }\r
+
+          \    ]\r
+
+          }"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "34ms",
+              "status": "failed",
+              "code": "17",
+              "message": "BoQ Detail ID Invalid : bb6d0c51-2a66-489d-9f91-50eed9222888",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "BoQ Detail ID Invalid : bb6d0c51-2a66-489d-9f91-50eed9222888",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

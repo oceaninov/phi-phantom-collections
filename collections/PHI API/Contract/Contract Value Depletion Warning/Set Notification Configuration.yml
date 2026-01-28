@@ -1,0 +1,62 @@
+info:
+  name: Set Notification Configuration
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/contracts/contract-value-depletion-warning-notif"
+  body:
+    type: json
+    data: |-
+      {
+          "frequency": "weekly",
+          "recipients": [ {
+                  "full_name": "Mumnu Manaa",
+                  "email": "aman@yaohoo.com",
+                  "id": "sdfa",
+                  "status": "active"
+              }]
+      }
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/contracts/contract-value-depletion-warning-notif"
+      method: POST
+      body:
+        type: json
+        data: |-
+          {
+              "frequency": "weekly",
+              "recipients": ["7ae8e931-1628-4562-bf24-1c2cdd2b4cf4", "76cdbdd1-ef84-479d-b699-f24ae38d63db"]
+          }
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Fri, 03 May 2024 04:09:53 GMT
+        - name: Content-Length
+          value: "124"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "289ms",
+              "status": "success",
+              "code": "",
+              "message": "Set contract value depletion warning notification succeed"
+          }

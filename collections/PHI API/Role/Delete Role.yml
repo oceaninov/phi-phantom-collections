@@ -1,0 +1,77 @@
+info:
+  name: Delete Role
+  type: http
+  seq: 7
+
+http:
+  method: DELETE
+  url: "{{base_url}}/api/v1/roles/11"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Delete Role
+    request:
+      url: "{{base_url}}/roles/2"
+      method: DELETE
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 03 Aug 2023 03:43:03 GMT
+        - name: Content-Length
+          value: "86"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "299ms",
+              "status": "success",
+              "code": "",
+              "message": "Delete role succeed"
+          }
+  - name: Failed data related to other data
+    request:
+      url: "{{base_url}}/api/v1/roles/3"
+      method: DELETE
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Fri, 11 Aug 2023 02:00:47 GMT
+        - name: Content-Length
+          value: "394"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "46ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Data can't be deleted because related to other data",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Data can't be deleted because related to other data",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

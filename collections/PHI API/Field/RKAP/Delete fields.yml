@@ -1,0 +1,77 @@
+info:
+  name: Delete fields
+  type: http
+  seq: 6
+
+http:
+  method: DELETE
+  url: "{{base_url}}/api/v1/rkaps/7fce2d25-757a-4d44-a27c-cb724c465298"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/rkaps/7fce2d25-757a-4d44-a27c-cb724c465298"
+      method: DELETE
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 31 Aug 2023 08:08:10 GMT
+        - name: Content-Length
+          value: "86"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "181ms",
+              "status": "success",
+              "code": "",
+              "message": "Delete rkap succeed"
+          }
+  - name: failed data not found
+    request:
+      url: "{{base_url}}/api/v1/rkaps/7fce2d25-757a-4d44-a27c-cb724c465299"
+      method: DELETE
+    response:
+      statusText: "404"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 16 Nov 2023 06:23:26 GMT
+        - name: Content-Length
+          value: "321"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "113ms",
+              "status": "failed",
+              "code": "05",
+              "message": "Data not found",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Data not found",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

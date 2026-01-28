@@ -1,0 +1,69 @@
+info:
+  name: Update
+  type: http
+  seq: 7
+
+http:
+  method: PUT
+  url: "{{base_url}}/api/v1/tenders/:ID"
+  params:
+    - name: ID
+      value: 401312b7-7b80-41fa-9d34-1e7c6a654d13
+      type: path
+      description: Tender ID
+  body:
+    type: json
+    data: |-
+      {
+          "pic_legal": "legal 1 Diyank",
+          "legal_start_date": "01-07-2024",
+          "legal_end_date": "07-07-2024",
+          "Buyer": "Sofyan"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/tenders/:ID"
+      method: PUT
+      params:
+        - name: ID
+          value: 401312b7-7b80-41fa-9d34-1e7c6a654d13
+          type: path
+          description: Tender ID
+      body:
+        type: json
+        data: |-
+          {
+              "pic_legal": "legal 1 Diyank",
+              "legal_start_date": "01-07-2024",
+              "legal_end_date": "07-07-2024",
+              "Buyer": "Sofyan"
+          }
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 01 Jul 2024 12:37:17 GMT
+        - name: Content-Length
+          value: "88"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "296ms",
+              "status": "success",
+              "code": "",
+              "message": "Update tender succeed"
+          }

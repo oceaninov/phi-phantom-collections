@@ -1,0 +1,273 @@
+info:
+  name: Get List Users contractor
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/users/contractor?page=1&page_size=25&vendor_id=50d28d5e-c695-4cf8-9746-1dd41b819090"
+  params:
+    - name: page
+      value: "1"
+      type: query
+    - name: page_size
+      value: "25"
+      type: query
+    - name: name
+      value: Admin
+      type: query
+      disabled: true
+    - name: email
+      value: dany
+      type: query
+      disabled: true
+    - name: search
+      value: danympradana
+      type: query
+      disabled: true
+    - name: vendor_id
+      value: 50d28d5e-c695-4cf8-9746-1dd41b819090
+      type: query
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: empty
+    request:
+      url: "{{base_url}}/users?page=1&page_size=25&name=Admins"
+      method: GET
+      params:
+        - name: page
+          value: "1"
+          type: query
+        - name: page_size
+          value: "25"
+          type: query
+        - name: name
+          value: Admins
+          type: query
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 03 Aug 2023 02:44:56 GMT
+        - name: Content-Length
+          value: "113"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "137ms",
+              "status": "success",
+              "code": "",
+              "message": "Get users succeed",
+              "data": {
+                  "list": [],
+                  "count": 0
+              }
+          }
+  - name: Get List Users
+    request:
+      url: "{{base_url}}/users?page=1&page_size=25"
+      method: GET
+      params:
+        - name: page
+          value: "1"
+          type: query
+        - name: page_size
+          value: "25"
+          type: query
+        - name: name
+          value: Admin
+          type: query
+          disabled: true
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Sun, 06 Aug 2023 13:50:38 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "121ms",
+              "status": "success",
+              "code": "",
+              "message": "Get users succeed",
+              "data": {
+                  "list": [
+                      {
+                          "id": "fa7bd056-a197-4ba1-9096-9922f5f70cac",
+                          "full_name": "Gustaman",
+                          "email": "gustaman@anu.com",
+                          "status": "active",
+                          "zone": "Zona-9",
+                          "working_area": "PHSS",
+                          "role": {
+                              "id": 1,
+                              "name": "Super Admin"
+                          },
+                          "created_at": "04-08-2023 12:57:32",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          },
+                          "updated_at": "04-08-2023 14:00:15",
+                          "updated_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          }
+                      },
+                      {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin",
+                          "email": "super_admin@gmail.com",
+                          "status": "active",
+                          "zone": "Zona-9",
+                          "working_area": "PHSS",
+                          "role": {
+                              "id": 1,
+                              "name": "Super Admin"
+                          },
+                          "created_at": "04-08-2023 12:25:44",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          },
+                          "updated_at": "03-08-2023 09:47:03",
+                          "updated_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          }
+                      },
+                      {
+                          "id": "df1b1315-ed06-4aa8-a252-9c2b6a290885",
+                          "full_name": "Indana Rishi",
+                          "email": "indanary@gmail.com",
+                          "status": "active",
+                          "zone": "Zona-9",
+                          "working_area": "PHSS",
+                          "role": {
+                              "id": 1,
+                              "name": "Super Admin"
+                          },
+                          "created_at": "06-08-2023 01:18:27",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          },
+                          "updated_at": "06-08-2023 01:18:27",
+                          "updated_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          }
+                      },
+                      {
+                          "id": "b8fc9678-c915-4d49-886d-cb1a0e9c5e92",
+                          "full_name": "Akun FE",
+                          "email": "akun_fe@yopmail.com",
+                          "status": "active",
+                          "zone": "Zona-9",
+                          "working_area": "PHSS",
+                          "role": {
+                              "id": 1,
+                              "name": "Super Admin"
+                          },
+                          "created_at": "06-08-2023 01:53:22",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          },
+                          "updated_at": "06-08-2023 01:53:22",
+                          "updated_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          }
+                      },
+                      {
+                          "id": "80946615-9fe5-4e13-9ae0-07d1210b0d52",
+                          "full_name": "Indana Rishi",
+                          "email": "indana@samudrainovasi.co.id",
+                          "status": "active",
+                          "zone": "Zona-9",
+                          "working_area": "PHSS",
+                          "role": {
+                              "id": 1,
+                              "name": "Super Admin"
+                          },
+                          "created_at": "06-08-2023 01:38:35",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          },
+                          "updated_at": "06-08-2023 01:38:35",
+                          "updated_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          }
+                      },
+                      {
+                          "id": "7ae8e931-1628-4562-bf24-1c2cdd2b4cf4",
+                          "full_name": "Dany M Pradana",
+                          "email": "danympradana@gmail.com",
+                          "status": "active",
+                          "zone": "Zona-9",
+                          "working_area": "PHSS",
+                          "role": {
+                              "id": 2,
+                              "name": "Team Member Project Planning"
+                          },
+                          "created_at": "04-08-2023 14:03:46",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          },
+                          "updated_at": "04-08-2023 14:39:22",
+                          "updated_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          }
+                      },
+                      {
+                          "id": "69ab5a94-5d6c-4aab-8f8b-cfde7bd722ff",
+                          "full_name": "Test Forgot",
+                          "email": "test_forgot@yopmail.com",
+                          "status": "active",
+                          "zone": "Zona-9",
+                          "working_area": "PHSS",
+                          "role": {
+                              "id": 1,
+                              "name": "Super Admin"
+                          },
+                          "created_at": "06-08-2023 02:09:22",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          },
+                          "updated_at": "06-08-2023 02:09:22",
+                          "updated_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          }
+                      }
+                  ],
+                  "count": 7
+              }
+          }

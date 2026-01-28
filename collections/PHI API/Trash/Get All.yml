@@ -1,0 +1,420 @@
+info:
+  name: Get All
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/trash?category=spk"
+  params:
+    - name: search
+      value: "001"
+      type: query
+      disabled: true
+    - name: category
+      value: spk
+      type: query
+      description: spk|project|contract
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Success
+    request:
+      url: "{{base_url}}/api/v1/trash?search=&category="
+      method: GET
+      params:
+        - name: search
+          value: ""
+          type: query
+        - name: category
+          value: ""
+          type: query
+          description: spk|project|contract
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 25 Apr 2024 12:24:41 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "50ms",
+              "status": "success",
+              "code": "",
+              "message": "Get trash succeed",
+              "data": [
+                  {
+                      "id": "010452f2-d9da-4adf-81c6-8f5e210ea277",
+                      "number": "001/SPK/PT. TSS/PPZ9/2023",
+                      "category": "spk",
+                      "title": "test tss"
+                  },
+                  {
+                      "id": "900fd5be-5c31-4e75-9acb-0496fae46aa3",
+                      "number": "005/SPK/1231231111/PPZ9/2023",
+                      "category": "spk",
+                      "title": "SPK Benerin approval "
+                  },
+                  {
+                      "id": "22aa3c64-71a4-4ead-981c-940e30a88b97",
+                      "number": "001/SPK/564/new/990/2023/PPZ9/2023",
+                      "category": "spk",
+                      "title": "test sequence"
+                  },
+                  {
+                      "id": "f4afa658-a1d3-41f2-a780-038af06430c7",
+                      "number": "002/SPK/564/new/990/2023/PPZ9/2023",
+                      "category": "spk",
+                      "title": "test sequence"
+                  },
+                  {
+                      "id": "175d44bb-e6e2-4a28-a3fd-c4ca29710f24",
+                      "number": "003/SPK/1453/PPZ9/2024",
+                      "category": "spk",
+                      "title": "SPK for test new flow_3"
+                  },
+                  {
+                      "id": "92c502d3-b3b2-4c67-8c6b-2cca7dcb0677",
+                      "number": "004/SPK/1453/PPZ9/2024",
+                      "category": "spk",
+                      "title": "SPK for test new flow_4"
+                  },
+                  {
+                      "id": "6723a0c3-8b0a-4ff6-995f-24e0bba47f5b",
+                      "number": "001/SPK/121223/PPZ9/2024",
+                      "category": "spk",
+                      "title": "SPK for test new flow_5"
+                  },
+                  {
+                      "id": "f88af167-f7c7-4381-9a60-00ea2f3553f3",
+                      "number": "005/SPK/0001800513/PPZ9/2024",
+                      "category": "spk",
+                      "title": "Testing approver 3"
+                  },
+                  {
+                      "id": "9bc99825-9d69-44c8-85c8-8fbddeaa9e8c",
+                      "number": "003/SPK/0001800513/PPZ9/2024",
+                      "category": "spk",
+                      "title": "Cancel SPK lanjutan onhold "
+                  },
+                  {
+                      "id": "fb62e92b-3959-46f9-8909-6421cbd91b7b",
+                      "number": "004/SPK/0001800513/PPZ9/2024",
+                      "category": "spk",
+                      "title": "cancel SPK 2 approver 2 "
+                  },
+                  {
+                      "id": "deb198dd-e38f-4565-9a26-2bc8314e52e0",
+                      "number": "001/SPK/BOQUnder1000/PPZ9/2024",
+                      "category": "spk",
+                      "title": "SPK Testing"
+                  },
+                  {
+                      "id": "7f8784b3-9f3a-4ba0-9e31-f55e9df7077b",
+                      "number": "001/SPK/0001800513/PPZ9/2024",
+                      "category": "spk",
+                      "title": "test cancel spk 2"
+                  },
+                  {
+                      "id": "e5a7f010-6dab-4c1a-bdf9-810b03fbf0e7",
+                      "number": "002/SPK/0001800513/PPZ9/2024",
+                      "category": "spk",
+                      "title": "Test cancel spk 2 lanjutan "
+                  },
+                  {
+                      "id": "13d104fe-5493-48db-b9b0-85d693b7c7b6",
+                      "number": "008/SPK/0001800513/PPZ9/2024",
+                      "category": "spk",
+                      "title": "Test Cancel 22"
+                  },
+                  {
+                      "id": "21d7fcf2-1453-463d-99e8-66c15fd3cc8e",
+                      "number": "006/SPK/BOQUnder1000/PPZ9/2024",
+                      "category": "spk",
+                      "title": "Buat test Approverr"
+                  },
+                  {
+                      "id": "3eeec3dc-6ce3-4a0d-8556-b651cfacde4d",
+                      "number": "007/SPK/BOQUnder1000/PPZ9/2024",
+                      "category": "spk",
+                      "title": "Buat test approver"
+                  },
+                  {
+                      "id": "313269f7-5148-47b1-a9cc-d294cd84e5bd",
+                      "number": "008/SPK/BOQUnder1000/PPZ9/2024",
+                      "category": "spk",
+                      "title": "Buat test approver "
+                  },
+                  {
+                      "id": "7a730749-a0f7-43a3-81d1-b71f42a0c5c5",
+                      "number": "010/SPK/BOQUnder1000/PPZ9/2024",
+                      "category": "spk",
+                      "title": "coba bikin spk"
+                  },
+                  {
+                      "id": "02c2d670-0549-46ea-9b23-4f322f3546b0",
+                      "number": "001/SPK/130220244/PPZ9/2024",
+                      "category": "spk",
+                      "title": "Test reset and Cancel SPK "
+                  },
+                  {
+                      "id": "5e6fe7f6-7766-42b5-83b8-3bcdfa9de2b4",
+                      "number": "011/SPK/0001800513/PPZ9/2024",
+                      "category": "spk",
+                      "title": "Testing "
+                  },
+                  {
+                      "id": "f4971b65-153d-42d0-8664-0b66698d4123",
+                      "number": "004/SPK/ContractBeneficiary001/PPZ9/2024",
+                      "category": "spk",
+                      "title": "testing manual spk boq without comma"
+                  },
+                  {
+                      "id": "ea6fbfde-fbba-4c30-9448-49776e0f89b7",
+                      "number": "019/SPK/BOQUnder1000/PPZ9/2024",
+                      "category": "spk",
+                      "title": "WBS Android"
+                  },
+                  {
+                      "id": "efbfc746-def9-4f65-8113-8da369a12992",
+                      "number": "020/SPK/BOQUnder1000/PPZ9/2024",
+                      "category": "spk",
+                      "title": "WBS Android"
+                  },
+                  {
+                      "id": "58df4167-6296-491a-8821-6d3e3985ca37",
+                      "number": "013/SPK/0001800513/PPZ9/2024",
+                      "category": "spk",
+                      "title": "test description"
+                  },
+                  {
+                      "id": "5442a11b-79e7-4fe0-8bdb-ed31836d0fa6",
+                      "number": "005/SPK/contractwithoutbeneficiaryname001/PPZ9/2024",
+                      "category": "spk",
+                      "title": "Desc test"
+                  },
+                  {
+                      "id": "eea0077d-958b-4500-93dd-d773b4c6d2e7",
+                      "number": "004/SPK/CONTRACTACTIVE001/PPZ9/2024",
+                      "category": "spk",
+                      "title": "test cancel"
+                  },
+                  {
+                      "id": "e238cb7d-7930-4bcc-8555-1c001616f0e1",
+                      "number": "029/SPK/BOQUnder1000/PPZ9/2024",
+                      "category": "spk",
+                      "title": "WBS android Cancel"
+                  },
+                  {
+                      "id": "d5c2211a-0749-4658-b2a3-622ebbc92d31",
+                      "number": "014/SPK/0001800513/PPZ9/2024",
+                      "category": "spk",
+                      "title": "test"
+                  },
+                  {
+                      "id": "93f2bec7-7081-4f51-b567-bda89fe3b4e3",
+                      "number": "020/SPK/0001800513/PPZ9/2024",
+                      "category": "spk",
+                      "title": "test"
+                  },
+                  {
+                      "id": "7e195e48-b73b-4860-bb67-2f15e5013e40",
+                      "number": "008/SPK/contractwithoutbeneficiaryname001/PPZ9/2024",
+                      "category": "spk",
+                      "title": "test project spk rinaldy"
+                  },
+                  {
+                      "id": "817c9a82-9473-47b5-8f2b-2b2ada77ede3",
+                      "number": "004/SPK/1231231111/PPZ9/2024",
+                      "category": "spk",
+                      "title": "test spk rinaldy"
+                  },
+                  {
+                      "id": "b774ca3f-e1be-48e5-8f36-032e7c730606",
+                      "number": "007/SPK/contractwithoutbeneficiaryname001/PPZ9/2024",
+                      "category": "spk",
+                      "title": "test project spk rinaldy"
+                  },
+                  {
+                      "id": "2beb3f42-beb7-4a7e-81dc-96ddc8ba27fc",
+                      "number": "0001800513",
+                      "category": "contract",
+                      "title": "ENGINEERING SERVICE AND QUALITY ASSURANCE PROJECTS ZONA 9"
+                  },
+                  {
+                      "id": "339e0780-d4fe-4330-9cf9-6de4099d3d9a",
+                      "number": "76234785463785%#$%#$agung 23423",
+                      "category": "contract",
+                      "title": "Testing "
+                  },
+                  {
+                      "id": "705398af-5551-4c35-914c-acd0168aba39",
+                      "number": "CO271223",
+                      "category": "contract",
+                      "title": "Contract for testing email notification"
+                  },
+                  {
+                      "id": "4573cc11-deb7-4944-8e00-de8a8f31a9be",
+                      "number": "CO2712231",
+                      "category": "contract",
+                      "title": "Contract for test email notification"
+                  },
+                  {
+                      "id": "45159ab3-a976-486b-995f-82091bcf8d36",
+                      "number": "130220242",
+                      "category": "contract",
+                      "title": "contract for test vendor dashboard 2"
+                  },
+                  {
+                      "id": "1b9a5c12-0da2-4cc7-bb3f-f77ff3544c6d",
+                      "number": "CO2712231",
+                      "category": "contract",
+                      "title": "Pt berca cancel"
+                  },
+                  {
+                      "id": "7358f69f-2116-4f25-8991-70c06aa819c8",
+                      "number": "13022024",
+                      "category": "contract",
+                      "title": "Contract for test vendor dashboard"
+                  },
+                  {
+                      "id": "6f98d830-520a-4cc7-bbcb-4aedec5576fe",
+                      "number": "130220241",
+                      "category": "contract",
+                      "title": "Contract for test vendor dashboard 1"
+                  },
+                  {
+                      "id": "15846c60-278f-4452-9b16-39a41dc98d85",
+                      "number": "250220241",
+                      "category": "contract",
+                      "title": "Contract for test Contract Monitoring Chart Enhancements"
+                  },
+                  {
+                      "id": "e8668308-f7e4-44b0-8efe-b7690f7bbe97",
+                      "number": "26022024",
+                      "category": "contract",
+                      "title": "Contract above 80B"
+                  },
+                  {
+                      "id": "f0a2bb37-f082-46ae-9fe5-41ed13ef7d70",
+                      "number": "EHBT2401",
+                      "category": "contract",
+                      "title": "BoQ Type 1"
+                  },
+                  {
+                      "id": "a1aa80b5-c9c4-4798-863c-35bcc6e2bb67",
+                      "number": "1122332",
+                      "category": "contract",
+                      "title": "Contract Gedung H "
+                  },
+                  {
+                      "id": "3118155a-dfed-4ecc-8208-441471f87106",
+                      "number": "244241",
+                      "category": "contract",
+                      "title": "Gedung C Lt 7 "
+                  },
+                  {
+                      "id": "97f7ca19-60bc-4136-94be-751fe33bf694",
+                      "number": "5555",
+                      "category": "contract",
+                      "title": "Contract Gedung E"
+                  },
+                  {
+                      "id": "ed9bcc7d-40ab-45bc-a734-02a361c36436",
+                      "number": "150220246",
+                      "category": "contract",
+                      "title": "contract for test vendor dashboard with value between 50 and 75"
+                  },
+                  {
+                      "id": "3d32b83a-6cb7-4cd5-80e8-edb4bc0015a6",
+                      "number": "9986",
+                      "category": "contract",
+                      "title": "Contract Gedung AA"
+                  },
+                  {
+                      "id": "e670e2a3-0177-4609-91b6-28662e6ec274",
+                      "number": "807539",
+                      "category": "project",
+                      "title": "Project Dev 1"
+                  },
+                  {
+                      "id": "ee7233be-f067-48cf-91f5-c7d1d8a1d453",
+                      "number": "807539",
+                      "category": "project",
+                      "title": "Desc "
+                  },
+                  {
+                      "id": "bcdc470a-9e1c-4d05-8429-b2c8b5563ce8",
+                      "number": "11122",
+                      "category": "project",
+                      "title": " Project Dev 1"
+                  },
+                  {
+                      "id": "da21bb22-c178-4732-9143-04ee97dc7ae9",
+                      "number": "4432",
+                      "category": "project",
+                      "title": "Test TSS"
+                  },
+                  {
+                      "id": "d1ff824b-7e9a-4da7-8568-8a90d918cd0e",
+                      "number": "1111",
+                      "category": "project",
+                      "title": "Project Senin"
+                  },
+                  {
+                      "id": "8d6485f5-fa49-4ac5-98b3-444dc858e7d7",
+                      "number": "EHB0022",
+                      "category": "project",
+                      "title": "BoQ Type 2"
+                  },
+                  {
+                      "id": "9dfe8464-9311-417f-9a26-836a99dc5cc1",
+                      "number": "EHB001",
+                      "category": "project",
+                      "title": "Project Ehancement BoQ Type 1"
+                  },
+                  {
+                      "id": "ae2d4120-3837-496b-9c36-04343fe762ba",
+                      "number": "08782395",
+                      "category": "project",
+                      "title": "Project AE QA "
+                  },
+                  {
+                      "id": "863c4af4-18f0-4345-a36b-abd05aa27d75",
+                      "number": "123",
+                      "category": "project",
+                      "title": "Guntur"
+                  },
+                  {
+                      "id": "270a6c52-0d8d-48e8-bc4e-c4a1d7f97d21",
+                      "number": "asfdaf",
+                      "category": "project",
+                      "title": "Test GPO"
+                  },
+                  {
+                      "id": "6ca35448-e496-4f9e-92f9-fd97a43e3b3c",
+                      "number": "001/SPK/1453/PPZ9/2023",
+                      "category": "spk",
+                      "title": "SPK for contract amount"
+                  },
+                  {
+                      "id": "e8d1ec79-fcea-4622-ac8e-382f79422d77",
+                      "number": "25424",
+                      "category": "project",
+                      "title": "Gedung C Lt. 7"
+                  }
+              ]
+          }

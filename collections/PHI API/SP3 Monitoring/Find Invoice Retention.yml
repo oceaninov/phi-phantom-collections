@@ -1,0 +1,162 @@
+info:
+  name: Find Invoice Retention
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/invoices/retentions?page=1&page_size=25&contract_id=c3488baf-12d0-4d8a-8885-5188bf9870fc&sa_no=SA111620222"
+  params:
+    - name: page
+      value: "1"
+      type: query
+    - name: page_size
+      value: "25"
+      type: query
+    - name: contract_id
+      value: c3488baf-12d0-4d8a-8885-5188bf9870fc
+      type: query
+    - name: spk_id
+      value: c318b810-0068-4c31-bd9e-5b70a8c7af63
+      type: query
+      disabled: true
+    - name: eligible_to_pay
+      value: "true"
+      type: query
+      description: spk last bast date <= today and retention status is unpaid
+      disabled: true
+    - name: status
+      value: paid
+      type: query
+      description: paid/unpaid
+      disabled: true
+    - name: spk_no
+      value: 001/SPK/445559/PPZ9/2024
+      type: query
+      disabled: true
+    - name: sa_no
+      value: SA111620222
+      type: query
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/invoices/retentions?page=1&page_size=25&contract_id=ab161bc0-0741-4b16-9a73-0b55a39c9899&spk_id=c318b810-0068-4c31-bd9e-5b70a8c7af63&status=paid"
+      method: GET
+      params:
+        - name: page
+          value: "1"
+          type: query
+        - name: page_size
+          value: "25"
+          type: query
+        - name: contract_id
+          value: ab161bc0-0741-4b16-9a73-0b55a39c9899
+          type: query
+        - name: spk_id
+          value: c318b810-0068-4c31-bd9e-5b70a8c7af63
+          type: query
+        - name: eligible_to_pay
+          value: "true"
+          type: query
+          description: spk last bast date <= today and retention status is unpaid
+          disabled: true
+        - name: status
+          value: paid
+          type: query
+          description: paid/unpaid
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 27 Jun 2024 05:05:02 GMT
+        - name: Content-Length
+          value: "1500"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "19ms",
+              "status": "success",
+              "code": "",
+              "message": "Get invoice retentions succeed",
+              "data": {
+                  "list": [
+                      {
+                          "id": "31615694-85a4-4249-894b-d4abb26482cc",
+                          "retention_percentage": "10.00",
+                          "retention_amount": "600000.00",
+                          "status": "paid",
+                          "created_at": "21-06-2024 10:54:21",
+                          "created_by": {
+                              "id": "7ae8e931-1628-4562-bf24-1c2cdd2b4cf4",
+                              "full_name": "Dany M Pradana",
+                              "status": "active"
+                          },
+                          "updated_at": "21-06-2024 11:20:21",
+                          "updated_by": {
+                              "id": "7ae8e931-1628-4562-bf24-1c2cdd2b4cf4",
+                              "full_name": "Dany M Pradana",
+                              "status": "active"
+                          },
+                          "invoice": {
+                              "id": "58fa2351-01b4-4445-afcd-4f7589f6b536",
+                              "invoice_no": "INV/PHI00024/2024-06",
+                              "invoice_date": "12-03-2024"
+                          },
+                          "service_acceptance": {
+                              "id": "88e94bc4-b49b-45ea-b227-a62e4ee7e374",
+                              "sa_no": "SA1000268444",
+                              "contract": {
+                                  "id": "ab161bc0-0741-4b16-9a73-0b55a39c9899",
+                                  "contract_title": "Contract Demo",
+                                  "contract_no": "445559",
+                                  "vendor_id": "01a8849d-1798-4c02-a0bc-9f45913cd0e8",
+                                  "vendor_name": "PT. JAYA ABADI",
+                                  "bank_id": "",
+                                  "bank_code": "",
+                                  "bank_name": "",
+                                  "bank_account_number": "",
+                                  "bank_branch": "",
+                                  "bank_account_name": ""
+                              },
+                              "ro": {
+                                  "id": "1317c11b-2de3-4047-ba65-afa7e6f0877c",
+                                  "ro_no": "232321",
+                                  "ro_amount": "0.00",
+                                  "has_sa": false
+                              },
+                              "cost": "6000000.00",
+                              "currency": "IDR",
+                              "document_date": "01-05-2024"
+                          },
+                          "spk": {
+                              "id": "c318b810-0068-4c31-bd9e-5b70a8c7af63",
+                              "spk_no": "001/SPK/445559/PPZ9/2024",
+                              "spk_title": "SPK Demo",
+                              "status": "released",
+                              "last_bast_date": "24-06-2024"
+                          },
+                          "invoice_payment": {
+                              "id": "8a09505b-f79f-4b4b-b26d-a86088501b87",
+                              "invoice_no": "INV/PHI00025/2024-06",
+                              "invoice_date": "12-02-2024"
+                          }
+                      }
+                  ],
+                  "count": 1
+              }
+          }

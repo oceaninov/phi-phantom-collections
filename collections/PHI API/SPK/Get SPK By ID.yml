@@ -1,0 +1,505 @@
+info:
+  name: Get SPK By ID
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/spks/:ID"
+  params:
+    - name: ID
+      value: c61abc5d-fd82-43b8-a2f0-12fb08f4ced3
+      type: path
+      description: SPK ID
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success with approval route
+    request:
+      url: "{{base_url}}/api/v1/spks/a88aafe7-5132-425e-bedb-9a558250f353"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Fri, 22 Mar 2024 03:45:25 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "62ms",
+              "status": "success",
+              "code": "",
+              "message": "Get spk succeed",
+              "data": {
+                  "id": "a88aafe7-5132-425e-bedb-9a558250f353",
+                  "contract": {
+                      "id": "c52806d0-c054-4901-b51b-62de243ac718",
+                      "contract_no": "4710007207",
+                      "contract_title": "",
+                      "contract_value": ""
+                  },
+                  "ro": [
+                      {
+                          "id": "43aa3af0-97fb-48c0-a728-65d0b8802980",
+                          "ro_no": "669669",
+                          "ro_amount": ""
+                      }
+                  ],
+                  "spk_no": "001/SPK/4710007207/PPZ9/2024",
+                  "spk_title": "Test SPK new Approval",
+                  "start_date": "22-04-2024",
+                  "end_date": "22-05-2024",
+                  "spk_value": "3750000.00",
+                  "final_spk_value": "0.00",
+                  "physical_progress_value": "0.00",
+                  "physical_progress_percentage": "0.00",
+                  "remark": "Create SPK Test SPK new Approval",
+                  "version": 1,
+                  "pekerjaan": "Piping work for compression",
+                  "masa_pemeliharaan": "Sesuai ketentuan dalam kontrak",
+                  "cost_element": "50053000021",
+                  "status": "draft",
+                  "created_at": "22-03-2024 10:44:35",
+                  "created_by": {
+                      "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                      "full_name": "Super Admin",
+                      "status": ""
+                  },
+                  "updated_at": "22-03-2024 10:44:35",
+                  "updated_by": {
+                      "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                      "full_name": "Super Admin",
+                      "status": ""
+                  },
+                  "approved_at": "",
+                  "approved_by": {
+                      "id": "",
+                      "full_name": "",
+                      "status": ""
+                  },
+                  "released_at": "",
+                  "released_by": {
+                      "id": "",
+                      "full_name": "",
+                      "status": ""
+                  },
+                  "field_inspectors": [
+                      {
+                          "id": "888a5e8a-6fb8-4b31-b279-4c75e69c231d",
+                          "full_name": "Pia",
+                          "status": "active"
+                      }
+                  ],
+                  "approvers": null,
+                  "approval_route": [
+                      {
+                          "level": 1,
+                          "users": [
+                              {
+                                  "id": "bc35b04c-484c-4498-8707-9c410454526c",
+                                  "full_name": "Gustaman",
+                                  "status": "inactive"
+                              },
+                              {
+                                  "id": "b1ac6b1c-1727-4cc2-86f2-e4a2140b44cb",
+                                  "full_name": "Apri Ega",
+                                  "status": "active"
+                              }
+                          ]
+                      },
+                      {
+                          "level": 2,
+                          "users": [
+                              {
+                                  "id": "fa7bd056-a197-4ba1-9096-9922f5f70cac",
+                                  "full_name": "Dany Marita Pradana Oldie",
+                                  "status": "inactive"
+                              },
+                              {
+                                  "id": "80946615-9fe5-4e13-9ae0-07d1210b0d52",
+                                  "full_name": "Indana Rishi",
+                                  "status": "inactive"
+                              }
+                          ]
+                      }
+                  ],
+                  "progress_approval_route": [
+                      {
+                          "level": 1,
+                          "users": [
+                              {
+                                  "id": "bc35b04c-484c-4498-8707-9c410454526c",
+                                  "full_name": "Gustaman",
+                                  "status": "inactive"
+                              },
+                              {
+                                  "id": "b1ac6b1c-1727-4cc2-86f2-e4a2140b44cb",
+                                  "full_name": "Apri Ega",
+                                  "status": "active"
+                              }
+                          ]
+                      },
+                      {
+                          "level": 2,
+                          "users": [
+                              {
+                                  "id": "fa7bd056-a197-4ba1-9096-9922f5f70cac",
+                                  "full_name": "Dany Marita Pradana Oldie",
+                                  "status": "inactive"
+                              },
+                              {
+                                  "id": "80946615-9fe5-4e13-9ae0-07d1210b0d52",
+                                  "full_name": "Indana Rishi",
+                                  "status": "inactive"
+                              }
+                          ]
+                      }
+                  ]
+              }
+          }
+  - name: success with cost allocations
+    request:
+      url: "{{base_url}}/api/v1/spks/d96ca630-b54e-414d-8e0d-114f8c1e5c1c"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "242ms",
+              "status": "success",
+              "code": "",
+              "message": "Get spk succeed",
+              "data": {
+                  "id": "d96ca630-b54e-414d-8e0d-114f8c1e5c1c",
+                  "contract": {
+                      "id": "a74e0251-a9e2-4d0f-8fbf-65c2c6913e9a",
+                      "contract_no": "PT. TSS",
+                      "contract_title": "",
+                      "contract_value": ""
+                  },
+                  "contractor": {
+                      "id": "a53dcb7e-a34d-4152-8a61-32b2d8aae261",
+                      "code": "",
+                      "name": "PT. Berca Engineering"
+                  },
+                  "ro": [
+                      {
+                          "id": "5ab4d369-3c73-44e2-a39e-b8251c9f52cf",
+                          "ro_no": "112233",
+                          "ro_amount": ""
+                      }
+                  ],
+                  "spk_no": "001/SPK/PT. TSS/PPZ9/2024",
+                  "project_numbers": null,
+                  "wbs": null,
+                  "spk_title": "test various wbs",
+                  "start_date": "01-01-2024",
+                  "end_date": "31-12-2024",
+                  "spk_value": "900000.00",
+                  "final_spk_value": "0.00",
+                  "physical_progress_value": "0.00",
+                  "physical_progress_percentage": "0.00",
+                  "remark": "Create SPK Various WBS",
+                  "version": 1,
+                  "pekerjaan": "Piping work for compression",
+                  "masa_pemeliharaan": "Sesuai ketentuan dalam kontrak",
+                  "cost_element": "50053000021",
+                  "status": "draft",
+                  "created_at": "18-03-2024 12:08:49",
+                  "created_by": {
+                      "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                      "full_name": "Super Admin",
+                      "status": ""
+                  },
+                  "updated_at": "04-04-2024 14:18:34",
+                  "updated_by": {
+                      "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                      "full_name": "Super Admin",
+                      "status": ""
+                  },
+                  "approved_at": "",
+                  "approved_by": {
+                      "id": "",
+                      "full_name": "",
+                      "status": ""
+                  },
+                  "released_at": "",
+                  "released_by": {
+                      "id": "",
+                      "full_name": "",
+                      "status": ""
+                  },
+                  "field_inspectors": [
+                      {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira",
+                          "status": "active"
+                      },
+                      {
+                          "id": "cbe1de24-8507-4a32-9c18-6466d6728e94",
+                          "full_name": "QA Field Inspector",
+                          "status": "active"
+                      }
+                  ],
+                  "approvers": null,
+                  "is_various": 1,
+                  "cost_allocations": [
+                      {
+                          "id": "eb21b90d-ddae-4abf-ae13-ed366e1dcd31",
+                          "project_id": "5835b93a-67e6-4310-8b78-8a518ba7100b",
+                          "project_no": "P362754",
+                          "description": "Project Test WA PHSS Mutiara ",
+                          "wbs": "WBS667",
+                          "cost": "250000000",
+                          "is_connect": 0
+                      }
+                  ]
+              }
+          }
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/spks/:ID"
+      method: GET
+      params:
+        - name: ID
+          value: c61abc5d-fd82-43b8-a2f0-12fb08f4ced3
+          type: path
+          description: SPK ID
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 25 Jun 2024 09:27:45 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "179ms",
+              "status": "success",
+              "code": "",
+              "message": "Get spk succeed",
+              "data": {
+                  "id": "c61abc5d-fd82-43b8-a2f0-12fb08f4ced3",
+                  "contract": {
+                      "id": "3ba8b9ef-78ec-4593-97d2-d082bad3d75d",
+                      "contract_no": "0806241",
+                      "contract_title": "",
+                      "contract_value": "",
+                      "autogenerated_spk_number": false
+                  },
+                  "contractor": {
+                      "id": "d21b215b-9898-49bb-aa38-f0d09ff77621",
+                      "code": "",
+                      "name": "Paribasa"
+                  },
+                  "ro": [
+                      {
+                          "id": "c02762bb-15a8-4da5-802f-3488bd9b109e",
+                          "ro_no": "1106241",
+                          "ro_amount": "",
+                          "has_sa": false
+                      }
+                  ],
+                  "spk_no": "008/SPK/0806241/PPZ9/2024",
+                  "project_numbers": [
+                      "1106241"
+                  ],
+                  "wbs": [
+                      "WBS Unjuk Rasa"
+                  ],
+                  "spk_title": "SPK Unjuk Rasa 2",
+                  "start_date": "03-06-2024",
+                  "end_date": "31-12-2024",
+                  "spk_value": "249999999.99",
+                  "final_spk_value": "0.00",
+                  "physical_progress_value": "8333333.33",
+                  "physical_progress_percentage": "3.33",
+                  "remark": "",
+                  "version": 1,
+                  "pekerjaan": "Kerja",
+                  "masa_pemeliharaan": "Sesuai ketentuan dalam kontrak",
+                  "cost_element": "Upah",
+                  "status": "released",
+                  "created_at": "11-06-2024 13:54:19",
+                  "created_by": {
+                      "id": "90c23335-5d2d-495d-baa9-f419cae43cdc",
+                      "full_name": "Fadhylah Fil-Ardh",
+                      "status": ""
+                  },
+                  "updated_at": "11-06-2024 13:56:57",
+                  "updated_by": {
+                      "id": "90c23335-5d2d-495d-baa9-f419cae43cdc",
+                      "full_name": "Fadhylah Fil-Ardh",
+                      "status": ""
+                  },
+                  "approved_at": "11-06-2024 13:54:34",
+                  "approved_by": {
+                      "id": "90c23335-5d2d-495d-baa9-f419cae43cdc",
+                      "full_name": "Fadhylah Fil-Ardh",
+                      "status": ""
+                  },
+                  "released_at": "11-06-2024",
+                  "released_by": {
+                      "id": "90c23335-5d2d-495d-baa9-f419cae43cdc",
+                      "full_name": "Fadhylah Fil-Ardh",
+                      "status": ""
+                  },
+                  "field_inspectors": [
+                      {
+                          "id": "d17f4006-cb04-4813-b2dc-29b1e9d8d037",
+                          "full_name": "finspector",
+                          "status": "active"
+                      }
+                  ],
+                  "approvers": null,
+                  "is_various": 1,
+                  "cost_allocations": [
+                      {
+                          "id": "268e8490-fd86-43ab-8440-f3c2540a6faa",
+                          "project_id": "cb92ae99-ee99-45d0-88f1-448904e16913",
+                          "project_no": "1106241",
+                          "description": "Project Unjuk rasa",
+                          "wbs": "WBS Unjuk Rasa",
+                          "cost": "1000000",
+                          "is_connect": 1
+                      }
+                  ],
+                  "approval_route": [
+                      {
+                          "level": 1,
+                          "users": [
+                              {
+                                  "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                                  "full_name": "Diyank Shabira",
+                                  "status": "active"
+                              },
+                              {
+                                  "id": "e4756261-6fa9-4e3b-b776-18e4a4351552",
+                                  "full_name": "Tofan QA ",
+                                  "status": "active"
+                              },
+                              {
+                                  "id": "df1b1315-ed06-4aa8-a252-9c2b6a290885",
+                                  "full_name": "Indana Rishi",
+                                  "status": "active"
+                              },
+                              {
+                                  "id": "595f7f1c-5087-469a-9fb4-cacce94de557",
+                                  "full_name": "AekaWah",
+                                  "status": "active"
+                              },
+                              {
+                                  "id": "90c23335-5d2d-495d-baa9-f419cae43cdc",
+                                  "full_name": "Fadhylah Fil-Ardh",
+                                  "status": "active"
+                              }
+                          ]
+                      },
+                      {
+                          "level": 2,
+                          "users": [
+                              {
+                                  "id": "df1b1315-ed06-4aa8-a252-9c2b6a290885",
+                                  "full_name": "Indana Rishi",
+                                  "status": "active"
+                              },
+                              {
+                                  "id": "d17f4006-cb04-4813-b2dc-29b1e9d8d037",
+                                  "full_name": "finspector",
+                                  "status": "active"
+                              },
+                              {
+                                  "id": "76b2cda5-023b-4d40-880a-beacffa41c1a",
+                                  "full_name": "AEka",
+                                  "status": "active"
+                              },
+                              {
+                                  "id": "595f7f1c-5087-469a-9fb4-cacce94de557",
+                                  "full_name": "AekaWah",
+                                  "status": "active"
+                              },
+                              {
+                                  "id": "90c23335-5d2d-495d-baa9-f419cae43cdc",
+                                  "full_name": "Fadhylah Fil-Ardh",
+                                  "status": "active"
+                              },
+                              {
+                                  "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                                  "full_name": "Diyank Shabira",
+                                  "status": "active"
+                              }
+                          ]
+                      },
+                      {
+                          "level": 3,
+                          "users": [
+                              {
+                                  "id": "595f7f1c-5087-469a-9fb4-cacce94de557",
+                                  "full_name": "AekaWah",
+                                  "status": "active"
+                              },
+                              {
+                                  "id": "90c23335-5d2d-495d-baa9-f419cae43cdc",
+                                  "full_name": "Fadhylah Fil-Ardh",
+                                  "status": "active"
+                              },
+                              {
+                                  "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                                  "full_name": "Diyank Shabira",
+                                  "status": "active"
+                              }
+                          ]
+                      }
+                  ],
+                  "progress_approval_route": [
+                      {
+                          "level": 1,
+                          "users": [
+                              {
+                                  "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                                  "full_name": "Diyank Shabira",
+                                  "status": "active"
+                              },
+                              {
+                                  "id": "595f7f1c-5087-469a-9fb4-cacce94de557",
+                                  "full_name": "AekaWah",
+                                  "status": "active"
+                              },
+                              {
+                                  "id": "90c23335-5d2d-495d-baa9-f419cae43cdc",
+                                  "full_name": "Fadhylah Fil-Ardh",
+                                  "status": "active"
+                              }
+                          ]
+                      }
+                  ],
+                  "earliest_progress_date": "03-06-2024",
+                  "last_bast_date": "25-06-2024"
+              }
+          }

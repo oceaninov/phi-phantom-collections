@@ -1,0 +1,70 @@
+info:
+  name: Create
+  type: http
+  seq: 8
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/service-acceptances/:ID"
+  params:
+    - name: ID
+      value: 13b0f62b-ed2b-4435-b034-eeb065520a31
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+          "sa_value": "10000",
+          "sa_number": "231231",
+          "document_date": "30/01/2028",
+          "currency": "IDR",
+          "ro_number": [""]
+      }
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Update SA
+    request:
+      url: "{{base_url}}/api/v1/service-acceptances/:ID"
+      method: PUT
+      params:
+        - name: ID
+          value: 13b0f62b-ed2b-4435-b034-eeb065520a31
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+              "sa_value": "10000",
+              "sa_number": "231231",
+              "document_date": "30/01/2028",
+              "currency": "IDR"
+          }
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 26 Feb 2024 05:38:32 GMT
+        - name: Content-Length
+          value: "99"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "14ms",
+              "status": "success",
+              "code": "",
+              "message": "Update service acceptance succeed"
+          }

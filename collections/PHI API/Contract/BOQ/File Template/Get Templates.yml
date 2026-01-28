@@ -1,0 +1,91 @@
+info:
+  name: Get Templates
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/contracts/boqs/file-templates"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/contracts/boqs/file-templates"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Date
+          value: Wed, 11 Sep 2024 08:55:16 GMT
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Transfer-Encoding
+          value: chunked
+        - name: Connection
+          value: keep-alive
+        - name: vary
+          value: Origin
+        - name: access-control-allow-origin
+          value: "*"
+        - name: access-control-allow-headers
+          value: CoreAccessToken, CoreAuthID, DNT, X-CustomHeader, Keep-Alive, User-Agent, X-Requested-With, If-Modified-Since, Cache-Control, Content-Type, Authorization
+        - name: access-control-max-age
+          value: "3628800"
+        - name: access-control-allow-methods
+          value: GET, DELETE, OPTIONS, POST, PUT, PATCH
+        - name: access-control-expose-headers
+          value: Content-Disposision
+        - name: CF-Cache-Status
+          value: DYNAMIC
+        - name: Report-To
+          value: '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=lN17QetdIK2W0iiidixeRnp2nOMu7wkpQp9wiP9pIQZLCt%2Bghuxp9VI0pA8U%2BzwZa6ZVoenz2sofaAKGFFFrYNquO3rNAc0d1J9MxpikpJU%2FVUnUq4enN%2BqYE8pqs71pZCjWaz0F"}],"group":"cf-nel","max_age":604800}'
+        - name: NEL
+          value: '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+        - name: Server
+          value: cloudflare
+        - name: CF-RAY
+          value: 8c1670164e103d80-SIN
+        - name: Content-Encoding
+          value: br
+        - name: alt-svc
+          value: h3=":443"; ma=86400
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "1ms",
+              "status": "success",
+              "code": "",
+              "message": "Get BOQ file templates succeed",
+              "data": [
+                  {
+                      "id": "84c490ee-b814-4fb8-b644-71bf142cb7b2",
+                      "name": "Type 1",
+                      "file_url": "https://bucket-dev.inproms.com/phi-dev-bucket/assets/boq-template-type1.xlsx"
+                  },
+                  {
+                      "id": "8c1eb61b-13a6-4019-9404-367a71817fad",
+                      "name": "Type 2",
+                      "file_url": "https://bucket-dev.inproms.com/phi-dev-bucket/assets/boq-template-type2.xlsx"
+                  },
+                  {
+                      "id": "8e0b2b94-5cda-4350-8c90-016d1b6da9a3",
+                      "name": "Type 3",
+                      "file_url": "https://bucket-dev.inproms.com/phi-dev-bucket/assets/boq-template-type3.xlsx"
+                  },
+                  {
+                      "id": "38469f0e-0be3-407b-8d41-516b2d1562d8",
+                      "name": "Type 4",
+                      "file_url": "https://bucket-dev.inproms.com/phi-dev-bucket/assets/boq-template-type4.xlsx"
+                  }
+              ]
+          }

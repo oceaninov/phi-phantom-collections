@@ -1,0 +1,108 @@
+info:
+  name: Get Project Reminder Recipients
+  type: http
+  seq: 24
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/projects/reminder/users"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: empty
+    request:
+      url: "{{base_url}}/api/v1/projects/reminder/users"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 30 Jul 2024 02:42:39 GMT
+        - name: Content-Length
+          value: "110"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "18ms",
+              "status": "success",
+              "code": "",
+              "message": "get users reminder project succeed",
+              "data": []
+          }
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/projects/reminder/users"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Date
+          value: Tue, 30 Jul 2024 03:49:41 GMT
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Transfer-Encoding
+          value: chunked
+        - name: Connection
+          value: keep-alive
+        - name: Vary
+          value: Origin
+        - name: Access-Control-Allow-Origin
+          value: "*"
+        - name: Access-Control-Allow-Credentials
+          value: "true"
+        - name: Access-Control-Allow-Methods
+          value: GET, PUT, POST, DELETE, PATCH, OPTIONS
+        - name: Access-Control-Allow-Headers
+          value: CoreAccessToken,CoreAuthID,DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization
+        - name: Access-Control-Max-Age
+          value: "1728000"
+        - name: CF-Cache-Status
+          value: DYNAMIC
+        - name: Report-To
+          value: '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=NpwDYIiYEMeLT3xnXTps3COmvq21%2FPX6vkPZebGgqLL4HCTMfTJy3GYvTys2VZ%2FkmnBENzP6l71uHRXlIbcXN8ZGy5ETK4mTA6aHsurh8EixOSHmr7TcfvY0cN470ECVCKl5vNbLLnPDNIVfzCMXef40zA%3D%3D"}],"group":"cf-nel","max_age":604800}'
+        - name: NEL
+          value: '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+        - name: Server
+          value: cloudflare
+        - name: CF-RAY
+          value: 8ab261594d2fdf78-CGK
+        - name: Content-Encoding
+          value: br
+        - name: alt-svc
+          value: h3=":443"; ma=86400
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "1ms",
+              "status": "success",
+              "code": "",
+              "message": "get users reminder project succeed",
+              "data": [
+                  {
+                      "id": "f78e9109-dae9-46a3-ab34-4f0fd0e95cec",
+                      "full_name": "Dany Marita Pradana",
+                      "status": "active",
+                      "email": "ffilardh@gmail.com"
+                  },
+                  {
+                      "id": "62bb28a3-88f6-4e84-bd96-7db17eca43ba",
+                      "full_name": "Fadhylah Fil-Ardh",
+                      "status": "active",
+                      "email": "ffilardh@gmail.com"
+                  }
+              ]
+          }

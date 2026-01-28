@@ -1,0 +1,104 @@
+info:
+  name: Finish SPK
+  type: http
+  seq: 17
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/spks/finish"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"spk_id\": \"129b4386-f811-430e-80cd-97fb3dc905e2\",\r
+
+      \    \"note\": \"Finish with note\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: failed SPK status is not released
+    request:
+      url: "{{base_url}}/api/v1/spks/finish"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"spk_id\": \"694bb9a9-381f-41de-8217-d6bc0eb56f6a\",\r
+
+          \    \"note\": \"Finish SPK 000001/spk/C0001/PPZ9/2023\"\r
+
+          }"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Sun, 15 Oct 2023 14:02:35 GMT
+        - name: Content-Length
+          value: "383"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "181ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Only SPK with released status can be finished",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Only SPK with released status can be finished",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/spks/finish"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"spk_id\": \"694bb9a9-381f-41de-8217-d6bc0eb56f6a\",\r
+
+          \    \"note\": \"Finish SPK 000001/spk/C0001/PPZ9/2023\"\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Sun, 15 Oct 2023 14:08:25 GMT
+        - name: Content-Length
+          value: "85"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "348ms",
+              "status": "success",
+              "code": "",
+              "message": "Finish SPK succeed"
+          }

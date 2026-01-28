@@ -1,0 +1,129 @@
+info:
+  name: Validate Token
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: https://api.phss.pertamina.com/auth-be/r3/oauth/introspect
+  body:
+    type: json
+    data: |-
+      {
+          "token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJWZ1BCMDVobV9EbllROWNYOUJSeldOYkpMWFV0T19KTWtmSjJRdVdfQUVrIn0.eyJleHAiOjE3NDUzOTY0OTgsImlhdCI6MTc0NDE4Njg5OCwianRpIjoiNGFiYjhkZWEtMTg3Yy00NGI4LWI2ZWUtYzZjMDc2OTViZGFjIiwiaXNzIjoiaHR0cDovL2ludHJhLnBoaS5wZXJ0YW1pbmEuY29tL3Izb2F1dGgvcmVhbG1zL1IzTEFYIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjMwNDBkZDJhLTg1YWQtNDQ2Ny05NDc5LWM0OGQzZmU4ZDhmMCIsInR5cCI6IkJlYXJlciIsImF6cCI6IlIzTEFYIiwic2lkIjoiNDVhZTEyMmYtN2QwNC00NWU1LTllYjQtZTU4YzMxZTJiYzhkIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIqIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsImRlZmF1bHQtcm9sZXMtcjNsYXgiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6InIzdGVzdC5zcm1nciIsInByZWZlcnJlZF91c2VybmFtZSI6InIzdGVzdC5zcm1nciIsImdpdmVuX25hbWUiOiJyM3Rlc3Quc3JtZ3IiLCJlbWFpbCI6InIzdGVzdC5zcm1nckBwdG0uaWQifQ.lDF0BWemaxp7VvkieVddgkcKvdx4HppTCgdk-m1TZL9WFL4tin8hfo1qs39O7hgcXyc_zO6v6hbGk2h0dtu6JuT6fvtgZ8JryQUbgHtxFWpk1bn0Vo2FuFztUN_ckVrx48FRGiPiWrHBYPUauktYZHJdYZclcgqxJ2HHjDej2tWm2xUbRPH2PZAq9A2B7fXlkFmcT6a6e3WEVwIup05O4PPuAuX16tEqHhMOAdEi9XLHnmBHP2HZ3mfTa3xOiH13njAatkzTYZi6awuKI8KpEwxyKMou5ldu2XhlUbwUKX5q4DAII76C7-CLHhkLQ5sjTwEgA8VyEc5mR2yjR5s6VQ"
+      }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: https://api.phss.pertamina.com/auth-be/r3/oauth/introspect
+      method: POST
+      body:
+        type: json
+        data: |-
+          {
+              "token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJWZ1BCMDVobV9EbllROWNYOUJSeldOYkpMWFV0T19KTWtmSjJRdVdfQUVrIn0.eyJleHAiOjE3Mzg2NTUwMzEsImlhdCI6MTczNzQ0NTQzMSwianRpIjoiMTQ3Y2QzODQtM2IxZC00Y2M1LWJjNzItMzU5NzYwYmQwZjZlIiwiaXNzIjoiaHR0cDovL2ludHJhLnBoaS5wZXJ0YW1pbmEuY29tL3Izb2F1dGgvcmVhbG1zL1IzTEFYIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjQ1Mzk4YjY4LTg0ZGQtNDY2Yy1iYzdjLTEyMTFiOTk2YTkzOSIsInR5cCI6IkJlYXJlciIsImF6cCI6IlIzTEFYIiwic2lkIjoiYzIzY2U3M2ItOThlOC00MDliLTg0MDYtZTVjOTdkNTlkMTUwIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIqIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsImRlZmF1bHQtcm9sZXMtcjNsYXgiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6InIzdGVzdC52aWNlcCIsInByZWZlcnJlZF91c2VybmFtZSI6InIzdGVzdC52aWNlcCIsImdpdmVuX25hbWUiOiJyM3Rlc3QudmljZXAifQ.JkfF8naYRu2ZkIf6yfI8W-M1T4gPj5ibyyvAfg4V9M03B0WwtpORVWZwkAlbh4PeUhKII_xUsT9yVUMunU_WVr0Q3IFnK-hw-UHI9J6XI7aW8YsSxs2483233KpGUFQj0D2jTl3Mwn__KU8g-jWzCR7B806ZmUlFrIy-10austyL_jcomEysxaTWV8_AjcQ1tq04tjAKVaBlHoAubZZxS_7k0eOeMRd6FKr5LIDSoNdkvDufRnFWKyzRlKS4y7Stxqdtold8APSOmEXw-jIdwldHx5pfH8-uEwz6K9pDo7rCmJrBwpPQK97sKgfJTqL5QZxCjQGf4hsY-JQu4Eiz6w"
+          }
+    response:
+      statusText: "200"
+      headers:
+        - name: Date
+          value: Tue, 21 Jan 2025 07:44:07 GMT
+        - name: Content-Type
+          value: application/json
+        - name: Vary
+          value: Accept-Encoding
+        - name: Content-Encoding
+          value: gzip
+        - name: Access-Control-Allow-Origin
+          value: "*"
+        - name: Content-Length
+          value: "428"
+        - name: Keep-Alive
+          value: timeout=2, max=65
+        - name: Connection
+          value: Keep-Alive
+        - name: Strict-Transport-Security
+          value: max-age=16070400; includeSubdomains; preload
+      body:
+        type: json
+        data: |-
+          {
+              "exp": 1738655031,
+              "iat": 1737445431,
+              "jti": "147cd384-3b1d-4cc5-bc72-359760bd0f6e",
+              "iss": "http://intra.phi.pertamina.com/r3oauth/realms/R3LAX",
+              "aud": "account",
+              "sub": "45398b68-84dd-466c-bc7c-1211b996a939",
+              "typ": "Bearer",
+              "azp": "R3LAX",
+              "sid": "c23ce73b-98e8-409b-8406-e5c97d59d150",
+              "acr": "1",
+              "allowed-origins": [
+                  "*"
+              ],
+              "realm_access": {
+                  "roles": [
+                      "offline_access",
+                      "default-roles-r3lax",
+                      "uma_authorization"
+                  ]
+              },
+              "resource_access": {
+                  "account": {
+                      "roles": [
+                          "manage-account",
+                          "manage-account-links",
+                          "view-profile"
+                      ]
+                  }
+              },
+              "scope": "email profile",
+              "email_verified": false,
+              "name": "r3test.vicep",
+              "preferred_username": "r3test.vicep",
+              "given_name": "r3test.vicep",
+              "client_id": "R3LAX",
+              "username": "r3test.vicep",
+              "token_type": "Bearer",
+              "active": true
+          }
+  - name: token inactive
+    request:
+      url: https://api.phss.pertamina.com/auth-be/r3/oauth/introspect
+      method: POST
+      body:
+        type: json
+        data: |-
+          {
+              "token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJWZ1BCMDVobV9EbllROWNYOUJSeldOYkpMWFV0T19KTWtmSjJRdVdfQUVrIn0.eyJleHAiOjE3Mzg2NTUwMzEsImlhdCI6MTczNzQ0NTQzMSwianRpIjoiMTQ3Y2QzODQtM2IxZC00Y2M1LWJjNzItMzU5NzYwYmQwZjZlIiwiaXNzIjoiaHR0cDovL2ludHJhLnBoaS5wZXJ0YW1pbmEuY29tL3Izb2F1dGgvcmVhbG1zL1IzTEFYIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjQ1Mzk4YjY4LTg0ZGQtNDY2Yy1iYzdjLTEyMTFiOTk2YTkzOSIsInR5cCI6IkJlYXJlciIsImF6cCI6IlIzTEFYIiwic2lkIjoiYzIzY2U3M2ItOThlOC00MDliLTg0MDYtZTVjOTdkNTlkMTUwIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIqIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsImRlZmF1bHQtcm9sZXMtcjNsYXgiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6InIzdGVzdC52aWNlcCIsInByZWZlcnJlZF91c2VybmFtZSI6InIzdGVzdC52aWNlcCIsImdpdmVuX25hbWUiOiJyM3Rlc3QudmljZXAifQ.JkfF8naYRu2ZkIf6yfI8W-M1T4gPj5ibyyvAfg4V9M03B0WwtpORVWZwkAlbh4PeUhKII_xUsT9yVUMunU_WVr0Q3IFnK-hw-UHI9J6XI7aW8YsSxs2483233KpGUFQj0D2jTl3Mwn__KU8g-jWzCR7B806ZmUlFrIy-10austyL_jcomEysxaTWV8_AjcQ1tq04tjAKVaBlHoAubZZxS_7k0eOeMRd6FKr5LIDSoNdkvDufRnFWKyzRlKS4y7Stxqdtold8APSOmEXw-jIdwldHx5pfH8-uEwz6K9pDo7rCmJrBwpPQK97sKgfJTqL5QZxCjQGf4hsY-JQu4Eiz6w"
+          }
+    response:
+      statusText: "200"
+      headers:
+        - name: Date
+          value: Tue, 21 Jan 2025 07:44:24 GMT
+        - name: Content-Length
+          value: "16"
+        - name: Content-Type
+          value: application/json
+        - name: Access-Control-Allow-Origin
+          value: "*"
+        - name: Keep-Alive
+          value: timeout=2, max=65
+        - name: Connection
+          value: Keep-Alive
+        - name: Strict-Transport-Security
+          value: max-age=16070400; includeSubdomains; preload
+      body:
+        type: json
+        data: |-
+          {
+              "active": false
+          }

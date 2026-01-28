@@ -1,0 +1,307 @@
+info:
+  name: Get User Session
+  type: http
+  seq: 3
+
+http:
+  method: GET
+  url: https://api.phss.pertamina.com/proxyrestr3/api-auth-proxy-soa/APIR3tina/ProxyService/getUserSessionRest/session/r3test.vicep/IPMS
+  headers:
+    - name: Content-Type
+      value: application/json
+    - name: client-id
+      value: R3LAX
+    - name: client-secret
+      value: AScMiHW8plK14fy1EVN7JpfO4t8F0P1y
+    - name: realm-name
+      value: R3LAX
+  auth:
+    type: bearer
+    token: eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJWZ1BCMDVobV9EbllROWNYOUJSeldOYkpMWFV0T19KTWtmSjJRdVdfQUVrIn0.eyJleHAiOjE3NDAzODc0NzEsImlhdCI6MTczOTE3Nzg3MSwianRpIjoiMWZmOWI0N2QtM2Y3Ny00YTcwLTgyZGEtZjhiMWRjNDVmOTZjIiwiaXNzIjoiaHR0cDovL2ludHJhLnBoaS5wZXJ0YW1pbmEuY29tL3Izb2F1dGgvcmVhbG1zL1IzTEFYIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjQ1Mzk4YjY4LTg0ZGQtNDY2Yy1iYzdjLTEyMTFiOTk2YTkzOSIsInR5cCI6IkJlYXJlciIsImF6cCI6IlIzTEFYIiwic2lkIjoiNGU0YTYxNmYtZjQwYy00NTcxLWIyNDktMjk1NzdkNjdmMmQ1IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIqIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsImRlZmF1bHQtcm9sZXMtcjNsYXgiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6InIzdGVzdC52aWNlcCIsInByZWZlcnJlZF91c2VybmFtZSI6InIzdGVzdC52aWNlcCIsImdpdmVuX25hbWUiOiJyM3Rlc3QudmljZXAifQ.N6uzSqYTY9cb-7Pa4jk4gNIezkVSsXCX1-zsq5jGRhYxvKWCwVXuvqGXDvERFcDLj-zp-CQoahXw7e7PoeJBVGElSLY0KXKRUzFEekPka7vSvNtRB7ZdFtXROrox802Aubguyjo5TUJLQdu_g26CqO9fNyaoACpdGGsS7wn7XxET8Q0XoLMnEQFG3jRNHNiSeFnL1r9TuOEFp5264Lys2Cnhz0qo-HxGQGHdHCFAlr5EPCmCGz8ZdUM1XYT5SsL3q81Va4urlQnRMERxWx29dt3fMRbBwDV1_yqc1bVwuJEWOP7eGC5Uk4fxPsGz7XHBkxY5uUdNdJldrdTV7cCFIA
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: user not found
+    request:
+      url: https://api.phss.pertamina.com/proxyrestr3/api-auth-proxy-soa/APIR3tina/ProxyService/getUserSessionRest/session/r3test.vicepp/IPMS
+      method: GET
+      headers:
+        - name: Content-Type
+          value: application/json
+        - name: client-id
+          value: R3LAX
+        - name: client-secret
+          value: AScMiHW8plK14fy1EVN7JpfO4t8F0P1y
+        - name: realm-name
+          value: R3LAX
+    response:
+      statusText: "400"
+      headers:
+        - name: Date
+          value: Tue, 21 Jan 2025 07:51:09 GMT
+        - name: Content-Length
+          value: "47"
+        - name: Content-Type
+          value: text/plain;charset=UTF-8
+        - name: X-ORACLE-DMS-ECID
+          value: 3045d7d0-5513-4098-aa52-006107508a05-0004d81a
+        - name: X-ORACLE-DMS-RID
+          value: "0"
+        - name: Vary
+          value: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+        - name: Access-Control-Allow-Origin
+          value: "*"
+        - name: Connection
+          value: close
+        - name: Set-Cookie
+          value: TS0172a445=016b270e6f6bcf790a2c3ceef991d4d27d256b9675ea1884dd8c34d186f361b9ca9554617710db283651235458a04b291195c2d44d; Path=/; Domain=.api.phss.pertamina.com;
+        - name: Strict-Transport-Security
+          value: max-age=16070400; includeSubdomains; preload
+      body:
+        type: text
+        data: "{errorCode=R30001, summary=Invalid Data Access}"
+  - name: success
+    request:
+      url: https://api.phss.pertamina.com/proxyrestr3/api-auth-proxy-soa/APIR3tina/ProxyService/getUserSessionRest/session/r3test.vicep/IPMS
+      method: GET
+      headers:
+        - name: Content-Type
+          value: application/json
+        - name: client-id
+          value: R3LAX
+        - name: client-secret
+          value: AScMiHW8plK14fy1EVN7JpfO4t8F0P1y
+        - name: realm-name
+          value: R3LAX
+    response:
+      statusText: "200"
+      headers:
+        - name: Date
+          value: Mon, 10 Feb 2025 10:12:42 GMT
+        - name: Content-Type
+          value: application/json
+        - name: X-ORACLE-DMS-ECID
+          value: 3a78d050-a7be-49e3-b5ea-8654ab09a4ca-00008772
+        - name: X-ORACLE-DMS-RID
+          value: "0"
+        - name: Vary
+          value: Origin,Accept-Encoding,Access-Control-Request-Method,Access-Control-Request-Headers
+        - name: Content-Encoding
+          value: gzip
+        - name: Access-Control-Allow-Origin
+          value: "*"
+        - name: Content-Length
+          value: "860"
+        - name: Keep-Alive
+          value: timeout=2, max=65
+        - name: Connection
+          value: Keep-Alive
+        - name: Strict-Transport-Security
+          value: max-age=16070400; includeSubdomains; preload
+      body:
+        type: json
+        data: |-
+          {
+              "userInformation": {
+                  "USERID": "R3TEST.VICEP",
+                  "USERNAME": "TEST ERIK2",
+                  "EMPNUM": "test erik5",
+                  "EMAIL": "R3TEST.VICEP@PERTAMINA.COM",
+                  "POSID": "100001920",
+                  "POSNAME": "PROGRAMMER",
+                  "UNITID": "10145444",
+                  "UNITNAME": "ANALYST IT SOLUTION",
+                  "COYCODE": "2181",
+                  "COYNAME": "PHI",
+                  "AREAID": "PHI1",
+                  "AREANAME": "Upstream Reg 3 Head Office",
+                  "SUBAREAID": "PHI1",
+                  "SUBAREANAME": "Jakarta",
+                  "SECTION": "IT Business Solutions",
+                  "CCID": "2181D4005",
+                  "CCNAME": "R3 Manager IT Business Solutions",
+                  "BACKTOBACK": null,
+                  "POSCATEGORY": "STAFF",
+                  "AUTHSERVER1": "PERSERO",
+                  "AUTHSERVER2": null,
+                  "KBO": "PHI53120",
+                  "UIDTYPE": "LDAP",
+                  "RESIDENCESTATUS": null,
+                  "PARENTUSERID": "SILA.PUTRI",
+                  "LOCGROUP": "REGIONAL 3",
+                  "LOCCATEGORY": "OFFICE",
+                  "SUBFUNGSI": "IT BUSINESS SOLUTIONS",
+                  "FUNGSI": "INFORMATION TECHNOLOGY"
+              },
+              "doaInformation": null,
+              "roleInformation": {
+                  "role": [
+                      {
+                          "SYSNAME": "IPMS",
+                          "SYSROLE": "Coordinator - Engineering, Planning & Execution",
+                          "acl": [
+                              {
+                                  "COMPONENTID": "IPMS_Read_Contract",
+                                  "URLPATH": "Contract",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "Read",
+                                  "SEQ": 19
+                              },
+                              {
+                                  "COMPONENTID": "IPMS_Read Contract BOQ_Contract",
+                                  "URLPATH": "Contract",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "Read Contract BOQ",
+                                  "SEQ": 32
+                              },
+                              {
+                                  "COMPONENTID": "IPMS_Submit_Contract",
+                                  "URLPATH": "Contract",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "Submit",
+                                  "SEQ": 62
+                              },
+                              {
+                                  "COMPONENTID": "IPMS_Contract Approval_Contract",
+                                  "URLPATH": "Contract",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "Contract Approval",
+                                  "SEQ": 63
+                              },
+                              {
+                                  "COMPONENTID": "IPMS_Cancel Contract_Contract",
+                                  "URLPATH": "Contract",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "Cancel Contract",
+                                  "SEQ": 64
+                              },
+                              {
+                                  "COMPONENTID": "IPMS_Finish Contract_Contract",
+                                  "URLPATH": "Contract",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "Finish Contract",
+                                  "SEQ": 65
+                              },
+                              {
+                                  "COMPONENTID": "IPMS_Read Dashboard_Dashboard",
+                                  "URLPATH": "Dashboard",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "Read Dashboard",
+                                  "SEQ": 68
+                              },
+                              {
+                                  "COMPONENTID": "IPMS_Read _Project",
+                                  "URLPATH": "Project",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "Read ",
+                                  "SEQ": 37
+                              },
+                              {
+                                  "COMPONENTID": "IPMS_Read Project Tasks_Project",
+                                  "URLPATH": "Project",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "Read Project Tasks",
+                                  "SEQ": 46
+                              },
+                              {
+                                  "COMPONENTID": "IPMS_Get Project Task BoQ_Project",
+                                  "URLPATH": "Project",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "Get Project Task BoQ",
+                                  "SEQ": 52
+                              },
+                              {
+                                  "COMPONENTID": "IPMS_Project Approval_Project",
+                                  "URLPATH": "Project",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "Project Approval",
+                                  "SEQ": 54
+                              },
+                              {
+                                  "COMPONENTID": "IPMS_Read Project Spending Plan_Project",
+                                  "URLPATH": "Project",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "Read Project Spending Plan",
+                                  "SEQ": 55
+                              },
+                              {
+                                  "COMPONENTID": "IPMS_Read_SPK",
+                                  "URLPATH": "SPK",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "Read",
+                                  "SEQ": 23
+                              },
+                              {
+                                  "COMPONENTID": "IPMS_Submit SPK_SPK",
+                                  "URLPATH": "SPK",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "Submit SPK",
+                                  "SEQ": 57
+                              },
+                              {
+                                  "COMPONENTID": "IPMS_SPK Approval_SPK",
+                                  "URLPATH": "SPK",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "SPK Approval",
+                                  "SEQ": 58
+                              },
+                              {
+                                  "COMPONENTID": "IPMS_Cancel SPK_SPK",
+                                  "URLPATH": "SPK",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "Cancel SPK",
+                                  "SEQ": 60
+                              },
+                              {
+                                  "COMPONENTID": "IPMS_Finish SPK_SPK",
+                                  "URLPATH": "SPK",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "Finish SPK",
+                                  "SEQ": 66
+                              }
+                          ],
+                          "COMPANY": null,
+                          "SEQROLE": 0
+                      }
+                  ]
+              }
+          }

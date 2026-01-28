@@ -1,0 +1,156 @@
+info:
+  name: Get User by ID
+  type: http
+  seq: 3
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/users/d026a49b-2a79-4333-9800-6ac816965935"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/users/e8e968e7-77ce-4668-b8d6-fc80e083af67"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Sun, 06 Aug 2023 13:50:00 GMT
+        - name: Content-Length
+          value: "533"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "82ms",
+              "status": "success",
+              "code": "",
+              "message": "Find user by ID succeed",
+              "data": {
+                  "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                  "full_name": "Super Admin",
+                  "email": "super_admin@gmail.com",
+                  "status": "active",
+                  "zone": "Zona-9",
+                  "working_area": "PHSS",
+                  "role": {
+                      "id": 1,
+                      "name": "Super Admin"
+                  },
+                  "created_at": "04-08-2023 12:25:44",
+                  "created_by": {
+                      "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                      "full_name": "Super Admin"
+                  },
+                  "updated_at": "03-08-2023 09:47:03",
+                  "updated_by": {
+                      "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                      "full_name": "Super Admin"
+                  }
+              }
+          }
+  - name: success with approval tiering
+    request:
+      url: "{{base_url}}/api/v1/users/d026a49b-2a79-4333-9800-6ac816965935"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 07 Sep 2023 14:45:48 GMT
+        - name: Content-Length
+          value: "640"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "152ms",
+              "status": "success",
+              "code": "",
+              "message": "Find user by ID succeed",
+              "data": {
+                  "id": "d026a49b-2a79-4333-9800-6ac816965935",
+                  "full_name": "al",
+                  "email": "al@gma.com",
+                  "status": "active",
+                  "zone": "Zona-9",
+                  "working_area": "PHSS",
+                  "role": {
+                      "id": 11,
+                      "name": "Project Manager"
+                  },
+                  "created_at": "20-08-2023 18:19:47",
+                  "created_by": {
+                      "id": "39b57783-96d0-47e8-bac5-cc8939a5f647",
+                      "full_name": "Alifia Astari"
+                  },
+                  "updated_at": "20-08-2023 19:32:55",
+                  "updated_by": {
+                      "id": "39b57783-96d0-47e8-bac5-cc8939a5f647",
+                      "full_name": "Alifia Astari"
+                  },
+                  "approval_tierings": [
+                      {
+                          "approval_flow": "Project",
+                          "levels": [
+                              {
+                                  "id": "9ee70621-7c98-484a-b1c4-18661cc1ebe8",
+                                  "level": 3
+                              }
+                          ]
+                      }
+                  ]
+              }
+          }
+  - name: failed user not found
+    request:
+      url: "{{base_url}}/api/v1/users/d026a49b-2a79-4333-9800-6ac816965939"
+      method: GET
+    response:
+      statusText: "404"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 15 Nov 2023 03:08:47 GMT
+        - name: Content-Length
+          value: "320"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "50ms",
+              "status": "failed",
+              "code": "05",
+              "message": "Data not found",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Data not found",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

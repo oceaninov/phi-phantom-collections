@@ -1,0 +1,328 @@
+info:
+  name: Get List SPK Boq Schedules
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/spks/boqs/:spkBoqID/schedules?page=1&page_size=10&has_history=true"
+  params:
+    - name: page
+      value: "1"
+      type: query
+    - name: page_size
+      value: "10"
+      type: query
+    - name: has_history
+      value: "true"
+      type: query
+    - name: spkBoqID
+      value: e7c9e7b8-3abc-4f92-83c3-10f8839b99d8
+      type: path
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/spks/boqs/39c091e4-65e0-4f98-bb9e-d73a85ea1336/schedules?page=1&page_size=10"
+      method: GET
+      params:
+        - name: page
+          value: "1"
+          type: query
+        - name: page_size
+          value: "10"
+          type: query
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Sun, 08 Oct 2023 14:09:33 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "54ms",
+              "status": "success",
+              "code": "",
+              "message": "Get SPK BOQ schedule succeed",
+              "data": {
+                  "list": [
+                      {
+                          "id": "afe10e82-aef5-4b39-a1e4-41c53e62d848",
+                          "spk_boq_id": "a9d2e73a-5609-4ddb-8be0-12f939fa4bdd",
+                          "date": "01-04-2024",
+                          "plan_volume": "0.02",
+                          "plan_volume_accumulation": "0.02",
+                          "plan_progress": "2.22",
+                          "plan_progress_accumulation": "2.22",
+                          "plan_weight": "2.22",
+                          "plan_weight_accumulation": "2.22",
+                          "plan_weight_project_task": "0.00",
+                          "plan_weight_accumulation_project_task": "0.00",
+                          "actual_volume": "0.00",
+                          "actual_volume_accumulation": "0.00",
+                          "actual_progress": "0.00",
+                          "actual_progress_accumulation": "0.00",
+                          "actual_weight": "0.00",
+                          "actual_weight_accumulation": "0.00",
+                          "actual_weight_project_task": "0.00",
+                          "actual_weight_accumulation_project_task": "0.00",
+                          "plan_cost": "2222222.22",
+                          "plan_cost_accumulation": "2222222.22",
+                          "actual_cost": "0.00",
+                          "actual_cost_accumulation": "0.00",
+                          "has_history": true
+                      },
+                      {
+                          "id": "285c8800-b41e-4abb-b52d-d748baeef183",
+                          "spk_boq_id": "a9d2e73a-5609-4ddb-8be0-12f939fa4bdd",
+                          "date": "02-04-2024",
+                          "plan_volume": "0.02",
+                          "plan_volume_accumulation": "0.04",
+                          "plan_progress": "2.22",
+                          "plan_progress_accumulation": "4.44",
+                          "plan_weight": "2.22",
+                          "plan_weight_accumulation": "4.44",
+                          "plan_weight_project_task": "0.00",
+                          "plan_weight_accumulation_project_task": "0.00",
+                          "actual_volume": "0.00",
+                          "actual_volume_accumulation": "0.00",
+                          "actual_progress": "0.00",
+                          "actual_progress_accumulation": "0.00",
+                          "actual_weight": "0.00",
+                          "actual_weight_accumulation": "0.00",
+                          "actual_weight_project_task": "0.00",
+                          "actual_weight_accumulation_project_task": "0.00",
+                          "plan_cost": "2222222.22",
+                          "plan_cost_accumulation": "4444444.44",
+                          "actual_cost": "0.00",
+                          "actual_cost_accumulation": "0.00",
+                          "has_history": false
+                      },
+                      {
+                          "id": "61a000a9-69fc-4d68-b096-be11c812c20a",
+                          "spk_boq_id": "a9d2e73a-5609-4ddb-8be0-12f939fa4bdd",
+                          "date": "03-04-2024",
+                          "plan_volume": "0.02",
+                          "plan_volume_accumulation": "0.07",
+                          "plan_progress": "2.22",
+                          "plan_progress_accumulation": "6.67",
+                          "plan_weight": "2.22",
+                          "plan_weight_accumulation": "6.67",
+                          "plan_weight_project_task": "0.00",
+                          "plan_weight_accumulation_project_task": "0.00",
+                          "actual_volume": "0.00",
+                          "actual_volume_accumulation": "0.00",
+                          "actual_progress": "0.00",
+                          "actual_progress_accumulation": "0.00",
+                          "actual_weight": "0.00",
+                          "actual_weight_accumulation": "0.00",
+                          "actual_weight_project_task": "0.00",
+                          "actual_weight_accumulation_project_task": "0.00",
+                          "plan_cost": "2222222.22",
+                          "plan_cost_accumulation": "6666666.67",
+                          "actual_cost": "0.00",
+                          "actual_cost_accumulation": "0.00",
+                          "has_history": false
+                      },
+                      {
+                          "id": "0a1a6f6d-7048-4106-bbd4-38ae78512085",
+                          "spk_boq_id": "a9d2e73a-5609-4ddb-8be0-12f939fa4bdd",
+                          "date": "04-04-2024",
+                          "plan_volume": "0.02",
+                          "plan_volume_accumulation": "0.09",
+                          "plan_progress": "2.22",
+                          "plan_progress_accumulation": "8.89",
+                          "plan_weight": "2.22",
+                          "plan_weight_accumulation": "8.89",
+                          "plan_weight_project_task": "0.00",
+                          "plan_weight_accumulation_project_task": "0.00",
+                          "actual_volume": "0.00",
+                          "actual_volume_accumulation": "0.00",
+                          "actual_progress": "0.00",
+                          "actual_progress_accumulation": "0.00",
+                          "actual_weight": "0.00",
+                          "actual_weight_accumulation": "0.00",
+                          "actual_weight_project_task": "0.00",
+                          "actual_weight_accumulation_project_task": "0.00",
+                          "plan_cost": "2222222.22",
+                          "plan_cost_accumulation": "8888888.89",
+                          "actual_cost": "0.00",
+                          "actual_cost_accumulation": "0.00",
+                          "has_history": false
+                      },
+                      {
+                          "id": "60a58a9e-45e7-4061-9a33-3b31e9b2e4f1",
+                          "spk_boq_id": "a9d2e73a-5609-4ddb-8be0-12f939fa4bdd",
+                          "date": "05-04-2024",
+                          "plan_volume": "0.02",
+                          "plan_volume_accumulation": "0.11",
+                          "plan_progress": "2.22",
+                          "plan_progress_accumulation": "11.11",
+                          "plan_weight": "2.22",
+                          "plan_weight_accumulation": "11.11",
+                          "plan_weight_project_task": "0.00",
+                          "plan_weight_accumulation_project_task": "0.00",
+                          "actual_volume": "0.00",
+                          "actual_volume_accumulation": "0.00",
+                          "actual_progress": "0.00",
+                          "actual_progress_accumulation": "0.00",
+                          "actual_weight": "0.00",
+                          "actual_weight_accumulation": "0.00",
+                          "actual_weight_project_task": "0.00",
+                          "actual_weight_accumulation_project_task": "0.00",
+                          "plan_cost": "2222222.22",
+                          "plan_cost_accumulation": "11111111.11",
+                          "actual_cost": "0.00",
+                          "actual_cost_accumulation": "0.00",
+                          "has_history": false
+                      },
+                      {
+                          "id": "35de3e50-2b7c-4bb1-8149-be882d508ce3",
+                          "spk_boq_id": "a9d2e73a-5609-4ddb-8be0-12f939fa4bdd",
+                          "date": "06-04-2024",
+                          "plan_volume": "0.02",
+                          "plan_volume_accumulation": "0.13",
+                          "plan_progress": "2.22",
+                          "plan_progress_accumulation": "13.33",
+                          "plan_weight": "2.22",
+                          "plan_weight_accumulation": "13.33",
+                          "plan_weight_project_task": "0.00",
+                          "plan_weight_accumulation_project_task": "0.00",
+                          "actual_volume": "0.00",
+                          "actual_volume_accumulation": "0.00",
+                          "actual_progress": "0.00",
+                          "actual_progress_accumulation": "0.00",
+                          "actual_weight": "0.00",
+                          "actual_weight_accumulation": "0.00",
+                          "actual_weight_project_task": "0.00",
+                          "actual_weight_accumulation_project_task": "0.00",
+                          "plan_cost": "2222222.22",
+                          "plan_cost_accumulation": "13333333.33",
+                          "actual_cost": "0.00",
+                          "actual_cost_accumulation": "0.00",
+                          "has_history": false
+                      },
+                      {
+                          "id": "59e36974-600e-49e2-bd6b-f72a67bf78f7",
+                          "spk_boq_id": "a9d2e73a-5609-4ddb-8be0-12f939fa4bdd",
+                          "date": "07-04-2024",
+                          "plan_volume": "0.02",
+                          "plan_volume_accumulation": "0.16",
+                          "plan_progress": "2.22",
+                          "plan_progress_accumulation": "15.56",
+                          "plan_weight": "2.22",
+                          "plan_weight_accumulation": "15.56",
+                          "plan_weight_project_task": "0.00",
+                          "plan_weight_accumulation_project_task": "0.00",
+                          "actual_volume": "0.00",
+                          "actual_volume_accumulation": "0.00",
+                          "actual_progress": "0.00",
+                          "actual_progress_accumulation": "0.00",
+                          "actual_weight": "0.00",
+                          "actual_weight_accumulation": "0.00",
+                          "actual_weight_project_task": "0.00",
+                          "actual_weight_accumulation_project_task": "0.00",
+                          "plan_cost": "2222222.22",
+                          "plan_cost_accumulation": "15555555.56",
+                          "actual_cost": "0.00",
+                          "actual_cost_accumulation": "0.00",
+                          "has_history": false
+                      },
+                      {
+                          "id": "a67848e7-9a46-4805-aa5a-868d3e639833",
+                          "spk_boq_id": "a9d2e73a-5609-4ddb-8be0-12f939fa4bdd",
+                          "date": "08-04-2024",
+                          "plan_volume": "0.02",
+                          "plan_volume_accumulation": "0.18",
+                          "plan_progress": "2.22",
+                          "plan_progress_accumulation": "17.78",
+                          "plan_weight": "2.22",
+                          "plan_weight_accumulation": "17.78",
+                          "plan_weight_project_task": "0.00",
+                          "plan_weight_accumulation_project_task": "0.00",
+                          "actual_volume": "0.00",
+                          "actual_volume_accumulation": "0.00",
+                          "actual_progress": "0.00",
+                          "actual_progress_accumulation": "0.00",
+                          "actual_weight": "0.00",
+                          "actual_weight_accumulation": "0.00",
+                          "actual_weight_project_task": "0.00",
+                          "actual_weight_accumulation_project_task": "0.00",
+                          "plan_cost": "2222222.22",
+                          "plan_cost_accumulation": "17777777.78",
+                          "actual_cost": "0.00",
+                          "actual_cost_accumulation": "0.00",
+                          "has_history": false
+                      },
+                      {
+                          "id": "04c53259-d334-45b4-9d2d-32b52900fe5a",
+                          "spk_boq_id": "a9d2e73a-5609-4ddb-8be0-12f939fa4bdd",
+                          "date": "09-04-2024",
+                          "plan_volume": "0.02",
+                          "plan_volume_accumulation": "0.20",
+                          "plan_progress": "2.22",
+                          "plan_progress_accumulation": "20.00",
+                          "plan_weight": "2.22",
+                          "plan_weight_accumulation": "20.00",
+                          "plan_weight_project_task": "0.00",
+                          "plan_weight_accumulation_project_task": "0.00",
+                          "actual_volume": "0.00",
+                          "actual_volume_accumulation": "0.00",
+                          "actual_progress": "0.00",
+                          "actual_progress_accumulation": "0.00",
+                          "actual_weight": "0.00",
+                          "actual_weight_accumulation": "0.00",
+                          "actual_weight_project_task": "0.00",
+                          "actual_weight_accumulation_project_task": "0.00",
+                          "plan_cost": "2222222.22",
+                          "plan_cost_accumulation": "20000000.00",
+                          "actual_cost": "0.00",
+                          "actual_cost_accumulation": "0.00",
+                          "has_history": false
+                      },
+                      {
+                          "id": "6ec7f1ed-3893-4655-9258-2d857a55b086",
+                          "spk_boq_id": "a9d2e73a-5609-4ddb-8be0-12f939fa4bdd",
+                          "date": "10-04-2024",
+                          "plan_volume": "0.02",
+                          "plan_volume_accumulation": "0.22",
+                          "plan_progress": "2.22",
+                          "plan_progress_accumulation": "22.22",
+                          "plan_weight": "2.22",
+                          "plan_weight_accumulation": "22.22",
+                          "plan_weight_project_task": "0.00",
+                          "plan_weight_accumulation_project_task": "0.00",
+                          "actual_volume": "0.00",
+                          "actual_volume_accumulation": "0.00",
+                          "actual_progress": "0.00",
+                          "actual_progress_accumulation": "0.00",
+                          "actual_weight": "0.00",
+                          "actual_weight_accumulation": "0.00",
+                          "actual_weight_project_task": "0.00",
+                          "actual_weight_accumulation_project_task": "0.00",
+                          "plan_cost": "2222222.22",
+                          "plan_cost_accumulation": "22222222.22",
+                          "actual_cost": "0.00",
+                          "actual_cost_accumulation": "0.00",
+                          "has_history": false
+                      }
+                  ],
+                  "count": 45
+              }
+          }

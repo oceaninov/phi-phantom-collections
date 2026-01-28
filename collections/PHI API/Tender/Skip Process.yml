@@ -1,0 +1,63 @@
+info:
+  name: Skip Process
+  type: http
+  seq: 13
+
+http:
+  method: PATCH
+  url: "{{base_url}}/api/v1/tenders/process/:ID/skip"
+  params:
+    - name: ID
+      value: 3b557f9c-5576-4f08-b5de-de390338d137
+      type: path
+      description: Process ID
+  body:
+    type: json
+    data: |-
+      {
+          "is_skip": true
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Success
+    request:
+      url: "{{base_url}}/api/v1/tenders/process/:ID/skip"
+      method: PATCH
+      params:
+        - name: ID
+          value: 3b557f9c-5576-4f08-b5de-de390338d137
+          type: path
+          description: Process ID
+      body:
+        type: json
+        data: |-
+          {
+              "is_skip": true
+          }
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 19 Feb 2024 07:35:14 GMT
+        - name: Content-Length
+          value: "92"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "2ms",
+              "status": "success",
+              "code": "",
+              "message": "Skip tender process succeed"
+          }

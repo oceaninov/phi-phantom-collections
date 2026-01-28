@@ -1,0 +1,104 @@
+info:
+  name: Set Assignee
+  type: http
+  seq: 10
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/projects/tasks/assignee"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"project_task_id\": \"3e2849ea-ac49-4eb8-aa1a-48cbb552f433\",\r
+
+      \    \"user_id\": \"3e912a94-c505-4794-ae69-aa791364cbc4\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: failed used role not field inspector
+    request:
+      url: "{{base_url}}/api/v1/projects/tasks/assignee"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"project_task_id\": \"9dcd6568-148d-4603-afed-e6ae2999e750\",\r
+
+          \    \"user_id\": \"7ae8e931-1628-4562-bf24-1c2cdd2b4cf4\"\r
+
+          }"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 12 Sep 2023 15:05:41 GMT
+        - name: Content-Length
+          value: "382"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "89ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Only user field inspector can set as assignee",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Only user field inspector can set as assignee",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/projects/tasks/assignee"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"project_task_id\": \"3e2849ea-ac49-4eb8-aa1a-48cbb552f433\",\r
+
+          \    \"user_id\": \"3e912a94-c505-4794-ae69-aa791364cbc4\"\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 12 Sep 2023 15:08:24 GMT
+        - name: Content-Length
+          value: "100"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "239ms",
+              "status": "success",
+              "code": "",
+              "message": "Set project task assignee succeed"
+          }

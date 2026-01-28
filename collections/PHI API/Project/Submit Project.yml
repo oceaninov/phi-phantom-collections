@@ -1,0 +1,104 @@
+info:
+  name: Submit Project
+  type: http
+  seq: 14
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/projects/submit"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"project_id\": \"e1e94347-5c0a-46bc-9287-fb120bd26254\",\r
+
+      \    \"remarks\": \"Submit project AST/APRT01/2024\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/projects/submit"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"project_id\": \"291f25a9-43c7-46e4-bef2-048cfc5c3698\",\r
+
+          \    \"remarks\": \"Submit project AST/PT11/232333\"\r
+
+          }"
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Fri, 08 Sep 2023 03:23:19 GMT
+        - name: Content-Length
+          value: "89"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "322ms",
+              "status": "success",
+              "code": "",
+              "message": "Submit project succeed"
+          }
+  - name: project not eligible to submit
+    request:
+      url: "{{base_url}}/api/v1/projects/submit"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"project_id\": \"91e90d18-c0d1-425b-82ec-16b1f936287a\",\r
+
+          \    \"remarks\": \"Submit project 1234576\"\r
+
+          }"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 18 Sep 2023 08:23:14 GMT
+        - name: Content-Length
+          value: "573"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "356ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Project not eligible to submit, err: Project Budget Forecast: cannot be blank; Project Field: cannot be blank; Project WBS: cannot be blank.",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Project not eligible to submit, err: Project Budget Forecast: cannot be blank; Project Field: cannot be blank; Project WBS: cannot be blank.",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

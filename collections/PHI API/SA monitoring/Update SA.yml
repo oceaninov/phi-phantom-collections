@@ -1,0 +1,117 @@
+info:
+  name: Update SA
+  type: http
+  seq: 6
+
+http:
+  method: PUT
+  url: "{{base_url}}/api/v1/service-acceptances/:ID"
+  params:
+    - name: ID
+      value: 2f00bba7-fb96-4e7e-a283-2807f0f6af4e
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+          "sa_value": "1500000",
+          "sa_number": "SA280620243",
+          "document_date": "27-06-2028",
+          "currency": "IDR"
+      }
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: failed data duplication
+    request:
+      url: "{{base_url}}/api/v1/service-acceptances/:ID"
+      method: PUT
+      params:
+        - name: ID
+          value: 3bc8764f-d4c2-4d21-824c-71d3b9ab7826
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+              "sa_value": "15000",
+              "sa_number": "SA00112346",
+              "document_date": "19-06-2028",
+              "currency": "IDR",
+              "project_id": "3dd623f3-1a84-4dc7-a37c-c970b2953ddb"
+          }
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 18 Jun 2024 08:28:02 GMT
+        - name: Content-Length
+          value: "364"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "56ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Duplicate SA Number with similar WBS",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Duplicate SA Number with similar WBS",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/service-acceptances/:ID"
+      method: PUT
+      params:
+        - name: ID
+          value: 3bc8764f-d4c2-4d21-824c-71d3b9ab7826
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+              "sa_value": "15000",
+              "sa_number": "SA00112347",
+              "document_date": "19-06-2028",
+              "currency": "IDR"
+          }
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 18 Jun 2024 08:28:42 GMT
+        - name: Content-Length
+          value: "99"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "34ms",
+              "status": "success",
+              "code": "",
+              "message": "Update service acceptance succeed"
+          }

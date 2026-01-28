@@ -1,0 +1,377 @@
+info:
+  name: Get Roles
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/roles?name=xxx"
+  params:
+    - name: name
+      value: xxx
+      type: query
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/roles"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 03 Aug 2023 03:40:42 GMT
+        - name: Content-Length
+          value: "571"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "115ms",
+              "status": "success",
+              "code": "",
+              "message": "Get roles succeed",
+              "data": [
+                  {
+                      "id": 2,
+                      "name": "Team Lead Project Planning",
+                      "description": "Team Lead Project Planning",
+                      "created_at": "03-08-2023 10:38:16",
+                      "created_by": {
+                          "id": 1,
+                          "full_name": "Super Admin"
+                      },
+                      "updated_at": "03-08-2023 10:38:16",
+                      "updated_by": {
+                          "id": 1,
+                          "full_name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": 1,
+                      "name": "Super Admin",
+                      "description": "Super Admin",
+                      "created_at": "31-07-2023 19:38:23",
+                      "created_by": {
+                          "id": 1,
+                          "full_name": "Super Admin"
+                      },
+                      "updated_at": "31-07-2023 19:38:23",
+                      "updated_by": {
+                          "id": 1,
+                          "full_name": "Super Admin"
+                      }
+                  }
+              ]
+          }
+  - name: success with approval tiering
+    request:
+      url: "{{base_url}}/api/v1/roles"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 07 Sep 2023 09:27:01 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "186ms",
+              "status": "success",
+              "code": "",
+              "message": "Get roles succeed",
+              "data": [
+                  {
+                      "id": 22,
+                      "name": "Coordinator Project Planning",
+                      "description": "Coordinator Project Planning",
+                      "created_at": "03-08-2023 10:38:16",
+                      "created_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin"
+                      },
+                      "updated_at": "04-08-2023 14:34:43",
+                      "updated_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin"
+                      },
+                      "approval_tierings": [
+                          {
+                              "approval_flow": "Project",
+                              "levels": [
+                                  {
+                                      "id": "eccf9d9b-aeaa-42e9-bcef-2f831573761f",
+                                      "level": 2
+                                  }
+                              ]
+                          }
+                      ]
+                  },
+                  {
+                      "id": 21,
+                      "name": "Team Lead Project Planning",
+                      "description": "Team Lead Project Planning",
+                      "created_at": "03-08-2023 10:38:16",
+                      "created_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin"
+                      },
+                      "updated_at": "04-08-2023 14:34:43",
+                      "updated_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin"
+                      },
+                      "approval_tierings": [
+                          {
+                              "approval_flow": "Project",
+                              "levels": [
+                                  {
+                                      "id": "a87e5ca2-467c-4762-9c3b-1232a78b2a3f",
+                                      "level": 1
+                                  }
+                              ]
+                          }
+                      ]
+                  },
+                  {
+                      "id": 17,
+                      "name": "Testing 1",
+                      "description": "Aew",
+                      "created_at": "31-08-2023 17:13:49",
+                      "created_by": {
+                          "id": "76b2cda5-023b-4d40-880a-beacffa41c1a",
+                          "full_name": "AEka"
+                      },
+                      "updated_at": "31-08-2023 17:13:49",
+                      "updated_by": {
+                          "id": "76b2cda5-023b-4d40-880a-beacffa41c1a",
+                          "full_name": "AEka"
+                      },
+                      "approval_tierings": [
+                          {
+                              "approval_flow": "Project",
+                              "levels": [
+                                  {
+                                      "id": "a87e5ca2-467c-4762-9c3b-1232a78b2a3f",
+                                      "level": 1
+                                  },
+                                  {
+                                      "id": "eccf9d9b-aeaa-42e9-bcef-2f831573761f",
+                                      "level": 2
+                                  },
+                                  {
+                                      "id": "9ee70621-7c98-484a-b1c4-18661cc1ebe8",
+                                      "level": 3
+                                  }
+                              ]
+                          }
+                      ]
+                  },
+                  {
+                      "id": 16,
+                      "name": "Test Role Baru",
+                      "description": "Access only for HR",
+                      "created_at": "31-08-2023 16:58:59",
+                      "created_by": {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira"
+                      },
+                      "updated_at": "31-08-2023 16:58:59",
+                      "updated_by": {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira"
+                      },
+                      "approval_tierings": null
+                  },
+                  {
+                      "id": 12,
+                      "name": "Roles Test 1",
+                      "description": "Testing Create Roles 1",
+                      "created_at": "10-08-2023 20:22:59",
+                      "created_by": {
+                          "id": "76b2cda5-023b-4d40-880a-beacffa41c1a",
+                          "full_name": "AEka"
+                      },
+                      "updated_at": "10-08-2023 21:18:12",
+                      "updated_by": {
+                          "id": "76b2cda5-023b-4d40-880a-beacffa41c1a",
+                          "full_name": "AEka"
+                      },
+                      "approval_tierings": null
+                  },
+                  {
+                      "id": 11,
+                      "name": "Project Manager",
+                      "description": "Project Manager",
+                      "created_at": "10-08-2023 14:49:53",
+                      "created_by": {
+                          "id": "a4b047b1-457f-4d7a-911e-94aa908a3132",
+                          "full_name": "Rinaldy"
+                      },
+                      "updated_at": "11-08-2023 09:07:11",
+                      "updated_by": {
+                          "id": "a4b047b1-457f-4d7a-911e-94aa908a3132",
+                          "full_name": "Rinaldy"
+                      },
+                      "approval_tierings": [
+                          {
+                              "approval_flow": "Project",
+                              "levels": [
+                                  {
+                                      "id": "9ee70621-7c98-484a-b1c4-18661cc1ebe8",
+                                      "level": 3
+                                  }
+                              ]
+                          }
+                      ]
+                  },
+                  {
+                      "id": 10,
+                      "name": "Project Coordinator",
+                      "description": "Project Coordinator",
+                      "created_at": "10-08-2023 14:49:42",
+                      "created_by": {
+                          "id": "a4b047b1-457f-4d7a-911e-94aa908a3132",
+                          "full_name": "Rinaldy"
+                      },
+                      "updated_at": "10-08-2023 14:49:42",
+                      "updated_by": {
+                          "id": "a4b047b1-457f-4d7a-911e-94aa908a3132",
+                          "full_name": "Rinaldy"
+                      },
+                      "approval_tierings": null
+                  },
+                  {
+                      "id": 9,
+                      "name": "approver",
+                      "description": "test",
+                      "created_at": "10-08-2023 12:41:47",
+                      "created_by": {
+                          "id": "a4b047b1-457f-4d7a-911e-94aa908a3132",
+                          "full_name": "Rinaldy"
+                      },
+                      "updated_at": "10-08-2023 13:34:12",
+                      "updated_by": {
+                          "id": "a4b047b1-457f-4d7a-911e-94aa908a3132",
+                          "full_name": "Rinaldy"
+                      },
+                      "approval_tierings": null
+                  },
+                  {
+                      "id": 8,
+                      "name": "ilham",
+                      "description": "test",
+                      "created_at": "10-08-2023 12:34:09",
+                      "created_by": {
+                          "id": "a4b047b1-457f-4d7a-911e-94aa908a3132",
+                          "full_name": "Rinaldy"
+                      },
+                      "updated_at": "10-08-2023 13:34:17",
+                      "updated_by": {
+                          "id": "a4b047b1-457f-4d7a-911e-94aa908a3132",
+                          "full_name": "Rinaldy"
+                      },
+                      "approval_tierings": null
+                  },
+                  {
+                      "id": 5,
+                      "name": "test add",
+                      "description": "test add",
+                      "created_at": "10-08-2023 11:51:36",
+                      "created_by": {
+                          "id": "a4b047b1-457f-4d7a-911e-94aa908a3132",
+                          "full_name": "Rinaldy"
+                      },
+                      "updated_at": "10-08-2023 11:51:39",
+                      "updated_by": {
+                          "id": "a4b047b1-457f-4d7a-911e-94aa908a3132",
+                          "full_name": "Rinaldy"
+                      },
+                      "approval_tierings": null
+                  },
+                  {
+                      "id": 4,
+                      "name": "User management",
+                      "description": "Only view user list",
+                      "created_at": "08-08-2023 15:04:50",
+                      "created_by": {
+                          "id": "a4b047b1-457f-4d7a-911e-94aa908a3132",
+                          "full_name": "Rinaldy"
+                      },
+                      "updated_at": "10-08-2023 13:34:36",
+                      "updated_by": {
+                          "id": "a4b047b1-457f-4d7a-911e-94aa908a3132",
+                          "full_name": "Rinaldy"
+                      },
+                      "approval_tierings": null
+                  },
+                  {
+                      "id": 3,
+                      "name": "test update",
+                      "description": "test",
+                      "created_at": "07-08-2023 22:06:53",
+                      "created_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin"
+                      },
+                      "updated_at": "10-08-2023 21:14:00",
+                      "updated_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin"
+                      },
+                      "approval_tierings": null
+                  },
+                  {
+                      "id": 2,
+                      "name": "Team Member Project Planning",
+                      "description": "Team Member Project Planning",
+                      "created_at": "03-08-2023 10:38:16",
+                      "created_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin"
+                      },
+                      "updated_at": "04-08-2023 14:34:43",
+                      "updated_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin"
+                      },
+                      "approval_tierings": null
+                  },
+                  {
+                      "id": 1,
+                      "name": "Super Admin",
+                      "description": "Super Admin",
+                      "created_at": "31-07-2023 19:38:23",
+                      "created_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin"
+                      },
+                      "updated_at": "31-08-2023 07:59:46",
+                      "updated_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin"
+                      },
+                      "approval_tierings": null
+                  }
+              ]
+          }

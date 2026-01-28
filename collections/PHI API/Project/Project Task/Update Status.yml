@@ -1,0 +1,117 @@
+info:
+  name: Update Status
+  type: http
+  seq: 11
+
+http:
+  method: PUT
+  url: "{{base_url}}/api/v1/projects/tasks/status"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"project_task_id\": \"d97423ff-9813-45f7-adec-771c37786656\",\r
+
+      \    \"status\": \"in progress\",\r
+
+      \    \"note\": \"Task in progress\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/projects/tasks/status"
+      method: PUT
+      body:
+        type: json
+        data: "{\r
+
+          \    \"project_task_id\": \"9dcd6568-148d-4603-afed-e6ae2999e750\",\r
+
+          \    \"status\": \"in progress\"\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 11 Sep 2023 15:31:40 GMT
+        - name: Content-Length
+          value: "101"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "180ms",
+              "status": "success",
+              "code": "",
+              "message": "Update status project task succeed"
+          }
+  - name: update status invalid
+    request:
+      url: "{{base_url}}/api/v1/projects/tasks/status"
+      method: PUT
+      body:
+        type: json
+        data: "{\r
+
+          \    \"project_task_id\": \"fbe29715-d0b4-4cc5-b02c-f52858083c99\",\r
+
+          \    \"status\": \"finished\"\r
+
+          }"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 12 Sep 2023 08:13:43 GMT
+        - name: Content-Length
+          value: "409"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "110ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Current status is not started, can't be update to finished",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Current status is not started, can't be update to finished",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }
+
+docs: |-
+  status options
+
+  1. not started
+      
+  2. in progress
+      
+  3. finished
+      
+  4. finished with note

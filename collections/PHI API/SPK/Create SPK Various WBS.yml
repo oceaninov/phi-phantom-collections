@@ -1,0 +1,348 @@
+info:
+  name: Create SPK Various WBS
+  type: http
+  seq: 21
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/spks/various-wbs"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"contract_id\": \"a74e0251-a9e2-4d0f-8fbf-65c2c6913e9a\",\r
+
+      \    \"ro_no\": [\r
+
+      \        \"112233\"\r
+
+      \    ],\r
+
+      \    \"sequence_number\": \"101\",\r
+
+      \    \"spk_title\": \"test various wbs\",\r
+
+      \    \"start_date\": \"01-01-2024\",\r
+
+      \    \"end_date\": \"31-12-2024\",\r
+
+      \    \"remark\": \"Create SPK Various WBS\",\r
+
+      \    \"user_field_inspectors\": [\r
+
+      \        \"e85150eb-d10c-4435-b695-a519f1c7d3cd\",\r
+
+      \        \"cbe1de24-8507-4a32-9c18-6466d6728e94\"\r
+
+      \    ],\r
+
+      \    \"cost_allocations\": [\r
+
+      \        {\r
+
+      \            \"project_id\": \"2434f652-56d1-4ecd-8258-43fc1f30a288\",\r
+
+      \            \"cost\": \"100000000\"\r
+
+      \        }\r
+
+      \    ],\r
+
+      \    \"additional_info\": {\r
+
+      \        \"pekerjaan\": \"Piping work for compression\",\r
+
+      \        \"masa_pemeliharaan\": \"Sesuai ketentuan dalam kontrak\",\r
+
+      \        \"cost_element\": \"50053000021\"\r
+
+      \    },\r
+
+      \    \"spk_boqs\": [\r
+
+      \        {\r
+
+      \            \"description\": \"≤ 2\\\" sch 80 - 120\",\r
+
+      \            \"unit_id\": \"d7190ea2-d2c1-407a-b45f-6e710bb3e8cc\",\r
+
+      \            \"volume\": 12,\r
+
+      \            \"total_price\": 900000,\r
+
+      \            \"start_date\": \"12-12-2023\",\r
+
+      \            \"end_date\": \"31-12-2023\",\r
+
+      \            \"boq_details\": [\r
+
+      \                {\r
+
+      \                    \"boq_detail_id\": \"bb6d0c51-2a66-489d-9f91-50eed9222888\",\r
+
+      \                    \"unit_id\": \"d7190ea2-d2c1-407a-b45f-6e710bb3e8cc\",\r
+
+      \                    \"volume\": 12,\r
+
+      \                    \"unit_price\": 75000,\r
+
+      \                    \"total_price\": 900000\r
+
+      \                }\r
+
+      \            ],\r
+
+      \            \"type\": \"inline\",\r
+
+      \            \"remarks\": \"test\"\r
+
+      \        }\r
+
+      \    ]\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/spks/various-wbs"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"contract_id\": \"a74e0251-a9e2-4d0f-8fbf-65c2c6913e9a\",\r
+
+          \    \"ro_no\": [\r
+
+          \        \"112233\"\r
+
+          \    ],\r
+
+          \    \"sequence_number\": \"101\",\r
+
+          \    \"spk_title\": \"test various wbs\",\r
+
+          \    \"start_date\": \"01-01-2024\",\r
+
+          \    \"end_date\": \"31-12-2024\",\r
+
+          \    \"remark\": \"Create SPK Various WBS\",\r
+
+          \    \"user_field_inspectors\": [\r
+
+          \        \"e85150eb-d10c-4435-b695-a519f1c7d3cd\",\r
+
+          \        \"cbe1de24-8507-4a32-9c18-6466d6728e94\"\r
+
+          \    ],\r
+
+          \    \"cost_allocations\": [\r
+
+          \        {\r
+
+          \            \"project_id\": \"2434f652-56d1-4ecd-8258-43fc1f30a288\",\r
+
+          \            \"cost\": \"100000000\"\r
+
+          \        }\r
+
+          \    ],\r
+
+          \    \"additional_info\": {\r
+
+          \        \"pekerjaan\": \"Piping work for compression\",\r
+
+          \        \"masa_pemeliharaan\": \"Sesuai ketentuan dalam kontrak\",\r
+
+          \        \"cost_element\": \"50053000021\"\r
+
+          \    },\r
+
+          \    \"spk_boqs\": [\r
+
+          \        {\r
+
+          \            \"description\": \"≤ 2\\\" sch 80 - 120\",\r
+
+          \            \"unit_id\": \"d7190ea2-d2c1-407a-b45f-6e710bb3e8cc\",\r
+
+          \            \"volume\": 12,\r
+
+          \            \"total_price\": 900000,\r
+
+          \            \"start_date\": \"12-12-2023\",\r
+
+          \            \"end_date\": \"31-12-2023\",\r
+
+          \            \"boq_details\": [\r
+
+          \                {\r
+
+          \                    \"boq_detail_id\": \"bb6d0c51-2a66-489d-9f91-50eed9222888\",\r
+
+          \                    \"unit_id\": \"d7190ea2-d2c1-407a-b45f-6e710bb3e8cc\",\r
+
+          \                    \"volume\": 12,\r
+
+          \                    \"unit_price\": 75000,\r
+
+          \                    \"total_price\": 900000\r
+
+          \                }\r
+
+          \            ],\r
+
+          \            \"type\": \"inline\",\r
+
+          \            \"remarks\": \"test\"\r
+
+          \        }\r
+
+          \    ]\r
+
+          }"
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "661ms",
+              "status": "success",
+              "code": "",
+              "message": "Create spk succeed"
+          }
+  - name: failed
+    request:
+      url: "{{base_url}}/api/v1/spks/various-wbs"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"contract_id\": \"a74e0251-a9e2-4d0f-8fbf-65c2c6913e9a\",\r
+
+          \    \"ro_no\": [\r
+
+          \        \"112233\"\r
+
+          \    ],\r
+
+          \    \"spk_title\": \"test various wbs\",\r
+
+          \    \"start_date\": \"\",\r
+
+          \    \"end_date\": \"31-12-2024\",\r
+
+          \    \"remark\": \"Create SPK Various WBS\",\r
+
+          \    \"user_field_inspectors\": [\r
+
+          \        \"e85150eb-d10c-4435-b695-a519f1c7d3cd\",\r
+
+          \        \"cbe1de24-8507-4a32-9c18-6466d6728e94\"\r
+
+          \    ],\r
+
+          \    \"cost_allocations\": [\r
+
+          \        {\r
+
+          \            \"project_id\": \"2434f652-56d1-4ecd-8258-43fc1f30a288\",\r
+
+          \            \"cost\": \"100000000\"\r
+
+          \        }\r
+
+          \    ],\r
+
+          \    \"additional_info\": {\r
+
+          \        \"pekerjaan\": \"Piping work for compression\",\r
+
+          \        \"masa_pemeliharaan\": \"Sesuai ketentuan dalam kontrak\",\r
+
+          \        \"cost_element\": \"50053000021\"\r
+
+          \    },\r
+
+          \    \"spk_boqs\": [\r
+
+          \        {\r
+
+          \            \"description\": \"≤ 2\\\" sch 80 - 120\",\r
+
+          \            \"unit_id\": \"d7190ea2-d2c1-407a-b45f-6e710bb3e8cc\",\r
+
+          \            \"volume\": 12,\r
+
+          \            \"total_price\": 900000,\r
+
+          \            \"start_date\": \"12-12-2023\",\r
+
+          \            \"end_date\": \"31-12-2023\",\r
+
+          \            \"boq_details\": [\r
+
+          \                {\r
+
+          \                    \"boq_detail_id\": \"bb6d0c51-2a66-489d-9f91-50eed9222888\",\r
+
+          \                    \"unit_id\": \"d7190ea2-d2c1-407a-b45f-6e710bb3e8cc\",\r
+
+          \                    \"volume\": 12,\r
+
+          \                    \"unit_price\": 75000,\r
+
+          \                    \"total_price\": 900000\r
+
+          \                }\r
+
+          \            ],\r
+
+          \            \"type\": \"inline\",\r
+
+          \            \"remarks\": \"test\"\r
+
+          \        }\r
+
+          \    ]\r
+
+          }"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "0ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Start Date: cannot be blank.",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Start Date: cannot be blank.",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

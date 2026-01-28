@@ -1,0 +1,201 @@
+info:
+  name: Create Contractor
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/contractors"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"code\": \"7842368747\",\r
+
+      \    \"name\": \"PT. Maju Bersama\",\r
+
+      \    \"address\": \"Jl. Maju\",\r
+
+      \    \"telephone\": \"081285873854\",\r
+
+      \    \"fax\": \"021-888548735\",\r
+
+      \    \"email\": \"tqamdr2@gmail.com\",\r
+
+      \    \"user_email\": \"ttaa@gmail.com\",\r
+
+      \    \"user_name\": \"tame impala\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: failed request validation
+    request:
+      url: "{{base_url}}/api/v1/contractors"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"code\": \"\",\r
+
+          \    \"name\": \"PT. SYNERGY ENGINEERING 3\",\r
+
+          \    \"address\": \"address\",\r
+
+          \    \"telephone\": \"021000001\",\r
+
+          \    \"fax\": \"021000002\",\r
+
+          \    \"email\": \"syn@test.com\",\r
+
+          \    \"bank_id\": \"7388c92c-c96f-4b41-bf0b-b345f6671c7b\",\r
+
+          \    \"bank_branch\": \"jakarta\",\r
+
+          \    \"bank_key\": \"111111\"\r
+
+          }"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 16 Nov 2023 03:54:50 GMT
+        - name: Content-Length
+          value: "336"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "59ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Code: cannot be blank.",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Code: cannot be blank.",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }
+  - name: code already used
+    request:
+      url: "{{base_url}}/api/v1/contractors"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"code\": \"7842368747\",\r
+
+          \    \"name\": \"PT. Maju Bersama\",\r
+
+          \    \"address\": \"Jl. Maju\",\r
+
+          \    \"telephone\": \"081285873854\",\r
+
+          \    \"fax\": \"021-888548735\",\r
+
+          \    \"email\": \"tqamdr2@gmail.com\",\r
+
+          \    \"bank_id\": \"7388c92c-c96f-4b41-bf0b-b345f6671c7b\",\r
+
+          \    \"bank_branch\": \"Meruya\",\r
+
+          \    \"bank_key\": \"001002\"\r
+
+          }"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 16 Nov 2023 03:57:45 GMT
+        - name: Content-Length
+          value: "370"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "44ms",
+              "status": "failed",
+              "code": "17",
+              "message": "code already used by another contractor",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "code already used by another contractor",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/contractors"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"code\": \"7842368747\",\r
+
+          \    \"name\": \"PT. Maju Bersama\",\r
+
+          \    \"address\": \"Jl. Maju\",\r
+
+          \    \"telephone\": \"081285873854\",\r
+
+          \    \"fax\": \"021-888548735\",\r
+
+          \    \"email\": \"tqamdr2@gmail.com\",\r
+
+          \    \"bank_id\": \"7388c92c-c96f-4b41-bf0b-b345f6671c7b\",\r
+
+          \    \"bank_branch\": \"Meruya\",\r
+
+          \    \"bank_key\": \"001002\"\r
+
+          }"
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 16 Nov 2023 03:58:16 GMT
+        - name: Content-Length
+          value: "91"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "82ms",
+              "status": "success",
+              "code": "",
+              "message": "Create contractor succeed"
+          }

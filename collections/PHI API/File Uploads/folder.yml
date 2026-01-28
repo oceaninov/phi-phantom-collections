@@ -1,0 +1,7 @@
+info:
+  name: File Uploads
+  type: folder
+  seq: 14
+
+request:
+  auth: inherit

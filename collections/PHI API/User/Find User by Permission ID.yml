@@ -1,0 +1,657 @@
+info:
+  name: Find User by Permission ID
+  type: http
+  seq: 14
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/users/by-permission/54"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/users/by-permission/58"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Fri, 22 Mar 2024 03:21:03 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "209ms",
+              "status": "success",
+              "code": "",
+              "message": "Get users by permission succeed",
+              "data": [
+                  {
+                      "id": "fd188da4-c440-4c2a-974b-cf81ac22c1db",
+                      "full_name": "Project Approval level 2",
+                      "email": "projectapprovallevel2@yopmail.com",
+                      "status": "inactive",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 22,
+                          "name": "Coordinator Project Planning"
+                      }
+                  },
+                  {
+                      "id": "fac7327b-2dcc-4070-b37a-63e35cb8f6e0",
+                      "full_name": "Mulazi",
+                      "email": "mulazi3012@gmail.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "fa7bd056-a197-4ba1-9096-9922f5f70cac",
+                      "full_name": "Dany Marita Pradana Oldie",
+                      "email": "danympradana_old@gmail.com",
+                      "status": "inactive",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "fa171ae8-7ea7-4289-81dc-142c715c0478",
+                      "full_name": "testing_purpose",
+                      "email": "22dfw4222@getnede.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "ec195781-2a23-4f1d-bb33-549e6af0a0d0",
+                      "full_name": "Android User",
+                      "email": "android_user@gmail.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                      "full_name": "Super Admin",
+                      "email": "super_admin@gmail.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "TSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "e8aa53a9-00ef-4a55-b31a-9747e8a78e7c",
+                      "full_name": "Coba",
+                      "email": "coba@gmail.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 11,
+                          "name": "Project Manager"
+                      }
+                  },
+                  {
+                      "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                      "full_name": "Diyank Shabira",
+                      "email": "diyankphi@gmail.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "e4756261-6fa9-4e3b-b776-18e4a4351552",
+                      "full_name": "Tofan QA ",
+                      "email": "nglobal043@gmail.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "d6ef115d-88de-4ff8-8998-51f97e7dd575",
+                      "full_name": "Fia PHI",
+                      "email": "alifia.phi@gmail.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "TSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "d20ee630-e423-428d-acba-9a802f08b985",
+                      "full_name": "Zahra",
+                      "email": "zahracesalia@gmail.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "d026a49b-2a79-4333-9800-6ac816965935",
+                      "full_name": "al",
+                      "email": "al@gma.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 11,
+                          "name": "Project Manager"
+                      }
+                  },
+                  {
+                      "id": "bc35b04c-484c-4498-8707-9c410454526c",
+                      "full_name": "Gustaman",
+                      "email": "gust4m4n@gmail.com",
+                      "status": "inactive",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "b8791022-06ad-4987-bad4-8e38810f253d",
+                      "full_name": "AutomationTestUser",
+                      "email": "fachrirahmadiputra@gmail.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "b3d35455-31b3-494d-a230-ebe683f084d9",
+                      "full_name": "Fadil QA",
+                      "email": "fadil@samudrainovasi.co.id",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "b1f7ec79-8124-434e-af07-32952f6e3283",
+                      "full_name": "Nur Rofiqoh Arini",
+                      "email": "nrofiqoh.arini@samudrasolusi.co.id",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "b1ac6b1c-1727-4cc2-86f2-e4a2140b44cb",
+                      "full_name": "Apri Ega",
+                      "email": "apriega77@gmail.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "b158a796-dfb0-48f4-b67e-2dfd67ed71f6",
+                      "full_name": "Indanaa",
+                      "email": "indana6969@gmail.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "a4b047b1-457f-4d7a-911e-94aa908a3132",
+                      "full_name": "Rinaldy",
+                      "email": "rinaldy@samudrainovasi.co.id",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "a43213f6-74a2-4240-8437-1af224f60d30",
+                      "full_name": "Project approver level 1",
+                      "email": "projectapprovallevel1@yopmail.com",
+                      "status": "inactive",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 21,
+                          "name": "Team Lead Project Planning"
+                      }
+                  },
+                  {
+                      "id": "a03f9fc4-a478-4076-ac75-6798d0f7805c",
+                      "full_name": "Lisa PHI",
+                      "email": "lisatrianaa379@gmail.com",
+                      "status": "inactive",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "90b19aaa-cc12-445c-b0d7-beaeded721da",
+                      "full_name": "Nadhifa Sofia",
+                      "email": "nadhifa.sofia1998@gmail.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 32,
+                          "name": "SPKApprover"
+                      }
+                  },
+                  {
+                      "id": "8ee225a9-5f6e-47f1-8bfa-907ad1aa8877",
+                      "full_name": "Tofan QA Akses ",
+                      "email": "bimantaratofan5@gmail.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "87f3d131-8d74-446d-bef9-d0d263dcb325",
+                      "full_name": "Yudhi Pratama",
+                      "email": "qaocean.phi@gmail.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 55,
+                          "name": "Super IPMS"
+                      }
+                  },
+                  {
+                      "id": "8598333e-5ab4-4440-952a-533572c1d5a7",
+                      "full_name": "Approver SPK 1",
+                      "email": "approverspk1@mailinator.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 44,
+                          "name": "Approver SPK 1"
+                      }
+                  },
+                  {
+                      "id": "80946615-9fe5-4e13-9ae0-07d1210b0d52",
+                      "full_name": "Indana Rishi",
+                      "email": "indana@samudrainovasi.co.id",
+                      "status": "inactive",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "7ea2e398-8715-483e-a27d-71058b793846",
+                      "full_name": "Test Yopmail",
+                      "email": "test_create_user@yopmail.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "7ae8e931-1628-4562-bf24-1c2cdd2b4cf4",
+                      "full_name": "Dany M Pradana",
+                      "email": "danympradana@gmail.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "76b2cda5-023b-4d40-880a-beacffa41c1a",
+                      "full_name": "AEka",
+                      "email": "qaoceanxpertamina@gmail.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "72e147dd-8e7b-423f-baaa-d89a038850ae",
+                      "full_name": "Deva",
+                      "email": "deva.aved99@gmail.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "6a82c40b-1e18-4be3-8225-b39648e7fc48",
+                      "full_name": "M Ihsan Satyawan",
+                      "email": "ihsansatyawan09@gmail.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "603b6553-0c9a-41cf-ad14-4eb3b7f367cc",
+                      "full_name": "useruseruser",
+                      "email": "diyank@gmail.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "TSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "5d680df6-bde8-4541-80e8-aa125253f123",
+                      "full_name": "jhon dhoe",
+                      "email": "jhon.dhone@getnada.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "595f7f1c-5087-469a-9fb4-cacce94de557",
+                      "full_name": "AekaWah",
+                      "email": "aekawah@yopmail.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 55,
+                          "name": "Super IPMS"
+                      }
+                  },
+                  {
+                      "id": "4a30b8bb-e6af-4e3e-8ea7-649ae933379c",
+                      "full_name": "AE",
+                      "email": "akawahy30@gmail.com",
+                      "status": "inactive",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "42afeabd-9685-4688-ad55-3a9186855b0b",
+                      "full_name": "Nadhifa Sofia",
+                      "email": "nadhifa.sofia@samudrainovasi.co.id",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "3fcb5f94-bcde-43e1-98c0-50ee0ebd33f1",
+                      "full_name": "User diyank",
+                      "email": "testuser1@mailinator.com",
+                      "status": "inactive",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "3f9b991b-1040-49c0-aec9-53dd9142eafe",
+                      "full_name": "Approver SPK 2",
+                      "email": "approverspk2@mailinator.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "TSS",
+                      "role": {
+                          "id": 45,
+                          "name": "Approver SPK 2"
+                      }
+                  },
+                  {
+                      "id": "3d9388ce-c6ad-4349-b425-cb6660658138",
+                      "full_name": "Aeeee",
+                      "email": "pertaminaphi@yopmail.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "3ca57a34-3bdc-4f15-b519-8cce593a89a8",
+                      "full_name": "UI/UX",
+                      "email": "auliasalma10@gmail.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "32f4c3cb-968e-40ae-9592-9eab85137c6a",
+                      "full_name": "testing",
+                      "email": "diyanktest@samudrainovasi.co.id",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "32c68f0c-ece4-41c3-8ca4-3f8bc5accc0c",
+                      "full_name": "ae editing",
+                      "email": "tqamdr1@gmail.com",
+                      "status": "inactive",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "319c22af-4121-4905-8b0a-5701189b170d",
+                      "full_name": "diyank",
+                      "email": "diyank@samudra.co.id",
+                      "status": "inactive",
+                      "zone": "Zona-9",
+                      "working_area": "TSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "26dd4c04-642f-430e-81cd-54438ac2b3b1",
+                      "full_name": "Approver SPK 3 ",
+                      "email": "approverspk3@mailinator.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 46,
+                          "name": "Approver SPK 3"
+                      }
+                  },
+                  {
+                      "id": "232a08ec-4260-4d32-ad2b-dfac5e577608",
+                      "full_name": "Lisa",
+                      "email": "lisatriana379@gmail.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "22b1b889-0a92-4fa1-8a36-1938470d1039",
+                      "full_name": "Sofi Testing",
+                      "email": "itssofidaily@gmail.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "1b1d1cfa-46af-4e98-b941-982e8d5f2207",
+                      "full_name": "Tanti Wulan Cahya",
+                      "email": "mk.tanti.yulisva@mitrakerja.pertamina.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "149dc787-9ea4-484a-a935-c7048d7e24de",
+                      "full_name": "IOS User",
+                      "email": "ios_user@gmail.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "0c78e617-b7ea-487c-87bb-ba26c48ad0b4",
+                      "full_name": "Testing User",
+                      "email": "diyank.phi@gmail.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 1,
+                          "name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "07464bf9-86e7-43d6-9782-545de4b91e46",
+                      "full_name": "Agung NH",
+                      "email": "agungnhd@outlook.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 55,
+                          "name": "Super IPMS"
+                      }
+                  },
+                  {
+                      "id": "0002834d-6a2d-4e9a-ab3b-455784f476bc",
+                      "full_name": "Project approval level 3",
+                      "email": "projectapprovallevel3@yopmail.com",
+                      "status": "active",
+                      "zone": "Zona-9",
+                      "working_area": "PHSS",
+                      "role": {
+                          "id": 11,
+                          "name": "Project Manager"
+                      }
+                  }
+              ]
+          }

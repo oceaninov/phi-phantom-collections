@@ -1,0 +1,94 @@
+info:
+  name: Create
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/tenders/process-categories"
+  body:
+    type: json
+    data: |-
+      {
+          "description": "Test 2",
+          "order": 2
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Success
+    request:
+      url: "{{base_url}}/api/v1/tenders/process-categories"
+      method: POST
+      body:
+        type: json
+        data: |-
+          {
+              "description": "Test 2",
+              "order": 2
+          }
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 11 Jan 2024 07:24:24 GMT
+        - name: Content-Length
+          value: "105"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "2ms",
+              "status": "success",
+              "code": "",
+              "message": "Create tender process categories succeed"
+          }
+  - name: Error validation
+    request:
+      url: "{{base_url}}/api/v1/tenders/process-categories"
+      method: POST
+      body:
+        type: json
+        data: |-
+          {
+          }
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 11 Jan 2024 07:33:19 GMT
+        - name: Content-Length
+          value: "397"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "0ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Description: cannot be blank; Order: cannot be blank.",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Description: cannot be blank; Order: cannot be blank.",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

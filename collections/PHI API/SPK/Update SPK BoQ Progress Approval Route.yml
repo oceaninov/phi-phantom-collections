@@ -1,0 +1,89 @@
+info:
+  name: Update SPK BoQ Progress Approval Route
+  type: http
+  seq: 26
+
+http:
+  method: PUT
+  url: "{{base_url}}/api/v1/spks/a88aafe7-5132-425e-bedb-9a558250f353/progress-approver"
+  body:
+    type: json
+    data: |-
+      {
+          "approvers": [
+              {
+                  "level": 1,
+                  "user_id": [
+                      "bc35b04c-484c-4498-8707-9c410454526c",
+                      "b1ac6b1c-1727-4cc2-86f2-e4a2140b44cb",
+                      "e8e968e7-77ce-4668-b8d6-fc80e083af67"
+                  ]
+              },
+              {
+                  "level": 2,
+                  "user_id": [
+                      "fa7bd056-a197-4ba1-9096-9922f5f70cac",
+                      "80946615-9fe5-4e13-9ae0-07d1210b0d52",
+                      "e8e968e7-77ce-4668-b8d6-fc80e083af67"
+                  ]
+              }
+          ]
+      }
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/spks/a88aafe7-5132-425e-bedb-9a558250f353/progress-approver"
+      method: PUT
+      body:
+        type: json
+        data: |-
+          {
+              "approvers": [
+                  {
+                      "level": 1,
+                      "user_id": [
+                          "bc35b04c-484c-4498-8707-9c410454526c",
+                          "b1ac6b1c-1727-4cc2-86f2-e4a2140b44cb",
+                          "e8e968e7-77ce-4668-b8d6-fc80e083af67"
+                      ]
+                  },
+                  {
+                      "level": 2,
+                      "user_id": [
+                          "fa7bd056-a197-4ba1-9096-9922f5f70cac",
+                          "80946615-9fe5-4e13-9ae0-07d1210b0d52",
+                          "e8e968e7-77ce-4668-b8d6-fc80e083af67"
+                      ]
+                  }
+              ]
+          }
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Fri, 22 Mar 2024 04:19:03 GMT
+        - name: Content-Length
+          value: "103"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "22ms",
+              "status": "success",
+              "code": "",
+              "message": "Update spk progress approvers succeed"
+          }

@@ -1,0 +1,76 @@
+info:
+  name: Get SPK BoQ Progress
+  type: http
+  seq: 9
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/spks/boqs/progress?spk_boq_schedule_id=65cc8262-3db9-4c7d-bf51-c5ec9e1fcd09"
+  params:
+    - name: spk_boq_schedule_id
+      value: 65cc8262-3db9-4c7d-bf51-c5ec9e1fcd09
+      type: query
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/spks/boqs/progress?spk_boq_schedule_id=aeefc1ed-5cd9-430d-9115-b43785c3d54d"
+      method: GET
+      params:
+        - name: spk_boq_schedule_id
+          value: aeefc1ed-5cd9-430d-9115-b43785c3d54d
+          type: query
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 02 Nov 2023 09:04:35 GMT
+        - name: Content-Length
+          value: "661"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "34ms",
+              "status": "success",
+              "code": "",
+              "message": "Get spk boq progresses succeed",
+              "data": [
+                  {
+                      "id": "8f67285f-73f1-4db3-8c9d-b5c715e2d8d1",
+                      "spk_boq_schedule_id": "aeefc1ed-5cd9-430d-9115-b43785c3d54d",
+                      "date": "01-08-2023",
+                      "volume_addition": "1.00",
+                      "remarks": "coba remarks",
+                      "unit": "Jt",
+                      "attachments": [],
+                      "status": "draft",
+                      "rejected_note": "",
+                      "created_at": "26-01-2024 09:20:13",
+                      "created_by": {
+                          "id": "3e912a94-c505-4794-ae69-aa791364cbc4",
+                          "full_name": "test add",
+                          "status": ""
+                      },
+                      "updated_at": "26-01-2024 09:20:13",
+                      "updated_by": {
+                          "id": "3e912a94-c505-4794-ae69-aa791364cbc4",
+                          "full_name": "test add",
+                          "status": ""
+                      }
+                  }
+              ]
+          }

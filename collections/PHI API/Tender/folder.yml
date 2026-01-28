@@ -1,0 +1,9 @@
+info:
+  name: Tender
+  type: folder
+  seq: 17
+
+request:
+  auth:
+    type: bearer
+    token: "{{access_token}}"

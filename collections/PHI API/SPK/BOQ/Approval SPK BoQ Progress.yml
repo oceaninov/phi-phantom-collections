@@ -1,0 +1,257 @@
+info:
+  name: Approval SPK BoQ Progress
+  type: http
+  seq: 11
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/spks/boqs/progress/approval"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"approval_spk_boq_progress\": [\r
+
+      \        {\r
+
+      \            \"spk_boq_proggess_id\": \"8a6cb57b-1422-45ba-8a82-a691ba0e79a5\",\r
+
+      \            \"approval_process_id\": \"c2c43843-59d7-4670-be96-d3443c281de4\"\r
+
+      \        }\r
+
+      \    ],\r
+
+      \    \"remarks\": \"Test approve spk boq progress lvl 2\",\r
+
+      \    \"action\": \"approve\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: approve
+    request:
+      url: "{{base_url}}/api/v1/spks/boqs/progress/approval"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"approval_spk_boq_progress\": [\r
+
+          \        {\r
+
+          \            \"spk_boq_proggess_id\": \"c1bbd208-abb6-4534-93d5-4d085a7d0792\",\r
+
+          \            \"approval_process_id\": \"4a614fcb-f0f7-4a7e-9f47-494d6b944788\"\r
+
+          \        },\r
+
+          \        {\r
+
+          \            \"spk_boq_proggess_id\": \"4bdfe3f9-a0d2-43c8-9dce-0d387070920f\",\r
+
+          \            \"approval_process_id\": \"ce10f691-6472-499d-89d2-b42c66041833\"\r
+
+          \        }\r
+
+          \    ],\r
+
+          \    \"remarks\": \"\",\r
+
+          \    \"action\": \"approve\"\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "660ms",
+              "status": "success",
+              "code": "",
+              "message": "Process approve SPK progress succeed"
+          }
+  - name: reject
+    request:
+      url: "{{base_url}}/api/v1/spks/boqs/progress/approval"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"approval_spk_boq_progress\": [\r
+
+          \        {\r
+
+          \            \"spk_boq_proggess_id\": \"7b6428ce-bf3b-46bb-8e67-3a9987d7d478\",\r
+
+          \            \"approval_process_id\": \"eaf793e4-68cf-4d7e-8ea0-9cddf17b328c\"\r
+
+          \        },\r
+
+          \        {\r
+
+          \            \"spk_boq_proggess_id\": \"d790366f-0004-421b-85d6-91e56dacb349\",\r
+
+          \            \"approval_process_id\": \"13f274c9-8768-4d6f-a4d4-5dd1fc0409a7\"\r
+
+          \        }\r
+
+          \    ],\r
+
+          \    \"remarks\": \"\",\r
+
+          \    \"action\": \"reject\"\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "104ms",
+              "status": "success",
+              "code": "",
+              "message": "Process reject SPK progress succeed"
+          }
+  - name: failed
+    request:
+      url: "{{base_url}}/api/v1/spks/boqs/progress/approval"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"approval_spk_boq_progress\": [\r
+
+          \        {\r
+
+          \            \"spk_boq_proggess_id\": \"c1bbd208-abb6-4534-93d5-4d085a7d0792\",\r
+
+          \            \"approval_process_id\": \"4a614fcb-f0f7-4a7e-9f47-494d6b944788\"\r
+
+          \        },\r
+
+          \        {\r
+
+          \            \"spk_boq_proggess_id\": \"4bdfe3f9-a0d2-43c8-9dce-0d387070920f\",\r
+
+          \            \"approval_process_id\": \"ce10f691-6472-499d-89d2-b42c66041833\"\r
+
+          \        }\r
+
+          \    ],\r
+
+          \    \"remarks\": \"\",\r
+
+          \    \"action\": \"approve\"\r
+
+          }"
+    response:
+      statusText: "400"
+      body:
+        type: text
+        data: "{\r
+
+          \    \"process_time\": \"36ms\",\r
+
+          \    \"status\": \"failed\",\r
+
+          \    \"code\": \"17\",\r
+
+          \    \"message\": \"SPK BoQ Progress is not waiting for approval : c1bbd208-abb6-4534-93d5-4d085a7d0792.SPK BoQ Progress is not waiting for approval : 4bdfe3f9-a0d2-43c8-9dce-0d387070920f\",\r
+
+          \    \"error_data\": {\r
+
+          \        \"title\": \"Failed\",\r
+
+          \        \"description\": \"SPK BoQ Progress is not waiting for approval : c1bbd208-abb6-4534-93d5-4d085a7d0792.SPK BoQ Progress is not waiting for approval : 4bdfe3f9-a0d2-43c8-9dce-0d387070920f\",\r
+
+          \        \"icon\": \"https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png\",\r
+
+          \        \"primary_text\": \"OK\",\r
+
+          \        \"secondary_text\": \"\",\r
+
+          \        \"primary_link\": \"\",\r
+
+          \        \"secondary_link\": \"\",\r
+
+          \        \"dismissed_link\": \"\"\r
+
+          \    }\r
+
+          }"
+  - name: failed SPK BoQ related to rebaseline project
+    request:
+      url: "{{base_url}}/api/v1/spks/boqs/progress/approval"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"approval_spk_boq_progress\": [\r
+
+          \        {\r
+
+          \            \"spk_boq_proggess_id\": \"ffee65f3-9e64-42ed-977c-387098fb3234\",\r
+
+          \            \"approval_process_id\": \"ba63363c-b4be-4f9b-b00c-82b9335a99e5\"\r
+
+          \        }\r
+
+          \    ],\r
+
+          \    \"remarks\": \"Test approve spk boq progress\",\r
+
+          \    \"action\": \"approve\"\r
+
+          }"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 12 Mar 2024 03:17:55 GMT
+        - name: Content-Length
+          value: "478"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "57ms",
+              "status": "failed",
+              "code": "17",
+              "message": "SPK BoQ related to project still processing rebaseline : ffee65f3-9e64-42ed-977c-387098fb3234",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "SPK BoQ related to project still processing rebaseline : ffee65f3-9e64-42ed-977c-387098fb3234",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

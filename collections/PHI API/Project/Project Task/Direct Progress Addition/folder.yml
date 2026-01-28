@@ -1,0 +1,7 @@
+info:
+  name: Direct Progress Addition
+  type: folder
+  seq: 2
+
+request:
+  auth: inherit

@@ -1,0 +1,129 @@
+info:
+  name: Create SPK BoQ Progress
+  type: http
+  seq: 8
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/spks/boqs/progress"
+  body:
+    type: multipart-form
+    data:
+      - name: spk_boq_id
+        type: text
+        value: 43cdc7ae-01b9-4fe9-9b13-04f6f8adb5b8
+      - name: date
+        type: text
+        value: 26-05-2024
+      - name: volume_addition
+        type: text
+        value: "0.5"
+      - name: remarks
+        type: text
+        value: coba remarks
+      - name: attachments
+        type: file
+        value:
+          - /Users/ocean.innovation/Downloads/WhatsApp Image 2024-03-12 at 14.36.50.jpeg
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/spks/boqs/progress"
+      method: POST
+      body:
+        type: multipart-form
+        data:
+          - name: spk_boq_id
+            type: text
+            value: be7f6117-25ce-4a31-bad0-fd29c8431347
+          - name: date
+            type: text
+            value: 01-05-2023
+          - name: volume_addition
+            type: text
+            value: "20"
+          - name: remarks
+            type: text
+            value: coba remarks
+          - name: attachments
+            type: file
+            value:
+              - /C:/Users/user/Downloads/slide_8.jpg
+              - /C:/Users/user/Downloads/slide_7.jpg
+    response:
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "249ms",
+              "status": "success",
+              "code": "",
+              "message": "Create spk boq progress succeed"
+          }
+  - name: failed request validation
+    request:
+      url: "{{base_url}}/api/v1/spks/boqs/progress"
+      method: POST
+      body:
+        type: multipart-form
+        data:
+          - name: spk_boq_id
+            type: text
+            value: be7f6117-25ce-4a31-bad0-fd29c8431347
+          - name: date
+            type: text
+            value: 01-05-2023
+          - name: volume_addition
+            type: text
+            value: ""
+          - name: remarks
+            type: text
+            value: coba remarks
+          - name: attachments
+            type: file
+            value:
+              - /C:/Users/user/Downloads/slide_8.jpg
+              - /C:/Users/user/Downloads/slide_7.jpg
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 16 Nov 2023 07:14:26 GMT
+        - name: Content-Length
+          value: "357"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "6ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Volume Addition: cannot be blank.",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Volume Addition: cannot be blank.",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

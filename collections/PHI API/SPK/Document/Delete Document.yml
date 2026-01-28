@@ -1,0 +1,59 @@
+info:
+  name: Delete Document
+  type: http
+  seq: 6
+
+http:
+  method: DELETE
+  url: "{{base_url}}/api/v1/spks/:ID/documents/:documentID"
+  params:
+    - name: ID
+      value: 13e17042-15af-40a8-b318-70a5491c3673
+      type: path
+      description: SPK ID
+    - name: documentID
+      value: ee07753e-b0b9-4657-adf9-dcf6e9140bb5
+      type: path
+      description: Document ID
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Success
+    request:
+      url: "{{base_url}}/api/v1/spks/:ID/documents/:documentID"
+      method: DELETE
+      params:
+        - name: ID
+          value: 13e17042-15af-40a8-b318-70a5491c3673
+          type: path
+          description: SPK ID
+        - name: documentID
+          value: ee07753e-b0b9-4657-adf9-dcf6e9140bb5
+          type: path
+          description: Document ID
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 18 Mar 2024 07:08:20 GMT
+        - name: Content-Length
+          value: "90"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "247ms",
+              "status": "success",
+              "code": "",
+              "message": "Delete document succeed"
+          }

@@ -1,0 +1,151 @@
+info:
+  name: Update SPK Field Inspector
+  type: http
+  seq: 24
+
+http:
+  method: PUT
+  url: "{{base_url}}/api/v1/spks/2fccc9a3-6343-4238-a6a6-d60d3262f46e/field-inspector"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"user_field_inspectors\": [\r
+
+      \        \"3e912a94-c505-4794-ae69-aa791364cbc4\",\r
+
+      \        \"888a5e8a-6fb8-4b31-b279-4c75e69c231d\"\r
+
+      \    ]\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/spks/2fccc9a3-6343-4238-a6a6-d60d3262f46e/field-inspector"
+      method: PUT
+      body:
+        type: json
+        data: "{\r
+
+          \    \"user_field_inspectors\": [\r
+
+          \        \"3e912a94-c505-4794-ae69-aa791364cbc4\"\r
+
+          \    ]\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 25 Oct 2023 02:35:24 GMT
+        - name: Content-Length
+          value: "101"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "709ms",
+              "status": "success",
+              "code": "",
+              "message": "Update spk field inspector succeed"
+          }
+  - name: success integrated with retina
+    request:
+      url: "{{base_url}}/api/v1/spks/2fccc9a3-6343-4238-a6a6-d60d3262f46e/field-inspector"
+      method: PUT
+      body:
+        type: json
+        data: "{\r
+
+          \    \"user_field_inspectors\": [\r
+
+          \        {\r
+
+          \            \"id\": \"\",\r
+
+          \            \"full_name\": \"\",\r
+
+          \            \"email\": \"\"\r
+
+          \        }\r
+
+          \    ]\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 25 Oct 2023 02:35:24 GMT
+        - name: Content-Length
+          value: "101"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "709ms",
+              "status": "success",
+              "code": "",
+              "message": "Update spk field inspector succeed"
+          }
+  - name: failed request validation
+    request:
+      url: "{{base_url}}/api/v1/spks/2fccc9a3-6343-4238-a6a6-d60d3262f46e/field-inspector"
+      method: PUT
+      body:
+        type: json
+        data: "{\r
+
+          \    \"user_field_inspectors\": []\r
+
+          }"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 16 Nov 2023 07:26:09 GMT
+        - name: Content-Length
+          value: "369"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "0ms",
+              "status": "failed",
+              "code": "17",
+              "message": "User Field Inspectors: cannot be blank.",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "User Field Inspectors: cannot be blank.",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

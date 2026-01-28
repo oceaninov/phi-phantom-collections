@@ -1,0 +1,43 @@
+info:
+  name: Delete Approval Route
+  type: http
+  seq: 3
+
+http:
+  method: DELETE
+  url: "{{base_url}}/api/v1/approval-routes/597caca0-c993-4fc0-9cb2-6b23bc96a9c3"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/approval-routes/597caca0-c993-4fc0-9cb2-6b23bc96a9c3"
+      method: DELETE
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 18 Mar 2024 08:22:28 GMT
+        - name: Content-Length
+          value: "95"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "12ms",
+              "status": "success",
+              "code": "",
+              "message": "Delete approval route succeed"
+          }

@@ -1,0 +1,59 @@
+info:
+  name: Delete Document
+  type: http
+  seq: 6
+
+http:
+  method: DELETE
+  url: "{{base_url}}/api/v1/spks/boqs/:ID/documents/:documentID"
+  params:
+    - name: ID
+      value: 0b5229aa-b2eb-4cdb-8bd3-6e1be7c6f220
+      type: path
+      description: SPK BoQ ID
+    - name: documentID
+      value: 2548fbff-d194-406e-94e2-68d187e8e773
+      type: path
+      description: Document ID
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Success
+    request:
+      url: "{{base_url}}/api/v1/spks/boqs/:ID/documents/:documentID"
+      method: DELETE
+      params:
+        - name: ID
+          value: 0b5229aa-b2eb-4cdb-8bd3-6e1be7c6f220
+          type: path
+          description: SPK BoQ ID
+        - name: documentID
+          value: 2548fbff-d194-406e-94e2-68d187e8e773
+          type: path
+          description: Document ID
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 18 Mar 2024 07:11:29 GMT
+        - name: Content-Length
+          value: "90"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "234ms",
+              "status": "success",
+              "code": "",
+              "message": "Delete document succeed"
+          }

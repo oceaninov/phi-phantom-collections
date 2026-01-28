@@ -1,0 +1,145 @@
+info:
+  name: Get List SPK Boq Schedules For Mobile
+  type: http
+  seq: 11
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/vendors/spks/boqs/39c091e4-65e0-4f98-bb9e-d73a85ea1336/schedules/mobile"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/spks/boqs/39c091e4-65e0-4f98-bb9e-d73a85ea1336/schedules/mobile"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Sun, 08 Oct 2023 14:08:18 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "39ms",
+              "status": "success",
+              "code": "",
+              "message": "Get SPK BOQ schedule succeed",
+              "data": [
+                  {
+                      "period": "October 2023",
+                      "list": [
+                          {
+                              "id": "91c9b9c7-e16b-4825-a314-3c0ef4151420",
+                              "spk_boq_id": "39c091e4-65e0-4f98-bb9e-d73a85ea1336",
+                              "date": "01-10-2023",
+                              "plan_volume": "20.00",
+                              "plan_volume_accumulation": "20.00",
+                              "plan_progress": "20.00",
+                              "plan_progress_accumulation": "20.00",
+                              "plan_weight": "8.57",
+                              "plan_weight_accumulation": "8.57",
+                              "actual_progress": "0.00",
+                              "actual_progress_accumulation": "0.00",
+                              "actual_weight": "0.00",
+                              "actual_weight_accumulation": "0.00",
+                              "plan_cost": "300.00",
+                              "plan_cost_accumulation": "300.00",
+                              "actual_cost": "0.00",
+                              "actual_cost_accumulation": "0.00"
+                          },
+                          {
+                              "id": "64d97e11-7b3b-4d28-88ce-91c0bcecae4a",
+                              "spk_boq_id": "39c091e4-65e0-4f98-bb9e-d73a85ea1336",
+                              "date": "02-10-2023",
+                              "plan_volume": "20.00",
+                              "plan_volume_accumulation": "40.00",
+                              "plan_progress": "20.00",
+                              "plan_progress_accumulation": "40.00",
+                              "plan_weight": "8.57",
+                              "plan_weight_accumulation": "17.14",
+                              "actual_progress": "0.00",
+                              "actual_progress_accumulation": "0.00",
+                              "actual_weight": "0.00",
+                              "actual_weight_accumulation": "0.00",
+                              "plan_cost": "300.00",
+                              "plan_cost_accumulation": "600.00",
+                              "actual_cost": "0.00",
+                              "actual_cost_accumulation": "0.00"
+                          },
+                          {
+                              "id": "5d345975-7339-4e09-9b58-e15ae2b449d2",
+                              "spk_boq_id": "39c091e4-65e0-4f98-bb9e-d73a85ea1336",
+                              "date": "03-10-2023",
+                              "plan_volume": "20.00",
+                              "plan_volume_accumulation": "60.00",
+                              "plan_progress": "20.00",
+                              "plan_progress_accumulation": "60.00",
+                              "plan_weight": "8.57",
+                              "plan_weight_accumulation": "25.71",
+                              "actual_progress": "0.00",
+                              "actual_progress_accumulation": "0.00",
+                              "actual_weight": "0.00",
+                              "actual_weight_accumulation": "0.00",
+                              "plan_cost": "300.00",
+                              "plan_cost_accumulation": "900.00",
+                              "actual_cost": "0.00",
+                              "actual_cost_accumulation": "0.00"
+                          },
+                          {
+                              "id": "c90f8a77-ba05-4df9-9813-c29889182016",
+                              "spk_boq_id": "39c091e4-65e0-4f98-bb9e-d73a85ea1336",
+                              "date": "04-10-2023",
+                              "plan_volume": "20.00",
+                              "plan_volume_accumulation": "80.00",
+                              "plan_progress": "20.00",
+                              "plan_progress_accumulation": "80.00",
+                              "plan_weight": "8.57",
+                              "plan_weight_accumulation": "34.29",
+                              "actual_progress": "0.00",
+                              "actual_progress_accumulation": "0.00",
+                              "actual_weight": "0.00",
+                              "actual_weight_accumulation": "0.00",
+                              "plan_cost": "300.00",
+                              "plan_cost_accumulation": "1200.00",
+                              "actual_cost": "0.00",
+                              "actual_cost_accumulation": "0.00"
+                          },
+                          {
+                              "id": "5cbf5352-f094-4160-9282-154ecbbeb7e6",
+                              "spk_boq_id": "39c091e4-65e0-4f98-bb9e-d73a85ea1336",
+                              "date": "05-10-2023",
+                              "plan_volume": "20.00",
+                              "plan_volume_accumulation": "100.00",
+                              "plan_progress": "20.00",
+                              "plan_progress_accumulation": "100.00",
+                              "plan_weight": "8.57",
+                              "plan_weight_accumulation": "42.86",
+                              "actual_progress": "0.00",
+                              "actual_progress_accumulation": "0.00",
+                              "actual_weight": "0.00",
+                              "actual_weight_accumulation": "0.00",
+                              "plan_cost": "300.00",
+                              "plan_cost_accumulation": "1500.00",
+                              "actual_cost": "0.00",
+                              "actual_cost_accumulation": "0.00"
+                          }
+                      ]
+                  }
+              ]
+          }

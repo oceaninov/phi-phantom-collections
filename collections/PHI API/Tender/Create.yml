@@ -1,0 +1,131 @@
+info:
+  name: Create
+  type: http
+  seq: 6
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/tenders"
+  body:
+    type: json
+    data: |-
+      {
+          "tender": {
+              "pic_legal": "",
+              "legal_start_date": "",
+              "legal_end_date": "",
+              "committee": "Zona 9",
+              "category": "joint tender",
+              "buyer": "BUyer "
+          },
+          "contracts": [
+              {
+                  "description": "Contract join tender 1",
+                  "request_numbers": [
+                      "328764"
+                  ],
+                  "working_area": [
+                      "TSS"
+                  ],
+                  "contract_value": 0,
+                  "ndp": "NPD47329",
+                  "proclist_year": "2025",
+                  "sc": "SC-01B",
+                  "type": ["Services"],
+                  "tender_plan_date": "25-03-2024",
+                  "contract_start_date": "25-03-2025",
+                  "contract_end_date": "31-03-2026"
+              },
+              {
+                  "description": "Contract join tender 1",
+                  "request_numbers": [
+                      "4327684"
+                  ],
+                  "working_area": [
+                      "PHSS"
+                  ],
+                  "contract_value": 17000000000,
+                  "ndp": "NPD89423",
+                  "proclist_year": "2025",
+                  "sc": "SC-01B",
+                  "type": ["Material", "Services"],
+                  "tender_plan_date": "25-03-2024",
+                  "contract_start_date": "31-03-2025",
+                  "contract_end_date": "31-03-2026"
+              }
+          ]
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Success
+    request:
+      url: "{{base_url}}/api/v1/tenders"
+      method: POST
+      body:
+        type: json
+        data: |-
+          {
+              "tender": {
+                  "pic_legal": "legal 1",
+                  "legal_start_date": "01-01-2024",
+                  "legal_end_date": "07-01-2024",
+                  "committee": "Zona 9",
+                  "category": "joint tender",
+                  "buyer": "buyer 1"
+              },
+              "contracts": [
+                  {
+                      "description": "description 1",
+                      "request_numbers": ["100000001", "100000002"],
+                      "working_area": ["TSS"],
+                      "contract_value": 100000000,
+                      "ndp": "A001-01-A000001",
+                      "proclist_year": "2024",
+                      "sc": "SC-01A",
+                      "type": "Material",
+                      "tender_plan_date": "08-01-2024",
+                      "contract_start_date": "09-01-2024",
+                      "contract_end_date": "18-01-2024"
+                  },
+                  {
+                      "description": "description 2",
+                      "request_numbers": ["100000003", "100000004"],
+                      "working_area": ["PHSS"],
+                      "contract_value": 200000000,
+                      "ndp": "A001-01-A000002",
+                      "proclist_year": "2024",
+                      "sc": "SC-01B",
+                      "type": "Service",
+                      "tender_plan_date": "08-01-2024",
+                      "contract_start_date": "09-01-2024",
+                      "contract_end_date": "18-01-2024"
+                  }
+              ]
+          }
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 30 Jan 2024 06:44:10 GMT
+        - name: Content-Length
+          value: "89"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "2179ms",
+              "status": "success",
+              "code": "",
+              "message": "Create tender succeed"
+          }

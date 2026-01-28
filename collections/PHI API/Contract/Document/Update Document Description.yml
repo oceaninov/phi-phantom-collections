@@ -1,0 +1,75 @@
+info:
+  name: Update Document Description
+  type: http
+  seq: 5
+
+http:
+  method: PATCH
+  url: "{{base_url}}/api/v1/contracts/:ID/documents/:documentID/description"
+  params:
+    - name: ID
+      value: 4723091d-8049-43d6-bb9e-9c996fca121e
+      type: path
+      description: Contract ID
+    - name: documentID
+      value: dfe6179e-d4f0-4195-ae59-912dd77441ae
+      type: path
+      description: Document ID
+  body:
+    type: multipart-form
+    data:
+      - name: description
+        type: text
+        value: ""
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Success
+    request:
+      url: "{{base_url}}/api/v1/contracts/:ID/documents/:documentID"
+      method: PUT
+      params:
+        - name: ID
+          value: 4723091d-8049-43d6-bb9e-9c996fca121e
+          type: path
+          description: Contract ID
+        - name: documentID
+          value: dfe6179e-d4f0-4195-ae59-912dd77441ae
+          type: path
+          description: Document ID
+      body:
+        type: multipart-form
+        data:
+          - name: file
+            type: file
+            value:
+              - /home/zombozo12/Downloads/test.xlsx
+          - name: description
+            type: text
+            value: test 12
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 18 Mar 2024 06:40:37 GMT
+        - name: Content-Length
+          value: "91"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "3385ms",
+              "status": "success",
+              "code": "",
+              "message": "Update document succeed"
+          }

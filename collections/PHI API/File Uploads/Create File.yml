@@ -1,0 +1,127 @@
+info:
+  name: Create File
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/file-uploads"
+  body:
+    type: multipart-form
+    data:
+      - name: file
+        type: file
+        value:
+          - /Users/ocean.innovation/Documents/Projects/Ocean IPMS/File Template/boq-template-type4.xlsx
+      - name: description
+        type: text
+        value: BOQ Template 4
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success (enhance)
+    request:
+      url: "{{base_url}}/api/v1/file-uploads"
+      method: POST
+      body:
+        type: multipart-form
+        data:
+          - name: file
+            type: file
+            value:
+              - /C:/Users/user/Downloads/slide_8.jpg
+          - name: description
+            type: text
+            value: Project Task Template File
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Sun, 01 Oct 2023 15:06:58 GMT
+        - name: Content-Length
+          value: "86"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "934ms",
+              "status": "success",
+              "code": "",
+              "message": "Upload file succeed",
+              "data": {
+                  "id": "9fd0dc18-228a-429a-a74d-87c3acd068f6",
+                  "file_name": "SDLC_BWC.jpeg",
+                  "file_type": "image/jpeg",
+                  "file_size": "26 KB",
+                  "file_url": "https://storage.googleapis.com/phi-dev-bucket//b7edc91c-fc13-4cc3-ba29-d3364a1f9c49_B317F569AC9E1DAE.jpeg",
+                  "description": "Project Task Template File",
+                  "created_at": "23-02-2024 15:40:29",
+                  "created_by": {
+                      "id": "",
+                      "full_name": "",
+                      "status": ""
+                  },
+                  "updated_at": "",
+                  "updated_by": {
+                      "id": "",
+                      "full_name": "",
+                      "status": ""
+                  }
+              }
+          }
+  - name: duplicate file name
+    request:
+      url: "{{base_url}}/api/v1/file-uploads"
+      method: POST
+      body:
+        type: multipart-form
+        data:
+          - name: file
+            type: file
+            value:
+              - /D:/Project/PHI/Documents/project-task-template.xlsx
+          - name: description
+            type: text
+            value: Project Task Template File
+    response:
+      statusText: "500"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Sun, 01 Oct 2023 15:19:19 GMT
+        - name: Content-Length
+          value: "363"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "108ms",
+              "status": "failed",
+              "code": "99",
+              "message": "Unknown error : Duplicate file name",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Unknown error : Duplicate file name",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

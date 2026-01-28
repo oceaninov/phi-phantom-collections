@@ -1,0 +1,253 @@
+info:
+  name: SA & SP3 Analysis
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/dashboard/sa-sp3-analysis?rkap_id=b6f5c5fb-da8a-4d9c-9e71-590aed5776de"
+  params:
+    - name: rkap_id
+      value: b6f5c5fb-da8a-4d9c-9e71-590aed5776de
+      type: query
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/dashboard/sa-sp3-analysis?rkap_id=b6f5c5fb-da8a-4d9c-9e71-590aed5776de"
+      method: GET
+      params:
+        - name: rkap_id
+          value: b6f5c5fb-da8a-4d9c-9e71-590aed5776de
+          type: query
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 02 Apr 2024 04:15:28 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "118ms",
+              "status": "success",
+              "code": "",
+              "message": "Get SA and SP3 Analysis succeed",
+              "data": {
+                  "invoice_accumulation": [
+                      {
+                          "label": "Jan-2024",
+                          "value": "0.00"
+                      },
+                      {
+                          "label": "Feb-2024",
+                          "value": "150000000.00"
+                      },
+                      {
+                          "label": "Mar-2024",
+                          "value": "1432284273.00"
+                      },
+                      {
+                          "label": "Apr-2024",
+                          "value": "1432284273.00"
+                      },
+                      {
+                          "label": "May-2024",
+                          "value": "1432284273.00"
+                      },
+                      {
+                          "label": "Jun-2024",
+                          "value": "1432284273.00"
+                      },
+                      {
+                          "label": "Jul-2024",
+                          "value": "1432284273.00"
+                      },
+                      {
+                          "label": "Aug-2024",
+                          "value": "1432284273.00"
+                      },
+                      {
+                          "label": "Sep-2024",
+                          "value": "1432284273.00"
+                      },
+                      {
+                          "label": "Oct-2024",
+                          "value": "1432284273.00"
+                      },
+                      {
+                          "label": "Nov-2024",
+                          "value": "1432284273.00"
+                      },
+                      {
+                          "label": "Dec-2024",
+                          "value": "1432284273.00"
+                      }
+                  ],
+                  "project_actual_cost_accumulation": [
+                      {
+                          "label": "Jan-2024",
+                          "value": "106865000.00"
+                      },
+                      {
+                          "label": "Feb-2024",
+                          "value": "6260569297.33"
+                      },
+                      {
+                          "label": "Mar-2024",
+                          "value": "6943019849.12"
+                      },
+                      {
+                          "label": "Apr-2024",
+                          "value": "6943019849.12"
+                      },
+                      {
+                          "label": "May-2024",
+                          "value": "6943019849.12"
+                      },
+                      {
+                          "label": "Jun-2024",
+                          "value": "6943019849.12"
+                      },
+                      {
+                          "label": "Jul-2024",
+                          "value": "6943019849.12"
+                      },
+                      {
+                          "label": "Aug-2024",
+                          "value": "6943019849.12"
+                      },
+                      {
+                          "label": "Sep-2024",
+                          "value": "6943019849.12"
+                      },
+                      {
+                          "label": "Oct-2024",
+                          "value": "6943019849.12"
+                      },
+                      {
+                          "label": "Nov-2024",
+                          "value": "6943019849.12"
+                      },
+                      {
+                          "label": "Dec-2024",
+                          "value": "6943019849.12"
+                      }
+                  ],
+                  "project_spending_plan_accumulation": [
+                      {
+                          "label": "Jan-2024",
+                          "value": "190020.00"
+                      },
+                      {
+                          "label": "Feb-2024",
+                          "value": "402060.00"
+                      },
+                      {
+                          "label": "Mar-2024",
+                          "value": "720620.00"
+                      },
+                      {
+                          "label": "Apr-2024",
+                          "value": "1120700.00"
+                      },
+                      {
+                          "label": "May-2024",
+                          "value": "1620800.00"
+                      },
+                      {
+                          "label": "Jun-2024",
+                          "value": "2220920.00"
+                      },
+                      {
+                          "label": "Jul-2024",
+                          "value": "2921060.00"
+                      },
+                      {
+                          "label": "Aug-2024",
+                          "value": "3721220.00"
+                      },
+                      {
+                          "label": "Sep-2024",
+                          "value": "4621400.00"
+                      },
+                      {
+                          "label": "Oct-2024",
+                          "value": "5621600.00"
+                      },
+                      {
+                          "label": "Nov-2024",
+                          "value": "6721820.00"
+                      },
+                      {
+                          "label": "Dec-2024",
+                          "value": "7922060.00"
+                      }
+                  ],
+                  "sa_accumulation": [
+                      {
+                          "label": "Jan-2024",
+                          "value": "0.00"
+                      },
+                      {
+                          "label": "Feb-2024",
+                          "value": "100000000.00"
+                      },
+                      {
+                          "label": "Mar-2024",
+                          "value": "100000000.00"
+                      },
+                      {
+                          "label": "Apr-2024",
+                          "value": "100000000.00"
+                      },
+                      {
+                          "label": "May-2024",
+                          "value": "110000074.00"
+                      },
+                      {
+                          "label": "Jun-2024",
+                          "value": "120000174.00"
+                      },
+                      {
+                          "label": "Jul-2024",
+                          "value": "120000174.00"
+                      },
+                      {
+                          "label": "Aug-2024",
+                          "value": "120000174.00"
+                      },
+                      {
+                          "label": "Sep-2024",
+                          "value": "120000174.00"
+                      },
+                      {
+                          "label": "Oct-2024",
+                          "value": "120000174.00"
+                      },
+                      {
+                          "label": "Nov-2024",
+                          "value": "120000174.00"
+                      },
+                      {
+                          "label": "Dec-2024",
+                          "value": "120000174.00"
+                      }
+                  ]
+              }
+          }

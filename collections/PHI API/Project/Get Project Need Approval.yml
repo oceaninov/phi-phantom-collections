@@ -1,0 +1,359 @@
+info:
+  name: Get Project Need Approval
+  type: http
+  seq: 12
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/projects/need-approval?page=1&page_size=10&need_my_approval=true"
+  params:
+    - name: page
+      value: "1"
+      type: query
+    - name: page_size
+      value: "10"
+      type: query
+    - name: status
+      value: on hold
+      type: query
+      description: "for multiple separate by pipe. Example : on hold|draft"
+      disabled: true
+    - name: category
+      value: fasprod|flowline
+      type: query
+      description: "for multiple separate by pipe. Example : fasprod|flowline"
+      disabled: true
+    - name: working_area
+      value: TSS
+      type: query
+      description: "for multiple separate by pipe. Example : PHSS|TSS"
+      disabled: true
+    - name: rkap
+      value: 1abda64c-edb5-4ad8-b9f3-c012a852cab6
+      type: query
+      description: "for multiple separate by pipe. Example : c5f92c74-5094-413f-8839-5499ca2a4a4a|afcde8ed-eb56-4da8-b385-5b7e25828b22"
+      disabled: true
+    - name: field
+      value: 7a4d5e35-059e-4d45-b51a-c93158af508a
+      type: query
+      description: for multiple separate by pipe. Example 7a4d5e35-059e-4d45-b51a-c93158af508a|7a4d5e35-059e-4d45-b51a-c93158af508a
+      disabled: true
+    - name: search
+      value: Tower
+      type: query
+      description: combination project number and description
+      disabled: true
+    - name: need_my_approval
+      value: "true"
+      type: query
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/projects/need-approval?page=1&page_size=10"
+      method: GET
+      params:
+        - name: page
+          value: "1"
+          type: query
+        - name: page_size
+          value: "10"
+          type: query
+        - name: status
+          value: on hold
+          type: query
+          description: "for multiple separate by pipe. Example : on hold|draft"
+          disabled: true
+        - name: category
+          value: fasprod|flowline
+          type: query
+          description: "for multiple separate by pipe. Example : fasprod|flowline"
+          disabled: true
+        - name: working_area
+          value: TSS
+          type: query
+          description: "for multiple separate by pipe. Example : PHSS|TSS"
+          disabled: true
+        - name: rkap
+          value: 1abda64c-edb5-4ad8-b9f3-c012a852cab6
+          type: query
+          description: "for multiple separate by pipe. Example : c5f92c74-5094-413f-8839-5499ca2a4a4a|afcde8ed-eb56-4da8-b385-5b7e25828b22"
+          disabled: true
+        - name: field
+          value: 7a4d5e35-059e-4d45-b51a-c93158af508a
+          type: query
+          description: for multiple separate by pipe. Example 7a4d5e35-059e-4d45-b51a-c93158af508a|7a4d5e35-059e-4d45-b51a-c93158af508a
+          disabled: true
+        - name: search
+          value: Tower
+          type: query
+          description: combination project number and description
+          disabled: true
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 07 Dec 2023 02:45:58 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "384ms",
+              "status": "success",
+              "code": "",
+              "message": "Get projects succeed",
+              "data": {
+                  "list": [
+                      {
+                          "id": "aca06155-9e13-4a5f-b0e0-07932817729b",
+                          "approval_process_id": "41ae8fad-9bca-4f63-b68d-f1ec98dba6e3",
+                          "project_no": "807539",
+                          "description": " Project Dev 1",
+                          "wbs": "WBS998",
+                          "category": "fasprod",
+                          "working_area": [
+                              {
+                                  "id": "a21d28be-f927-49b0-9111-c0d7100e4780",
+                                  "working_area": "PHSS"
+                              }
+                          ],
+                          "field": {
+                              "id": "14fa1c2f-d53c-4062-88c3-4730717bce75",
+                              "name": "Badak"
+                          },
+                          "rk": [
+                              {
+                                  "id": "02482167-c290-4da9-ab05-0f732f1c3d8c",
+                                  "code": "RKAP22"
+                              }
+                          ],
+                          "remarks": "",
+                          "status": "on hold",
+                          "bugdet_forecast": "84785.00",
+                          "zone": "Zona-9",
+                          "start_date": "",
+                          "end_date": "",
+                          "created_at": "06-12-2023 15:03:45",
+                          "created_by": {
+                              "id": "76b2cda5-023b-4d40-880a-beacffa41c1a",
+                              "full_name": "AEka"
+                          },
+                          "updated_at": "07-12-2023 09:02:20",
+                          "updated_by": {
+                              "id": "76b2cda5-023b-4d40-880a-beacffa41c1a",
+                              "full_name": "AEka"
+                          },
+                          "approvers": [
+                              {
+                                  "full_name": "Gustaman",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "Dany Marita Pradana Oldie",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "Indana Rishi",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "Akun FE",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "Apri Ega",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "test add",
+                                  "role_name": "Field Inspector"
+                              },
+                              {
+                                  "full_name": "M Ihsan Satyawan",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "Mulazi",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "Tofan QA ",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "ae editing",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "test2",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "Super Admin",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "Indana Rishi",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "Agung NH",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "Diyank Shabira",
+                                  "role_name": "Field Inspector"
+                              },
+                              {
+                                  "full_name": "Dany M Pradana",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "AEka",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "Fia",
+                                  "role_name": "Field Inspector"
+                              },
+                              {
+                                  "full_name": "jhon dhoe",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "Rinaldy",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "Test Yopmail",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "Alifia Astari",
+                                  "role_name": "Field Inspector"
+                              },
+                              {
+                                  "full_name": "Testing User",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "Nadhifa Sofia",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "Aeeee",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "Indra Lasmana",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "Project approver level 1",
+                                  "role_name": "Team Lead Project Planning"
+                              },
+                              {
+                                  "full_name": "User diyank",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "testing",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "useruseruser",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "diyank",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "UI/UX",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "Lisa",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "Yudhi Pratama",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "Pia",
+                                  "role_name": "Field Inspector"
+                              },
+                              {
+                                  "full_name": "AE",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "Deva",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "Fia PHI",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "Nur Rofiqoh Arini",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "Lisa PHI",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "Tofan QA Akses ",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "Android User",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "IOS User",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "Budi Satiawan",
+                                  "role_name": "Team Lead Project Planning"
+                              },
+                              {
+                                  "full_name": "M. Ivan S",
+                                  "role_name": "Team Lead Project Planning"
+                              },
+                              {
+                                  "full_name": "Field Inspector AE",
+                                  "role_name": "Field Inspector"
+                              },
+                              {
+                                  "full_name": "Daleva R",
+                                  "role_name": "Super Admin"
+                              },
+                              {
+                                  "full_name": "QA Field Inspector",
+                                  "role_name": "Field Inspector"
+                              }
+                          ]
+                      }
+                  ],
+                  "count": 1
+              }
+          }

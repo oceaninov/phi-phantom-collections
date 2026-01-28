@@ -1,0 +1,7 @@
+info:
+  name: Project
+  type: folder
+  seq: 11
+
+request:
+  auth: inherit

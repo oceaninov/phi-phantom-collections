@@ -1,0 +1,71 @@
+info:
+  name: Update Actual Timeline
+  type: http
+  seq: 9
+
+http:
+  method: PUT
+  url: "{{base_url}}/api/v1/tenders/actual-timeline/:ID"
+  params:
+    - name: ID
+      value: de58134c-f552-407c-a120-b5fb2f82f2bd
+      type: path
+      description: Actual Timeline ID
+  body:
+    type: json
+    data: |-
+      {
+          "tender_id": "589ce16f-93b1-4fba-a2c5-57e942689f3e",
+          "tender_process_snapshot_id": "b41567cf-88e9-4e3e-8f01-9edf5e6c6e7f",
+          "actual_start_date": "12-08-2024",
+          "actual_end_date": "25-08-2024",
+          "remarks": "Update Submit"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Success
+    request:
+      url: "{{base_url}}/api/v1/tenders/actual-timeline/:ID"
+      method: PUT
+      params:
+        - name: ID
+          value: f7b02bc3-2910-4161-864d-d876ef0d1bde
+          type: path
+          description: Actual Timeline ID
+      body:
+        type: json
+        data: |-
+          {
+              "tender_id": "f595f51a-4a14-4426-bf9a-1cedc1f44e42",
+              "tender_process_snapshot_id": "7a0b8e95-5834-4a20-8c74-885914c0760a",
+              "actual_start_date": "28-01-2024",
+              "actual_end_date": "30-01-2024",
+              "remarks": "test 1"
+          }
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 29 Jan 2024 08:07:08 GMT
+        - name: Content-Length
+          value: "99"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "47978ms",
+              "status": "success",
+              "code": "",
+              "message": "Update actual timeline succeed"
+          }

@@ -1,0 +1,542 @@
+info:
+  name: Create SPK
+  type: http
+  seq: 5
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/spks"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"contract_id\": \"2beb3f42-beb7-4a7e-81dc-96ddc8ba27fc\",\r
+
+      \    \"ro_no\": [],\r
+
+      \    \"spk_title\": \"test\",\r
+
+      \    \"start_date\": \"17-04-2024\",\r
+
+      \    \"end_date\": \"19-04-2024\",\r
+
+      \    \"remark\": \"test approvers\",\r
+
+      \    \"user_field_inspectors\": [\r
+
+      \    {\r
+
+      \            \"full_name\": \"Mumnu Manaa\",\r
+
+      \            \"email\": \"aman@yaohoo.com\",\r
+
+      \            \"id\": \"sdfa\",\r
+
+      \            \"status\": \"active\"\r
+
+      \        }\r
+
+      \    ],\r
+
+      \    \"cost_allocations\": [],\r
+
+      \    \"additional_info\": {\r
+
+      \        \"pekerjaan\": \"\",\r
+
+      \        \"masa_pemeliharaan\": \"Sesuai ketentuan dalam kontrak\",\r
+
+      \        \"cost_element\": \"\"\r
+
+      \    },\r
+
+      \    \"approvers\": [\r
+
+      \        {\r
+
+      \            \"level\": 1,\r
+
+      \            \"user_id\": [\r
+
+      \                \"2aac1b78-0e80-449b-a28d-d5025caa3003\",\r
+
+      \                \"1ff35107-ab01-4c3a-a04b-8552a94372eb\"\r
+
+      \            ]\r
+
+      \        },\r
+
+      \        {\r
+
+      \            \"level\": 2,\r
+
+      \            \"user_id\": [\r
+
+      \                \"1ff35107-ab01-4c3a-a04b-8552a94372eb\"\r
+
+      \            ]\r
+
+      \        }\r
+
+      \    ],\r
+
+      \    \"progress_approvers\": [\r
+
+      \        {\r
+
+      \            \"level\": 1,\r
+
+      \            \"user_id\": [\r
+
+      \                \"f618d0ba-e726-494a-8e74-4e2063b2dda2\",\r
+
+      \                \"d17f4006-cb04-4813-b2dc-29b1e9d8d037\"\r
+
+      \            ]\r
+
+      \        },\r
+
+      \        {\r
+
+      \            \"level\": 2,\r
+
+      \            \"user_id\": [\r
+
+      \                \"22b1b889-0a92-4fa1-8a36-1938470d1039\"\r
+
+      \            ]\r
+
+      \        }\r
+
+      \    ],\r
+
+      \    \"project_task_ids\": [\"813a7b2e-5680-4bce-a467-8a1e5dd7b805\"]\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/spks"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"contract_id\": \"c52806d0-c054-4901-b51b-62de243ac718\",\r
+
+          \    \"ro_no\": [\r
+
+          \        \"669669\"\r
+
+          \    ],\r
+
+          \    \"sequence_number\": \"010\",\r
+
+          \    \"spk_title\": \"Test SPK new Approval\",\r
+
+          \    \"start_date\": \"22-04-2024\",\r
+
+          \    \"end_date\": \"22-05-2024\",\r
+
+          \    \"project_task_ids\": [\"239c3d54-8933-4e2f-926e-9cab670d15d1\"],\r
+
+          \    \"remark\": \"Create SPK Test SPK new Approval\",\r
+
+          \    \"user_field_inspectors\": [\"888a5e8a-6fb8-4b31-b279-4c75e69c231d\"],\r
+
+          \    \"additional_info\" : {\r
+
+          \        \"pekerjaan\": \"Piping work for compression\",\r
+
+          \        \"masa_pemeliharaan\": \"Sesuai ketentuan dalam kontrak\",\r
+
+          \        \"cost_element\": \"50053000021\"\r
+
+          \    },\r
+
+          \    \"approvers\": [\r
+
+          \        {\r
+
+          \            \"level\": 1,\r
+
+          \            \"user_id\": [\r
+
+          \                \"bc35b04c-484c-4498-8707-9c410454526c\",\r
+
+          \                \"b1ac6b1c-1727-4cc2-86f2-e4a2140b44cb\"\r
+
+          \            ]\r
+
+          \        },\r
+
+          \        {\r
+
+          \            \"level\": 2,\r
+
+          \            \"user_id\": [\r
+
+          \                \"fa7bd056-a197-4ba1-9096-9922f5f70cac\",\r
+
+          \                \"80946615-9fe5-4e13-9ae0-07d1210b0d52\"\r
+
+          \            ]\r
+
+          \        }\r
+
+          \    ],\r
+
+          \    \"progress_approvers\": [\r
+
+          \        {\r
+
+          \            \"level\": 1,\r
+
+          \            \"user_id\": [\r
+
+          \                \"bc35b04c-484c-4498-8707-9c410454526c\",\r
+
+          \                \"b1ac6b1c-1727-4cc2-86f2-e4a2140b44cb\"\r
+
+          \            ]\r
+
+          \        }\r
+
+          \    ]\r
+
+          }"
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 23 Oct 2023 04:18:14 GMT
+        - name: Content-Length
+          value: "85"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "834ms",
+              "status": "success",
+              "code": "",
+              "message": "Create spk succeed"
+          }
+  - name: success integrated with retina
+    request:
+      url: "{{base_url}}/api/v1/spks"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"contract_id\": \"c52806d0-c054-4901-b51b-62de243ac718\",\r
+
+          \    \"ro_no\": [\r
+
+          \        \"669669\"\r
+
+          \    ],\r
+
+          \    \"sequence_number\": \"010\",\r
+
+          \    \"spk_title\": \"Test SPK new Approval\",\r
+
+          \    \"start_date\": \"22-04-2024\",\r
+
+          \    \"end_date\": \"22-05-2024\",\r
+
+          \    \"project_task_ids\": [\r
+
+          \        \"239c3d54-8933-4e2f-926e-9cab670d15d1\"\r
+
+          \    ],\r
+
+          \    \"remark\": \"Create SPK Test SPK new Approval\",\r
+
+          \    \"user_field_inspectors\": [\r
+
+          \        {\r
+
+          \            \"id\": \"\",\r
+
+          \            \"full_name\": \"\",\r
+
+          \            \"email\": \"\"\r
+
+          \        }\r
+
+          \    ],\r
+
+          \    \"additional_info\": {\r
+
+          \        \"pekerjaan\": \"Piping work for compression\",\r
+
+          \        \"masa_pemeliharaan\": \"Sesuai ketentuan dalam kontrak\",\r
+
+          \        \"cost_element\": \"50053000021\"\r
+
+          \    },\r
+
+          \    \"approvers\": [\r
+
+          \        {\r
+
+          \            \"level\": 1,\r
+
+          \            \"user_id\": [\r
+
+          \                \"bc35b04c-484c-4498-8707-9c410454526c\",\r
+
+          \                \"b1ac6b1c-1727-4cc2-86f2-e4a2140b44cb\"\r
+
+          \            ]\r
+
+          \        },\r
+
+          \        {\r
+
+          \            \"level\": 2,\r
+
+          \            \"user_id\": [\r
+
+          \                \"fa7bd056-a197-4ba1-9096-9922f5f70cac\",\r
+
+          \                \"80946615-9fe5-4e13-9ae0-07d1210b0d52\"\r
+
+          \            ]\r
+
+          \        }\r
+
+          \    ],\r
+
+          \    \"progress_approvers\": [\r
+
+          \        {\r
+
+          \            \"level\": 1,\r
+
+          \            \"user_id\": [\r
+
+          \                \"bc35b04c-484c-4498-8707-9c410454526c\",\r
+
+          \                \"b1ac6b1c-1727-4cc2-86f2-e4a2140b44cb\"\r
+
+          \            ]\r
+
+          \        }\r
+
+          \    ]\r
+
+          }"
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 23 Oct 2023 04:18:14 GMT
+        - name: Content-Length
+          value: "85"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "834ms",
+              "status": "success",
+              "code": "",
+              "message": "Create spk succeed"
+          }
+  - name: failed request validation
+    request:
+      url: "{{base_url}}/api/v1/spks"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"contract_id\": \"2698c5a9-14a9-4050-906c-469d983ce7b5\",\r
+
+          \    \"ro_no\": [\r
+
+          \        \"RO00002\"\r
+
+          \    ],\r
+
+          \    \"spk_title\": \"SPK baru Dany\",\r
+
+          \    \"start_date\": \"13-11-2023\",\r
+
+          \    \"end_date\": \"30-11-2023\",\r
+
+          \    \"project_task_ids\": [\"e37c8b58-d8d7-497e-8cc6-fd97d44ad929\", \"c477c4c0-3141-4c9e-83b0-9a4de2dc05a9\"],\r
+
+          \    \"remark\": \"Create SPK baru Dany\",\r
+
+          \    \"user_field_inspectors\": [\"3e912a94-c505-4794-ae69-aa791364cbc4\"],\r
+
+          \    \"additional_info\" : {\r
+
+          \        \"pekerjaan\": \"Piping work for compression\",\r
+
+          \        \"masa_pemeliharaan\": \"Sesuai ketentuan dalam kontrak\",\r
+
+          \        \"cost_element\": \"50053000021\"\r
+
+          \    }\r
+
+          }"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 16 Nov 2023 07:15:10 GMT
+        - name: Content-Length
+          value: "346"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "12ms",
+              "status": "failed",
+              "code": "17",
+              "message": "SPK Title: cannot be blank.",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "SPK Title: cannot be blank.",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }
+  - name: success with approval route
+    request:
+      url: "{{base_url}}/api/v1/spks"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"contract_id\": \"c52806d0-c054-4901-b51b-62de243ac718\",\r
+
+          \    \"ro_no\": [\r
+
+          \        \"669669\"\r
+
+          \    ],\r
+
+          \    \"spk_title\": \"Test SPK new Approval\",\r
+
+          \    \"start_date\": \"22-04-2024\",\r
+
+          \    \"end_date\": \"22-05-2024\",\r
+
+          \    \"project_task_ids\": [\"239c3d54-8933-4e2f-926e-9cab670d15d1\"],\r
+
+          \    \"remark\": \"Create SPK Test SPK new Approval\",\r
+
+          \    \"user_field_inspectors\": [\"888a5e8a-6fb8-4b31-b279-4c75e69c231d\"],\r
+
+          \    \"additional_info\" : {\r
+
+          \        \"pekerjaan\": \"Piping work for compression\",\r
+
+          \        \"masa_pemeliharaan\": \"Sesuai ketentuan dalam kontrak\",\r
+
+          \        \"cost_element\": \"50053000021\"\r
+
+          \    },\r
+
+          \    \"approvers\": [\r
+
+          \        {\r
+
+          \            \"level\": 1,\r
+
+          \            \"user_id\": [\r
+
+          \                \"bc35b04c-484c-4498-8707-9c410454526c\",\r
+
+          \                \"b1ac6b1c-1727-4cc2-86f2-e4a2140b44cb\"\r
+
+          \            ]\r
+
+          \        },\r
+
+          \        {\r
+
+          \            \"level\": 2,\r
+
+          \            \"user_id\": [\r
+
+          \                \"fa7bd056-a197-4ba1-9096-9922f5f70cac\",\r
+
+          \                \"80946615-9fe5-4e13-9ae0-07d1210b0d52\"\r
+
+          \            ]\r
+
+          \        }\r
+
+          \    ],\r
+
+          \    \"progress_approvers\": [\r
+
+          \        {\r
+
+          \            \"level\": 1,\r
+
+          \            \"user_id\": [\r
+
+          \                \"bc35b04c-484c-4498-8707-9c410454526c\",\r
+
+          \                \"b1ac6b1c-1727-4cc2-86f2-e4a2140b44cb\"\r
+
+          \            ]\r
+
+          \        }\r
+
+          \    ]\r
+
+          }"
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Fri, 22 Mar 2024 03:44:35 GMT
+        - name: Content-Length
+          value: "85"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "303ms",
+              "status": "success",
+              "code": "",
+              "message": "Create spk succeed"
+          }

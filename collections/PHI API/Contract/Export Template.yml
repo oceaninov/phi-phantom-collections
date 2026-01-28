@@ -1,0 +1,17 @@
+info:
+  name: Export Template
+  type: http
+  seq: 22
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/contracts/template"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

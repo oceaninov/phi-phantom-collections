@@ -1,0 +1,135 @@
+info:
+  name: Update Category
+  type: http
+  seq: 2
+
+http:
+  method: PUT
+  url: "{{base_url}}/api/v1/contracts/boqs/categories/49053494-3c7f-40df-bc0e-24c42c6c6324"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"name\": \"Test Update\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/contracts/boqs/categories/49053494-3c7f-40df-bc0e-24c42c6c6324"
+      method: PUT
+      body:
+        type: json
+        data: "{\r
+
+          \    \"name\": \"Test Update\"\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 29 Aug 2023 09:14:11 GMT
+        - name: Content-Length
+          value: "94"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "159ms",
+              "status": "success",
+              "code": "",
+              "message": "Update BOQ Category succeed"
+          }
+  - name: failed request validation
+    request:
+      url: "{{base_url}}/api/v1/contracts/boqs/categories/49053494-3c7f-40df-bc0e-24c42c6c6324"
+      method: PUT
+      body:
+        type: json
+        data: "{\r\n    \"name\": \"\"\r\n}"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 16 Nov 2023 06:29:47 GMT
+        - name: Content-Length
+          value: "335"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "0ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Name: cannot be blank.",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Name: cannot be blank.",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }
+  - name: failed data not found
+    request:
+      url: "{{base_url}}/api/v1/contracts/boqs/categories/49053494-3c7f-40df-bc0e-24c42c6c6325"
+      method: PUT
+      body:
+        type: json
+        data: "{\r
+
+          \    \"name\": \"Test Update\"\r
+
+          }"
+    response:
+      statusText: "404"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 16 Nov 2023 06:30:06 GMT
+        - name: Content-Length
+          value: "320"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "12ms",
+              "status": "failed",
+              "code": "05",
+              "message": "Data not found",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Data not found",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

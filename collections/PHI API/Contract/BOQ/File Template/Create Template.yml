@@ -1,0 +1,26 @@
+info:
+  name: Create Template
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/contracts/boqs/file-templates"
+  body:
+    type: multipart-form
+    data:
+      - name: name
+        type: text
+        value: Template 5
+      - name: file
+        type: file
+        value: []
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

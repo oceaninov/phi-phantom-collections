@@ -1,0 +1,104 @@
+info:
+  name: Update Role
+  type: http
+  seq: 6
+
+http:
+  method: PUT
+  url: "{{base_url}}/api/v1/roles/2"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"name\": \"\",\r
+
+      \    \"description\": \"Team Member Project Planning\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/roles/2"
+      method: PUT
+      body:
+        type: json
+        data: "{\r
+
+          \    \"name\": \"Team Member Project Planning\",\r
+
+          \    \"description\": \"Team Member Project Planning\"\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 03 Aug 2023 03:42:10 GMT
+        - name: Content-Length
+          value: "86"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "479ms",
+              "status": "success",
+              "code": "",
+              "message": "Update role succeed"
+          }
+  - name: failed request validation
+    request:
+      url: "{{base_url}}/api/v1/roles/2"
+      method: PUT
+      body:
+        type: json
+        data: "{\r
+
+          \    \"name\": \"\",\r
+
+          \    \"description\": \"Team Member Project Planning\"\r
+
+          }"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 15 Nov 2023 03:02:09 GMT
+        - name: Content-Length
+          value: "335"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "0ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Name: cannot be blank.",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Name: cannot be blank.",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

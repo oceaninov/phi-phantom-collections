@@ -1,0 +1,83 @@
+info:
+  name: Set Project Reminder Recipients
+  type: http
+  seq: 25
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/projects/reminder"
+  body:
+    type: json
+    data: |-
+      {
+          "period": "weekly",
+          "users": ["f78e9109-dae9-46a3-ab34-4f0fd0e95cec","62bb28a3-88f6-4e84-bd96-7db17eca43ba"]
+      }
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/projects/reminder/users"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 30 Jul 2024 02:39:27 GMT
+        - name: Content-Length
+          value: "228"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "16ms",
+              "status": "success",
+              "code": "",
+              "message": "get users reminder project succeed",
+              "data": [
+                  {
+                      "id": "62bb28a3-88f6-4e84-bd96-7db17eca43ba",
+                      "full_name": "Fadhylah Fil-Ardh",
+                      "status": "",
+                      "email": "ffilardh@gmail.com"
+                  }
+              ]
+          }
+  - name: empty
+    request:
+      url: "{{base_url}}/api/v1/projects/reminder/users"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 30 Jul 2024 02:42:39 GMT
+        - name: Content-Length
+          value: "110"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "18ms",
+              "status": "success",
+              "code": "",
+              "message": "get users reminder project succeed",
+              "data": []
+          }

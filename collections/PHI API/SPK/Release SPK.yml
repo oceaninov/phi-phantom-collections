@@ -1,0 +1,26 @@
+info:
+  name: Release SPK
+  type: http
+  seq: 16
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/spks/release"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"spk_id\": \"129b4386-f811-430e-80cd-97fb3dc905e2\",\r
+
+      \    \"date\": \"22-03-2024\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

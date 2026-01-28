@@ -1,0 +1,112 @@
+info:
+  name: Get All Approval Routes
+  type: http
+  seq: 5
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/approval-routes/all?search=title&status=active&category=project"
+  params:
+    - name: search
+      value: title
+      type: query
+    - name: status
+      value: active
+      type: query
+      description: active/inactive
+    - name: category
+      value: project
+      type: query
+      description: project/contract/spk
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/approval-routes/all?search=title"
+      method: GET
+      params:
+        - name: search
+          value: title
+          type: query
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 19 Mar 2024 02:59:05 GMT
+        - name: Content-Length
+          value: "895"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "14ms",
+              "status": "success",
+              "code": "",
+              "message": "Get approval routes succeed",
+              "data": [
+                  {
+                      "id": "597caca0-c993-4fc0-9cb2-6b23bc96a9c3",
+                      "status": "active",
+                      "title": "Approval route title",
+                      "description": "Approval route description",
+                      "category": "project",
+                      "created_at": "18-03-2024 13:44:21",
+                      "created_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin",
+                          "status": "active"
+                      },
+                      "updated_at": "18-03-2024 15:24:14",
+                      "updated_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin",
+                          "status": "active"
+                      },
+                      "users": [
+                          {
+                              "level": 1,
+                              "users": [
+                                  {
+                                      "id": "bc35b04c-484c-4498-8707-9c410454526c",
+                                      "full_name": "Gustaman",
+                                      "status": "inactive"
+                                  }
+                              ]
+                          },
+                          {
+                              "level": 2,
+                              "users": [
+                                  {
+                                      "id": "fa7bd056-a197-4ba1-9096-9922f5f70cac",
+                                      "full_name": "Dany Marita Pradana Oldie",
+                                      "status": "inactive"
+                                  }
+                              ]
+                          },
+                          {
+                              "level": 3,
+                              "users": [
+                                  {
+                                      "id": "319c22af-4121-4905-8b0a-5701189b170d",
+                                      "full_name": "diyank",
+                                      "status": "inactive"
+                                  }
+                              ]
+                          }
+                      ]
+                  }
+              ]
+          }

@@ -1,0 +1,92 @@
+info:
+  name: Get Unit By ID
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/units/a58be1b6-e2f0-48da-8ab0-4cf26fa48ccd"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: failed data not found
+    request:
+      url: "{{base_url}}/api/v1/units/0ba79278-000a-4af5-92f3-8649f5b589e9"
+      method: GET
+    response:
+      statusText: "404"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 16 Nov 2023 04:07:54 GMT
+        - name: Content-Length
+          value: "320"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "23ms",
+              "status": "failed",
+              "code": "05",
+              "message": "Data not found",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Data not found",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/units/a58be1b6-e2f0-48da-8ab0-4cf26fa48ccd"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 16 Nov 2023 04:08:14 GMT
+        - name: Content-Length
+          value: "402"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "17ms",
+              "status": "success",
+              "code": "",
+              "message": "Get unit succeed",
+              "data": {
+                  "id": "a58be1b6-e2f0-48da-8ab0-4cf26fa48ccd",
+                  "name": "btg",
+                  "is_active": 1,
+                  "created_at": "15-08-2023 14:23:28",
+                  "created_by": {
+                      "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                      "full_name": "Super Admin"
+                  },
+                  "updated_at": "15-08-2023 14:23:28",
+                  "updated_by": {
+                      "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                      "full_name": "Super Admin"
+                  }
+              }
+          }

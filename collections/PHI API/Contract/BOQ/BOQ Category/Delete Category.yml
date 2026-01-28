@@ -1,0 +1,77 @@
+info:
+  name: Delete Category
+  type: http
+  seq: 3
+
+http:
+  method: DELETE
+  url: "{{base_url}}/api/v1/contracts/boqs/categories/bd6ad67c-402e-4a2f-a60d-250f267c9b83"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/contracts/boqs/categories/49053494-3c7f-40df-bc0e-24c42c6c6324"
+      method: DELETE
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 29 Aug 2023 09:16:50 GMT
+        - name: Content-Length
+          value: "94"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "151ms",
+              "status": "success",
+              "code": "",
+              "message": "Delete BOQ Category succeed"
+          }
+  - name: failed data not found
+    request:
+      url: "{{base_url}}/api/v1/contracts/boqs/categories/bd6ad67c-402e-4a2f-a60d-250f267c9b84"
+      method: DELETE
+    response:
+      statusText: "404"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 16 Nov 2023 06:30:31 GMT
+        - name: Content-Length
+          value: "319"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "5ms",
+              "status": "failed",
+              "code": "05",
+              "message": "Data not found",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Data not found",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

@@ -1,0 +1,28 @@
+info:
+  name: Export Bank
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/banks/export"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Success
+    request:
+      url: "{{base_url}}/api/v1/banks/export"
+      method: GET
+    response:
+      statusText: "200"
+      body:
+        type: text
+        data: ""

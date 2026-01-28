@@ -1,0 +1,107 @@
+info:
+  name: Get User List
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/pertamina/users/list"
+  headers:
+    - name: X-Client-ID
+      value: r3lax
+  body:
+    type: json
+    data: |-
+      {
+          "QUERYID": "99",
+          "PARAM": [
+              {
+                  "PARAMNUMBER": 1,
+                  "VALUE": "67",
+                  "TYPE": "STRING"
+              }
+          ]
+      }
+  auth:
+    type: bearer
+    token: eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJWZ1BCMDVobV9EbllROWNYOUJSeldOYkpMWFV0T19KTWtmSjJRdVdfQUVrIn0.eyJleHAiOjE3Mzg3MjUwMDMsImlhdCI6MTczNzUxNTQwMywianRpIjoiMjM2MjcyZDEtOWRiNi00ZDllLTk0ZmQtNmFkNzUwNWVmZTBhIiwiaXNzIjoiaHR0cDovL2ludHJhLnBoaS5wZXJ0YW1pbmEuY29tL3Izb2F1dGgvcmVhbG1zL1IzTEFYIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjQ1Mzk4YjY4LTg0ZGQtNDY2Yy1iYzdjLTEyMTFiOTk2YTkzOSIsInR5cCI6IkJlYXJlciIsImF6cCI6IlIzTEFYIiwic2lkIjoiYTZlYzQzZjctYTA5YS00N2FhLWEwNzktMDdmNmZhNjg0MTYzIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIqIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsImRlZmF1bHQtcm9sZXMtcjNsYXgiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6InIzdGVzdC52aWNlcCIsInByZWZlcnJlZF91c2VybmFtZSI6InIzdGVzdC52aWNlcCIsImdpdmVuX25hbWUiOiJyM3Rlc3QudmljZXAifQ.Zwl4JmLDD8tS_x8pIg526gxLUCMMhsZ7lJh7WpKL1OSCMVfsYNIFbq1UKbd3PkJ9P_3fGUpNSzuBG9vo5v8_3uyUDMjFKOl0hESKK05dn_zPOJVBj85Yrw4oVBEXhbvvF6q5U-ZdhI2f1pjDJO0l_tJxb_jgBJ1LefjYu2set2G5o9dxbskF4tfj-qOCjIoIYhPxoyeQIlOBLwff_9oo4rLTDBM4_6orE154uzwZ3bXBSyrK_pNUfsQzpoJDiPdubPmBJbkuscEoAQvvRB3IfTcbC6I7MUep5wekvZOvHzSGHepJ6euPHHsl-bYxCAZGuwxH9m1gMTMd6etH6YeEqg
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/pertamina/users/list"
+      method: POST
+      headers:
+        - name: X-Client-ID
+          value: r3lax
+      body:
+        type: json
+        data: |-
+          {
+              "QUERYID": "99",
+              "PARAM": [
+                  {
+                      "PARAMNUMBER": 1,
+                      "VALUE": "67",
+                      "TYPE": "STRING"
+                  }
+              ]
+          }
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 22 Jan 2025 03:16:14 GMT
+        - name: Content-Length
+          value: "681"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "919ms",
+              "status": "success",
+              "code": "",
+              "message": "Get user session from pertamina IAM succeed",
+              "data": {
+                  "resultData": [
+                      {
+                          "ROW": {
+                              "@num": "1",
+                              "USERID": "R3TEST.VICEP",
+                              "USERNAME": "",
+                              "EMAIL": "R3TEST.VICEP@PERTAMINA.COM",
+                              "POSID": "100001920",
+                              "POSNAME": "PROGRAMMER",
+                              "LOCGROUP": "REGIONAL 3",
+                              "LOCCATEGORY": "OFFICE",
+                              "SUBFUNGSI": "IT BUSINESS SOLUTIONS",
+                              "FUNGSI": "INFORMATION TECHNOLOGY"
+                          }
+                      },
+                      {
+                          "ROW": {
+                              "@num": "2",
+                              "USERID": "MK.HARI.PRASETYO3",
+                              "USERNAME": "Hari Prasetyo",
+                              "EMAIL": "MK.HARI.PRASETYO3@PERTAMINA.COM",
+                              "POSID": "100058516",
+                              "POSNAME": "LEAD BACK END ENGINEER",
+                              "LOCGROUP": "REGIONAL 3",
+                              "LOCCATEGORY": "OFFICE",
+                              "SUBFUNGSI": "IT BUSINESS SOLUTIONS",
+                              "FUNGSI": "INFORMATION TECHNOLOGY"
+                          }
+                      }
+                  ]
+              }
+          }

@@ -1,0 +1,59 @@
+info:
+  name: Delete Document
+  type: http
+  seq: 6
+
+http:
+  method: DELETE
+  url: "{{base_url}}/api/v1/contracts/:ID/documents/:documentID"
+  params:
+    - name: ID
+      value: 4723091d-8049-43d6-bb9e-9c996fca121e
+      type: path
+      description: Contract ID
+    - name: documentID
+      value: dfe6179e-d4f0-4195-ae59-912dd77441ae
+      type: path
+      description: Document ID
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Success
+    request:
+      url: "{{base_url}}/api/v1/contracts/:ID/documents/:documentID"
+      method: DELETE
+      params:
+        - name: ID
+          value: 4723091d-8049-43d6-bb9e-9c996fca121e
+          type: path
+          description: Contract ID
+        - name: documentID
+          value: dfe6179e-d4f0-4195-ae59-912dd77441ae
+          type: path
+          description: Document ID
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 18 Mar 2024 06:57:26 GMT
+        - name: Content-Length
+          value: "90"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "286ms",
+              "status": "success",
+              "code": "",
+              "message": "Delete document succeed"
+          }

@@ -1,0 +1,1206 @@
+info:
+  name: Get List Projects
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/projects?page_size=10&sort_column=variance&sort_order=ASC&status=in%20progress%7Cfinished&page=1"
+  headers:
+    - name: x-client-id
+      value: r3lax
+  params:
+    - name: category
+      value: fasprod|flowline
+      type: query
+      disabled: true
+    - name: field
+      value: ""
+      type: query
+      description: "for multiple separate by |. Example "
+      disabled: true
+    - name: status
+      value: draft
+      type: query
+      description: "for multiple separate by |. Example "
+      disabled: true
+    - name: working_area
+      value: phss
+      type: query
+      description: "for multiple separate by |. Example "
+      disabled: true
+    - name: search
+      value: air
+      type: query
+      description: Capital matters.
+      disabled: true
+    - name: rkap
+      value: ""
+      type: query
+      description: "ID. for multiple separate by |. Example "
+      disabled: true
+    - name: page_size
+      value: "10"
+      type: query
+    - name: sort_column
+      value: variance
+      type: query
+    - name: sort_order
+      value: ASC
+      type: query
+    - name: status
+      value: in%20progress%7Cfinished
+      type: query
+    - name: page
+      value: "1"
+      type: query
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/projects?page=1&page_size=20"
+      method: GET
+      params:
+        - name: page
+          value: "1"
+          type: query
+        - name: page_size
+          value: "20"
+          type: query
+        - name: sort_column
+          value: created_at
+          type: query
+          description: "Option: created_at, rkap, working_area, status, field"
+          disabled: true
+        - name: sort_order
+          value: ASC
+          type: query
+          description: ASC, DSC
+          disabled: true
+        - name: category
+          value: fasprod|flowline
+          type: query
+          disabled: true
+        - name: field
+          value: ""
+          type: query
+          description: "for multiple separate by |. Example "
+          disabled: true
+        - name: status
+          value: draft
+          type: query
+          description: "for multiple separate by |. Example "
+          disabled: true
+        - name: working_area
+          value: phss
+          type: query
+          description: "for multiple separate by |. Example "
+          disabled: true
+        - name: search
+          value: air
+          type: query
+          description: Capital matters.
+          disabled: true
+        - name: rkap
+          value: ""
+          type: query
+          description: "ID. for multiple separate by |. Example "
+          disabled: true
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 16 Oct 2023 02:20:14 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "531ms",
+              "status": "success",
+              "code": "",
+              "message": "Get projects succeed",
+              "data": {
+                  "list": [
+                      {
+                          "id": "291f25a9-43c7-46e4-bef2-048cfc5c3698",
+                          "project_no": "AST/PK/BDK/2",
+                          "description": "Project Kilang Badak Utara",
+                          "wbs": "MM",
+                          "category": "fasprod",
+                          "working_areas": [],
+                          "field": {
+                              "id": "14fa1c2f-d53c-4062-88c3-4730717bce75",
+                              "name": "Badak",
+                              "is_active": null,
+                              "created_at": "",
+                              "created_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              },
+                              "updated_at": "",
+                              "updated_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              }
+                          },
+                          "rkaps": [
+                              {
+                                  "code": "RKAP34",
+                                  "rkap_id": "b899fe2a-ef26-4ede-9a57-0fe81eef16d0"
+                              }
+                          ],
+                          "remarks": "RK baseline1",
+                          "status": "draft",
+                          "bugdet_forecast": "90000000.00",
+                          "zone": "Zona-9",
+                          "variance": "0.00",
+                          "plan_progress_itd": "0.00",
+                          "actual_progress_itd": "",
+                          "actual_cost_progress_itd": "0.00",
+                          "actual_cost_progress_ytd": "",
+                          "created_at": "04-09-2023 13:26:31",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          },
+                          "updated_at": "19-09-2023 22:17:22",
+                          "updated_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          }
+                      },
+                      {
+                          "id": "4e604a4e-6272-47f3-ac48-7c2f1a9124f5",
+                          "project_no": "AST/PT11/wdddd",
+                          "description": "Project Tower wwww",
+                          "wbs": "MM",
+                          "category": "fasprod",
+                          "working_areas": [],
+                          "field": {
+                              "id": "7a4d5e35-059e-4d45-b51a-c93158af508a",
+                              "name": "Pipa",
+                              "is_active": null,
+                              "created_at": "",
+                              "created_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              },
+                              "updated_at": "",
+                              "updated_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              }
+                          },
+                          "rkaps": [
+                              {
+                                  "code": "RKAP23",
+                                  "rkap_id": "afcde8ed-eb56-4da8-b385-5b7e25828b22"
+                              },
+                              {
+                                  "code": "RKAP24",
+                                  "rkap_id": "c5f92c74-5094-413f-8839-5499ca2a4a4a"
+                              }
+                          ],
+                          "remarks": "RK baseline1",
+                          "status": "draft",
+                          "bugdet_forecast": "90000000.00",
+                          "zone": "zone-9",
+                          "variance": "-0.54",
+                          "plan_progress_itd": "0.54",
+                          "actual_progress_itd": "",
+                          "actual_cost_progress_itd": "0.00",
+                          "actual_cost_progress_ytd": "",
+                          "created_at": "05-09-2023 11:51:35",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          },
+                          "updated_at": "08-09-2023 16:27:13",
+                          "updated_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          }
+                      },
+                      {
+                          "id": "de32f53e-bc07-4324-bd22-675287121282",
+                          "project_no": "AST/PT11/ddd",
+                          "description": "Project Tower csdfwecsdfsdfdsfsdfdfdsfadsfsdfsdfadsfsdfsdfdsfdsfsdfasdfasdfsdfadsfadsfdsfasdfads",
+                          "wbs": "MM",
+                          "category": "fasprod",
+                          "working_areas": [
+                              "TSS",
+                              "PHSS"
+                          ],
+                          "field": {
+                              "id": "7a4d5e35-059e-4d45-b51a-c93158af508a",
+                              "name": "Pipa",
+                              "is_active": null,
+                              "created_at": "",
+                              "created_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              },
+                              "updated_at": "",
+                              "updated_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              }
+                          },
+                          "rkaps": [
+                              {
+                                  "code": "RKAP23",
+                                  "rkap_id": "afcde8ed-eb56-4da8-b385-5b7e25828b22"
+                              },
+                              {
+                                  "code": "RKAP24",
+                                  "rkap_id": "c5f92c74-5094-413f-8839-5499ca2a4a4a"
+                              }
+                          ],
+                          "remarks": "RK baseline1",
+                          "status": "on hold",
+                          "bugdet_forecast": "90000000.00",
+                          "zone": "zone-9",
+                          "variance": "0.00",
+                          "plan_progress_itd": "0.00",
+                          "actual_progress_itd": "",
+                          "actual_cost_progress_itd": "0.00",
+                          "actual_cost_progress_ytd": "",
+                          "created_at": "05-09-2023 11:52:22",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          },
+                          "updated_at": "21-09-2023 15:53:27",
+                          "updated_by": {
+                              "id": "7ae8e931-1628-4562-bf24-1c2cdd2b4cf4",
+                              "full_name": "Dany M Pradana"
+                          }
+                      },
+                      {
+                          "id": "67e931db-779d-4878-84f4-e1f7e6367505",
+                          "project_no": "12312",
+                          "description": "Project Tower Air Sta 1",
+                          "wbs": "MM",
+                          "category": "fasprod",
+                          "working_areas": [
+                              "PHSS",
+                              "SSS"
+                          ],
+                          "field": {
+                              "id": "7a4d5e35-059e-4d45-b51a-c93158af508a",
+                              "name": "Pipa",
+                              "is_active": null,
+                              "created_at": "",
+                              "created_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              },
+                              "updated_at": "",
+                              "updated_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              }
+                          },
+                          "rkaps": [
+                              {
+                                  "code": "RKAP69",
+                                  "rkap_id": "2c6ee92d-5427-4253-b5da-891ed0b6f5fb"
+                              },
+                              {
+                                  "code": "RKAP242222",
+                                  "rkap_id": "d3aa9d73-5656-48ff-a57c-c489c1bce708"
+                              }
+                          ],
+                          "remarks": "RK baseline1",
+                          "status": "in progress",
+                          "bugdet_forecast": "90000000.00",
+                          "zone": "zone-9",
+                          "variance": "0.00",
+                          "plan_progress_itd": "0.00",
+                          "actual_progress_itd": "",
+                          "actual_cost_progress_itd": "0.00",
+                          "actual_cost_progress_ytd": "",
+                          "created_at": "08-09-2023 10:41:10",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          },
+                          "updated_at": "08-09-2023 10:58:24",
+                          "updated_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          }
+                      },
+                      {
+                          "id": "319e5fcd-df9b-4c6d-b21e-3ac88a14eab6",
+                          "project_no": "123456",
+                          "description": "Project Tower Air Sta 2",
+                          "wbs": "MM",
+                          "category": "fasprod",
+                          "working_areas": [
+                              "PHSS",
+                              "TSS"
+                          ],
+                          "field": {
+                              "id": "7a4d5e35-059e-4d45-b51a-c93158af508a",
+                              "name": "Pipa",
+                              "is_active": null,
+                              "created_at": "",
+                              "created_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              },
+                              "updated_at": "",
+                              "updated_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              }
+                          },
+                          "rkaps": [
+                              {
+                                  "code": "RKAP242222",
+                                  "rkap_id": "d3aa9d73-5656-48ff-a57c-c489c1bce708"
+                              }
+                          ],
+                          "remarks": "RK baseline1",
+                          "status": "finished",
+                          "bugdet_forecast": "90000000.00",
+                          "zone": "zone-9",
+                          "variance": "0.00",
+                          "plan_progress_itd": "0.00",
+                          "actual_progress_itd": "",
+                          "actual_cost_progress_itd": "0.00",
+                          "actual_cost_progress_ytd": "",
+                          "created_at": "08-09-2023 11:00:47",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          },
+                          "updated_at": "08-09-2023 11:00:47",
+                          "updated_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          }
+                      },
+                      {
+                          "id": "e3c9fe17-5801-4a1e-8c5d-da232f5cd9a1",
+                          "project_no": "12312",
+                          "description": "Project Tower Air Sta 1",
+                          "wbs": "MM",
+                          "category": "fasprod",
+                          "working_areas": [
+                              "PHSS",
+                              "SSS"
+                          ],
+                          "field": {
+                              "id": "7a4d5e35-059e-4d45-b51a-c93158af508a",
+                              "name": "Pipa",
+                              "is_active": null,
+                              "created_at": "",
+                              "created_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              },
+                              "updated_at": "",
+                              "updated_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              }
+                          },
+                          "rkaps": [
+                              {
+                                  "code": "RKAP69",
+                                  "rkap_id": "2c6ee92d-5427-4253-b5da-891ed0b6f5fb"
+                              },
+                              {
+                                  "code": "RKAP242222",
+                                  "rkap_id": "d3aa9d73-5656-48ff-a57c-c489c1bce708"
+                              }
+                          ],
+                          "remarks": "RK baseline1",
+                          "status": "in progress",
+                          "bugdet_forecast": "90000000.00",
+                          "zone": "zone-9",
+                          "variance": "0.00",
+                          "plan_progress_itd": "0.00",
+                          "actual_progress_itd": "",
+                          "actual_cost_progress_itd": "0.00",
+                          "actual_cost_progress_ytd": "",
+                          "created_at": "11-09-2023 08:59:44",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          },
+                          "updated_at": "11-09-2023 13:37:26",
+                          "updated_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          }
+                      },
+                      {
+                          "id": "cf564f9b-9ce4-49e3-ba6f-61ee44b0c872",
+                          "project_no": "123456",
+                          "description": "Project Tower Air Sta 2",
+                          "wbs": "MM",
+                          "category": "fasprod",
+                          "working_areas": [
+                              "PHSS",
+                              "TSS"
+                          ],
+                          "field": {
+                              "id": "7a4d5e35-059e-4d45-b51a-c93158af508a",
+                              "name": "Pipa",
+                              "is_active": null,
+                              "created_at": "",
+                              "created_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              },
+                              "updated_at": "",
+                              "updated_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              }
+                          },
+                          "rkaps": [
+                              {
+                                  "code": "RKAP242222",
+                                  "rkap_id": "d3aa9d73-5656-48ff-a57c-c489c1bce708"
+                              }
+                          ],
+                          "remarks": "RK baseline1",
+                          "status": "in progress",
+                          "bugdet_forecast": "90000000.00",
+                          "zone": "zone-9",
+                          "variance": "0.00",
+                          "plan_progress_itd": "0.00",
+                          "actual_progress_itd": "",
+                          "actual_cost_progress_itd": "0.00",
+                          "actual_cost_progress_ytd": "",
+                          "created_at": "11-09-2023 10:58:14",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          },
+                          "updated_at": "11-09-2023 10:58:14",
+                          "updated_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          }
+                      },
+                      {
+                          "id": "91e90d18-c0d1-425b-82ec-16b1f936287a",
+                          "project_no": "1234576",
+                          "description": "Project Tower Air Sta 27",
+                          "wbs": "",
+                          "category": "fasprod",
+                          "working_areas": [],
+                          "field": {
+                              "id": "14fa1c2f-d53c-4062-88c3-4730717bce75",
+                              "name": "Badak",
+                              "is_active": null,
+                              "created_at": "",
+                              "created_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              },
+                              "updated_at": "",
+                              "updated_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              }
+                          },
+                          "rkaps": null,
+                          "remarks": "",
+                          "status": "draft",
+                          "bugdet_forecast": "0.00",
+                          "zone": "",
+                          "variance": "0.00",
+                          "plan_progress_itd": "0.00",
+                          "actual_progress_itd": "",
+                          "actual_cost_progress_itd": "0.00",
+                          "actual_cost_progress_ytd": "",
+                          "created_at": "12-09-2023 15:52:12",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          },
+                          "updated_at": "12-09-2023 15:52:12",
+                          "updated_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          }
+                      },
+                      {
+                          "id": "392cf8c3-2e3f-4a13-832f-f624ccf6aede",
+                          "project_no": "1",
+                          "description": "Project Tower Air Sta 27233",
+                          "wbs": "",
+                          "category": "fasprod",
+                          "working_areas": [],
+                          "field": {
+                              "id": "cf148bb1-1e97-4178-9a21-d4345a19925c",
+                              "name": "Mutiara",
+                              "is_active": null,
+                              "created_at": "",
+                              "created_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              },
+                              "updated_at": "",
+                              "updated_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              }
+                          },
+                          "rkaps": null,
+                          "remarks": "",
+                          "status": "draft",
+                          "bugdet_forecast": "0.00",
+                          "zone": "",
+                          "variance": "-68.19",
+                          "plan_progress_itd": "68.19",
+                          "actual_progress_itd": "",
+                          "actual_cost_progress_itd": "0.00",
+                          "actual_cost_progress_ytd": "",
+                          "created_at": "12-09-2023 16:01:54",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          },
+                          "updated_at": "12-09-2023 16:01:54",
+                          "updated_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          }
+                      },
+                      {
+                          "id": "3e1d9eeb-6e27-4d9e-8e5c-c28ae48ac7a3",
+                          "project_no": "901130",
+                          "description": "Project Uji Coba",
+                          "wbs": "",
+                          "category": "fasprod",
+                          "working_areas": [],
+                          "field": {
+                              "id": "7a4d5e35-059e-4d45-b51a-c93158af508a",
+                              "name": "Pipa",
+                              "is_active": null,
+                              "created_at": "",
+                              "created_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              },
+                              "updated_at": "",
+                              "updated_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              }
+                          },
+                          "rkaps": [
+                              {
+                                  "code": "RKAP69",
+                                  "rkap_id": "2c6ee92d-5427-4253-b5da-891ed0b6f5fb"
+                              },
+                              {
+                                  "code": "RKAP242222",
+                                  "rkap_id": "d3aa9d73-5656-48ff-a57c-c489c1bce708"
+                              }
+                          ],
+                          "remarks": "",
+                          "status": "draft",
+                          "bugdet_forecast": "0.00",
+                          "zone": "zone-9",
+                          "variance": "-1.63",
+                          "plan_progress_itd": "1.63",
+                          "actual_progress_itd": "",
+                          "actual_cost_progress_itd": "0.00",
+                          "actual_cost_progress_ytd": "",
+                          "created_at": "19-09-2023 16:54:17",
+                          "created_by": {
+                              "id": "b279b3e0-0dea-40a0-96c4-97f5b0e49d8a",
+                              "full_name": "Indra Lasmana"
+                          },
+                          "updated_at": "19-09-2023 16:54:17",
+                          "updated_by": {
+                              "id": "b279b3e0-0dea-40a0-96c4-97f5b0e49d8a",
+                              "full_name": "Indra Lasmana"
+                          }
+                      },
+                      {
+                          "id": "33d46a88-164a-406a-8394-b745883fb1a0",
+                          "project_no": "901131",
+                          "description": "Project Uji Coba 2",
+                          "wbs": "MM",
+                          "category": "fasprod",
+                          "working_areas": [
+                              "PHSS"
+                          ],
+                          "field": {
+                              "id": "cf148bb1-1e97-4178-9a21-d4345a19925c",
+                              "name": "Mutiara",
+                              "is_active": null,
+                              "created_at": "",
+                              "created_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              },
+                              "updated_at": "",
+                              "updated_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              }
+                          },
+                          "rkaps": [
+                              {
+                                  "code": "RKAP69",
+                                  "rkap_id": "2c6ee92d-5427-4253-b5da-891ed0b6f5fb"
+                              },
+                              {
+                                  "code": "RKAP242222",
+                                  "rkap_id": "d3aa9d73-5656-48ff-a57c-c489c1bce708"
+                              }
+                          ],
+                          "remarks": "RK baseline1",
+                          "status": "draft",
+                          "bugdet_forecast": "90000000.00",
+                          "zone": "zone-9",
+                          "variance": "0.00",
+                          "plan_progress_itd": "0.00",
+                          "actual_progress_itd": "",
+                          "actual_cost_progress_itd": "0.00",
+                          "actual_cost_progress_ytd": "",
+                          "created_at": "19-09-2023 16:56:10",
+                          "created_by": {
+                              "id": "b279b3e0-0dea-40a0-96c4-97f5b0e49d8a",
+                              "full_name": "Indra Lasmana"
+                          },
+                          "updated_at": "19-09-2023 16:56:10",
+                          "updated_by": {
+                              "id": "b279b3e0-0dea-40a0-96c4-97f5b0e49d8a",
+                              "full_name": "Indra Lasmana"
+                          }
+                      },
+                      {
+                          "id": "29f5e294-5f97-45c3-8380-cb1b40c95639",
+                          "project_no": "AST/PK/BDK/3",
+                          "description": "Project Kilang Badak",
+                          "wbs": "MM",
+                          "category": "fasprod",
+                          "working_areas": [
+                              "phss"
+                          ],
+                          "field": {
+                              "id": "14fa1c2f-d53c-4062-88c3-4730717bce75",
+                              "name": "Badak",
+                              "is_active": null,
+                              "created_at": "",
+                              "created_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              },
+                              "updated_at": "",
+                              "updated_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              }
+                          },
+                          "rkaps": [
+                              {
+                                  "code": "RKAP34",
+                                  "rkap_id": "b899fe2a-ef26-4ede-9a57-0fe81eef16d0"
+                              }
+                          ],
+                          "remarks": "RK baseline1",
+                          "status": "draft",
+                          "bugdet_forecast": "90000000.00",
+                          "zone": "",
+                          "variance": "0.00",
+                          "plan_progress_itd": "0.00",
+                          "actual_progress_itd": "",
+                          "actual_cost_progress_itd": "0.00",
+                          "actual_cost_progress_ytd": "",
+                          "created_at": "19-09-2023 22:04:04",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          },
+                          "updated_at": "19-09-2023 22:04:04",
+                          "updated_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          }
+                      },
+                      {
+                          "id": "3c879f82-585b-457e-8dd3-998379647dae",
+                          "project_no": "AST/PT11/2",
+                          "description": "Project Kilang Badak",
+                          "wbs": "MM",
+                          "category": "fasprod",
+                          "working_areas": [],
+                          "field": {
+                              "id": "14fa1c2f-d53c-4062-88c3-4730717bce75",
+                              "name": "Badak",
+                              "is_active": null,
+                              "created_at": "",
+                              "created_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              },
+                              "updated_at": "",
+                              "updated_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              }
+                          },
+                          "rkaps": null,
+                          "remarks": "RK baseline1",
+                          "status": "draft",
+                          "bugdet_forecast": "90000000.00",
+                          "zone": "",
+                          "variance": "-100.00",
+                          "plan_progress_itd": "100.00",
+                          "actual_progress_itd": "",
+                          "actual_cost_progress_itd": "0.00",
+                          "actual_cost_progress_ytd": "",
+                          "created_at": "20-09-2023 05:01:37",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          },
+                          "updated_at": "20-09-2023 05:01:37",
+                          "updated_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          }
+                      },
+                      {
+                          "id": "8d2827fd-4675-4d81-83ec-79ca47a70a1e",
+                          "project_no": "",
+                          "description": "Desc",
+                          "wbs": "",
+                          "category": "fasprod",
+                          "working_areas": [],
+                          "field": {
+                              "id": "cf148bb1-1e97-4178-9a21-d4345a19925c",
+                              "name": "Mutiara",
+                              "is_active": null,
+                              "created_at": "",
+                              "created_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              },
+                              "updated_at": "",
+                              "updated_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              }
+                          },
+                          "rkaps": null,
+                          "remarks": "",
+                          "status": "draft",
+                          "bugdet_forecast": "10000.50",
+                          "zone": "",
+                          "variance": "0.00",
+                          "plan_progress_itd": "0.00",
+                          "actual_progress_itd": "",
+                          "actual_cost_progress_itd": "0.00",
+                          "actual_cost_progress_ytd": "",
+                          "created_at": "20-09-2023 09:31:38",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          },
+                          "updated_at": "20-09-2023 09:31:38",
+                          "updated_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          }
+                      },
+                      {
+                          "id": "68056a8f-b387-45be-a79f-eb5501904621",
+                          "project_no": "",
+                          "description": "Ini description coba 20 sEPTEMBER",
+                          "wbs": "",
+                          "category": "fasprod",
+                          "working_areas": [],
+                          "field": {
+                              "id": "",
+                              "name": "",
+                              "is_active": null,
+                              "created_at": "",
+                              "created_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              },
+                              "updated_at": "",
+                              "updated_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              }
+                          },
+                          "rkaps": null,
+                          "remarks": "",
+                          "status": "draft",
+                          "bugdet_forecast": "0.00",
+                          "zone": "",
+                          "variance": "-89.28",
+                          "plan_progress_itd": "89.28",
+                          "actual_progress_itd": "",
+                          "actual_cost_progress_itd": "0.00",
+                          "actual_cost_progress_ytd": "",
+                          "created_at": "20-09-2023 09:48:15",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          },
+                          "updated_at": "20-09-2023 09:48:15",
+                          "updated_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          }
+                      },
+                      {
+                          "id": "ca1a46fc-bb3d-4f2b-b6f5-e0c024acb243",
+                          "project_no": "",
+                          "description": "Desccccccc",
+                          "wbs": "",
+                          "category": "flowline",
+                          "working_areas": [],
+                          "field": {
+                              "id": "",
+                              "name": "",
+                              "is_active": null,
+                              "created_at": "",
+                              "created_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              },
+                              "updated_at": "",
+                              "updated_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              }
+                          },
+                          "rkaps": null,
+                          "remarks": "",
+                          "status": "draft",
+                          "bugdet_forecast": "0.00",
+                          "zone": "",
+                          "variance": "0.00",
+                          "plan_progress_itd": "0.00",
+                          "actual_progress_itd": "",
+                          "actual_cost_progress_itd": "0.00",
+                          "actual_cost_progress_ytd": "",
+                          "created_at": "20-09-2023 09:59:23",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          },
+                          "updated_at": "20-09-2023 09:59:23",
+                          "updated_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          }
+                      },
+                      {
+                          "id": "603ae730-17e6-4c48-ab75-5602d021ed76",
+                          "project_no": "Z123",
+                          "description": "Testing 123",
+                          "wbs": "yy",
+                          "category": "flowline",
+                          "working_areas": [
+                              "PHSS"
+                          ],
+                          "field": {
+                              "id": "1f2495d8-f76e-4268-b9c5-09753709fc4f",
+                              "name": "Sangatta",
+                              "is_active": null,
+                              "created_at": "",
+                              "created_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              },
+                              "updated_at": "",
+                              "updated_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              }
+                          },
+                          "rkaps": [
+                              {
+                                  "code": "RKAP13",
+                                  "rkap_id": "25e4acaf-67e6-42ff-addb-9ec467a38844"
+                              },
+                              {
+                                  "code": "RKAP34",
+                                  "rkap_id": "b899fe2a-ef26-4ede-9a57-0fe81eef16d0"
+                              }
+                          ],
+                          "remarks": "testing",
+                          "status": "draft",
+                          "bugdet_forecast": "150000.00",
+                          "zone": "",
+                          "variance": "0.00",
+                          "plan_progress_itd": "0.00",
+                          "actual_progress_itd": "",
+                          "actual_cost_progress_itd": "0.00",
+                          "actual_cost_progress_ytd": "",
+                          "created_at": "20-09-2023 16:50:51",
+                          "created_by": {
+                              "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                              "full_name": "Diyank Shabira"
+                          },
+                          "updated_at": "20-09-2023 16:50:51",
+                          "updated_by": {
+                              "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                              "full_name": "Diyank Shabira"
+                          }
+                      },
+                      {
+                          "id": "54811d15-4a53-41cb-8e8b-bb5a397b7dd5",
+                          "project_no": "",
+                          "description": "test save draft",
+                          "wbs": "",
+                          "category": "flowline",
+                          "working_areas": [],
+                          "field": {
+                              "id": "",
+                              "name": "",
+                              "is_active": null,
+                              "created_at": "",
+                              "created_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              },
+                              "updated_at": "",
+                              "updated_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              }
+                          },
+                          "rkaps": null,
+                          "remarks": "",
+                          "status": "draft",
+                          "bugdet_forecast": "0.00",
+                          "zone": "",
+                          "variance": "-100.00",
+                          "plan_progress_itd": "100.00",
+                          "actual_progress_itd": "",
+                          "actual_cost_progress_itd": "0.00",
+                          "actual_cost_progress_ytd": "",
+                          "created_at": "21-09-2023 11:31:26",
+                          "created_by": {
+                              "id": "3ca57a34-3bdc-4f15-b519-8cce593a89a8",
+                              "full_name": "UI/UX"
+                          },
+                          "updated_at": "21-09-2023 11:31:26",
+                          "updated_by": {
+                              "id": "3ca57a34-3bdc-4f15-b519-8cce593a89a8",
+                              "full_name": "UI/UX"
+                          }
+                      },
+                      {
+                          "id": "180fee0d-2613-436c-a87e-d167ba5c0335",
+                          "project_no": "AST/PK/BDK/1",
+                          "description": "Project Kilang Badak Utara Selatan",
+                          "wbs": "MM",
+                          "category": "fasprod",
+                          "working_areas": [
+                              "PHSS"
+                          ],
+                          "field": {
+                              "id": "14fa1c2f-d53c-4062-88c3-4730717bce75",
+                              "name": "Badak",
+                              "is_active": null,
+                              "created_at": "",
+                              "created_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              },
+                              "updated_at": "",
+                              "updated_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              }
+                          },
+                          "rkaps": [
+                              {
+                                  "code": "RKAP34",
+                                  "rkap_id": "b899fe2a-ef26-4ede-9a57-0fe81eef16d0"
+                              }
+                          ],
+                          "remarks": "RK baseline1",
+                          "status": "draft",
+                          "bugdet_forecast": "90000000.00",
+                          "zone": "Zona-9",
+                          "variance": "0.00",
+                          "plan_progress_itd": "0.00",
+                          "actual_progress_itd": "",
+                          "actual_cost_progress_itd": "0.00",
+                          "actual_cost_progress_ytd": "",
+                          "created_at": "22-09-2023 10:28:07",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          },
+                          "updated_at": "22-09-2023 10:28:07",
+                          "updated_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          }
+                      },
+                      {
+                          "id": "7c8d7bec-0aee-47aa-9edd-251cee3aee97",
+                          "project_no": "AST/PK/BDK/5",
+                          "description": "Project Kilang Badak Utara Barat",
+                          "wbs": "MM",
+                          "category": "fasprod",
+                          "working_areas": [
+                              "PHSS"
+                          ],
+                          "field": {
+                              "id": "14fa1c2f-d53c-4062-88c3-4730717bce75",
+                              "name": "Badak",
+                              "is_active": null,
+                              "created_at": "",
+                              "created_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              },
+                              "updated_at": "",
+                              "updated_by": {
+                                  "id": "",
+                                  "full_name": ""
+                              }
+                          },
+                          "rkaps": [
+                              {
+                                  "code": "RKAP34",
+                                  "rkap_id": "b899fe2a-ef26-4ede-9a57-0fe81eef16d0"
+                              }
+                          ],
+                          "remarks": "",
+                          "status": "draft",
+                          "bugdet_forecast": "0.00",
+                          "zone": "Zona-9",
+                          "variance": "0.00",
+                          "plan_progress_itd": "0.00",
+                          "actual_progress_itd": "",
+                          "actual_cost_progress_itd": "0.00",
+                          "actual_cost_progress_ytd": "",
+                          "created_at": "22-09-2023 10:28:34",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          },
+                          "updated_at": "22-09-2023 10:28:34",
+                          "updated_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          }
+                      }
+                  ],
+                  "count": 54
+              }
+          }
+  - name: failed
+    request:
+      url: "{{base_url}}/api/v1/projects?page_size=10&sort_column=variance&sort_order=ASCX"
+      method: GET
+      params:
+        - name: category
+          value: fasprod|flowline
+          type: query
+          disabled: true
+        - name: field
+          value: ""
+          type: query
+          description: "for multiple separate by |. Example "
+          disabled: true
+        - name: status
+          value: draft
+          type: query
+          description: "for multiple separate by |. Example "
+          disabled: true
+        - name: working_area
+          value: phss
+          type: query
+          description: "for multiple separate by |. Example "
+          disabled: true
+        - name: search
+          value: air
+          type: query
+          description: Capital matters.
+          disabled: true
+        - name: rkap
+          value: ""
+          type: query
+          description: "ID. for multiple separate by |. Example "
+          disabled: true
+        - name: page_size
+          value: "10"
+          type: query
+        - name: sort_column
+          value: variance
+          type: query
+        - name: sort_order
+          value: ASCX
+          type: query
+        - name: status
+          value: in%20progress%7Cfinished
+          type: query
+          disabled: true
+        - name: page
+          value: "1"
+          type: query
+          disabled: true
+    response:
+      statusText: "400"
+      body:
+        type: text
+        data: "{\r
+
+          \    \"process_time\": \"0ms\",\r
+
+          \    \"status\": \"failed\",\r
+
+          \    \"code\": \"17\",\r
+
+          \    \"message\": \"Sort Order: must be a valid value.\",\r
+
+          \    \"error_data\": {\r
+
+          \        \"title\": \"Failed\",\r
+
+          \        \"description\": \"Sort Order: must be a valid value.\",\r
+
+          \        \"icon\": \"https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png\",\r
+
+          \        \"primary_text\": \"OK\",\r
+
+          \        \"secondary_text\": \"\",\r
+
+          \        \"primary_link\": \"\",\r
+
+          \        \"secondary_link\": \"\",\r
+
+          \        \"dismissed_link\": \"\"\r
+
+          \    }\r
+
+          }"

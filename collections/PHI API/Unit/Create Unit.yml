@@ -1,0 +1,104 @@
+info:
+  name: Create Unit
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/units"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"name\" : \"Galon\",\r
+
+      \    \"is_active\": 1\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/units"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"name\" : \"Galon\",\r
+
+          \    \"is_active\": 1\r
+
+          }"
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 16 Nov 2023 04:19:02 GMT
+        - name: Content-Length
+          value: "85"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "50ms",
+              "status": "success",
+              "code": "",
+              "message": "Create unit succeed"
+          }
+  - name: failed request validation
+    request:
+      url: "{{base_url}}/api/v1/units"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"name\" : \"\",\r
+
+          \    \"is_active\": 1\r
+
+          }"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 16 Nov 2023 04:19:19 GMT
+        - name: Content-Length
+          value: "335"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "0ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Name: cannot be blank.",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Name: cannot be blank.",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

@@ -1,0 +1,71 @@
+info:
+  name: Upload Document
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/projects/:ID/documents"
+  params:
+    - name: ID
+      value: 20d18de3-ccf7-43f3-88ed-2c95bb7fe32d
+      type: path
+      description: Project ID
+  body:
+    type: multipart-form
+    data:
+      - name: file
+        type: file
+        value:
+          - /home/zombozo12/Downloads/test.xlsx
+      - name: description
+        type: text
+        value: test
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Success
+    request:
+      url: "{{base_url}}/api/v1/projects/:ID/documents"
+      method: POST
+      params:
+        - name: ID
+          value: 20d18de3-ccf7-43f3-88ed-2c95bb7fe32d
+          type: path
+          description: Project ID
+      body:
+        type: multipart-form
+        data:
+          - name: file
+            type: file
+            value:
+              - /home/zombozo12/Downloads/test.xlsx
+          - name: description
+            type: text
+            value: test
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 18 Mar 2024 07:59:44 GMT
+        - name: Content-Length
+          value: "90"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "516ms",
+              "status": "success",
+              "code": "",
+              "message": "Upload document succeed"
+          }

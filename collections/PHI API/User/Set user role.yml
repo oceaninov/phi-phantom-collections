@@ -1,0 +1,86 @@
+info:
+  name: Set user role
+  type: http
+  seq: 1
+
+http:
+  method: PUT
+  url: "{{base_url}}/api/v1/users/a4b047b1-457f-4d7a-911e-94aa908a3136/role"
+  body:
+    type: json
+    data: "{\r\n    \"role_id\": 3\r\n}"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/users/1/role"
+      method: PUT
+      body:
+        type: json
+        data: "{\r\n    \"role_id\": 1\r\n}"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 01 Aug 2023 14:19:27 GMT
+        - name: Content-Length
+          value: "93"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "549ms",
+              "status": "success",
+              "code": "",
+              "message": "Update user's role succeed"
+          }
+  - name: failed user not found
+    request:
+      url: "{{base_url}}/api/v1/users/a4b047b1-457f-4d7a-911e-94aa908a3136/role"
+      method: PUT
+      body:
+        type: json
+        data: "{\r\n    \"role_id\": 3\r\n}"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 15 Nov 2023 03:06:29 GMT
+        - name: Content-Length
+          value: "320"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "13ms",
+              "status": "failed",
+              "code": "17",
+              "message": "User not found",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "User not found",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

@@ -1,0 +1,62 @@
+info:
+  name: Delete SPK
+  type: http
+  seq: 8
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/spks/"
+  body:
+    type: json
+    data: |-
+      {
+          "id": [
+              "7f8784b3-9f3a-4ba0-9e31-f55e9df7077b"
+          ]
+      }
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Success
+    request:
+      url: "{{base_url}}/api/v1/spks/"
+      method: POST
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+              "id": [
+                  "7f8784b3-9f3a-4ba0-9e31-f55e9df7077b"
+              ]
+          }
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Fri, 03 May 2024 11:29:35 GMT
+        - name: Content-Length
+          value: "87"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "12799ms",
+              "status": "success",
+              "code": "",
+              "message": "Delete spk succeed"
+          }

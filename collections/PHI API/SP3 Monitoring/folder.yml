@@ -1,0 +1,7 @@
+info:
+  name: SP3 Monitoring
+  type: folder
+  seq: 20
+
+request:
+  auth: inherit

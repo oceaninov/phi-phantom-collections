@@ -1,0 +1,220 @@
+info:
+  name: Get All
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/tenders?page=1&page_size=25"
+  params:
+    - name: current_status
+      value: Submit GEP|Penunjukan Buyer|PQ
+      type: query
+      description: Plain text of category description
+      disabled: true
+    - name: working_area
+      value: PHSS
+      type: query
+      description: PHSS|TSS
+      disabled: true
+    - name: category
+      value: default|joint contract|joint tender
+      type: query
+      description: default|joint contract|joint tender
+      disabled: true
+    - name: committee
+      value: Regional 3
+      type: query
+      description: Zona 9|Regional 3
+      disabled: true
+    - name: type
+      value: jual
+      type: query
+      description: Check Custom Config for Contract Types
+      disabled: true
+    - name: page
+      value: "1"
+      type: query
+    - name: page_size
+      value: "25"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Success
+    request:
+      url: "{{base_url}}/api/v1/tenders"
+      method: GET
+      params:
+        - name: current_status
+          value: Process Category 2
+          type: query
+          description: Plain text of category description
+          disabled: true
+        - name: working_area
+          value: PHSS
+          type: query
+          description: PHSS|TSS
+          disabled: true
+        - name: category
+          value: default|joint contract|joint tender
+          type: query
+          description: default|joint contract|joint tender
+          disabled: true
+        - name: committee
+          value: Regional 3
+          type: query
+          description: Zona 9|Regional 3
+          disabled: true
+        - name: type
+          value: Service
+          type: query
+          description: Working|Service
+          disabled: true
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 12 Mar 2024 03:24:02 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "42ms",
+              "status": "success",
+              "code": "",
+              "message": "Get tender succeed",
+              "data": {
+                  "list": [
+                      {
+                          "id": "759bb164-ddf7-414b-a322-c544e583a6ba",
+                          "pic_legal": "Diyank",
+                          "category": "joint contract",
+                          "total_tender_value": "80000000000.00",
+                          "buyer": "Buyer 2",
+                          "committee": "Regional 3",
+                          "current_status": "",
+                          "contracts": [
+                              {
+                                  "description": "Kontrak Proyek Southern Area PHSS phase 2 bag 1",
+                                  "working_area": "PHSS",
+                                  "type": "Service"
+                              },
+                              {
+                                  "description": "Kontrak Proyek Southern Area PHSS phase 2 bag 2",
+                                  "working_area": "PHSS",
+                                  "type": "Service"
+                              }
+                          ]
+                      },
+                      {
+                          "id": "f515c8b0-81ed-4d62-b749-883645ba1c8c",
+                          "pic_legal": "",
+                          "category": "default",
+                          "total_tender_value": "0.00",
+                          "buyer": "buyer 4",
+                          "committee": "Zone 9",
+                          "current_status": "",
+                          "contracts": [
+                              {
+                                  "description": "cek mobile",
+                                  "working_area": "TSS",
+                                  "type": ""
+                              }
+                          ]
+                      },
+                      {
+                          "id": "40c6191e-d157-4fca-9a77-2358d4215f42",
+                          "pic_legal": "",
+                          "category": "joint tender",
+                          "total_tender_value": "400000000.00",
+                          "buyer": "buyer 1",
+                          "committee": "Zone 9",
+                          "current_status": "",
+                          "contracts": [
+                              {
+                                  "description": "description 1",
+                                  "working_area": "TSS",
+                                  "type": "Service"
+                              },
+                              {
+                                  "description": "description 2",
+                                  "working_area": "PHSS",
+                                  "type": "Service"
+                              }
+                          ]
+                      },
+                      {
+                          "id": "3ebf7030-647a-4e3f-bca2-10625d239544",
+                          "pic_legal": "Mahfud MD",
+                          "category": "joint tender",
+                          "total_tender_value": "4000000000.00",
+                          "buyer": "Join Tender 1",
+                          "committee": "Zone 9",
+                          "current_status": "PQ - Pengumuman / Mengundang &  Pendaftaran",
+                          "contracts": [
+                              {
+                                  "description": "Contract baru 1",
+                                  "working_area": "TSS",
+                                  "type": "Service"
+                              },
+                              {
+                                  "description": "Contract baru 2",
+                                  "working_area": "TSS",
+                                  "type": "Service"
+                              }
+                          ]
+                      },
+                      {
+                          "id": "0fc93393-c737-470a-8234-8ecacfb14893",
+                          "pic_legal": "diyank",
+                          "category": "default",
+                          "total_tender_value": "500000000.00",
+                          "buyer": "Buyer 1",
+                          "committee": "Zone 9",
+                          "current_status": "Submit GEP - Approval",
+                          "contracts": [
+                              {
+                                  "description": "Kontrak PHSS northern area OPLL phase 1",
+                                  "working_area": "PHSS",
+                                  "type": "Material"
+                              }
+                          ]
+                      },
+                      {
+                          "id": "ecb5d3a0-606e-4567-bb1f-eb03a7e2efb4",
+                          "pic_legal": "Diyank",
+                          "category": "joint contract",
+                          "total_tender_value": "40000000000.00",
+                          "buyer": "Buyer 3",
+                          "committee": "Regional 3",
+                          "current_status": "",
+                          "contracts": [
+                              {
+                                  "description": "Kontrak Gedung GYM TSS",
+                                  "working_area": "TSS",
+                                  "type": "Material"
+                              },
+                              {
+                                  "description": "Kontrak Gedung renang indoor TSS",
+                                  "working_area": "TSS",
+                                  "type": "Material"
+                              }
+                          ]
+                      }
+                  ],
+                  "count": 6
+              }
+          }

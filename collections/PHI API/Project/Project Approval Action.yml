@@ -1,0 +1,153 @@
+info:
+  name: Project Approval Action
+  type: http
+  seq: 18
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/projects/approval"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"project_id\": \"e1e94347-5c0a-46bc-9287-fb120bd26254\",\r
+
+      \    \"approval_process_id\": \"c90b0668-2bff-41c6-b953-841f86d07419\",\r
+
+      \    \"remarks\": \"Test approve level 3\",\r
+
+      \    \"action\": \"approve\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success reject
+    request:
+      url: "{{base_url}}/api/v1/projects/approval"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"project_id\": \"291f25a9-43c7-46e4-bef2-048cfc5c3698\",\r
+
+          \    \"approval_process_id\": \"5e7092c7-1b04-4bc0-ae1f-991b57d1cd1c\",\r
+
+          \    \"remarks\": \"Test reject\",\r
+
+          \    \"action\": \"reject\"\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Fri, 08 Sep 2023 06:32:25 GMT
+        - name: Content-Length
+          value: "97"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "360ms",
+              "status": "success",
+              "code": "",
+              "message": "Process reject project succeed"
+          }
+  - name: success approve
+    request:
+      url: "{{base_url}}/api/v1/projects/approval"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"project_id\": \"4e604a4e-6272-47f3-ac48-7c2f1a9124f5\",\r
+
+          \    \"approval_process_id\": \"c013c082-3dc6-426b-a433-ef0871d3cad0\",\r
+
+          \    \"remarks\": \"Test approve\",\r
+
+          \    \"action\": \"approve\"\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Fri, 08 Sep 2023 09:22:26 GMT
+        - name: Content-Length
+          value: "98"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "549ms",
+              "status": "success",
+              "code": "",
+              "message": "Process approve project succeed"
+          }
+  - name: failed project not found
+    request:
+      url: "{{base_url}}/api/v1/projects/approval"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"project_id\": \"291f25a9-43c7-46e4-bef2-048cfc5c3698\",\r
+
+          \    \"approval_process_id\": \"88fe4564-f707-4e75-ac2a-c8edbd8f1c4b\",\r
+
+          \    \"remarks\": \"Test reject level 1\",\r
+
+          \    \"action\": \"reject\"\r
+
+          }"
+    response:
+      statusText: "404"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 22 Nov 2023 02:32:28 GMT
+        - name: Content-Length
+          value: "321"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "155ms",
+              "status": "failed",
+              "code": "05",
+              "message": "Data not found",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Data not found",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

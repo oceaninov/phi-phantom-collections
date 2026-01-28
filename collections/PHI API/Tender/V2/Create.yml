@@ -1,0 +1,197 @@
+info:
+  name: Create
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v2/tenders"
+  body:
+    type: json
+    data: |-
+      {
+          "tender": {
+              "pic_legal": "Roberto",
+              "legal_start_date": "14-07-2024",
+              "legal_end_date": "15-07-2024",
+              "committee": "Zona 9",
+              "category": "joint tender",
+              "buyer": "Anthony"
+          },
+          "contracts": [
+              {
+                  "description": "Test Contract Summary 1",
+                  "request_numbers": [
+                      "328764"
+                  ],
+                  "working_area": [
+                      "TSS"
+                  ],
+                  "contract_value": 15000000000,
+                  "ndp": "NPD47329",
+                  "proclist_year": "2025",
+                  "sc": "SC-01B",
+                  "type": ["Services"],
+                  "tender_plan_date": "08-08-2024",
+                  "contract_start_date": "15-03-2025",
+                  "contract_end_date": "15-03-2026"
+              },
+              {
+                  "description": "Test Contract Summary 2",
+                  "request_numbers": [
+                      "4327684"
+                  ],
+                  "working_area": [
+                      "PHSS"
+                  ],
+                  "contract_value": 17000000000,
+                  "ndp": "NPD89423",
+                  "proclist_year": "2025",
+                  "sc": "SC-01B",
+                  "type": ["Material", "Services"],
+                  "tender_plan_date": "09-08-2024",
+                  "contract_start_date": "15-03-2025",
+                  "contract_end_date": "15-03-2026"
+              }
+          ],
+          "processes" : [
+              {
+                  "category": "Submit GEP",
+                  "process": [
+                      {
+                          "description": "Approval",
+                          "plan_duration": 3
+                      },
+                      {
+                          "description": "Submit",
+                          "plan_duration": 10
+                      }
+                      ,
+                      {
+                          "description": "Input",
+                          "plan_duration": 10
+                      }
+                  ]
+              },
+              {
+                  "category": "Penunjukan Buyer",
+                  "process": [
+                      {
+                          "description": "Buyer",
+                          "plan_duration": 10
+                      }
+                  ]
+              }
+          ]
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v2/tenders"
+      method: POST
+      body:
+        type: json
+        data: |-
+          {
+              "tender": {
+                  "pic_legal": "Roberto",
+                  "legal_start_date": "14-07-2024",
+                  "legal_end_date": "15-07-2024",
+                  "committee": "Zona 9",
+                  "category": "joint tender",
+                  "buyer": "Anthony"
+              },
+              "contracts": [
+                  {
+                      "description": "Contract test dynamic process 1",
+                      "request_numbers": [
+                          "328764"
+                      ],
+                      "working_area": [
+                          "TSS"
+                      ],
+                      "contract_value": 15000000000,
+                      "ndp": "NPD47329",
+                      "proclist_year": "2025",
+                      "sc": "SC-01B",
+                      "type": ["Services"],
+                      "tender_plan_date": "15-07-2024",
+                      "contract_start_date": "15-07-2025",
+                      "contract_end_date": "15-07-2026"
+                  },
+                  {
+                      "description": "Contract test dynamic process 2",
+                      "request_numbers": [
+                          "4327684"
+                      ],
+                      "working_area": [
+                          "PHSS"
+                      ],
+                      "contract_value": 17000000000,
+                      "ndp": "NPD89423",
+                      "proclist_year": "2025",
+                      "sc": "SC-01B",
+                      "type": ["Material", "Services"],
+                      "tender_plan_date": "15-07-2024",
+                      "contract_start_date": "15-07-2025",
+                      "contract_end_date": "15-07-2026"
+                  }
+              ],
+              "processes" : [
+                  {
+                      "category": "Submit GEP",
+                      "process": [
+                          {
+                              "description": "Approval",
+                              "plan_duration": 3
+                          },
+                          {
+                              "description": "Submit",
+                              "plan_duration": 10
+                          }
+                          ,
+                          {
+                              "description": "Input",
+                              "plan_duration": 10
+                          }
+                      ]
+                  },
+                  {
+                      "category": "Penunjukan Buyer",
+                      "process": [
+                          {
+                              "description": "Buyer",
+                              "plan_duration": 10
+                          }
+                      ]
+                  }
+              ]
+          }
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Sun, 14 Jul 2024 12:25:29 GMT
+        - name: Content-Length
+          value: "88"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "633ms",
+              "status": "success",
+              "code": "",
+              "message": "Create tender succeed"
+          }

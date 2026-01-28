@@ -1,0 +1,104 @@
+info:
+  name: Cancel Project
+  type: http
+  seq: 16
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/projects/cancel"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"project_id\": \"cb92ae99-ee99-45d0-88f1-448904e16913\",\r
+
+      \    \"note\": \"Cancel project cb92ae99-ee99-45d0-88f1-448904e16913\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/projects/cancel"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"project_id\": \"de32f53e-bc07-4324-bd22-675287121282\",\r
+
+          \    \"note\": \"Cancel project AST/PT11/ddd\"\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 21 Sep 2023 08:53:27 GMT
+        - name: Content-Length
+          value: "89"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "432ms",
+              "status": "success",
+              "code": "",
+              "message": "Cancel project succeed"
+          }
+  - name: failed project not found
+    request:
+      url: "{{base_url}}/api/v1/projects/cancel"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"project_id\": \"de32f53e-bc07-4324-bd22-675287121281\",\r
+
+          \    \"note\": \"Cancel project AST/PT11/ddd\"\r
+
+          }"
+    response:
+      statusText: "404"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 21 Nov 2023 04:29:46 GMT
+        - name: Content-Length
+          value: "321"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "164ms",
+              "status": "failed",
+              "code": "05",
+              "message": "Data not found",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Data not found",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

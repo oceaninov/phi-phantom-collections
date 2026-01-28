@@ -1,0 +1,59 @@
+info:
+  name: Create
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/tenders/processes"
+  body:
+    type: json
+    data: |-
+      {
+          "tender_process_category_id": "405f0dcc-cee8-43e6-b415-b1ff2cfd654b",
+          "description": "Submit 2",
+          "duration": 10,
+          "order": 3
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Success
+    request:
+      url: "{{base_url}}/api/v1/tenders/processes"
+      method: POST
+      body:
+        type: json
+        data: |-
+          {
+              "tender_process_category_id": "382a27a4-e60e-455e-95cc-94cddfead87d",
+              "description": "process 3",
+              "duration": 10,
+              "order": 1
+          }
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 11 Jan 2024 16:38:39 GMT
+        - name: Content-Length
+          value: "96"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "3ms",
+              "status": "success",
+              "code": "",
+              "message": "Create tender processes succeed"
+          }

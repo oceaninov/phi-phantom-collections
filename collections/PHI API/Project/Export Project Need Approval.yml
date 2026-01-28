@@ -1,0 +1,52 @@
+info:
+  name: Export Project Need Approval
+  type: http
+  seq: 13
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/projects/need-approval/export"
+  params:
+    - name: status
+      value: on hold
+      type: query
+      description: "for multiple separate by pipe. Example : on hold|draft"
+      disabled: true
+    - name: category
+      value: fasprod|flowline
+      type: query
+      description: "for multiple separate by pipe. Example : fasprod|flowline"
+      disabled: true
+    - name: working_area
+      value: TSS
+      type: query
+      description: "for multiple separate by pipe. Example : PHSS|TSS"
+      disabled: true
+    - name: rkap
+      value: 1abda64c-edb5-4ad8-b9f3-c012a852cab6
+      type: query
+      description: "for multiple separate by pipe. Example : c5f92c74-5094-413f-8839-5499ca2a4a4a|afcde8ed-eb56-4da8-b385-5b7e25828b22"
+      disabled: true
+    - name: field
+      value: 7a4d5e35-059e-4d45-b51a-c93158af508a
+      type: query
+      description: for multiple separate by pipe. Example 7a4d5e35-059e-4d45-b51a-c93158af508a|7a4d5e35-059e-4d45-b51a-c93158af508a
+      disabled: true
+    - name: search
+      value: Tower
+      type: query
+      description: combination project number and description
+      disabled: true
+    - name: need_my_approval
+      value: "true"
+      type: query
+      disabled: true
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

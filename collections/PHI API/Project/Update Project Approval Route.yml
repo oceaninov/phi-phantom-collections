@@ -1,0 +1,99 @@
+info:
+  name: Update Project Approval Route
+  type: http
+  seq: 21
+
+http:
+  method: PUT
+  url: "{{base_url}}/api/v1/projects/e1e94347-5c0a-46bc-9287-fb120bd26254/approver"
+  body:
+    type: json
+    data: |-
+      {
+          "approvers": [
+              {
+                  "level": 1,
+                  "user_id": [
+                      "bc35b04c-484c-4498-8707-9c410454526c",
+                      "b1ac6b1c-1727-4cc2-86f2-e4a2140b44cb"
+                  ]
+              },
+              {
+                  "level": 2,
+                  "user_id": [
+                      "fa7bd056-a197-4ba1-9096-9922f5f70cac",
+                      "80946615-9fe5-4e13-9ae0-07d1210b0d52"
+                  ]
+              },
+              {
+                  "level": 3,
+                  "user_id": [
+                      "fa7bd056-a197-4ba1-9096-9922f5f70cac",
+                      "80946615-9fe5-4e13-9ae0-07d1210b0d52"
+                  ]
+              }
+          ]
+      }
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/projects/e1e94347-5c0a-46bc-9287-fb120bd26254/approver"
+      method: PUT
+      body:
+        type: json
+        data: |-
+          {
+              "approvers": [
+                  {
+                      "level": 1,
+                      "user_id": [
+                          "bc35b04c-484c-4498-8707-9c410454526c",
+                          "b1ac6b1c-1727-4cc2-86f2-e4a2140b44cb"
+                      ]
+                  },
+                  {
+                      "level": 2,
+                      "user_id": [
+                          "fa7bd056-a197-4ba1-9096-9922f5f70cac",
+                          "80946615-9fe5-4e13-9ae0-07d1210b0d52"
+                      ]
+                  },
+                  {
+                      "level": 3,
+                      "user_id": [
+                          "fa7bd056-a197-4ba1-9096-9922f5f70cac",
+                          "80946615-9fe5-4e13-9ae0-07d1210b0d52"
+                      ]
+                  }
+              ]
+          }
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 19 Mar 2024 07:59:43 GMT
+        - name: Content-Length
+          value: "85"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "29ms",
+              "status": "success",
+              "code": "",
+              "message": "Update project approvers succeed"
+          }

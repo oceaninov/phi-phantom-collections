@@ -1,0 +1,169 @@
+info:
+  name: Upload
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/projects/tasks/upload"
+  body:
+    type: multipart-form
+    data:
+      - name: project_id
+        type: text
+        value: 7dde437e-61c6-4a45-8b90-6968531b169d
+      - name: file
+        type: file
+        value:
+          - /Users/ocean.innovation/Downloads/projecttaskconnection FS+Days 29052024.mpp
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/projects/tasks/upload"
+      method: POST
+      body:
+        type: multipart-form
+        data:
+          - name: project_id
+            type: text
+            value: afcde8ed-eb56-4da8-b385-5b7e25828b22
+          - name: file
+            type: file
+            value:
+              - /D:/Project/PHI/Documents/Project Task Template.xlsx
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 31 Aug 2023 12:53:35 GMT
+        - name: Content-Length
+          value: "94"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "511ms",
+              "status": "success",
+              "code": "",
+              "message": "Upload project task succeed"
+          }
+  - name: Upload
+    request:
+      url: "{{base_url}}/api/v1/projects/tasks/upload"
+      method: POST
+      body:
+        type: multipart-form
+        data:
+          - name: project_id
+            type: text
+            value: 87275d36-c139-4e4f-9b32-48f38d6aff52
+          - name: file
+            type: file
+            value:
+              - /C:/Users/danympradana/Downloads/1. Project-001.xlsx
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 23 Oct 2023 07:00:30 GMT
+        - name: Content-Length
+          value: "409"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "273ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Total weight of project task items can't be greater than 1",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Total weight of project task items can't be greater than 1",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }
+  - name: failed total weight must be 1
+    request:
+      url: "{{base_url}}/api/v1/projects/tasks/upload"
+      method: POST
+      body:
+        type: multipart-form
+        data:
+          - name: project_id
+            type: text
+            value: 87275d36-c139-4e4f-9b32-48f38d6aff52
+          - name: file
+            type: file
+            value:
+              - /C:/Users/danympradana/Downloads/1. Project-001.xlsx
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 23 Oct 2023 07:51:20 GMT
+        - name: Content-Length
+          value: "381"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "461ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Total weight of project task items must be 1",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Total weight of project task items must be 1",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }
+  - name: Upload MPP File
+    request:
+      url: "{{base_url}}/api/v1/projects/tasks/upload"
+      method: POST
+      body:
+        type: multipart-form
+        data:
+          - name: project_id
+            type: text
+            value: 931577d0-db40-4d90-a8e0-46ba5b3b8d72
+          - name: file
+            type: file
+            value:
+              - /D:/Ocean Innovation/PHI/MPP/Schedule VLP Pamaguan Compressor Rental Rev.06_Rebaseline.mpp
+    response:
+      body:
+        type: text
+        data: ""

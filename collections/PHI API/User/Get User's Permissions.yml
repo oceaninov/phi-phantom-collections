@@ -1,0 +1,75 @@
+info:
+  name: Get User's Permissions
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/users/permissions"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Get User's Permissions
+    request:
+      url: "{{base_url}}/users/permissions"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 03 Aug 2023 02:41:33 GMT
+        - name: Content-Length
+          value: "205"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "0ms",
+              "status": "success",
+              "code": "",
+              "message": "Get user's permissions succeed",
+              "data": {
+                  "1": [
+                      "1"
+                  ],
+                  "2": [
+                      "1"
+                  ],
+                  "3": [
+                      "1"
+                  ],
+                  "4": [
+                      "1"
+                  ],
+                  "5": [
+                      "2"
+                  ],
+                  "6": [
+                      "2"
+                  ],
+                  "7": [
+                      "2"
+                  ],
+                  "8": [
+                      "2"
+                  ],
+                  "9": [
+                      "2"
+                  ],
+                  "10": [
+                      "2"
+                  ]
+              }
+          }

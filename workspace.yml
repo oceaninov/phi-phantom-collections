@@ -1,0 +1,20 @@
+opencollection: 1.0.0
+info:
+  name: "PHI Phantom"
+  type: workspace
+
+collections:
+  - name: "Cronjob Manager"
+    path: "collections/Cronjob Manager"
+  - name: "Mpp Reader"
+    path: "collections/Mpp Reader"
+  - name: "PHI API"
+    path: "collections/PHI API"
+  - name: "PHI data sci"
+    path: "collections/PHI data sci"
+  - name: "Pertamina API"
+    path: "collections/Pertamina API"
+
+specs:
+
+docs: ''

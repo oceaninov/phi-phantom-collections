@@ -1,0 +1,122 @@
+info:
+  name: Create rkaps
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/rkaps"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"code\" : \"RKAP23\",\r
+
+      \    \"is_active\": 1,\r
+
+      \    \"description\": \"dfsdfsd\",\r
+
+      \    \"start_date\": \"01-01-2022\",\r
+
+      \    \"end_date\": \"30-12-2022\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/rkaps"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"code\" : \"RKAP23\",\r
+
+          \    \"is_active\": 1,\r
+
+          \    \"description\": \"dfsdfsd\",\r
+
+          \    \"start_date\": \"01-01-2022\",\r
+
+          \    \"end_date\": \"30-12-2022\"\r
+
+          }"
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 31 Aug 2023 04:14:37 GMT
+        - name: Content-Length
+          value: "86"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "118ms",
+              "status": "success",
+              "code": "",
+              "message": "Create rkap succeed"
+          }
+  - name: failed request validation
+    request:
+      url: "{{base_url}}/api/v1/rkaps"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"code\" : \"\",\r
+
+          \    \"is_active\": 1,\r
+
+          \    \"description\": \"dfsdfsd\",\r
+
+          \    \"start_date\": \"01-01-2022\",\r
+
+          \    \"end_date\": \"30-12-2022\"\r
+
+          }"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 16 Nov 2023 06:22:17 GMT
+        - name: Content-Length
+          value: "335"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "0ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Code: cannot be blank.",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Code: cannot be blank.",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

@@ -1,0 +1,98 @@
+info:
+  name: Get Project Task Summary
+  type: http
+  seq: 19
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/projects/d350e86d-7e4f-4758-a9c8-9144fc20b754/task-summary?refresh=true"
+  params:
+    - name: refresh
+      value: "true"
+      type: query
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Get Project Task Summary
+    request:
+      url: "{{base_url}}/api/v1/projects/5762779b-03b7-4da4-b5eb-098f0340adbb/task-summary?refresh=true"
+      method: GET
+      params:
+        - name: refresh
+          value: "true"
+          type: query
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 18 Dec 2023 13:12:04 GMT
+        - name: Content-Length
+          value: "1029"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "172ms",
+              "status": "success",
+              "code": "",
+              "message": "Get project task summary succeed",
+              "data": [
+                  {
+                      "wbs": "1",
+                      "wbs_level": 1,
+                      "description": "Header Paling Header",
+                      "weight": 1,
+                      "data_type": "header",
+                      "status": "not started",
+                      "estimated_cost": "3020579.33",
+                      "plan_weight_itd": "0.83",
+                      "plan_progress_itd": "83.33",
+                      "actual_weight_itd": "0.06",
+                      "actual_progress_itd": "5.60",
+                      "variance": "-0.77",
+                      "project_category": "flowline"
+                  },
+                  {
+                      "wbs": "1.1",
+                      "wbs_level": 2,
+                      "description": "task Sub header 1",
+                      "weight": 0.4,
+                      "data_type": "header",
+                      "status": "not started",
+                      "estimated_cost": "1208231.73",
+                      "plan_weight_itd": "0.33",
+                      "plan_progress_itd": "83.33",
+                      "actual_weight_itd": "0.06",
+                      "actual_progress_itd": "14.00",
+                      "variance": "-0.27",
+                      "project_category": "flowline"
+                  },
+                  {
+                      "wbs": "1.2",
+                      "wbs_level": 2,
+                      "description": "task Sub header 2",
+                      "weight": 0.6,
+                      "data_type": "header",
+                      "status": "not started",
+                      "estimated_cost": "1812347.59",
+                      "plan_weight_itd": "0.50",
+                      "plan_progress_itd": "83.33",
+                      "actual_weight_itd": "0.00",
+                      "actual_progress_itd": "0.00",
+                      "variance": "-0.50",
+                      "project_category": "flowline"
+                  }
+              ]
+          }

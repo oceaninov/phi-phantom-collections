@@ -1,0 +1,749 @@
+info:
+  name: Get Contract Need Approval
+  type: http
+  seq: 16
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/contracts/need-approval?page=1&page_size=10"
+  params:
+    - name: page
+      value: "1"
+      type: query
+    - name: page_size
+      value: "10"
+      type: query
+    - name: search
+      value: testing
+      type: query
+      disabled: true
+    - name: contract_value
+      value: 0|2500000000%233000000000|0
+      type: query
+      disabled: true
+    - name: contract_working_area
+      value: PHSS|TSS
+      type: query
+      disabled: true
+    - name: work_end_date
+      value: 28-08-2023
+      type: query
+      disabled: true
+    - name: need_my_approval
+      value: "true"
+      type: query
+      disabled: true
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/contracts/need-approval?page=1&page_size=10&need_my_approval=true"
+      method: GET
+      params:
+        - name: page
+          value: "1"
+          type: query
+        - name: page_size
+          value: "10"
+          type: query
+        - name: search
+          value: testing
+          type: query
+          disabled: true
+        - name: contract_value
+          value: 0|2500000000%233000000000|0
+          type: query
+          disabled: true
+        - name: contract_working_area
+          value: PHSS|TSS
+          type: query
+          disabled: true
+        - name: work_end_date
+          value: 28-08-2023
+          type: query
+          disabled: true
+        - name: need_my_approval
+          value: "true"
+          type: query
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 12 Mar 2024 04:32:07 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "15ms",
+              "status": "success",
+              "code": "",
+              "message": "Get contracts succeed",
+              "data": {
+                  "list": [
+                      {
+                          "id": "11028be9-609c-4b70-a9b5-cbd291ac64c2",
+                          "approval_process_id": "4f96f3cb-e156-4834-9900-cfe8887231f7",
+                          "contractor": {
+                              "id": "a53dcb7e-a34d-4152-8a61-32b2d8aae261",
+                              "code": "",
+                              "name": "PT. Berca Engineering"
+                          },
+                          "contract_no": "130220243",
+                          "contract_title": "Contract for test vendor dashboard 3",
+                          "start_date": "13-02-2024",
+                          "contract_end_date": "16-02-2024",
+                          "work_end_date": "16-02-2024",
+                          "contract_duration": 4,
+                          "contract_remaining": -25,
+                          "contract_value": "10000000000.00",
+                          "working_area": [
+                              {
+                                  "id": "",
+                                  "working_area": "PHSS"
+                              }
+                          ],
+                          "created_at": "13-02-2024 08:33:06",
+                          "created_by": {
+                              "id": "87f3d131-8d74-446d-bef9-d0d263dcb325",
+                              "full_name": "Yudhi Pratama",
+                              "status": ""
+                          },
+                          "updated_at": "13-02-2024 08:34:59",
+                          "updated_by": {
+                              "id": "87f3d131-8d74-446d-bef9-d0d263dcb325",
+                              "full_name": "Yudhi Pratama",
+                              "status": ""
+                          },
+                          "bank": {
+                              "id": "5a18043a-c0ff-4f1f-810d-a49c0c11f3d8",
+                              "code": "013",
+                              "name": "PERMATA BANK"
+                          },
+                          "bank_branch": "Jakarta",
+                          "bank_key": "13",
+                          "bank_account_name": "PT. Berca Engineering",
+                          "approvers": [
+                              {
+                                  "full_name": "Gustaman",
+                                  "role_name": "Super Admin",
+                                  "status": "inactive"
+                              },
+                              {
+                                  "full_name": "Dany Marita Pradana Oldie",
+                                  "role_name": "Super Admin",
+                                  "status": "inactive"
+                              },
+                              {
+                                  "full_name": "Indana Rishi",
+                                  "role_name": "Super Admin",
+                                  "status": "inactive"
+                              },
+                              {
+                                  "full_name": "Akun FE",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "Apri Ega",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "M Ihsan Satyawan",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "Tofan QA ",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "ae editing",
+                                  "role_name": "Super Admin",
+                                  "status": "inactive"
+                              },
+                              {
+                                  "full_name": "Super Admin",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "Agung NH",
+                                  "role_name": "Super IPMS",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "Mulazi",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "Nadhifa Sofia",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "Rinaldy",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "jhon dhoe",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "Dany M Pradana",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "Test Yopmail",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "Aeeee",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "Testing User",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "Diyank Shabira",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "Indra Lasmana",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "AEka",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "Lisa",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "User diyank",
+                                  "role_name": "Super Admin",
+                                  "status": "inactive"
+                              },
+                              {
+                                  "full_name": "testing",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "useruseruser",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "Yudhi Pratama",
+                                  "role_name": "Super IPMS",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "diyank",
+                                  "role_name": "Super Admin",
+                                  "status": "inactive"
+                              },
+                              {
+                                  "full_name": "UI/UX",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "Deva",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "Fia PHI",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "Nur Rofiqoh Arini",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "Lisa PHI",
+                                  "role_name": "Super Admin",
+                                  "status": "inactive"
+                              },
+                              {
+                                  "full_name": "Tofan QA Akses ",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "Android User",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "IOS User",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "Project approver level 1",
+                                  "role_name": "Team Lead Project Planning",
+                                  "status": "inactive"
+                              },
+                              {
+                                  "full_name": "AE",
+                                  "role_name": "Super Admin",
+                                  "status": "inactive"
+                              },
+                              {
+                                  "full_name": "AekaWah",
+                                  "role_name": "Super IPMS",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "Approver 1 Contract",
+                                  "role_name": "Approver Contract 1",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "testing_purpose",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "Sofi Testing",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "Fadil QA",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "Tanti Wulan Cahya",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "AutomationTestUser",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "Zahra",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "Indanaa",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              }
+                          ],
+                          "status": "on hold"
+                      }
+                  ],
+                  "count": 1
+              }
+          }
+  - name: success with retention percentage
+    request:
+      url: "{{base_url}}/api/v1/contracts/need-approval?page=1&page_size=10"
+      method: GET
+      params:
+        - name: page
+          value: "1"
+          type: query
+        - name: page_size
+          value: "10"
+          type: query
+        - name: search
+          value: testing
+          type: query
+          disabled: true
+        - name: contract_value
+          value: 0|2500000000%233000000000|0
+          type: query
+          disabled: true
+        - name: contract_working_area
+          value: PHSS|TSS
+          type: query
+          disabled: true
+        - name: work_end_date
+          value: 28-08-2023
+          type: query
+          disabled: true
+        - name: need_my_approval
+          value: "true"
+          type: query
+          disabled: true
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 13 Jun 2024 04:40:51 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "10ms",
+              "status": "success",
+              "code": "",
+              "message": "Get contracts succeed",
+              "data": {
+                  "list": [
+                      {
+                          "id": "dee98206-8364-471a-a7a7-1518f1e30827",
+                          "approval_process_id": "86931e45-9c2e-4d28-b4f8-c1ccd4849cbe",
+                          "contractor": {
+                              "id": "08655621-7826-4ec7-bc31-7e5b9e004109",
+                              "code": "",
+                              "name": "Vendor test"
+                          },
+                          "contract_no": "443",
+                          "contract_title": "vendor test",
+                          "contract_types": [],
+                          "start_date": "01-04-2024",
+                          "contract_end_date": "18-06-2024",
+                          "work_end_date": "18-06-2024",
+                          "contract_duration": 79,
+                          "contract_remaining": 5,
+                          "contract_value": "50000000.00",
+                          "working_area": [
+                              {
+                                  "id": "",
+                                  "working_area": "PHSS"
+                              }
+                          ],
+                          "created_at": "02-05-2024 15:02:00",
+                          "created_by": {
+                              "id": "595f7f1c-5087-469a-9fb4-cacce94de557",
+                              "full_name": "AekaWah",
+                              "status": ""
+                          },
+                          "updated_at": "02-05-2024 15:06:53",
+                          "updated_by": {
+                              "id": "595f7f1c-5087-469a-9fb4-cacce94de557",
+                              "full_name": "AekaWah",
+                              "status": ""
+                          },
+                          "bank": null,
+                          "bank_branch": "",
+                          "bank_key": "",
+                          "bank_account_name": "",
+                          "approvers": null,
+                          "status": "on hold",
+                          "retention_percentage": "10.00"
+                      },
+                      {
+                          "id": "c2a6d14a-41b2-49c9-9651-2a491a719883",
+                          "approval_process_id": "99d59ab8-367d-49e0-95f7-59f198719ef8",
+                          "contractor": {
+                              "id": "eb8a9754-bc2f-43d3-805a-77113a1c73f3",
+                              "code": "",
+                              "name": "PT. Kaliraya Sari"
+                          },
+                          "contract_no": "33343",
+                          "contract_title": "Test approver 1",
+                          "contract_types": [],
+                          "start_date": "01-05-2024",
+                          "contract_end_date": "30-06-2024",
+                          "work_end_date": "26-06-2024",
+                          "contract_duration": 57,
+                          "contract_remaining": 13,
+                          "contract_value": "50000000.00",
+                          "working_area": [
+                              {
+                                  "id": "",
+                                  "working_area": "PHSS"
+                              }
+                          ],
+                          "created_at": "03-05-2024 08:18:30",
+                          "created_by": {
+                              "id": "595f7f1c-5087-469a-9fb4-cacce94de557",
+                              "full_name": "AekaWah",
+                              "status": ""
+                          },
+                          "updated_at": "06-05-2024 16:59:14",
+                          "updated_by": {
+                              "id": "595f7f1c-5087-469a-9fb4-cacce94de557",
+                              "full_name": "AekaWah",
+                              "status": ""
+                          },
+                          "bank": null,
+                          "bank_branch": "",
+                          "bank_key": "",
+                          "bank_account_name": "",
+                          "approvers": null,
+                          "status": "on hold",
+                          "retention_percentage": "0.00"
+                      },
+                      {
+                          "id": "631498e0-0dd5-4613-9895-4463139a1b1c",
+                          "approval_process_id": "216f9d68-b815-49f9-a775-fbf1d1d1e682",
+                          "contractor": {
+                              "id": "a53dcb7e-a34d-4152-8a61-32b2d8aae261",
+                              "code": "",
+                              "name": "PT. Berca Engineering"
+                          },
+                          "contract_no": "2705242",
+                          "contract_title": "Draft Approve revise finish",
+                          "contract_types": [
+                              "Material"
+                          ],
+                          "start_date": "27-05-2024",
+                          "contract_end_date": "26-05-2025",
+                          "work_end_date": "26-05-2025",
+                          "contract_duration": 365,
+                          "contract_remaining": 347,
+                          "contract_value": "10000000000.00",
+                          "working_area": [
+                              {
+                                  "id": "",
+                                  "working_area": "TSS"
+                              }
+                          ],
+                          "created_at": "27-05-2024 11:15:56",
+                          "created_by": {
+                              "id": "90c23335-5d2d-495d-baa9-f419cae43cdc",
+                              "full_name": "Fadhylah Fil-Ardh",
+                              "status": ""
+                          },
+                          "updated_at": "27-05-2024 14:26:32",
+                          "updated_by": {
+                              "id": "76b2cda5-023b-4d40-880a-beacffa41c1a",
+                              "full_name": "AEka",
+                              "status": ""
+                          },
+                          "bank": {
+                              "id": "5e826373-da18-4a67-948d-df2798a7bd7b",
+                              "code": "110",
+                              "name": "BANK JABAR"
+                          },
+                          "bank_branch": "Setiabudi",
+                          "bank_key": "143040020",
+                          "bank_account_name": "193",
+                          "approvers": [
+                              {
+                                  "full_name": "AekaWah",
+                                  "role_name": "Super IPMS",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "Fadhylah Fil-Ardh",
+                                  "role_name": "Super IPMS",
+                                  "status": "active"
+                              }
+                          ],
+                          "status": "on hold",
+                          "retention_percentage": "0.00"
+                      },
+                      {
+                          "id": "7a9d8bae-573e-4bcd-ac84-a02969885696",
+                          "approval_process_id": "678cdd92-6b98-4bc7-bd1c-94db36d28318",
+                          "contractor": {
+                              "id": "a53dcb7e-a34d-4152-8a61-32b2d8aae261",
+                              "code": "",
+                              "name": "PT. Berca Engineering"
+                          },
+                          "contract_no": "2705243",
+                          "contract_title": "Approve active submitter",
+                          "contract_types": [
+                              "Jasa"
+                          ],
+                          "start_date": "27-05-2024",
+                          "contract_end_date": "26-05-2025",
+                          "work_end_date": "26-05-2025",
+                          "contract_duration": 365,
+                          "contract_remaining": 347,
+                          "contract_value": "10000000000.00",
+                          "working_area": [
+                              {
+                                  "id": "",
+                                  "working_area": "PHSS"
+                              }
+                          ],
+                          "created_at": "27-05-2024 11:19:08",
+                          "created_by": {
+                              "id": "90c23335-5d2d-495d-baa9-f419cae43cdc",
+                              "full_name": "Fadhylah Fil-Ardh",
+                              "status": ""
+                          },
+                          "updated_at": "27-05-2024 13:16:39",
+                          "updated_by": {
+                              "id": "90c23335-5d2d-495d-baa9-f419cae43cdc",
+                              "full_name": "Fadhylah Fil-Ardh",
+                              "status": ""
+                          },
+                          "bank": {
+                              "id": "5e826373-da18-4a67-948d-df2798a7bd7b",
+                              "code": "110",
+                              "name": "BANK JABAR"
+                          },
+                          "bank_branch": "Setiabudi",
+                          "bank_key": "143040020",
+                          "bank_account_name": "193",
+                          "approvers": [
+                              {
+                                  "full_name": "AekaWah",
+                                  "role_name": "Super IPMS",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "Fadhylah Fil-Ardh",
+                                  "role_name": "Super IPMS",
+                                  "status": "active"
+                              }
+                          ],
+                          "status": "on hold",
+                          "retention_percentage": "0.00"
+                      },
+                      {
+                          "id": "3192b0d3-0b71-4cff-a2ae-caa185647bf6",
+                          "approval_process_id": "95af5ded-b102-4c2e-b349-f0b35f4ecd1e",
+                          "contractor": {
+                              "id": "a53dcb7e-a34d-4152-8a61-32b2d8aae261",
+                              "code": "",
+                              "name": "PT. Berca Engineering"
+                          },
+                          "contract_no": "999907",
+                          "contract_title": "Contract Value editable",
+                          "contract_types": [],
+                          "start_date": "01-05-2024",
+                          "contract_end_date": "01-08-2024",
+                          "work_end_date": "31-07-2024",
+                          "contract_duration": 92,
+                          "contract_remaining": 48,
+                          "contract_value": "10000000000.00",
+                          "working_area": [
+                              {
+                                  "id": "",
+                                  "working_area": "PHSS"
+                              }
+                          ],
+                          "created_at": "04-06-2024 21:09:37",
+                          "created_by": {
+                              "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                              "full_name": "Diyank Shabira",
+                              "status": ""
+                          },
+                          "updated_at": "04-06-2024 21:18:56",
+                          "updated_by": {
+                              "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                              "full_name": "Diyank Shabira",
+                              "status": ""
+                          },
+                          "bank": null,
+                          "bank_branch": "",
+                          "bank_key": "",
+                          "bank_account_name": "",
+                          "approvers": [
+                              {
+                                  "full_name": "Diyank Shabira",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "Fia PHI",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              }
+                          ],
+                          "status": "on hold",
+                          "retention_percentage": "0.00"
+                      },
+                      {
+                          "id": "1aa768d9-80a6-4e82-98b3-537a254a358c",
+                          "approval_process_id": "c0c91a6d-a5de-48d0-9fb2-53fd552db12e",
+                          "contractor": {
+                              "id": "d5d6f0e6-b779-412e-9191-f96d9d343d72",
+                              "code": "",
+                              "name": "PT. Fadil Jaya abadi"
+                          },
+                          "contract_no": "9990",
+                          "contract_title": "Sequence Otomatis",
+                          "contract_types": [
+                              "Material"
+                          ],
+                          "start_date": "01-05-2024",
+                          "contract_end_date": "29-08-2025",
+                          "work_end_date": "28-08-2025",
+                          "contract_duration": 485,
+                          "contract_remaining": 441,
+                          "contract_value": "1000000000.00",
+                          "working_area": [
+                              {
+                                  "id": "",
+                                  "working_area": "TSS"
+                              }
+                          ],
+                          "created_at": "08-06-2024 19:56:10",
+                          "created_by": {
+                              "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                              "full_name": "Diyank Shabira",
+                              "status": ""
+                          },
+                          "updated_at": "08-06-2024 19:56:49",
+                          "updated_by": {
+                              "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                              "full_name": "Diyank Shabira",
+                              "status": ""
+                          },
+                          "bank": null,
+                          "bank_branch": "",
+                          "bank_key": "",
+                          "bank_account_name": "",
+                          "approvers": [
+                              {
+                                  "full_name": "Dany M Pradana",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              },
+                              {
+                                  "full_name": "Fia PHI",
+                                  "role_name": "Super Admin",
+                                  "status": "active"
+                              }
+                          ],
+                          "status": "on hold",
+                          "retention_percentage": "0.00"
+                      }
+                  ],
+                  "count": 6
+              }
+          }

@@ -1,0 +1,147 @@
+info:
+  name: Set Remarks
+  type: http
+  seq: 9
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/projects/tasks/remarks"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"project_task_id\": \"9dcd6568-148d-4603-afed-e6ae2999e750\",\r
+
+      \    \"remarks\": \"Silahkan dieksekusi\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/projects/tasks/remarks"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"project_task_id\": \"9dcd6568-148d-4603-afed-e6ae2999e750\",\r
+
+          \    \"remarks\": \"Silahkan dieksekusi\"\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 11 Sep 2023 15:30:13 GMT
+        - name: Content-Length
+          value: "99"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "170ms",
+              "status": "success",
+              "code": "",
+              "message": "Set project task remarks succeed"
+          }
+  - name: failed project task not found
+    request:
+      url: "{{base_url}}/api/v1/projects/tasks/remarks"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"project_task_id\": \"9dcd6568-148d-4603-afed-e6ae2999e751\",\r
+
+          \    \"remarks\": \"Silahkan dieksekusi\"\r
+
+          }"
+    response:
+      statusText: "404"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 20 Nov 2023 08:40:13 GMT
+        - name: Content-Length
+          value: "320"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "62ms",
+              "status": "failed",
+              "code": "05",
+              "message": "Data not found",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Data not found",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }
+  - name: failed request validation
+    request:
+      url: "{{base_url}}/api/v1/projects/tasks/remarks"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"project_task_id\": \"9dcd6568-148d-4603-afed-e6ae2999e750\",\r
+
+          \    \"remarks\": \"Silahkan dieksekusi\"\r
+
+          }"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 20 Nov 2023 08:40:46 GMT
+        - name: Content-Length
+          value: "341"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "0ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Remarks: cannot be blank.",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Remarks: cannot be blank.",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

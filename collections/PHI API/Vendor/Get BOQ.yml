@@ -1,0 +1,112 @@
+info:
+  name: Get BOQ
+  type: http
+  seq: 5
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/vendors/contracts/boqs?page=1&page_size=10&is_active=1&sort_column=created_at&sort_order=ASC&contract_id=d51afa0c-d2b7-4c5f-bcca-7b1f37dcd3b1"
+  params:
+    - name: page
+      value: "1"
+      type: query
+    - name: page_size
+      value: "10"
+      type: query
+    - name: is_active
+      value: "1"
+      type: query
+      description: 1 = active, 0 = inactive
+    - name: sort_column
+      value: created_at
+      type: query
+      description: created_at,updated_at,version
+    - name: sort_order
+      value: ASC
+      type: query
+      description: ASC/DESC
+    - name: contract_id
+      value: d51afa0c-d2b7-4c5f-bcca-7b1f37dcd3b1
+      type: query
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/contracts/boqs?page=1&page_size=10&is_active=1&sort_column=created_at&sort_order=ASC&contract_id=8181ffd8-1a86-4040-844d-228e4258930b"
+      method: GET
+      params:
+        - name: page
+          value: "1"
+          type: query
+        - name: page_size
+          value: "10"
+          type: query
+        - name: is_active
+          value: "1"
+          type: query
+          description: 1 = active, 0 = inactive
+        - name: sort_column
+          value: created_at
+          type: query
+          description: created_at,updated_at,version
+        - name: sort_order
+          value: ASC
+          type: query
+          description: ASC/DESC
+        - name: contract_id
+          value: 8181ffd8-1a86-4040-844d-228e4258930b
+          type: query
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 21 Aug 2023 04:20:45 GMT
+        - name: Content-Length
+          value: "663"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "125ms",
+              "status": "success",
+              "code": "",
+              "message": "Get BOQ succeed",
+              "data": {
+                  "list": [
+                      {
+                          "id": "4f181e6c-7b75-4007-b227-a5e23dc888e2",
+                          "contract_id": "8181ffd8-1a86-4040-844d-228e4258930b",
+                          "original_file": "https://storage.googleapis.com/phi-dev-bucket/boq/46dd04fc-5a17-420a-a234-604f4162a498_EAEEE32E36E39F66.xlsx",
+                          "is_active": 1,
+                          "created_at": "16-08-2023 11:12:08",
+                          "created_by": {
+                              "id": "7ae8e931-1628-4562-bf24-1c2cdd2b4cf4",
+                              "full_name": "Dany M Pradana"
+                          },
+                          "updated_at": "16-08-2023 11:12:08",
+                          "updated_by": {
+                              "id": "00000000-0000-0000-0000-000000000000",
+                              "full_name": ""
+                          },
+                          "boq_category": {
+                              "id": "41caabeb-e536-4398-ade5-3d1305c56b24",
+                              "name": "Mechanical"
+                          }
+                      }
+                  ],
+                  "count": 1
+              }
+          }

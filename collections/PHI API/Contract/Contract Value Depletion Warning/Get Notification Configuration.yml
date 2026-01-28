@@ -1,0 +1,61 @@
+info:
+  name: Get Notification Configuration
+  type: http
+  seq: 3
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/contracts/contract-value-depletion-warning-notif"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/contracts/contract-value-depletion-warning-notif"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Fri, 03 May 2024 04:11:07 GMT
+        - name: Content-Length
+          value: "462"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "95ms",
+              "status": "success",
+              "code": "",
+              "message": "Get contract depletion warning notification succeed",
+              "data": {
+                  "id": "c29d22ea-016b-4f03-a727-6f17aa3856c0",
+                  "frequency": "weekly",
+                  "recipients": [
+                      {
+                          "id": "76cdbdd1-ef84-479d-b699-f24ae38d63db",
+                          "full_name": "Bagus Guntur Farisa",
+                          "status": "active",
+                          "email": "bagusfarisa@gmail.com"
+                      },
+                      {
+                          "id": "7ae8e931-1628-4562-bf24-1c2cdd2b4cf4",
+                          "full_name": "Dany M Pradana",
+                          "status": "active",
+                          "email": "danympradana@gmail.com"
+                      }
+                  ]
+              }
+          }

@@ -1,0 +1,118 @@
+info:
+  name: Find Invoice Retention Eligible for Invoice
+  type: http
+  seq: 7
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/invoices/retentions/eligible-for-invoice?contract_id=dfce687e-f5b5-4478-9581-5c1fb3d61788"
+  params:
+    - name: contract_id
+      value: dfce687e-f5b5-4478-9581-5c1fb3d61788
+      type: query
+    - name: spk_no
+      value: 001/SPK/445559/PPZ9/2024
+      type: query
+      disabled: true
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/invoices/retentions/eligible-for-invoice?contract_id=ab161bc0-0741-4b16-9a73-0b55a39c9899&spk_no=001/SPK/445559/PPZ9/2024"
+      method: GET
+      params:
+        - name: contract_id
+          value: ab161bc0-0741-4b16-9a73-0b55a39c9899
+          type: query
+        - name: spk_no
+          value: 001/SPK/445559/PPZ9/2024
+          type: query
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 02 Jul 2024 04:33:43 GMT
+        - name: Content-Length
+          value: "510"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "24ms",
+              "status": "success",
+              "code": "",
+              "message": "Get invoice retention succeed",
+              "data": {
+                  "list": [
+                      {
+                          "spk_no": "001/SPK/445559/PPZ9/2024",
+                          "retention_amount": "400000.00",
+                          "retention_ids": [
+                              "26b42d3e-227e-47d9-afd6-0b21d6242748"
+                          ],
+                          "currency": "IDR",
+                          "retention_percentage": "5.00"
+                      },
+                      {
+                          "spk_no": "001/SPK/445559/PPZ9/2024",
+                          "retention_amount": "1100000.00",
+                          "retention_ids": [
+                              "0cc651cb-1b59-44e1-9c3f-01c450a62bce",
+                              "31615694-85a4-4249-894b-d4abb26482cc"
+                          ],
+                          "currency": "IDR",
+                          "retention_percentage": "10.00"
+                      }
+                  ],
+                  "count": 2
+              }
+          }
+  - name: empty
+    request:
+      url: "{{base_url}}/api/v1/invoices/retentions/eligible-for-invoice?contract_id=e38611e8-f266-4f62-930f-eb6a75d8e6f7"
+      method: GET
+      params:
+        - name: contract_id
+          value: e38611e8-f266-4f62-930f-eb6a75d8e6f7
+          type: query
+        - name: spk_no
+          value: 001/SPK/445559/PPZ9/2024
+          type: query
+          disabled: true
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 03 Jul 2024 03:35:20 GMT
+        - name: Content-Length
+          value: "125"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "167ms",
+              "status": "success",
+              "code": "",
+              "message": "Get invoice retention succeed",
+              "data": {
+                  "list": [],
+                  "count": 0
+              }
+          }

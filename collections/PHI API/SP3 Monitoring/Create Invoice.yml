@@ -1,0 +1,450 @@
+info:
+  name: Create Invoice
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/invoices"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"contract_id\": \"ab161bc0-0741-4b16-9a73-0b55a39c9899\",\r
+
+      \    \"invoice_date\": \"12-03-2024\",\r
+
+      \    \"invoice_from\": \"Manager Project Zona 9\",\r
+
+      \    \"invoice_to\": \"Manager Finance Accounting\",\r
+
+      \    \"receipt\": \"123485\",\r
+
+      \    \"tax_invoice\": \"1245\",\r
+
+      \    \"bast_no\": \"017/BAST/PHSS/MEI/K/23\",\r
+
+      \    \"description\": \"Pembayaran retensi SPK\",\r
+
+      \    \"currency\": \"idr\",\r
+
+      \    \"sa_amount\": \"0.00\",\r
+
+      \    \"retention_amount\": \"600000.00\",\r
+
+      \    \"service_acceptances\": [],\r
+
+      \    \"retentions\": [\r
+
+      \        {\r
+
+      \            \"invoice_retention_id\": \"31615694-85a4-4249-894b-d4abb26482cc\"\r
+
+      \        }\r
+
+      \    ],\r
+
+      \    \"cost_reductions\": [\r
+
+      \        {\r
+
+      \            \"description\": \"Retensi 10%\",\r
+
+      \            \"cost\": \"600000.00\",\r
+
+      \            \"is_removable\": false\r
+
+      \        }\r
+
+      \    ],\r
+
+      \    \"additional_costs\": [],\r
+
+      \    \"attachments\": [\r
+
+      \        {\r
+
+      \            \"file_upload_id\": \"48a882a6-220f-44f3-9324-0831c5e8c381\"\r
+
+      \        }\r
+
+      \    ]\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/invoices"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"sp3_no\": \"11223344\",\r
+
+          \    \"invoice_no\": \"INV/PHI00003/2024-04\",\r
+
+          \    \"invoice_date\": \"12-02-2024\",\r
+
+          \    \"invoice_from\": \"Manager Project Zona 9\",\r
+
+          \    \"invoice_to\": \"Manager Finance Accounting\",\r
+
+          \    \"receipt\": \"12345\",\r
+
+          \    \"tax_invoice\": \"12345\",\r
+
+          \    \"bast_no\": \"017/BAST/PHSS/MEI/V/23\",\r
+
+          \    \"description\": \"Pekerjaan pipa penyalur\",\r
+
+          \    \"currency\": \"idr\", // idr/usd\r
+
+          \    \"sa_amount\": \"150000000.00\",\r
+
+          \    \"service_acceptances\": [\r
+
+          \        {\r
+
+          \            \"service_acceptance_id\": \"ee2d5db7-8eb9-4041-ad3a-39959ab1f3cf\",\r
+
+          \            \"sa_amount\": \"150000000.00\"\r
+
+          \        }\r
+
+          \    ],\r
+
+          \    \"cost_reductions\": [\r
+
+          \        {\r
+
+          \            \"description\": \"Penalti\",\r
+
+          \            \"cost\": \"1000000.00\",\r
+
+          \            \"is_removable\": true\r
+
+          \        }\r
+
+          \    ],\r
+
+          \    \"additional_costs\": [\r
+
+          \        {\r
+
+          \            \"description\": \"Pajak PPN 11%\",\r
+
+          \            \"cost\": \"1000000.00\"\r
+
+          \        }\r
+
+          \    ],\r
+
+          \    \"attachments\": [\r
+
+          \        {\r
+
+          \            \"file_upload_id\": \"9fd0dc18-228a-429a-a74d-87c3acd068f6\"\r
+
+          \        }\r
+
+          \    ]\r
+
+          }"
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "62ms",
+              "status": "success",
+              "code": "",
+              "message": "Create invoice succeed"
+          }
+  - name: failed
+    request:
+      url: "{{base_url}}/api/v1/invoices"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"invoice_date\": \"12-02-2024\",\r
+
+          \    \"invoice_from\": \"Manager Project Zona 9\",\r
+
+          \    \"invoice_to\": \"Manager Finance Accounting\",\r
+
+          \    \"receipt\": \"12345\",\r
+
+          \    \"tax_invoice\": \"12345\",\r
+
+          \    \"bast_no\": \"017/BAST/PHSS/MEI/V/23\",\r
+
+          \    //\"description\": \"Pekerjaan pipa penyalur\",\r
+
+          \    \"currency\": \"idr\",\r
+
+          \    \"sa_amount\": \"150000000.00\",\r
+
+          \    \"service_acceptances\": [\r
+
+          \        {\r
+
+          \            \"service_acceptance_id\": \"ee2d5db7-8eb9-4041-ad3a-39959ab1f3cf\",\r
+
+          \            \"sa_amount\": \"150000000.00\"\r
+
+          \        }\r
+
+          \    ],\r
+
+          \    \"cost_reductions\": [\r
+
+          \        {\r
+
+          \            \"description\": \"Penalti\",\r
+
+          \            \"cost\": \"1000000.00\"\r
+
+          \        }\r
+
+          \    ],\r
+
+          \    \"additional_costs\": [\r
+
+          \        {\r
+
+          \            \"description\": \"Pajak PPN 11%\",\r
+
+          \            \"cost\": \"1000000.00\"\r
+
+          \        }\r
+
+          \    ],\r
+
+          \    \"attachments\": [\r
+
+          \        {\r
+
+          \            \"file_upload_id\": \"9fd0dc18-228a-429a-a74d-87c3acd068f6\"\r
+
+          \        }\r
+
+          \    ]\r
+
+          }"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "1ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Description: cannot be blank.",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Description: cannot be blank.",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }
+  - name: success without retention
+    request:
+      url: "{{base_url}}/api/v1/invoices"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"contract_id\": \"ab161bc0-0741-4b16-9a73-0b55a39c9899\",\r
+
+          \    \"invoice_date\": \"12-03-2024\",\r
+
+          \    \"invoice_from\": \"Manager Project Zona 9\",\r
+
+          \    \"invoice_to\": \"Manager Finance Accounting\",\r
+
+          \    \"receipt\": \"123485\",\r
+
+          \    \"tax_invoice\": \"1245\",\r
+
+          \    \"bast_no\": \"017/BAST/PHSS/MEI/K/23\",\r
+
+          \    \"description\": \"Pekerjaan pipa penyalur\",\r
+
+          \    \"currency\": \"idr\",\r
+
+          \    \"sa_amount\": \"6000000.00\",\r
+
+          \    \"retention_amount\": \"0.00\",\r
+
+          \    \"service_acceptances\": [\r
+
+          \        {\r
+
+          \            \"service_acceptance_id\": \"88e94bc4-b49b-45ea-b227-a62e4ee7e374\",\r
+
+          \            \"sa_amount\": \"6000000.00\"\r
+
+          \        }\r
+
+          \    ],\r
+
+          \    \"retentions\": [],\r
+
+          \    \"cost_reductions\": [\r
+
+          \        {\r
+
+          \            \"description\": \"Penalti\",\r
+
+          \            \"cost\": \"100000.00\"\r
+
+          \        }\r
+
+          \    ],\r
+
+          \    \"additional_costs\": [\r
+
+          \        {\r
+
+          \            \"description\": \"Pajak PPN 11%\",\r
+
+          \            \"cost\": \"11000.00\"\r
+
+          \        }\r
+
+          \    ],\r
+
+          \    \"attachments\": [\r
+
+          \        {\r
+
+          \            \"file_upload_id\": \"48a882a6-220f-44f3-9324-0831c5e8c381\"\r
+
+          \        }\r
+
+          \    ]\r
+
+          }"
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Fri, 21 Jun 2024 03:54:21 GMT
+        - name: Content-Length
+          value: "88"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "74ms",
+              "status": "success",
+              "code": "",
+              "message": "Create invoice succeed"
+          }
+  - name: success retention only
+    request:
+      url: "{{base_url}}/api/v1/invoices"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"contract_id\": \"ab161bc0-0741-4b16-9a73-0b55a39c9899\",\r
+
+          \    \"invoice_date\": \"12-03-2024\",\r
+
+          \    \"invoice_from\": \"Manager Project Zona 9\",\r
+
+          \    \"invoice_to\": \"Manager Finance Accounting\",\r
+
+          \    \"receipt\": \"123485\",\r
+
+          \    \"tax_invoice\": \"1245\",\r
+
+          \    \"bast_no\": \"017/BAST/PHSS/MEI/K/23\",\r
+
+          \    \"description\": \"Pembayaran retensi SPK\",\r
+
+          \    \"currency\": \"idr\",\r
+
+          \    \"sa_amount\": \"0.00\",\r
+
+          \    \"retention_amount\": \"600000.00\",\r
+
+          \    \"service_acceptances\": [],\r
+
+          \    \"retentions\": [\r
+
+          \        {\r
+
+          \            \"invoice_retention_id\": \"31615694-85a4-4249-894b-d4abb26482cc\"\r
+
+          \        }\r
+
+          \    ],\r
+
+          \    \"cost_reductions\": [],\r
+
+          \    \"additional_costs\": [],\r
+
+          \    \"attachments\": [\r
+
+          \        {\r
+
+          \            \"file_upload_id\": \"48a882a6-220f-44f3-9324-0831c5e8c381\"\r
+
+          \        }\r
+
+          \    ]\r
+
+          }"
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Fri, 21 Jun 2024 04:20:21 GMT
+        - name: Content-Length
+          value: "88"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "55ms",
+              "status": "success",
+              "code": "",
+              "message": "Create invoice succeed"
+          }

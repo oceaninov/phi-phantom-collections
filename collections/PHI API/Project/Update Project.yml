@@ -1,0 +1,110 @@
+info:
+  name: Update Project
+  type: http
+  seq: 23
+
+http:
+  method: PUT
+  url: "{{base_url}}/api/v1/projects/e5ea4bef-d0c2-437a-9180-2104fd5e6784"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"project_no\": \"1512233\",\r
+
+      \    \"description\": \"Project color legend again (edited)\",\r
+
+      \    \"category\": \"flowline\",\r
+
+      \    \"wbs\": \"WBS1512233\",\r
+
+      \    \"working_area\": [\r
+
+      \        \"PHSS\"\r
+
+      \    ],\r
+
+      \    \"field\": \"14fa1c2f-d53c-4062-88c3-4730717bce75\",\r
+
+      \    \"start_date\": \"14-12-2023\",\r
+
+      \    \"end_date\": \"19-12-2023\",\r
+
+      \    \"rk\": [\r
+
+      \        \"d929b701-334f-4673-a221-317db386cb74\"\r
+
+      \    ],\r
+
+      \    \"remarks\": \"RK baseline1\",\r
+
+      \    \"budget_forecast\": 500\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/projects/e5ea4bef-d0c2-437a-9180-2104fd5e6784"
+      method: PUT
+      body:
+        type: json
+        data: "{\r
+
+          \    \"project_no\": \"1512233\",\r
+
+          \    \"description\": \"Project color legend again (edited)\",\r
+
+          \    \"category\": \"flowline\",\r
+
+          \    \"wbs\": \"WBS1512233\",\r
+
+          \    \"working_area\": [\r
+
+          \        \"PHSS\"\r
+
+          \    ],\r
+
+          \    \"field\": \"14fa1c2f-d53c-4062-88c3-4730717bce75\",\r
+
+          \    \"start_date\": \"14-12-2023\",\r
+
+          \    \"end_date\": \"19-12-2023\",\r
+
+          \    \"rk\": [\r
+
+          \        \"d929b701-334f-4673-a221-317db386cb74\"\r
+
+          \    ],\r
+
+          \    \"remarks\": \"RK baseline1\",\r
+
+          \    \"budget_forecast\": 500\r
+
+          }"
+    response:
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: "{\r
+
+          \    \"process_time\": \"346ms\",\r
+
+          \    \"status\": \"success\",\r
+
+          \    \"code\": \"\",\r
+
+          \    \"message\": \"Update project succeed\"\r
+
+          }"

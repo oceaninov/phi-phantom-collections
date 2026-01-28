@@ -1,0 +1,313 @@
+info:
+  name: Get by ID
+  type: http
+  seq: 5
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/tenders/:ID"
+  params:
+    - name: ID
+      value: 73605347-67b1-4af7-b62a-5cdfcd953a8d
+      type: path
+      description: Tender ID
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Error not found
+    request:
+      url: "{{base_url}}/api/v1/tenders/:ID"
+      method: GET
+      params:
+        - name: ID
+          value: 3ebf7030-647a-4e3f-bca2-10625d23954a
+          type: path
+          description: Tender ID
+    response:
+      statusText: "404"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 02 Apr 2024 07:01:04 GMT
+        - name: Content-Length
+          value: "322"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "2408ms",
+              "status": "failed",
+              "code": "05",
+              "message": "Data not found",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Data not found",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/tenders/:ID"
+      method: GET
+      params:
+        - name: ID
+          value: 589ce16f-93b1-4fba-a2c5-57e942689f3e
+          type: path
+          description: Tender ID
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Sun, 11 Aug 2024 13:06:42 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "52ms",
+              "status": "success",
+              "code": "",
+              "message": "Get tender succeed",
+              "data": {
+                  "id": "589ce16f-93b1-4fba-a2c5-57e942689f3e",
+                  "pic_legal": "Roberto",
+                  "legal_start_date": "14-07-2024",
+                  "legal_end_date": "15-07-2024",
+                  "legal_status": "done",
+                  "committee": "Zona 9",
+                  "category": "joint tender",
+                  "buyer": "Anthony",
+                  "contracts": [
+                      {
+                          "id": "49fcabad-2fc5-4469-b3c1-7cfe0cb1e21b",
+                          "description": "Test Contract Summary 1",
+                          "request_numbers": [
+                              "328764"
+                          ],
+                          "working_area": "TSS",
+                          "contract_value": "15000000000.00",
+                          "ndp": "NPD47329",
+                          "proclist_year": "2025",
+                          "sc": "SC-01B",
+                          "type": [
+                              "Services"
+                          ],
+                          "tender_plan_date": "08-08-2024",
+                          "contract_start_date": "15-03-2025",
+                          "contract_end_date": "15-03-2026"
+                      },
+                      {
+                          "id": "263d82e4-f5aa-4a63-aee5-cfc62d07ba70",
+                          "description": "Test Contract Summary 2",
+                          "request_numbers": [
+                              "4327684"
+                          ],
+                          "working_area": "PHSS",
+                          "contract_value": "17000000000.00",
+                          "ndp": "NPD89423",
+                          "proclist_year": "2025",
+                          "sc": "SC-01B",
+                          "type": [
+                              "Material",
+                              "Services"
+                          ],
+                          "tender_plan_date": "09-08-2024",
+                          "contract_start_date": "15-03-2025",
+                          "contract_end_date": "15-03-2026"
+                      }
+                  ],
+                  "tender_processes": [
+                      {
+                          "category": {
+                              "id": "bdb7ffd4-99bd-408e-8ec3-6741e4ba582c",
+                              "tender_id": "589ce16f-93b1-4fba-a2c5-57e942689f3e",
+                              "description": "Submit GEP",
+                              "order": 1
+                          },
+                          "processes": [
+                              {
+                                  "id": "2a0a77b3-3bde-46e9-9bde-597f90e20b90",
+                                  "tender_process_category_snapshot_id": "bdb7ffd4-99bd-408e-8ec3-6741e4ba582c",
+                                  "description": "Approval",
+                                  "duration": 3,
+                                  "order": 1,
+                                  "plan_timelines": [
+                                      {
+                                          "id": "22015bbd-d030-41f3-9cce-dbb7e8af77f9",
+                                          "tender_contract_id": "49fcabad-2fc5-4469-b3c1-7cfe0cb1e21b",
+                                          "tender_process_snapshot_id": "2a0a77b3-3bde-46e9-9bde-597f90e20b90",
+                                          "plan_start_date": "08-08-2024",
+                                          "plan_end_date": "11-08-2024",
+                                          "duration": 3,
+                                          "status": "on_schedule"
+                                      },
+                                      {
+                                          "id": "4fff73dc-738a-4d4d-88d8-1da140516d52",
+                                          "tender_contract_id": "263d82e4-f5aa-4a63-aee5-cfc62d07ba70",
+                                          "tender_process_snapshot_id": "2a0a77b3-3bde-46e9-9bde-597f90e20b90",
+                                          "plan_start_date": "09-08-2024",
+                                          "plan_end_date": "12-08-2024",
+                                          "duration": 3,
+                                          "status": "on_schedule"
+                                      }
+                                  ],
+                                  "actual_timeline": {
+                                      "id": "ffd9fee8-eb2a-4a0c-b9fa-c898061a9f61",
+                                      "tender_process_snapshot_id": "2a0a77b3-3bde-46e9-9bde-597f90e20b90",
+                                      "actual_start_date": "09-08-2024",
+                                      "actual_end_date": "11-08-2024",
+                                      "duration": 2,
+                                      "remarks": "Update Approval"
+                                  },
+                                  "is_skipped": false
+                              },
+                              {
+                                  "id": "b41567cf-88e9-4e3e-8f01-9edf5e6c6e7f",
+                                  "tender_process_category_snapshot_id": "bdb7ffd4-99bd-408e-8ec3-6741e4ba582c",
+                                  "description": "Submit",
+                                  "duration": 10,
+                                  "order": 2,
+                                  "plan_timelines": [
+                                      {
+                                          "id": "c3a06b18-9f3b-447a-8ed2-031d70578d0c",
+                                          "tender_contract_id": "49fcabad-2fc5-4469-b3c1-7cfe0cb1e21b",
+                                          "tender_process_snapshot_id": "b41567cf-88e9-4e3e-8f01-9edf5e6c6e7f",
+                                          "plan_start_date": "12-08-2024",
+                                          "plan_end_date": "22-08-2024",
+                                          "duration": 10,
+                                          "status": "late"
+                                      },
+                                      {
+                                          "id": "49b51087-f005-4365-86b6-0c46faa0bb23",
+                                          "tender_contract_id": "263d82e4-f5aa-4a63-aee5-cfc62d07ba70",
+                                          "tender_process_snapshot_id": "b41567cf-88e9-4e3e-8f01-9edf5e6c6e7f",
+                                          "plan_start_date": "13-08-2024",
+                                          "plan_end_date": "23-08-2024",
+                                          "duration": 10,
+                                          "status": "late"
+                                      }
+                                  ],
+                                  "actual_timeline": {
+                                      "id": "de58134c-f552-407c-a120-b5fb2f82f2bd",
+                                      "tender_process_snapshot_id": "b41567cf-88e9-4e3e-8f01-9edf5e6c6e7f",
+                                      "actual_start_date": "12-08-2024",
+                                      "actual_end_date": "25-08-2024",
+                                      "duration": 13,
+                                      "remarks": "Update Submit"
+                                  },
+                                  "is_skipped": false
+                              },
+                              {
+                                  "id": "7f92c76d-1c96-4518-b289-aff9e6461126",
+                                  "tender_process_category_snapshot_id": "bdb7ffd4-99bd-408e-8ec3-6741e4ba582c",
+                                  "description": "Input",
+                                  "duration": 10,
+                                  "order": 3,
+                                  "plan_timelines": [
+                                      {
+                                          "id": "b71fca43-f32b-453e-b852-3a3c96faea83",
+                                          "tender_contract_id": "49fcabad-2fc5-4469-b3c1-7cfe0cb1e21b",
+                                          "tender_process_snapshot_id": "7f92c76d-1c96-4518-b289-aff9e6461126",
+                                          "plan_start_date": "23-08-2024",
+                                          "plan_end_date": "02-09-2024",
+                                          "duration": 10,
+                                          "status": "not_available"
+                                      },
+                                      {
+                                          "id": "6cd04bf5-a8ec-4230-9c6e-902cbff44a9d",
+                                          "tender_contract_id": "263d82e4-f5aa-4a63-aee5-cfc62d07ba70",
+                                          "tender_process_snapshot_id": "7f92c76d-1c96-4518-b289-aff9e6461126",
+                                          "plan_start_date": "24-08-2024",
+                                          "plan_end_date": "03-09-2024",
+                                          "duration": 10,
+                                          "status": "not_available"
+                                      }
+                                  ],
+                                  "actual_timeline": {
+                                      "id": "4215ed28-9b22-4270-b68c-e2d835b5f2b7",
+                                      "tender_process_snapshot_id": "7f92c76d-1c96-4518-b289-aff9e6461126",
+                                      "actual_start_date": "",
+                                      "actual_end_date": "",
+                                      "duration": 0,
+                                      "remarks": ""
+                                  },
+                                  "is_skipped": false
+                              }
+                          ]
+                      },
+                      {
+                          "category": {
+                              "id": "bc901756-b6a9-4dae-88b7-4bffb1a50a0d",
+                              "tender_id": "589ce16f-93b1-4fba-a2c5-57e942689f3e",
+                              "description": "Penunjukan Buyer",
+                              "order": 2
+                          },
+                          "processes": [
+                              {
+                                  "id": "cd419dbc-c3b5-4949-bc63-50a5db04d2f9",
+                                  "tender_process_category_snapshot_id": "bc901756-b6a9-4dae-88b7-4bffb1a50a0d",
+                                  "description": "Buyer",
+                                  "duration": 10,
+                                  "order": 1,
+                                  "plan_timelines": [
+                                      {
+                                          "id": "061f4f03-fb72-4d04-a038-295f7de31a64",
+                                          "tender_contract_id": "49fcabad-2fc5-4469-b3c1-7cfe0cb1e21b",
+                                          "tender_process_snapshot_id": "cd419dbc-c3b5-4949-bc63-50a5db04d2f9",
+                                          "plan_start_date": "03-09-2024",
+                                          "plan_end_date": "13-09-2024",
+                                          "duration": 10,
+                                          "status": "not_available"
+                                      },
+                                      {
+                                          "id": "7424c834-2529-4d16-8ffe-faba84d621c1",
+                                          "tender_contract_id": "263d82e4-f5aa-4a63-aee5-cfc62d07ba70",
+                                          "tender_process_snapshot_id": "cd419dbc-c3b5-4949-bc63-50a5db04d2f9",
+                                          "plan_start_date": "04-09-2024",
+                                          "plan_end_date": "14-09-2024",
+                                          "duration": 10,
+                                          "status": "not_available"
+                                      }
+                                  ],
+                                  "actual_timeline": {
+                                      "id": "84b83954-0f06-42a3-920d-79f7b8155943",
+                                      "tender_process_snapshot_id": "cd419dbc-c3b5-4949-bc63-50a5db04d2f9",
+                                      "actual_start_date": "",
+                                      "actual_end_date": "",
+                                      "duration": 0,
+                                      "remarks": ""
+                                  },
+                                  "is_skipped": false
+                              }
+                          ]
+                      }
+                  ],
+                  "summary": {
+                      "start_plan_date": "08-08-2024",
+                      "end_plan_date": "14-09-2024",
+                      "start_actual_date": "09-08-2024",
+                      "end_actual_date": "25-08-2024",
+                      "total_plan_duration": 37,
+                      "total_actual_duration": 16
+                  }
+              }
+          }

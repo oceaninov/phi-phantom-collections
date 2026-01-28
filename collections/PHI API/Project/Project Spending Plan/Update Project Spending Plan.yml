@@ -1,0 +1,98 @@
+info:
+  name: Update Project Spending Plan
+  type: http
+  seq: 1
+
+http:
+  method: PUT
+  url: "{{base_url}}/api/v1/projects/spending-plans/366f3196-16e3-45d0-a6e5-885714129a1b"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"plan_cost\": 10,\r
+
+      \    \"remarks\": \"coba remarks\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/projects/spending-plans/366f3196-16e3-45d0-a6e5-885714129a1b"
+      method: PUT
+      body:
+        type: json
+        data: "{\r
+
+          \    \"plan_cost\": 10,\r
+
+          \    \"remarks\": \"coba remarks\"\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "13ms",
+              "status": "success",
+              "code": "",
+              "message": "Update project spending plan succeed"
+          }
+  - name: failed spending plan not found
+    request:
+      url: "{{base_url}}/api/v1/projects/spending-plans/366f3196-16e3-45d0-a6e5-885714129a1c"
+      method: PUT
+      body:
+        type: json
+        data: "{\r
+
+          \    \"plan_cost\": 10,\r
+
+          \    \"remarks\": \"coba remarks\"\r
+
+          }"
+    response:
+      statusText: "404"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 20 Nov 2023 09:39:55 GMT
+        - name: Content-Length
+          value: "320"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "80ms",
+              "status": "failed",
+              "code": "05",
+              "message": "Data not found",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Data not found",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

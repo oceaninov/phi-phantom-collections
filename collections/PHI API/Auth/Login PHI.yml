@@ -1,0 +1,111 @@
+info:
+  name: Login PHI
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/auth/login"
+  headers:
+    - name: X-Client-ID
+      value: r3lax
+  body:
+    type: json
+    data: "{\r
+
+      \    \"username\": \"r3test.vicep\",\r
+
+      \    \"password\": \"Pertamina@321\",\r
+
+      \    \"otp\": \"855956\"\r
+
+      }"
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        var jsonData = res.getBody();
+        bru.setEnvVar("access_token", jsonData.data.accessToken);
+        bru.setEnvVar("refresh_token", jsonData.data.refreshToken);
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/auth/login"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"email\": \"super_admin@gmail.com\",\r
+
+          \    \"password\": \"passw0rd\"\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 01 Aug 2023 02:11:37 GMT
+        - name: Content-Length
+          value: "602"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "302ms",
+              "status": "success",
+              "code": "",
+              "message": "Login succeed",
+              "data": {
+                  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NfdXVpZCI6ImQxMDJlYzRmLTVkMDMtNDNlMy1iODQyLTk5ODU4ZjRhODUwZCIsImF1dGhvcml6ZWQiOnRydWUsImV4cCI6MTY5MDg1NjQ5NywidXNlcl9pZCI6MX0.XYGUlxd0hIL0jWle4_40HP7_pyYESA4pCBnU768RqDs",
+                  "accessTokenExpires": 1690856497,
+                  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTA4NTk0OTcsInJlZnJlc2hfdXVpZCI6ImQxMDJlYzRmLTVkMDMtNDNlMy1iODQyLTk5ODU4ZjRhODUwZCsrMSIsInVzZXJfaWQiOjF9.14OSD8a_hfbtSrxPb9NRLafOrCh2X1d6cbrrC85WiEU",
+                  "refreshTokenExpires": 1690859497
+              }
+          }
+  - name: invalid credential
+    request:
+      url: "{{base_url}}/auth/login"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"email\": \"super_admins@gmail.com\",\r
+
+          \    \"password\": \"passw0rd\"\r
+
+          }"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 01 Aug 2023 02:12:00 GMT
+        - name: Content-Length
+          value: "89"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "28ms",
+              "status": "failed",
+              "code": "01",
+              "message": "Invalid email/password"
+          }

@@ -1,0 +1,104 @@
+info:
+  name: Submit Contract
+  type: http
+  seq: 15
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/contracts/submit"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"contract_id\": \"27f99728-e7a8-4b64-aa01-dac2a44527e4\",\r
+
+      \    \"remarks\": \"Submit Contract Number CAPRT710\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/contracts/submit"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"contract_id\": \"87787474-694e-465e-b60e-91c632f46062\",\r
+
+          \    \"remarks\": \"Submit Contract Number 1234555555\"\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Fri, 13 Oct 2023 02:31:33 GMT
+        - name: Content-Length
+          value: "90"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "528ms",
+              "status": "success",
+              "code": "",
+              "message": "Submit contract succeed"
+          }
+  - name: failed only draft contract can submitted
+    request:
+      url: "{{base_url}}/api/v1/contracts/submit"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"contract_id\": \"87787474-694e-465e-b60e-91c632f46062\",\r
+
+          \    \"remarks\": \"Submit Contract Number 1234555555\"\r
+
+          }"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 16 Nov 2023 07:07:49 GMT
+        - name: Content-Length
+          value: "364"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "45ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Only draft contract can be submitted",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Only draft contract can be submitted",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

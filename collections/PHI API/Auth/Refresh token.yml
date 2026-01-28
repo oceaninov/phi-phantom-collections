@@ -1,0 +1,101 @@
+info:
+  name: Refresh token
+  type: http
+  seq: 6
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/auth/refresh"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"refresh_token\": \"{{refresh_token}}\"\r
+
+      }"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/auth/refresh"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"refresh_token\": \"{{refresh_token}}\"\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 01 Aug 2023 02:13:41 GMT
+        - name: Content-Length
+          value: "603"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "15ms",
+              "status": "success",
+              "code": "",
+              "message": "Token refreshed",
+              "data": {
+                  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NfdXVpZCI6ImE2NWI3OTEyLTUyMDctNDcyNS04Nzk4LTcxM2U0OWZlZGJmNSIsImF1dGhvcml6ZWQiOnRydWUsImV4cCI6MTY5MDg1NjYyMSwidXNlcl9pZCI6MX0.A5KRnoUldJjn1kwWyPD39QMTtwixRu3xgKMqKMoRNZw",
+                  "accessTokenExpires": 1690856621,
+                  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTA4NTk2MjEsInJlZnJlc2hfdXVpZCI6ImE2NWI3OTEyLTUyMDctNDcyNS04Nzk4LTcxM2U0OWZlZGJmNSsrMSIsInVzZXJfaWQiOjF9.1VeaBsH2BzZo78OGTeyQhJ5Zu3AXidmPALpp_zroTjA",
+                  "refreshTokenExpires": 1690859621
+              }
+          }
+  - name: failed invalid refresh token
+    request:
+      url: "{{base_url}}/api/v1/auth/refresh"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"refresh_token\": \"{{refresh_token}}\"\r
+
+          }"
+    response:
+      statusText: "500"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 15 Nov 2023 02:40:09 GMT
+        - name: Content-Length
+          value: "365"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "0ms",
+              "status": "failed",
+              "code": "99",
+              "message": "Unknown error : Invalid refresh token",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Unknown error : Invalid refresh token",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

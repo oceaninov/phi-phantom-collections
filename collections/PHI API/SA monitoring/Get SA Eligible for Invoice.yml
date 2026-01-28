@@ -1,0 +1,134 @@
+info:
+  name: Get SA Eligible for Invoice
+  type: http
+  seq: 9
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/service-acceptances/eligible-for-invoice/:contractID?page=1&page_size=10"
+  params:
+    - name: page
+      value: "1"
+      type: query
+    - name: page_size
+      value: "10"
+      type: query
+    - name: sa_no
+      value: SA00112346
+      type: query
+      disabled: true
+    - name: contractID
+      value: 2e0072c3-2e61-43d4-9bcd-ddc1662d81f6
+      type: path
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: empty
+    request:
+      url: "{{base_url}}/api/v1/service-acceptances/eligible-for-invoice/:contractID?page=1&page_size=10"
+      method: GET
+      params:
+        - name: page
+          value: "1"
+          type: query
+        - name: page_size
+          value: "10"
+          type: query
+        - name: contractID
+          value: f7a51385-f988-4764-bcb2-20e216da3a81
+          type: path
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 20 Jun 2024 13:24:13 GMT
+        - name: Content-Length
+          value: "124"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "9ms",
+              "status": "success",
+              "code": "",
+              "message": "Get service acceptance succeed",
+              "data": {
+                  "list": [],
+                  "count": 0
+              }
+          }
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/service-acceptances/eligible-for-invoice/:contractID?page=1&page_size=10&sa_no=SA00112346"
+      method: GET
+      params:
+        - name: page
+          value: "1"
+          type: query
+        - name: page_size
+          value: "10"
+          type: query
+        - name: sa_no
+          value: SA00112346
+          type: query
+        - name: contractID
+          value: 392031e6-308e-4507-a7ee-c1e4d70a9bee
+          type: path
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 27 Jun 2024 01:27:31 GMT
+        - name: Content-Length
+          value: "421"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "7ms",
+              "status": "success",
+              "code": "",
+              "message": "Upload service acceptance succeed",
+              "data": {
+                  "list": [
+                      {
+                          "sa_no": "SA00112346",
+                          "ro_no": "13122023",
+                          "total_amount": "20000.00",
+                          "sa_count": 2,
+                          "currency": "IDR",
+                          "detail": [
+                              {
+                                  "id": "ef7f8438-ee35-4dca-883b-dc2fe2963334",
+                                  "cost": "10000.00",
+                                  "wbs": "u87789",
+                                  "line_item": 2
+                              },
+                              {
+                                  "id": "86ccb2d5-97e6-43b8-bcad-f9d9b1cdf4ed",
+                                  "cost": "10000.00",
+                                  "wbs": "u87789",
+                                  "line_item": 1
+                              }
+                          ]
+                      }
+                  ],
+                  "count": 1
+              }
+          }

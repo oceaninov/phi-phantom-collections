@@ -1,0 +1,204 @@
+info:
+  name: Update User Contractor
+  type: http
+  seq: 10
+
+http:
+  method: PUT
+  url: "{{base_url}}/api/v1/users/fa7bd056-a197-4ba1-9096-9922f5f70cac/contractor"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"email\": \"mnhjkldd@phdaily.com\",\r
+
+      \    \"full_name\": \"test\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/users/3"
+      method: PUT
+      body:
+        type: json
+        data: "{\r
+
+          \    \"full_name\": \"Dany Marita Pradana Old\",\r
+
+          \    \"email\": \"danympradana_old@gmail.com\",\r
+
+          \    \"role_id\": 1,\r
+
+          \    \"status\": \"active\"\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 03 Aug 2023 03:35:00 GMT
+        - name: Content-Length
+          value: "86"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "214ms",
+              "status": "success",
+              "code": "",
+              "message": "Update user succeed"
+          }
+  - name: success with uuid
+    request:
+      url: "{{base_url}}/users/fa7bd056-a197-4ba1-9096-9922f5f70cac"
+      method: PUT
+      body:
+        type: json
+        data: "{\r
+
+          \    \"full_name\": \"Dany Marita Pradana\",\r
+
+          \    \"email\": \"danympradana@gmail.com\",\r
+
+          \    \"role_id\": 1,\r
+
+          \    \"status\": \"active\"\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Fri, 04 Aug 2023 06:04:35 GMT
+        - name: Content-Length
+          value: "86"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "120ms",
+              "status": "success",
+              "code": "",
+              "message": "Update user succeed"
+          }
+  - name: failed request validation
+    request:
+      url: "{{base_url}}/api/v1/users/fa7bd056-a197-4ba1-9096-9922f5f70cac"
+      method: PUT
+      body:
+        type: json
+        data: "{\r
+
+          \    \"full_name\": \"\",\r
+
+          \    \"email\": \"danympradana_old@gmail.com\",\r
+
+          \    \"role_id\": 1,\r
+
+          \    \"status\": \"active\",\r
+
+          \    \"zone\": \"Zona-9\",\r
+
+          \    \"working_area\": \"PHSS\"\r
+
+          }"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 15 Nov 2023 03:16:36 GMT
+        - name: Content-Length
+          value: "346"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "13ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Full Name: cannot be blank.",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Full Name: cannot be blank.",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }
+  - name: failed user not found
+    request:
+      url: "{{base_url}}/api/v1/users/fa7bd056-a197-4ba1-9096-9922f5f70cad"
+      method: PUT
+      body:
+        type: json
+        data: "{\r
+
+          \    \"full_name\": \"Dany Marita Pradana Old\",\r
+
+          \    \"email\": \"danympradana_old@gmail.com\",\r
+
+          \    \"role_id\": 1,\r
+
+          \    \"status\": \"active\",\r
+
+          \    \"zone\": \"Zona-9\",\r
+
+          \    \"working_area\": \"PHSS\"\r
+
+          }"
+    response:
+      statusText: "404"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 15 Nov 2023 03:17:01 GMT
+        - name: Content-Length
+          value: "320"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "19ms",
+              "status": "failed",
+              "code": "05",
+              "message": "Data not found",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Data not found",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

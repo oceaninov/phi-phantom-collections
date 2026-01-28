@@ -1,0 +1,175 @@
+info:
+  name: Get Project Tasks
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/projects/tasks?page=1&page_size=25&eligible_for_spk=true&project_id=ac04d2c5-e7b2-4f24-80fb-a54427e46774"
+  params:
+    - name: page
+      value: "1"
+      type: query
+    - name: page_size
+      value: "25"
+      type: query
+    - name: search
+      value: piping
+      type: query
+      description: memfilter data berdasarkan breakdown dan title
+      disabled: true
+    - name: start_date
+      value: 01-12-2022
+      type: query
+      disabled: true
+    - name: end_date
+      value: 01-02-2023
+      type: query
+      disabled: true
+    - name: actual_progress_max
+      value: "100"
+      type: query
+      disabled: true
+    - name: actual_progress_min
+      value: "10"
+      type: query
+      disabled: true
+    - name: eligible_for_spk
+      value: "true"
+      type: query
+      description: true/false
+    - name: project_id
+      value: ac04d2c5-e7b2-4f24-80fb-a54427e46774
+      type: query
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/projects/tasks?page=1&page_size=25&project_id=291f25a9-43c7-46e4-bef2-048cfc5c3698&eligible_for_spk=true"
+      method: GET
+      params:
+        - name: page
+          value: "1"
+          type: query
+        - name: page_size
+          value: "25"
+          type: query
+        - name: search
+          value: piping
+          type: query
+          description: memfilter data berdasarkan breakdown dan title
+          disabled: true
+        - name: start_date
+          value: 01-12-2022
+          type: query
+          disabled: true
+        - name: end_date
+          value: 01-02-2023
+          type: query
+          disabled: true
+        - name: actual_progress_max
+          value: "100"
+          type: query
+          disabled: true
+        - name: actual_progress_min
+          value: "10"
+          type: query
+          disabled: true
+        - name: project_id
+          value: 291f25a9-43c7-46e4-bef2-048cfc5c3698
+          type: query
+        - name: eligible_for_spk
+          value: "true"
+          type: query
+          description: true/false
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 17 Oct 2023 10:10:19 GMT
+        - name: Content-Length
+          value: "1014"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "309ms",
+              "status": "success",
+              "code": "",
+              "message": "Get project tasks succeed",
+              "data": {
+                  "list": [
+                      {
+                          "id": "111eabbd-82b6-4da9-9f30-fbcc4db53e12",
+                          "project_id": "291f25a9-43c7-46e4-bef2-048cfc5c3698",
+                          "breakdown": "1",
+                          "description": "Engineering",
+                          "remarks": "Engineering",
+                          "weight": "500.00",
+                          "start_date": "03-11-2022",
+                          "end_date": "31-05-2023",
+                          "predecessors": [
+                              {
+                                  "id": "16",
+                                  "lag": "0.0d",
+                                  "type": "FS",
+                                  "uniqueID": "988"
+                              },
+                              {
+                                  "id": "3",
+                                  "lag": "0.0d",
+                                  "type": "FS",
+                                  "uniqueID": "1609"
+                              }
+                          ],
+                          "successors": [],
+                          "etc": "12-07-2024",
+                          "etc_duration": 210,
+                          "is_critical_path": false,
+                          "duration": 210,
+                          "estimated_cost": "0.00",
+                          "unique_id": 0,
+                          "spk": null,
+                          "contract": {
+                              "id": "b9790faa-d561-4e47-aba3-1d00aea493ad",
+                              "contract_no": "1989238918"
+                          },
+                          "spk_cost": "2000.00",
+                          "physical_progress": "",
+                          "status": "not started",
+                          "assignee": null,
+                          "actual_progress_itd": "0.00",
+                          "actual_progress_weight_itd": "0.00",
+                          "plan_progress_itd": "0.00",
+                          "plan_weight_itd": "0.00",
+                          "plan_cost_itd": "0.00",
+                          "plan_cost_ytd": "0.00",
+                          "data_type": "header",
+                          "created_at": "12-09-2023 08:29:36",
+                          "created_by": {
+                              "id": "7ae8e931-1628-4562-bf24-1c2cdd2b4cf4",
+                              "full_name": "Dany M Pradana"
+                          },
+                          "updated_at": "17-10-2023 09:25:45",
+                          "updated_by": {
+                              "id": "b279b3e0-0dea-40a0-96c4-97f5b0e49d8a",
+                              "full_name": "Indra Lasmana"
+                          }
+                      }
+                  ],
+                  "count": 1
+              }
+          }

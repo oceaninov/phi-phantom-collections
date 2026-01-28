@@ -1,0 +1,59 @@
+info:
+  name: Delete Document
+  type: http
+  seq: 6
+
+http:
+  method: DELETE
+  url: "{{base_url}}/api/v1/projects/:ID/documents/:documentID"
+  params:
+    - name: ID
+      value: 20d18de3-ccf7-43f3-88ed-2c95bb7fe32d
+      type: path
+      description: Project ID
+    - name: documentID
+      value: 795aa385-4e18-4cf0-af83-ddd3dcb91512
+      type: path
+      description: Document ID
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Success
+    request:
+      url: "{{base_url}}/api/v1/projects/:ID/documents/:documentID"
+      method: DELETE
+      params:
+        - name: ID
+          value: 20d18de3-ccf7-43f3-88ed-2c95bb7fe32d
+          type: path
+          description: Project ID
+        - name: documentID
+          value: 795aa385-4e18-4cf0-af83-ddd3dcb91512
+          type: path
+          description: Document ID
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 18 Mar 2024 08:02:24 GMT
+        - name: Content-Length
+          value: "90"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "274ms",
+              "status": "success",
+              "code": "",
+              "message": "Delete document succeed"
+          }

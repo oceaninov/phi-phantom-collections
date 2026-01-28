@@ -1,0 +1,95 @@
+info:
+  name: Get Progress History
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: ""
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/projects/tasks/progress?project_task_schedule_id=654dc6fd-4911-49ee-b322-596bead6a408"
+      method: GET
+      params:
+        - name: project_task_schedule_id
+          value: 654dc6fd-4911-49ee-b322-596bead6a408
+          type: query
+    response:
+      statusText: "200"
+      headers:
+        - name: Date
+          value: Wed, 09 Oct 2024 07:15:12 GMT
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Transfer-Encoding
+          value: chunked
+        - name: Connection
+          value: keep-alive
+        - name: vary
+          value: Origin
+        - name: access-control-allow-origin
+          value: "*"
+        - name: access-control-allow-headers
+          value: CoreAccessToken, CoreAuthID, DNT, X-CustomHeader, Keep-Alive, User-Agent, X-Requested-With, If-Modified-Since, Cache-Control, Content-Type, Authorization
+        - name: access-control-max-age
+          value: "3628800"
+        - name: access-control-allow-methods
+          value: GET, DELETE, OPTIONS, POST, PUT, PATCH
+        - name: access-control-expose-headers
+          value: Content-Disposision
+        - name: cf-cache-status
+          value: DYNAMIC
+        - name: Report-To
+          value: '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=QrZu%2FxgiweNJqpVTKWk%2B1W6U%2BtjKvTepuF2vKQULI9tbP5kFup92LsIyjkfFK8mp29OuDzSPfOWq7sqTcpDWrcQuONFFPsZGlVxKda6Xrf9zWLuAGan%2FsiQunFijHxQb9I%2BBAEVH"}],"group":"cf-nel","max_age":604800}'
+        - name: NEL
+          value: '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+        - name: Server
+          value: cloudflare
+        - name: CF-RAY
+          value: 8cfc94006b893fb0-SIN
+        - name: Content-Encoding
+          value: br
+        - name: alt-svc
+          value: h3=":443"; ma=86400
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "4ms",
+              "status": "success",
+              "code": "",
+              "message": "Get project task progresses succeed",
+              "data": [
+                  {
+                      "id": "6168ab2c-4952-40d5-8071-466c402bf717",
+                      "project_task_schedule_id": "654dc6fd-4911-49ee-b322-596bead6a408",
+                      "date": "20-09-2024",
+                      "progress_addition": "5.00",
+                      "remarks": "Tambah progress 5%",
+                      "attachments": [
+                          "https://bucket-dev.inproms.com/ipms-bucket/progress/6e093315-1495-40f6-8fef-879627660da8_8F8E076E875DA5C1.jpg"
+                      ],
+                      "created_at": "09-10-2024 14:04:38",
+                      "created_by": {
+                          "id": "f78e9109-dae9-46a3-ab34-4f0fd0e95cec",
+                          "full_name": "Dany Marita Pradana",
+                          "status": ""
+                      },
+                      "updated_at": "09-10-2024 14:04:38",
+                      "updated_by": {
+                          "id": "f78e9109-dae9-46a3-ab34-4f0fd0e95cec",
+                          "full_name": "Dany Marita Pradana",
+                          "status": ""
+                      }
+                  }
+              ]
+          }

@@ -1,0 +1,65 @@
+info:
+  name: Update SPK Remark
+  type: http
+  seq: 7
+
+http:
+  method: PATCH
+  url: "{{base_url}}/api/v1/spks/:ID/remark"
+  params:
+    - name: ID
+      value: 42eb807b-836b-4f04-83ee-816dfd4d5685
+      type: path
+  body:
+    type: json
+    data: "{\r
+
+      \    \"remark\": \"Remark 5\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Success
+    request:
+      url: "{{base_url}}/api/v1/spks/:ID/remark"
+      method: PATCH
+      params:
+        - name: ID
+          value: 010452f2-d9da-4adf-81c6-8f5e210ea277
+          type: path
+      body:
+        type: json
+        data: "{\r
+
+          \    \"remark\": \"remark description\"\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 28 Feb 2024 07:30:27 GMT
+        - name: Content-Length
+          value: "91"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "8ms",
+              "status": "success",
+              "code": "",
+              "message": "Update spk remarks succeed"
+          }

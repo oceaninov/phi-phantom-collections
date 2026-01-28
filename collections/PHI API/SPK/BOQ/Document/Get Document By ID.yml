@@ -1,0 +1,80 @@
+info:
+  name: Get Document By ID
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/spks/boqs/:ID/documents/:documentID"
+  params:
+    - name: ID
+      value: 0b5229aa-b2eb-4cdb-8bd3-6e1be7c6f220
+      type: path
+      description: SPK BoQ ID
+    - name: documentID
+      value: 2548fbff-d194-406e-94e2-68d187e8e773
+      type: path
+      description: Document ID
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Success
+    request:
+      url: "{{base_url}}/api/v1/spks/boqs/:ID/documents/:documentID"
+      method: GET
+      params:
+        - name: ID
+          value: 0b5229aa-b2eb-4cdb-8bd3-6e1be7c6f220
+          type: path
+          description: SPK BoQ ID
+        - name: documentID
+          value: 2548fbff-d194-406e-94e2-68d187e8e773
+          type: path
+          description: Document ID
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 18 Mar 2024 07:13:39 GMT
+        - name: Content-Length
+          value: "730"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "183ms",
+              "status": "success",
+              "code": "",
+              "message": "Get document succeed",
+              "data": {
+                  "id": "2548fbff-d194-406e-94e2-68d187e8e773",
+                  "spk_boq_id": "0b5229aa-b2eb-4cdb-8bd3-6e1be7c6f220",
+                  "file_name": "test.xlsx",
+                  "file_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                  "file_size": "0 bytes",
+                  "file_url": "https://storage.googleapis.com/phi-dev-bucket/assets/026bfb65-1178-4d08-924f-151b8e9392e7_FC4000F74CCBC7F1.xlsx",
+                  "description": "test 1",
+                  "created_at": "18-03-2024 14:10:27",
+                  "created_by": {
+                      "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                      "full_name": "Super Admin",
+                      "status": ""
+                  },
+                  "updated_at": "18-03-2024 14:11:29",
+                  "updated_by": {
+                      "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                      "full_name": "Super Admin",
+                      "status": ""
+                  }
+              }
+          }

@@ -1,0 +1,603 @@
+info:
+  name: Get List all rkaps
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/rkaps/all?sort_column=created_at&sort_order=ASC"
+  params:
+    - name: sort_column
+      value: created_at
+      type: query
+    - name: sort_order
+      value: ASC
+      type: query
+    - name: name
+      value: kg
+      type: query
+      disabled: true
+    - name: is_active
+      value: "1"
+      type: query
+      disabled: true
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/rkaps/all?sort_column=created_at&sort_order=ASC"
+      method: GET
+      params:
+        - name: sort_column
+          value: created_at
+          type: query
+        - name: sort_order
+          value: ASC
+          type: query
+        - name: name
+          value: kg
+          type: query
+          disabled: true
+        - name: is_active
+          value: "1"
+          type: query
+          disabled: true
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 26 Sep 2023 07:07:51 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "94ms",
+              "status": "success",
+              "code": "",
+              "message": "Get rkaps succeed",
+              "data": [
+                  {
+                      "id": "afcde8ed-eb56-4da8-b385-5b7e25828b22",
+                      "code": "RKAP23",
+                      "description": "RKAP 2023",
+                      "start_date": "01-01-2023",
+                      "end_date": "31-12-2023",
+                      "is_active": 1,
+                      "created_at": "31-08-2023 11:14:37",
+                      "created_by": {
+                          "id": "76b2cda5-023b-4d40-880a-beacffa41c1a",
+                          "full_name": "AEka"
+                      },
+                      "updated_at": "21-09-2023 14:27:30",
+                      "updated_by": {
+                          "id": "76b2cda5-023b-4d40-880a-beacffa41c1a",
+                          "full_name": "AEka"
+                      }
+                  },
+                  {
+                      "id": "7fce2d25-757a-4d44-a27c-cb724c465298",
+                      "code": "22222",
+                      "description": "dfdfdsdfsdfsdfdsfsdfsdsdfsd",
+                      "start_date": "01-01-2022",
+                      "end_date": "30-12-2022",
+                      "is_active": 1,
+                      "created_at": "31-08-2023 11:15:49",
+                      "created_by": {
+                          "id": "7ae8e931-1628-4562-bf24-1c2cdd2b4cf4",
+                          "full_name": "Dany M Pradana"
+                      },
+                      "updated_at": "31-08-2023 15:07:53",
+                      "updated_by": {
+                          "id": "7ae8e931-1628-4562-bf24-1c2cdd2b4cf4",
+                          "full_name": "Dany M Pradana"
+                      }
+                  },
+                  {
+                      "id": "c5f92c74-5094-413f-8839-5499ca2a4a4a",
+                      "code": "RKAP24",
+                      "description": "desc",
+                      "start_date": "01-01-2024",
+                      "end_date": "31-12-2024",
+                      "is_active": 1,
+                      "created_at": "31-08-2023 14:58:52",
+                      "created_by": {
+                          "id": "76b2cda5-023b-4d40-880a-beacffa41c1a",
+                          "full_name": "AEka"
+                      },
+                      "updated_at": "21-09-2023 14:24:57",
+                      "updated_by": {
+                          "id": "76b2cda5-023b-4d40-880a-beacffa41c1a",
+                          "full_name": "AEka"
+                      }
+                  },
+                  {
+                      "id": "20c4774a-a6b3-4ed2-b91b-46c3da6d18e3",
+                      "code": "RKAP26",
+                      "description": "test rkap26 update",
+                      "start_date": "01-01-2026",
+                      "end_date": "31-12-2026",
+                      "is_active": 0,
+                      "created_at": "31-08-2023 15:15:03",
+                      "created_by": {
+                          "id": "a4b047b1-457f-4d7a-911e-94aa908a3132",
+                          "full_name": "Rinaldy"
+                      },
+                      "updated_at": "08-09-2023 14:09:26",
+                      "updated_by": {
+                          "id": "a4b047b1-457f-4d7a-911e-94aa908a3132",
+                          "full_name": "Rinaldy"
+                      }
+                  },
+                  {
+                      "id": "80a395a7-65c6-4677-8db0-ea15661642c0",
+                      "code": "RKAP51",
+                      "description": "test lagi",
+                      "start_date": "15-08-2023",
+                      "end_date": "16-08-2023",
+                      "is_active": 1,
+                      "created_at": "31-08-2023 16:06:19",
+                      "created_by": {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira"
+                      },
+                      "updated_at": "04-09-2023 16:18:30",
+                      "updated_by": {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira"
+                      }
+                  },
+                  {
+                      "id": "d3aa9d73-5656-48ff-a57c-c489c1bce708",
+                      "code": "RKAP242222",
+                      "description": "",
+                      "start_date": "01-01-2022",
+                      "end_date": "30-12-2022",
+                      "is_active": 1,
+                      "created_at": "01-09-2023 15:09:58",
+                      "created_by": {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira"
+                      },
+                      "updated_at": "11-09-2023 10:26:07",
+                      "updated_by": {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira"
+                      }
+                  },
+                  {
+                      "id": "e8c5167e-7997-45da-8e51-06dab98eb5b5",
+                      "code": "RKAP20",
+                      "description": "testing 70",
+                      "start_date": "05-09-2023",
+                      "end_date": "19-09-2023",
+                      "is_active": 1,
+                      "created_at": "02-09-2023 10:36:29",
+                      "created_by": {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira"
+                      },
+                      "updated_at": "08-09-2023 13:40:16",
+                      "updated_by": {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira"
+                      }
+                  },
+                  {
+                      "id": "7303e3c5-4694-40af-b447-7a7bdf3dfa72",
+                      "code": "RKAP11",
+                      "description": "test 4 september",
+                      "start_date": "01-09-2023",
+                      "end_date": "06-09-2023",
+                      "is_active": 0,
+                      "created_at": "04-09-2023 17:00:21",
+                      "created_by": {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira"
+                      },
+                      "updated_at": "04-09-2023 17:00:58",
+                      "updated_by": {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira"
+                      }
+                  },
+                  {
+                      "id": "25e4acaf-67e6-42ff-addb-9ec467a38844",
+                      "code": "RKAP13",
+                      "description": "Rencana Kerja 2013. Pembangunan jalan ke lokasi area kerja Tanjung.",
+                      "start_date": "20-12-2012",
+                      "end_date": "08-09-2023",
+                      "is_active": 1,
+                      "created_at": "05-09-2023 10:38:45",
+                      "created_by": {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira"
+                      },
+                      "updated_at": "06-09-2023 10:35:47",
+                      "updated_by": {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira"
+                      }
+                  },
+                  {
+                      "id": "b899fe2a-ef26-4ede-9a57-0fe81eef16d0",
+                      "code": "RKAP34",
+                      "description": "fsdgs",
+                      "start_date": "01-01-2034",
+                      "end_date": "31-12-2034",
+                      "is_active": 1,
+                      "created_at": "06-09-2023 11:12:47",
+                      "created_by": {
+                          "id": "76b2cda5-023b-4d40-880a-beacffa41c1a",
+                          "full_name": "AEka"
+                      },
+                      "updated_at": "22-09-2023 10:30:44",
+                      "updated_by": {
+                          "id": "76b2cda5-023b-4d40-880a-beacffa41c1a",
+                          "full_name": "AEka"
+                      }
+                  },
+                  {
+                      "id": "c8470570-a148-4348-b488-59f73ffdd1aa",
+                      "code": "RKAP09",
+                      "description": "test",
+                      "start_date": "05-09-2023",
+                      "end_date": "12-09-2023",
+                      "is_active": 1,
+                      "created_at": "06-09-2023 11:13:27",
+                      "created_by": {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira"
+                      },
+                      "updated_at": "06-09-2023 11:13:27",
+                      "updated_by": {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira"
+                      }
+                  },
+                  {
+                      "id": "3f47380e-3083-4797-909d-d8da30cf90b3",
+                      "code": "RKAP43",
+                      "description": "test",
+                      "start_date": "06-09-2023",
+                      "end_date": "16-09-2023",
+                      "is_active": 1,
+                      "created_at": "06-09-2023 11:19:25",
+                      "created_by": {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira"
+                      },
+                      "updated_at": "08-09-2023 13:25:26",
+                      "updated_by": {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira"
+                      }
+                  },
+                  {
+                      "id": "21615483-3b8b-446b-b139-c58c152c9d23",
+                      "code": "RKAP78",
+                      "description": "test refresh",
+                      "start_date": "14-09-2023",
+                      "end_date": "27-09-2023",
+                      "is_active": 1,
+                      "created_at": "06-09-2023 11:19:52",
+                      "created_by": {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira"
+                      },
+                      "updated_at": "06-09-2023 11:19:52",
+                      "updated_by": {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira"
+                      }
+                  },
+                  {
+                      "id": "5c684285-2989-47ed-95e6-8a6b3bcb9e2b",
+                      "code": "RKAP89",
+                      "description": "test refresh 2",
+                      "start_date": "12-09-2023",
+                      "end_date": "21-09-2023",
+                      "is_active": 1,
+                      "created_at": "06-09-2023 11:20:44",
+                      "created_by": {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira"
+                      },
+                      "updated_at": "06-09-2023 11:20:44",
+                      "updated_by": {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira"
+                      }
+                  },
+                  {
+                      "id": "46e642b8-648c-4f06-be60-eb5729297e52",
+                      "code": "RKAP45",
+                      "description": "test fetch",
+                      "start_date": "05-09-2023",
+                      "end_date": "13-09-2023",
+                      "is_active": 1,
+                      "created_at": "06-09-2023 11:35:10",
+                      "created_by": {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira"
+                      },
+                      "updated_at": "06-09-2023 11:35:10",
+                      "updated_by": {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira"
+                      }
+                  },
+                  {
+                      "id": "2c6ee92d-5427-4253-b5da-891ed0b6f5fb",
+                      "code": "RKAP69",
+                      "description": "Ini coba refresh data list rkap setelah add",
+                      "start_date": "06-09-2023",
+                      "end_date": "06-09-2024",
+                      "is_active": 1,
+                      "created_at": "06-09-2023 12:21:22",
+                      "created_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin"
+                      },
+                      "updated_at": "06-09-2023 12:21:22",
+                      "updated_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "bba66a6e-4f82-44ab-818f-187e161f011d",
+                      "code": "RKAP74",
+                      "description": "Ini coba di dev rkap 74 refresh after create",
+                      "start_date": "06-09-2023",
+                      "end_date": "06-09-2024",
+                      "is_active": 1,
+                      "created_at": "06-09-2023 12:28:53",
+                      "created_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin"
+                      },
+                      "updated_at": "06-09-2023 12:28:53",
+                      "updated_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "4a374286-1bba-4ed1-b8be-3eae1331eba9",
+                      "code": "RKAP79",
+                      "description": "test 162",
+                      "start_date": "30-09-2023",
+                      "end_date": "18-10-2023",
+                      "is_active": 0,
+                      "created_at": "06-09-2023 13:24:50",
+                      "created_by": {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira"
+                      },
+                      "updated_at": "06-09-2023 13:26:44",
+                      "updated_by": {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira"
+                      }
+                  },
+                  {
+                      "id": "1abda64c-edb5-4ad8-b9f3-c012a852cab6",
+                      "code": "RKAP66",
+                      "description": "desc",
+                      "start_date": "05-09-2023",
+                      "end_date": "06-09-2023",
+                      "is_active": 1,
+                      "created_at": "06-09-2023 14:41:57",
+                      "created_by": {
+                          "id": "a4b047b1-457f-4d7a-911e-94aa908a3132",
+                          "full_name": "Rinaldy"
+                      },
+                      "updated_at": "06-09-2023 14:41:57",
+                      "updated_by": {
+                          "id": "a4b047b1-457f-4d7a-911e-94aa908a3132",
+                          "full_name": "Rinaldy"
+                      }
+                  },
+                  {
+                      "id": "c68abb20-4938-4c68-b172-933ba002dd58",
+                      "code": "RKAP63",
+                      "description": "test decription",
+                      "start_date": "12-09-2023",
+                      "end_date": "20-09-2023",
+                      "is_active": 1,
+                      "created_at": "07-09-2023 09:09:18",
+                      "created_by": {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira"
+                      },
+                      "updated_at": "07-09-2023 09:09:18",
+                      "updated_by": {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira"
+                      }
+                  },
+                  {
+                      "id": "47a9d804-e48d-4f1e-84dc-b589f5c96996",
+                      "code": "RKAP88",
+                      "description": "",
+                      "start_date": "14-09-2023",
+                      "end_date": "22-09-2023",
+                      "is_active": 1,
+                      "created_at": "08-09-2023 13:24:55",
+                      "created_by": {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira"
+                      },
+                      "updated_at": "08-09-2023 13:24:55",
+                      "updated_by": {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira"
+                      }
+                  },
+                  {
+                      "id": "3aed922f-9f00-46be-8086-8cd7c9256982",
+                      "code": "22222",
+                      "description": "",
+                      "start_date": "01-01-2022",
+                      "end_date": "30-12-2022",
+                      "is_active": 1,
+                      "created_at": "08-09-2023 13:48:15",
+                      "created_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin"
+                      },
+                      "updated_at": "08-09-2023 13:51:54",
+                      "updated_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "7a301141-c3de-4509-acae-92bd8480ed16",
+                      "code": "RKAP211",
+                      "description": "dfsdfsd",
+                      "start_date": "01-01-2022",
+                      "end_date": "30-12-2022",
+                      "is_active": 1,
+                      "created_at": "08-09-2023 13:52:19",
+                      "created_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin"
+                      },
+                      "updated_at": "08-09-2023 13:52:19",
+                      "updated_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "3a2edb7b-849e-4088-89d7-260e1423e3d9",
+                      "code": "RKAP30",
+                      "description": "Testing RKAP 2030 EDIT ",
+                      "start_date": "01-01-2030",
+                      "end_date": "31-12-2030",
+                      "is_active": 0,
+                      "created_at": "15-09-2023 14:59:20",
+                      "created_by": {
+                          "id": "76b2cda5-023b-4d40-880a-beacffa41c1a",
+                          "full_name": "AEka"
+                      },
+                      "updated_at": "15-09-2023 15:01:50",
+                      "updated_by": {
+                          "id": "76b2cda5-023b-4d40-880a-beacffa41c1a",
+                          "full_name": "AEka"
+                      }
+                  },
+                  {
+                      "id": "42d50edb-3aef-489e-8956-10fef72d100d",
+                      "code": "RKAP01",
+                      "description": "RKAP 01",
+                      "start_date": "21-09-2023",
+                      "end_date": "21-09-2024",
+                      "is_active": 1,
+                      "created_at": "21-09-2023 20:59:08",
+                      "created_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin"
+                      },
+                      "updated_at": "21-09-2023 20:59:08",
+                      "updated_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "c2912e63-c1b6-4067-af72-fd0b48fa0a9f",
+                      "code": "RKAP02",
+                      "description": "RKAP 02",
+                      "start_date": "01-09-2023",
+                      "end_date": "01-09-2024",
+                      "is_active": 1,
+                      "created_at": "21-09-2023 20:59:34",
+                      "created_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin"
+                      },
+                      "updated_at": "21-09-2023 20:59:34",
+                      "updated_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin"
+                      }
+                  },
+                  {
+                      "id": "0d966bfa-1328-41ad-8da6-d9815a90aaa0",
+                      "code": "RKAP03",
+                      "description": "RKAP 03",
+                      "start_date": "01-09-2023",
+                      "end_date": "01-09-2024",
+                      "is_active": 1,
+                      "created_at": "21-09-2023 20:59:56",
+                      "created_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin"
+                      },
+                      "updated_at": "21-09-2023 20:59:56",
+                      "updated_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin"
+                      }
+                  }
+              ]
+          }
+  - name: failed request validation
+    request:
+      url: "{{base_url}}/api/v1/rkaps/all?sort_column=created_at&sort_order=ASCX"
+      method: GET
+      params:
+        - name: sort_column
+          value: created_at
+          type: query
+        - name: sort_order
+          value: ASCX
+          type: query
+        - name: name
+          value: kg
+          type: query
+          disabled: true
+        - name: is_active
+          value: "1"
+          type: query
+          disabled: true
+    response:
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "0ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Sort Order: must be a valid value.",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Sort Order: must be a valid value.",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

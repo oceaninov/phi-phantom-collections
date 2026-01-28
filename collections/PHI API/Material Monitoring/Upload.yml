@@ -1,0 +1,57 @@
+info:
+  name: Upload
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/material-monitoring/upload"
+  body:
+    type: multipart-form
+    data:
+      - name: file
+        type: file
+        value:
+          - /Users/ocean.innovation/Documents/Projects/PHI/Documents/material-monitoring-sample.xlsx
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/material-monitoring/upload"
+      method: POST
+      body:
+        type: multipart-form
+        data:
+          - name: file
+            type: file
+            value:
+              - /Users/ocean.innovation/Documents/Projects/PHI/Documents/material-monitoring-sample.xlsx
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Fri, 17 May 2024 01:43:23 GMT
+        - name: Content-Length
+          value: "158"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "722ms",
+              "status": "success",
+              "code": "",
+              "message": "Upload material monitoring file is on progress. Please check your email to see the results."
+          }

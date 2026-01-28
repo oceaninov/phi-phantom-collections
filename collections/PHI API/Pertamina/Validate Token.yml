@@ -1,0 +1,67 @@
+info:
+  name: Validate Token
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/pertamina/validate-token"
+  headers:
+    - name: X-Client-ID
+      value: r3lax
+  body:
+    type: json
+    data: |-
+      {
+          "token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJWZ1BCMDVobV9EbllROWNYOUJSeldOYkpMWFV0T19KTWtmSjJRdVdfQUVrIn0.eyJleHAiOjE3Mzg2NTg4NzIsImlhdCI6MTczNzQ0OTI3MiwianRpIjoiYzY2N2MwODMtOTZhNy00ZTY0LTgxY2ItZjFjMDRlY2YyOWVlIiwiaXNzIjoiaHR0cDovL2ludHJhLnBoaS5wZXJ0YW1pbmEuY29tL3Izb2F1dGgvcmVhbG1zL1IzTEFYIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjQ1Mzk4YjY4LTg0ZGQtNDY2Yy1iYzdjLTEyMTFiOTk2YTkzOSIsInR5cCI6IkJlYXJlciIsImF6cCI6IlIzTEFYIiwic2lkIjoiNWRhOTI1NTEtN2RjOC00YmUxLWJmZTUtNGQ1OGIwYmNkNDA4IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIqIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsImRlZmF1bHQtcm9sZXMtcjNsYXgiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6InIzdGVzdC52aWNlcCIsInByZWZlcnJlZF91c2VybmFtZSI6InIzdGVzdC52aWNlcCIsImdpdmVuX25hbWUiOiJyM3Rlc3QudmljZXAifQ.Zq27yTSfpNluct6X1ENdNqCcZgiJbEbwYjtJ4aNXEE26sTxpEO7p5zZbDqO-pK22LlswFU2R0knXDQi43AiW2O1cNxbir4VsYK8GkcxDIAyic5png2rs4ulmpT9ko38hSa2Uxz2PbFHRXT0s-ejDJ8skbyu_Q_xI5BJD4mFwxFg4JSX6WcnqjgW3-B6bH1bhO6OVaVAfVVIVTgLGndvdspD5vHQ9ce8EfXWKZI_NrqQ6_6DCE0c4ahbA7Oe0kxN-FsY67RhIV5l73a8tnUkcB6vgRuqe6894OoWeUYaJYN1yPvWBjt8D6FvONCE2-GZHU8iij3P2mZaDqcy0Z8Eccw"
+      }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/pertamina/validate-token"
+      method: POST
+      headers:
+        - name: X-Client-ID
+          value: r3lax
+      body:
+        type: json
+        data: |-
+          {
+              "token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJWZ1BCMDVobV9EbllROWNYOUJSeldOYkpMWFV0T19KTWtmSjJRdVdfQUVrIn0.eyJleHAiOjE3Mzg2NTg4NzIsImlhdCI6MTczNzQ0OTI3MiwianRpIjoiYzY2N2MwODMtOTZhNy00ZTY0LTgxY2ItZjFjMDRlY2YyOWVlIiwiaXNzIjoiaHR0cDovL2ludHJhLnBoaS5wZXJ0YW1pbmEuY29tL3Izb2F1dGgvcmVhbG1zL1IzTEFYIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjQ1Mzk4YjY4LTg0ZGQtNDY2Yy1iYzdjLTEyMTFiOTk2YTkzOSIsInR5cCI6IkJlYXJlciIsImF6cCI6IlIzTEFYIiwic2lkIjoiNWRhOTI1NTEtN2RjOC00YmUxLWJmZTUtNGQ1OGIwYmNkNDA4IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIqIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsImRlZmF1bHQtcm9sZXMtcjNsYXgiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6InIzdGVzdC52aWNlcCIsInByZWZlcnJlZF91c2VybmFtZSI6InIzdGVzdC52aWNlcCIsImdpdmVuX25hbWUiOiJyM3Rlc3QudmljZXAifQ.Zq27yTSfpNluct6X1ENdNqCcZgiJbEbwYjtJ4aNXEE26sTxpEO7p5zZbDqO-pK22LlswFU2R0knXDQi43AiW2O1cNxbir4VsYK8GkcxDIAyic5png2rs4ulmpT9ko38hSa2Uxz2PbFHRXT0s-ejDJ8skbyu_Q_xI5BJD4mFwxFg4JSX6WcnqjgW3-B6bH1bhO6OVaVAfVVIVTgLGndvdspD5vHQ9ce8EfXWKZI_NrqQ6_6DCE0c4ahbA7Oe0kxN-FsY67RhIV5l73a8tnUkcB6vgRuqe6894OoWeUYaJYN1yPvWBjt8D6FvONCE2-GZHU8iij3P2mZaDqcy0Z8Eccw"
+          }
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 21 Jan 2025 08:50:35 GMT
+        - name: Content-Length
+          value: "283"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "651ms",
+              "status": "success",
+              "code": "",
+              "message": "Validate token to pertamina IAM succeed",
+              "data": {
+                  "name": "r3test.vicep",
+                  "preferred_username": "r3test.vicep",
+                  "given_name": "r3test.vicep",
+                  "client_id": "R3LAX",
+                  "username": "r3test.vicep",
+                  "token_type": "Bearer",
+                  "active": true
+              }
+          }

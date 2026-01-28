@@ -1,0 +1,80 @@
+info:
+  name: Tenders Accumulation Stack Bar char
+  type: http
+  seq: 12
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/tenders/bar?page=1&page_size=25&working_area=PHSS"
+  params:
+    - name: page
+      value: "1"
+      type: query
+    - name: page_size
+      value: "25"
+      type: query
+    - name: working_area
+      value: PHSS
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Success
+    request:
+      url: "{{base_url}}/api/v1/tenders/actual-timeline/:ID/process/:processID/histories"
+      method: GET
+      params:
+        - name: ID
+          value: 1552d1f2-c8ce-448c-97bb-04b44806bcb8
+          type: path
+          description: Actual Timeline ID
+        - name: processID
+          value: 65b1258d-30bb-4c1b-8b03-4b1899c12ade
+          type: path
+          description: Process Snapshot ID
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 31 Jan 2024 08:47:30 GMT
+        - name: Content-Length
+          value: "620"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "0ms",
+              "status": "success",
+              "code": "",
+              "message": "Get process histories succeed",
+              "data": [
+                  {
+                      "id": "dd5a845a-e9c0-41da-bd44-4db6529d0000",
+                      "actual_timeline_id": "1552d1f2-c8ce-448c-97bb-04b44806bcb8",
+                      "process_id": "65b1258d-30bb-4c1b-8b03-4b1899c12ade",
+                      "actual_start_date": "28-01-2024",
+                      "actual_end_date": "30-01-2024",
+                      "remarks": "test 1",
+                      "is_latest": true
+                  },
+                  {
+                      "id": "8c796151-1f3d-420d-8fb3-c107cad88357",
+                      "actual_timeline_id": "1552d1f2-c8ce-448c-97bb-04b44806bcb8",
+                      "process_id": "65b1258d-30bb-4c1b-8b03-4b1899c12ade",
+                      "actual_start_date": "28-01-2024",
+                      "actual_end_date": "30-01-2024",
+                      "remarks": "test 1",
+                      "is_latest": false
+                  }
+              ]
+          }

@@ -1,0 +1,75 @@
+info:
+  name: Delete
+  type: http
+  seq: 5
+
+http:
+  method: DELETE
+  url: "{{base_url}}/api/v1/tenders/process-categories/3249c4c7-5bee-4d7f-8a6d-64be57eca19a"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Success
+    request:
+      url: "{{base_url}}/api/v1/tenders/process-categories/3249c4c7-5bee-4d7f-8a6d-64be57eca19a"
+      method: DELETE
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 11 Jan 2024 07:28:02 GMT
+        - name: Content-Length
+          value: "105"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "5ms",
+              "status": "success",
+              "code": "",
+              "message": "Delete tender process categories succeed"
+          }
+  - name: Error not found
+    request:
+      url: "{{base_url}}/api/v1/tenders/process-categories/3249c4c7-5bee-4d7f-8a6d-64be57eca19a"
+      method: DELETE
+    response:
+      statusText: "404"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 11 Jan 2024 07:31:37 GMT
+        - name: Content-Length
+          value: "319"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "0ms",
+              "status": "failed",
+              "code": "05",
+              "message": "Data not found",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Data not found",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

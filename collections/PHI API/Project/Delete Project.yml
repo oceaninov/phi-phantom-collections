@@ -1,0 +1,59 @@
+info:
+  name: Delete Project
+  type: http
+  seq: 11
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/projects/"
+  body:
+    type: json
+    data: |-
+      {
+          "id": [
+              "291f25a9-43c7-46e4-bef2-048cfc5c3698"
+          ]
+      }
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/projects/"
+      method: POST
+      body:
+        type: json
+        data: |-
+          {
+              "id": [
+                  "291f25a9-43c7-46e4-bef2-048cfc5c3698"
+              ]
+          }
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Fri, 01 Sep 2023 14:27:28 GMT
+        - name: Content-Length
+          value: "88"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "21ms",
+              "status": "success",
+              "code": "",
+              "message": "Delete project succeed"
+          }

@@ -1,0 +1,7 @@
+info:
+  name: Project Spending Plan
+  type: folder
+  seq: 3
+
+request:
+  auth: inherit

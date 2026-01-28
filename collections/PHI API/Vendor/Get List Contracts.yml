@@ -1,0 +1,252 @@
+info:
+  name: Get List Contracts
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/vendors/contracts?page=1"
+  params:
+    - name: page
+      value: "1"
+      type: query
+    - name: page_size
+      value: "10"
+      type: query
+      disabled: true
+    - name: sort_column
+      value: start_date
+      type: query
+      description: |-
+        contract_id
+        contractor_id
+        contract_no
+        contract_title
+        start_date
+        contract_end_date
+        work_end_date
+        contract_duration
+        contract_progress
+        contract_remaining
+        contract_value
+        spk_count
+        spk_value
+        spk_value_remaining
+        physical_progress_value
+        sa_value
+        sa_value_remaining
+        invoice_value
+        invoice_value_remaining
+        percentage
+        is_active
+        created_at
+      disabled: true
+    - name: sort_order
+      value: ASC
+      type: query
+      description: ASC / DESC
+      disabled: true
+    - name: search
+      value: C0001
+      type: query
+      description: |-
+        memfilter data pada column berikut : 
+        contracts.contract_no, 
+        contracts.contract_title, 
+        contractors.name
+      disabled: true
+    - name: is_active
+      value: "1"
+      type: query
+      description: 0|1
+      disabled: true
+    - name: contract_working_area
+      value: PHSS|TSS
+      type: query
+      description: PHSS|TSS
+      disabled: true
+    - name: work_end_date
+      value: 01-05-2024
+      type: query
+      description: dd-mm-yyyy
+      disabled: true
+    - name: contract_no
+      value: "1238209840"
+      type: query
+      disabled: true
+    - name: contract_value
+      value: 0|2500000000%233000000000|0
+      type: query
+      disabled: true
+    - name: percentage
+      value: 0|50%2375|0
+      type: query
+      disabled: true
+    - name: status
+      value: approved_active|approved_inactive|finished|canceled|draft|on hold
+      type: query
+      description: "example multiple status: approved_active|approved_inactive|finished|canceled|draft|on hold"
+      disabled: true
+    - name: ""
+      value: ""
+      type: query
+      description: approved_active|approved_inactive|finished|canceled|draft|on hold
+      disabled: true
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/contracts?page=1&page_size=10&sort_column=start_date&sort_order=ASC&contract_no=1238209840"
+      method: GET
+      params:
+        - name: page
+          value: "1"
+          type: query
+        - name: page_size
+          value: "10"
+          type: query
+        - name: sort_column
+          value: start_date
+          type: query
+          description: |-
+            contract_id
+            contractor_id
+            contract_no
+            contract_title
+            start_date
+            contract_end_date
+            work_end_date
+            contract_duration
+            contract_progress
+            contract_remaining
+            contract_value
+            spk_count
+            spk_value
+            spk_value_remaining
+            physical_progress_value
+            sa_value
+            sa_value_remaining
+            invoice_value
+            invoice_value_remaining
+            percentage
+            is_active
+            created_at
+        - name: sort_order
+          value: ASC
+          type: query
+          description: ASC / DESC
+        - name: search
+          value: C0001
+          type: query
+          description: |-
+            memfilter data pada column berikut : 
+            contracts.contract_no, 
+            contracts.contract_title, 
+            contractors.name
+          disabled: true
+        - name: is_active
+          value: "1"
+          type: query
+          description: 0|1
+          disabled: true
+        - name: contract_working_area
+          value: PHSS|TSS
+          type: query
+          description: PHSS|TSS
+          disabled: true
+        - name: work_end_date
+          value: 01-05-2024
+          type: query
+          description: dd-mm-yyyy
+          disabled: true
+        - name: contract_value
+          value: 0|2500000000#3000000000|0
+          type: query
+          description: 0|2500000000#2500000000|3000000000#3000000000|0
+          disabled: true
+        - name: percentage
+          value: 0|50#75|0
+          type: query
+          description: 0|50#50|75#75|0
+          disabled: true
+        - name: contract_no
+          value: "1238209840"
+          type: query
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 11 Oct 2023 09:11:08 GMT
+        - name: Content-Length
+          value: "1125"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "116ms",
+              "status": "success",
+              "code": "",
+              "message": "Get contracts succeed",
+              "data": {
+                  "list": [
+                      {
+                          "id": "5109c9fe-52f4-4713-be81-3f8c45663654",
+                          "contractor": {
+                              "id": "50b1b65e-b4fe-4ae2-8670-caf9ba1a4826",
+                              "code": "100001",
+                              "name": "PT MEINDO ELANG INDAH"
+                          },
+                          "contract_no": "1238209840",
+                          "contract_title": "Testing Yukk kuy ",
+                          "contract_working_area": [
+                              {
+                                  "id": "1043df40-e1da-4140-b39f-8da6ce88f0ad",
+                                  "working_area": "PHSS"
+                              }
+                          ],
+                          "start_date": "09-10-2023",
+                          "contract_end_date": "16-10-2023",
+                          "work_end_date": "15-10-2023",
+                          "contract_duration": 7,
+                          "contract_progress": 3,
+                          "contract_remaining": 4,
+                          "contract_value": "10000000000.00",
+                          "spk_count": 0,
+                          "spk_value": "0.00",
+                          "spk_value_remaining": "10000000000.00",
+                          "physical_progress_value": "0.00",
+                          "sa_value": "0.00",
+                          "sa_value_remaining": "10000000000.00",
+                          "invoice_value": "0.00",
+                          "invoice_value_remaining": "10000000000.00",
+                          "percentage": "0.00",
+                          "is_active": true,
+                          "status": "approved",
+                          "created_at": "11-09-2023 10:49:36",
+                          "created_by": {
+                              "id": "76b2cda5-023b-4d40-880a-beacffa41c1a",
+                              "full_name": "AEka"
+                          },
+                          "updated_at": "11-09-2023 10:49:36",
+                          "updated_by": {
+                              "id": "76b2cda5-023b-4d40-880a-beacffa41c1a",
+                              "full_name": "AEka"
+                          }
+                      }
+                  ],
+                  "count": 1
+              }
+          }

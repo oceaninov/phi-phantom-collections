@@ -1,0 +1,138 @@
+info:
+  name: Get List Contractors
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/contractors?page=1&page_size=10&sort_column=created_at&sort_order=DESC"
+  params:
+    - name: page
+      value: "1"
+      type: query
+    - name: page_size
+      value: "10"
+      type: query
+    - name: sort_column
+      value: created_at
+      type: query
+    - name: sort_order
+      value: DESC
+      type: query
+    - name: search
+      value: "100001"
+      type: query
+      description: |-
+        filter data based on columns:
+        code (vendor number)
+        name (vendor Name)
+      disabled: true
+    - name: code
+      value: P0003
+      type: query
+      disabled: true
+    - name: name
+      value: jaya
+      type: query
+      disabled: true
+    - name: is_active
+      value: "1"
+      type: query
+      disabled: true
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/contractors?page=1&page_size=10&sort_column=created_at&sort_order=DESC"
+      method: GET
+      params:
+        - name: page
+          value: "1"
+          type: query
+        - name: page_size
+          value: "10"
+          type: query
+        - name: sort_column
+          value: created_at
+          type: query
+        - name: sort_order
+          value: DESC
+          type: query
+        - name: code
+          value: P0003
+          type: query
+          disabled: true
+        - name: name
+          value: jaya
+          type: query
+          disabled: true
+        - name: is_active
+          value: "1"
+          type: query
+          disabled: true
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "1ms",
+              "status": "success",
+              "code": "",
+              "message": "Get contractors succeed",
+              "data": {
+                  "list": [
+                      {
+                          "id": "b01e5f9b-c6bd-460c-a7b9-4a87e9f217d5",
+                          "code": "100002",
+                          "name": "PT. SYNERGY ENGINEERING",
+                          "is_active": 1,
+                          "created_at": "11-08-2023 09:49:29",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          },
+                          "updated_at": "11-08-2023 09:49:29",
+                          "updated_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          }
+                      },
+                      {
+                          "id": "50b1b65e-b4fe-4ae2-8670-caf9ba1a4826",
+                          "code": "100001",
+                          "name": "PT MEINDO ELANG INDAH",
+                          "is_active": 1,
+                          "created_at": "11-08-2023 09:48:53",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          },
+                          "updated_at": "11-08-2023 09:48:53",
+                          "updated_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin"
+                          },
+                          "user":{
+                              "id": "50b1b65e-b4fe-4ae2-8670-caf9ba1a4826",
+                              "full_name": "TAME IMPALA",
+                              "status": "active",
+                              "email": "tameimpale@getnada.com"
+                          }
+                      }
+                  ],
+                  "count": 2
+              }
+          }

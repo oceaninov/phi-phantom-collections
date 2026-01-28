@@ -1,0 +1,104 @@
+info:
+  name: Set Approval Tiering
+  type: http
+  seq: 9
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/roles/set-approval-tiering"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"role_id\": 33,\r
+
+      \    \"approval_tiering_ids\": [\"eb98c26e-c8a5-4c5e-83b6-333743e3f5d9\"]\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/roles/set-approval-tiering"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"role_id\": 17,\r
+
+          \    \"approval_tiering_ids\": [\"a87e5ca2-467c-4762-9c3b-1232a78b2a3f\", \"eccf9d9b-aeaa-42e9-bcef-2f831573761f\", \"9ee70621-7c98-484a-b1c4-18661cc1ebe8\"]\r
+
+          }"
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 07 Sep 2023 07:04:49 GMT
+        - name: Content-Length
+          value: "110"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "139ms",
+              "status": "success",
+              "code": "",
+              "message": "Update/insert role approval tiering succeed"
+          }
+  - name: failed role not found
+    request:
+      url: "{{base_url}}/api/v1/roles/set-approval-tiering"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"role_id\": 100,\r
+
+          \    \"approval_tiering_ids\": [\"a87e5ca2-467c-4762-9c3b-1232a78b2a3f\", \"eccf9d9b-aeaa-42e9-bcef-2f831573761f\", \"9ee70621-7c98-484a-b1c4-18661cc1ebe8\"]\r
+
+          }"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 15 Nov 2023 03:04:17 GMT
+        - name: Content-Length
+          value: "320"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "31ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Role not found",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Role not found",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

@@ -1,0 +1,104 @@
+info:
+  name: Finish Project
+  type: http
+  seq: 17
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/projects/finish"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"project_id\": \"65627a18-c142-4690-9234-47d02d5cd797\",\r
+
+      \    \"note\": \"Cancel project PKMBKT\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: failed project status is not in progress
+    request:
+      url: "{{base_url}}/api/v1/projects/finish"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"project_id\": \"65627a18-c142-4690-9234-47d02d5cd797\",\r
+
+          \    \"note\": \"Cancel project PKMBKT\"\r
+
+          }"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 11 Oct 2023 06:11:39 GMT
+        - name: Content-Length
+          value: "396"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "88ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Only project with in progress status can be finished",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Only project with in progress status can be finished",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/projects/finish"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"project_id\": \"65627a18-c142-4690-9234-47d02d5cd797\",\r
+
+          \    \"note\": \"Cancel project PKMBKT\"\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 11 Oct 2023 06:12:44 GMT
+        - name: Content-Length
+          value: "89"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "156ms",
+              "status": "success",
+              "code": "",
+              "message": "Finish project succeed"
+          }

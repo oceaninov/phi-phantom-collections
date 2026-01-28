@@ -1,0 +1,140 @@
+info:
+  name: Get SPK Boq By ID
+  type: http
+  seq: 12
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/vendors/spks/boqs/f888dfd1-d3b5-43d2-99d1-aaeb95ce1f13"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/spks/boqs/39c091e4-65e0-4f98-bb9e-d73a85ea1336"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 25 Oct 2023 13:11:20 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "650ms",
+              "status": "success",
+              "code": "",
+              "message": "Get spk boq succeed",
+              "data": {
+                  "id": "39c091e4-65e0-4f98-bb9e-d73a85ea1336",
+                  "description": "Survey dan Pembuatan Dokumen Lanjutan",
+                  "start_date": "01-12-2023",
+                  "end_date": "05-12-2023",
+                  "weighted_project_task": "75.00",
+                  "weighted_spk": "42.86",
+                  "physical_progress": "0.00",
+                  "physical_progress_weighted": "0.00",
+                  "actual_volume": "0.00",
+                  "volume": 100,
+                  "unit": {
+                      "id": "4eba7051-8ef7-4deb-9b21-7b5ed914568e",
+                      "name": "Paket"
+                  },
+                  "total_price": "1500.00",
+                  "actual_progress_cost": "0.00",
+                  "remarks": "",
+                  "type": "custom",
+                  "project_task_id": "111eabbd-82b6-4da9-9f30-fbcc4db53e12",
+                  "spk_id": "586c5861-fac2-49d6-911b-05e9837fc725",
+                  "project_task_boq_id": "ceab12f6-0f03-4cfc-9c47-0ad3dc9d23ef",
+                  "spk_boq_details": [
+                      {
+                          "id": "",
+                          "boq": {
+                              "id": "d26ee889-57c3-4e82-9973-25140037628c",
+                              "boq_id": "d90d6935-e21d-4f11-8e05-4095f0d13d8d",
+                              "origin_number": 2,
+                              "breakdown": " A.1.",
+                              "description": "Survey, Laporan Survey dan Engineering",
+                              "kind": "Default",
+                              "quantity": 12,
+                              "total": "300000000.00",
+                              "unit_price": "",
+                              "remark": "",
+                              "data_type": "item",
+                              "boq_library_id": "",
+                              "unit": {
+                                  "id": "4eba7051-8ef7-4deb-9b21-7b5ed914568e",
+                                  "name": "Paket"
+                              }
+                          },
+                          "unit": {
+                              "id": "4eba7051-8ef7-4deb-9b21-7b5ed914568e",
+                              "name": "Paket"
+                          },
+                          "volume": 2,
+                          "unit_price": "500.00",
+                          "total_price": "1000.00"
+                      },
+                      {
+                          "id": "",
+                          "boq": {
+                              "id": "6cfaa23e-98eb-4b10-a957-3b383c607851",
+                              "boq_id": "d90d6935-e21d-4f11-8e05-4095f0d13d8d",
+                              "origin_number": 3,
+                              "breakdown": " A.2.",
+                              "description": "Pembuatan Dokumen Prosedur Instalasi / Konstruksi dan Commisioning",
+                              "kind": "Default",
+                              "quantity": 12,
+                              "total": "891000000.00",
+                              "unit_price": "",
+                              "remark": "",
+                              "data_type": "item",
+                              "boq_library_id": "",
+                              "unit": {
+                                  "id": "7e51efee-b75e-43e4-8533-a622bb034685",
+                                  "name": "Doc"
+                              }
+                          },
+                          "unit": {
+                              "id": "7e51efee-b75e-43e4-8533-a622bb034685",
+                              "name": "Doc"
+                          },
+                          "volume": 2,
+                          "unit_price": "250.00",
+                          "total_price": "500.00"
+                      }
+                  ],
+                  "created_at": "06-10-2023 14:49:42",
+                  "created_by": {
+                      "id": "7ae8e931-1628-4562-bf24-1c2cdd2b4cf4",
+                      "full_name": "Dany M Pradana"
+                  },
+                  "updated_at": "06-10-2023 14:49:42",
+                  "updated_by": {
+                      "id": "7ae8e931-1628-4562-bf24-1c2cdd2b4cf4",
+                      "full_name": "Dany M Pradana"
+                  },
+                  "spk": {
+                      "id": "586c5861-fac2-49d6-911b-05e9837fc725",
+                      "spk_no": "0003109",
+                      "spk_title": "Spk Melangi",
+                      "status": "finished with note"
+                  }
+              }
+          }

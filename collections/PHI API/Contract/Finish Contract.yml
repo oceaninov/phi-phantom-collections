@@ -1,0 +1,104 @@
+info:
+  name: Finish Contract
+  type: http
+  seq: 19
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/contracts/finish"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"contract_id\": \"39c17dcd-0b7c-4bf2-a037-c6b2446a7933\",\r
+
+      \    \"note\": \"Finish project 1039249433\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/contracts/finish"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"contract_id\": \"5109c9fe-52f4-4713-be81-3f8c45663654\",\r
+
+          \    \"note\": \"Finish project 1238209840\"\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Sun, 15 Oct 2023 05:04:07 GMT
+        - name: Content-Length
+          value: "90"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "239ms",
+              "status": "success",
+              "code": "",
+              "message": "Finish contract succeed"
+          }
+  - name: failed contract status is not approved
+    request:
+      url: "{{base_url}}/api/v1/contracts/finish"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"contract_id\": \"39c17dcd-0b7c-4bf2-a037-c6b2446a7933\",\r
+
+          \    \"note\": \"Finish project 1039249433\"\r
+
+          }"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Sun, 15 Oct 2023 05:05:34 GMT
+        - name: Content-Length
+          value: "392"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "99ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Only contract with approved status can be finished",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Only contract with approved status can be finished",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

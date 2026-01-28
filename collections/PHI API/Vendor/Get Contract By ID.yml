@@ -1,0 +1,103 @@
+info:
+  name: Get Contract By ID
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/vendors/contracts/d51afa0c-d2b7-4c5f-bcca-7b1f37dcd3b1?tab=contract"
+  params:
+    - name: tab
+      value: contract
+      type: query
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Get Contract By ID
+    request:
+      url: "{{base_url}}/api/v1/contracts/8181ffd8-1a86-4040-844d-228e4258930b"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Fri, 20 Oct 2023 06:31:51 GMT
+        - name: Content-Length
+          value: "1279"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "259ms",
+              "status": "success",
+              "code": "",
+              "message": "Get contract succeed",
+              "data": {
+                  "id": "8181ffd8-1a86-4040-844d-228e4258930b",
+                  "contractor": {
+                      "id": "50b1b65e-b4fe-4ae2-8670-caf9ba1a4826",
+                      "code": "100001",
+                      "name": "PT MEINDO ELANG INDAH"
+                  },
+                  "contract_no": "C0001",
+                  "contract_title": "Pengeboran minyak",
+                  "contract_working_area": [
+                      {
+                          "id": "68e0d546-3f35-4c74-9f83-eaadbc97455c",
+                          "working_area": "PHSS"
+                      }
+                  ],
+                  "start_date": "01-08-2023",
+                  "contract_end_date": "31-05-2023",
+                  "work_end_date": "31-08-2023",
+                  "contract_duration": 31,
+                  "contract_progress": 31,
+                  "contract_remaining": 0,
+                  "contract_value": "2500000000.00",
+                  "spk_count": 2,
+                  "spk_value": "7000.00",
+                  "spk_value_remaining": "2499993000.00",
+                  "physical_progress_value": "2000000000.00",
+                  "sa_value": "49000000.00",
+                  "sa_value_remaining": "2451000000.00",
+                  "invoice_value": "70000000.00",
+                  "invoice_value_remaining": "2430000000.00",
+                  "percentage": "0.00",
+                  "is_active": false,
+                  "status": "draft",
+                  "created_at": "15-08-2023 18:51:12",
+                  "created_by": {
+                      "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                      "full_name": "Super Admin"
+                  },
+                  "updated_at": "19-10-2023 11:01:41",
+                  "updated_by": {
+                      "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                      "full_name": "Super Admin"
+                  },
+                  "spk_summary": [
+                      {
+                          "count": 1,
+                          "total_spk_value": "3500.00",
+                          "status": "finished with note"
+                      },
+                      {
+                          "count": 1,
+                          "total_spk_value": "3500.00",
+                          "status": "on hold"
+                      }
+                  ]
+              }
+          }

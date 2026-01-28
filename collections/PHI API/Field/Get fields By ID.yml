@@ -1,0 +1,92 @@
+info:
+  name: Get fields By ID
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/fields/7a4d5e35-059e-4d45-b51a-c93158af508a"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/fields/7a4d5e35-059e-4d45-b51a-c93158af508a"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 16 Nov 2023 04:28:25 GMT
+        - name: Content-Length
+          value: "410"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "23ms",
+              "status": "success",
+              "code": "",
+              "message": "Get field succeed",
+              "data": {
+                  "id": "7a4d5e35-059e-4d45-b51a-c93158af508a",
+                  "name": "Pipa",
+                  "is_active": 1,
+                  "created_at": "31-08-2023 11:12:39",
+                  "created_by": {
+                      "id": "7ae8e931-1628-4562-bf24-1c2cdd2b4cf4",
+                      "full_name": "Dany M Pradana"
+                  },
+                  "updated_at": "31-08-2023 11:12:39",
+                  "updated_by": {
+                      "id": "7ae8e931-1628-4562-bf24-1c2cdd2b4cf4",
+                      "full_name": "Dany M Pradana"
+                  }
+              }
+          }
+  - name: failed data not found
+    request:
+      url: "{{base_url}}/api/v1/fields/7a4d5e35-059e-4d45-b51a-c93158af508b"
+      method: GET
+    response:
+      statusText: "404"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 16 Nov 2023 04:28:41 GMT
+        - name: Content-Length
+          value: "319"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "5ms",
+              "status": "failed",
+              "code": "05",
+              "message": "Data not found",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Data not found",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

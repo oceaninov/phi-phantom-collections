@@ -1,0 +1,9 @@
+opencollection: 1.0.0
+
+info:
+  name: PHI data sci
+bundled: false
+extensions:
+  ignore:
+    - node_modules
+    - .git

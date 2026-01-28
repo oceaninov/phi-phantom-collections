@@ -1,0 +1,92 @@
+info:
+  name: My Notifications
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/notifications/mine?page=1&page_size=25"
+  params:
+    - name: page
+      value: "1"
+      type: query
+    - name: page_size
+      value: "25"
+      type: query
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/notifications/mine?page=1&page_size=25"
+      method: GET
+      params:
+        - name: page
+          value: "1"
+          type: query
+        - name: page_size
+          value: "25"
+          type: query
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 03 Jan 2024 04:33:19 GMT
+        - name: Content-Length
+          value: "1468"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "134ms",
+              "status": "success",
+              "code": "",
+              "message": "Get notifications succeed",
+              "data": {
+                  "list": [
+                      {
+                          "id": "0d3ee81b-3f15-4e5e-ad10-1b4b23b6f6b4",
+                          "title": "Contract  Approval Request",
+                          "message": "You have 1 Contract waiting for your approval.",
+                          "has_read": true,
+                          "created_at": "02-01-2024 20:17:13",
+                          "created_at_label": "02 January 2024",
+                          "web_link": "https://phi-web-dev.phizona9-digital.com/contracts/e5f9eebf-5072-4af9-bf3e-1227b80175cc/detail",
+                          "mobile_link": "https://phi-web-dev.phizona9-digital.com/contracts/e5f9eebf-5072-4af9-bf3e-1227b80175cc/detail"
+                      },
+                      {
+                          "id": "c6590439-315c-4d8a-8e82-eab7267122d4",
+                          "title": "Contract  Approval Request",
+                          "message": "You have 1 Contract waiting for your approval.",
+                          "has_read": false,
+                          "created_at": "02-01-2024 20:09:12",
+                          "created_at_label": "02 January 2024",
+                          "web_link": "https://phi-web-dev.phizona9-digital.com/contracts/e5f9eebf-5072-4af9-bf3e-1227b80175cc/detail",
+                          "mobile_link": "https://phi-web-dev.phizona9-digital.com/contracts/e5f9eebf-5072-4af9-bf3e-1227b80175cc/detail"
+                      },
+                      {
+                          "id": "7e83a25f-089f-48f0-9721-4c7cdf958dbe",
+                          "title": "Contract  Approval Request",
+                          "message": "You have 1 Contract waiting for your approval.",
+                          "has_read": true,
+                          "created_at": "02-01-2024 20:02:33",
+                          "created_at_label": "02 January 2024",
+                          "web_link": "https://phi-web-dev.phizona9-digital.com/contracts/e5f9eebf-5072-4af9-bf3e-1227b80175cc/detail",
+                          "mobile_link": "https://phi-web-dev.phizona9-digital.com/contracts/e5f9eebf-5072-4af9-bf3e-1227b80175cc/detail"
+                      }
+                  ],
+                  "count": 3
+              }
+          }

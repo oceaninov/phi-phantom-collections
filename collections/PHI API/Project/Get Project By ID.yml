@@ -1,0 +1,602 @@
+info:
+  name: Get Project By ID
+  type: http
+  seq: 8
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/projects/c82f113c-eaa9-4781-ad83-72ba2a25693f"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/projects/512a1c34-1cbe-44b6-b117-3c3839c51022"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 14 Nov 2023 09:00:48 GMT
+        - name: Content-Length
+          value: "1028"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "297ms",
+              "status": "success",
+              "code": "",
+              "message": "Get project succeed",
+              "data": {
+                  "id": "512a1c34-1cbe-44b6-b117-3c3839c51022",
+                  "project_no": "674762",
+                  "description": "Project Cobain Development ",
+                  "wbs": "1234",
+                  "category": "fasprod",
+                  "working_areas": [
+                      "PHSS"
+                  ],
+                  "field": {
+                      "id": "7a4d5e35-059e-4d45-b51a-c93158af508a",
+                      "name": "Pipa",
+                      "is_active": null,
+                      "created_at": "",
+                      "created_by": {
+                          "id": "",
+                          "full_name": ""
+                      },
+                      "updated_at": "",
+                      "updated_by": {
+                          "id": "",
+                          "full_name": ""
+                      }
+                  },
+                  "start_date": "14-11-2023",
+                  "end_date": "31-12-2023",
+                  "rkaps": [
+                      {
+                          "code": "RKAP23",
+                          "rkap_id": "afcde8ed-eb56-4da8-b385-5b7e25828b22",
+                          "rkap_cost": "9890.00"
+                      }
+                  ],
+                  "remarks": "Testing cobain development ",
+                  "status": "in progress",
+                  "bugdet_forecast": "100000.00",
+                  "variance": "-21.80",
+                  "plan_physical_progress": "21.80",
+                  "actual_physical_progress": "0.00",
+                  "zone": "Zona-9",
+                  "created_at": "14-11-2023 15:21:28",
+                  "created_by": {
+                      "id": "76b2cda5-023b-4d40-880a-beacffa41c1a",
+                      "full_name": "AEka"
+                  },
+                  "updated_at": "14-11-2023 15:44:19",
+                  "updated_by": {
+                      "id": "76b2cda5-023b-4d40-880a-beacffa41c1a",
+                      "full_name": "AEka"
+                  }
+              }
+          }
+  - name: success status on hold
+    request:
+      url: "{{base_url}}/api/v1/projects/aca06155-9e13-4a5f-b0e0-07932817729b"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 07 Dec 2023 02:43:33 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "668ms",
+              "status": "success",
+              "code": "",
+              "message": "Get project succeed",
+              "data": {
+                  "id": "aca06155-9e13-4a5f-b0e0-07932817729b",
+                  "project_no": "807539",
+                  "description": " Project Dev 1",
+                  "wbs": "WBS998",
+                  "category": "fasprod",
+                  "working_areas": [
+                      "PHSS"
+                  ],
+                  "field": {
+                      "id": "14fa1c2f-d53c-4062-88c3-4730717bce75",
+                      "name": "Badak",
+                      "is_active": null,
+                      "created_at": "",
+                      "created_by": {
+                          "id": "",
+                          "full_name": ""
+                      },
+                      "updated_at": "",
+                      "updated_by": {
+                          "id": "",
+                          "full_name": ""
+                      }
+                  },
+                  "start_date": "06-12-2023",
+                  "end_date": "31-12-2023",
+                  "rkaps": [
+                      {
+                          "code": "RKAP22",
+                          "rkap_id": "02482167-c290-4da9-ab05-0f732f1c3d8c",
+                          "rkap_cost": "0.00"
+                      }
+                  ],
+                  "remarks": "",
+                  "status": "on hold",
+                  "bugdet_forecast": "84785.00",
+                  "variance": "-56.79",
+                  "plan_physical_progress": "56.79",
+                  "actual_physical_progress": "0.00",
+                  "zone": "Zona-9",
+                  "created_at": "06-12-2023 15:03:45",
+                  "created_by": {
+                      "id": "76b2cda5-023b-4d40-880a-beacffa41c1a",
+                      "full_name": "AEka"
+                  },
+                  "updated_at": "07-12-2023 09:02:20",
+                  "updated_by": {
+                      "id": "76b2cda5-023b-4d40-880a-beacffa41c1a",
+                      "full_name": "AEka"
+                  },
+                  "approval_process": {
+                      "approval_process_id": "41ae8fad-9bca-4f63-b68d-f1ec98dba6e3",
+                      "latest_approval_level": 1,
+                      "status": "active",
+                      "approval_flow": "Project"
+                  },
+                  "approvers": [
+                      {
+                          "full_name": "Gustaman",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "Dany Marita Pradana Oldie",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "Indana Rishi",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "Akun FE",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "Apri Ega",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "test add",
+                          "role_name": "Field Inspector"
+                      },
+                      {
+                          "full_name": "M Ihsan Satyawan",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "Mulazi",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "Tofan QA ",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "ae editing",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "test2",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "Super Admin",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "Indana Rishi",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "Agung NH",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "Diyank Shabira",
+                          "role_name": "Field Inspector"
+                      },
+                      {
+                          "full_name": "Dany M Pradana",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "AEka",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "Fia",
+                          "role_name": "Field Inspector"
+                      },
+                      {
+                          "full_name": "jhon dhoe",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "Rinaldy",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "Test Yopmail",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "Alifia Astari",
+                          "role_name": "Field Inspector"
+                      },
+                      {
+                          "full_name": "Testing User",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "Nadhifa Sofia",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "Aeeee",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "Indra Lasmana",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "Project approver level 1",
+                          "role_name": "Team Lead Project Planning"
+                      },
+                      {
+                          "full_name": "User diyank",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "testing",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "useruseruser",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "diyank",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "UI/UX",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "Lisa",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "Yudhi Pratama",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "Pia",
+                          "role_name": "Field Inspector"
+                      },
+                      {
+                          "full_name": "AE",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "Deva",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "Fia PHI",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "Nur Rofiqoh Arini",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "Lisa PHI",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "Tofan QA Akses ",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "Android User",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "IOS User",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "Budi Satiawan",
+                          "role_name": "Team Lead Project Planning"
+                      },
+                      {
+                          "full_name": "M. Ivan S",
+                          "role_name": "Team Lead Project Planning"
+                      },
+                      {
+                          "full_name": "Field Inspector AE",
+                          "role_name": "Field Inspector"
+                      },
+                      {
+                          "full_name": "Daleva R",
+                          "role_name": "Super Admin"
+                      },
+                      {
+                          "full_name": "QA Field Inspector",
+                          "role_name": "Field Inspector"
+                      }
+                  ]
+              }
+          }
+  - name: failed
+    request:
+      url: "{{base_url}}/api/v1/projects/aca06155-9e13-4a5f-b0e0-07932817729c"
+      method: GET
+    response:
+      statusText: "404"
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "2ms",
+              "status": "success",
+              "code": "",
+              "message": "project not found",
+              "data": ""
+          }
+  - name: success with approval route
+    request:
+      url: "{{base_url}}/api/v1/projects/e1e94347-5c0a-46bc-9287-fb120bd26254"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 19 Mar 2024 08:43:48 GMT
+        - name: Content-Length
+          value: "1790"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "38ms",
+              "status": "success",
+              "code": "",
+              "message": "Get project succeed",
+              "data": {
+                  "id": "e1e94347-5c0a-46bc-9287-fb120bd26254",
+                  "project_no": "AST/APRT01/2024",
+                  "description": "Project Test Approval Route",
+                  "wbs": "WBS/APRT",
+                  "category": "fasprod",
+                  "working_areas": [
+                      "PHSS"
+                  ],
+                  "field": {
+                      "id": "1f2495d8-f76e-4268-b9c5-09753709fc4f",
+                      "name": "Sangatta",
+                      "working_area": "",
+                      "is_active": null,
+                      "created_at": "",
+                      "created_by": {
+                          "id": "",
+                          "full_name": "",
+                          "status": ""
+                      },
+                      "updated_at": "",
+                      "updated_by": {
+                          "id": "",
+                          "full_name": "",
+                          "status": ""
+                      }
+                  },
+                  "start_date": "25-04-2024",
+                  "end_date": "01-12-2024",
+                  "rkaps": [
+                      {
+                          "code": "RKAP24",
+                          "rkap_id": "b6f5c5fb-da8a-4d9c-9e71-590aed5776de",
+                          "rkap_cost": "0.00"
+                      }
+                  ],
+                  "remarks": "Project Test Approval Route",
+                  "status": "draft",
+                  "bugdet_forecast": "90000000.00",
+                  "variance": "0.00",
+                  "plan_physical_progress": "0.00",
+                  "actual_physical_progress": "0.00",
+                  "zone": "Zona-9",
+                  "created_at": "19-03-2024 13:47:47",
+                  "created_by": {
+                      "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                      "full_name": "Super Admin",
+                      "status": ""
+                  },
+                  "updated_at": "19-03-2024 13:47:47",
+                  "updated_by": {
+                      "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                      "full_name": "Super Admin",
+                      "status": ""
+                  },
+                  "approvers": null,
+                  "approval_route": [
+                      {
+                          "level": 1,
+                          "users": [
+                              {
+                                  "id": "bc35b04c-484c-4498-8707-9c410454526c",
+                                  "full_name": "Gustaman",
+                                  "status": "inactive"
+                              },
+                              {
+                                  "id": "b1ac6b1c-1727-4cc2-86f2-e4a2140b44cb",
+                                  "full_name": "Apri Ega",
+                                  "status": "active"
+                              }
+                          ]
+                      },
+                      {
+                          "level": 2,
+                          "users": [
+                              {
+                                  "id": "fa7bd056-a197-4ba1-9096-9922f5f70cac",
+                                  "full_name": "Dany Marita Pradana Oldie",
+                                  "status": "inactive"
+                              },
+                              {
+                                  "id": "80946615-9fe5-4e13-9ae0-07d1210b0d52",
+                                  "full_name": "Indana Rishi",
+                                  "status": "inactive"
+                              }
+                          ]
+                      },
+                      {
+                          "level": 3,
+                          "users": [
+                              {
+                                  "id": "fa7bd056-a197-4ba1-9096-9922f5f70cac",
+                                  "full_name": "Dany Marita Pradana Oldie",
+                                  "status": "inactive"
+                              },
+                              {
+                                  "id": "80946615-9fe5-4e13-9ae0-07d1210b0d52",
+                                  "full_name": "Indana Rishi",
+                                  "status": "inactive"
+                              }
+                          ]
+                      }
+                  ]
+              }
+          }
+  - name: success with project cost
+    request:
+      url: "{{base_url}}/api/v1/projects/3dd623f3-1a84-4dc7-a37c-c970b2953ddb"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 18 Jun 2024 10:54:07 GMT
+        - name: Content-Length
+          value: "1187"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "92ms",
+              "status": "success",
+              "code": "",
+              "message": "Get project succeed",
+              "data": {
+                  "id": "3dd623f3-1a84-4dc7-a37c-c970b2953ddb",
+                  "project_no": "u78889",
+                  "description": "tes 3",
+                  "wbs": "u87789",
+                  "category": "flowline",
+                  "working_areas": [
+                      "PHSS"
+                  ],
+                  "field": {
+                      "id": "81a21196-aed9-4a6b-8806-e0011d1848df",
+                      "name": "Pamaguan",
+                      "working_area": "",
+                      "is_active": null,
+                      "created_at": "",
+                      "created_by": {
+                          "id": "",
+                          "full_name": "",
+                          "status": ""
+                      },
+                      "updated_at": "",
+                      "updated_by": {
+                          "id": "",
+                          "full_name": "",
+                          "status": ""
+                      }
+                  },
+                  "start_date": "05-12-2023",
+                  "end_date": "17-12-2023",
+                  "rkaps": [
+                      {
+                          "code": "RKAP22",
+                          "rkap_id": "02482167-c290-4da9-ab05-0f732f1c3d8c",
+                          "rkap_cost": "0.00"
+                      }
+                  ],
+                  "remarks": "tes 3",
+                  "status": "in progress",
+                  "bugdet_forecast": "80000000.00",
+                  "variance": "-100.00",
+                  "plan_physical_progress": "100.00",
+                  "actual_physical_progress": "0.00",
+                  "zone": "Zona-9",
+                  "created_at": "14-12-2023 14:30:00",
+                  "created_by": {
+                      "id": "b1ac6b1c-1727-4cc2-86f2-e4a2140b44cb",
+                      "full_name": "Apri Ega",
+                      "status": ""
+                  },
+                  "updated_at": "14-12-2023 14:30:42",
+                  "updated_by": {
+                      "id": "b1ac6b1c-1727-4cc2-86f2-e4a2140b44cb",
+                      "full_name": "Apri Ega",
+                      "status": ""
+                  },
+                  "approvers": null,
+                  "approval_route": [],
+                  "is_critical": false,
+                  "etc": "",
+                  "commitment_cost": "2154000.00",
+                  "actual_cost": "35000.00"
+              }
+          }

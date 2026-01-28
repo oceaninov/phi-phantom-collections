@@ -1,0 +1,76 @@
+info:
+  name: Update Document
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: "{{base_url}}/api/v1/spks/:ID/documents/:documentID/file"
+  params:
+    - name: ID
+      value: 13e17042-15af-40a8-b318-70a5491c3673
+      type: path
+      description: SPK ID
+    - name: documentID
+      value: ee07753e-b0b9-4657-adf9-dcf6e9140bb5
+      type: path
+      description: Document ID
+  body:
+    type: multipart-form
+    data:
+      - name: file
+        type: file
+        value:
+          - /home/zombozo12/Downloads/test.xlsx
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Success
+    request:
+      url: "{{base_url}}/api/v1/spks/:ID/documents/:documentID"
+      method: PUT
+      params:
+        - name: ID
+          value: 13e17042-15af-40a8-b318-70a5491c3673
+          type: path
+          description: SPK ID
+        - name: documentID
+          value: ee07753e-b0b9-4657-adf9-dcf6e9140bb5
+          type: path
+          description: Document ID
+      body:
+        type: multipart-form
+        data:
+          - name: file
+            type: file
+            value:
+              - /home/zombozo12/Downloads/test.xlsx
+          - name: description
+            type: text
+            value: test 1
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 18 Mar 2024 07:06:19 GMT
+        - name: Content-Length
+          value: "90"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "349ms",
+              "status": "success",
+              "code": "",
+              "message": "Update document succeed"
+          }

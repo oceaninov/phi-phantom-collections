@@ -1,0 +1,286 @@
+info:
+  name: Update SPK
+  type: http
+  seq: 6
+
+http:
+  method: PUT
+  url: "{{base_url}}/api/v1/spks/6def8e4f-bf1e-42ce-a6a2-43a515d0039a"
+  headers:
+    - name: x-client-id
+      value: r3lax
+  body:
+    type: json
+    data: "{\r
+
+      \    \"ro_no\": [\r
+
+      \        \"100420252\"\r
+
+      \    ],\r
+
+      \    \"spk_title\": \"SPK Permission Cek I\",\r
+
+      \    \"start_date\": \"10-04-2025\",\r
+
+      \    \"end_date\": \"31-05-2025\",\r
+
+      \    \"remark\": \"SPK Permission Cek I Remark \",\r
+
+      \    \"user_field_inspectors\": [\r
+
+      \        {\r
+
+      \            \"id\": \"R3TEST.VICEP\",\r
+
+      \            \"full_name\": \"TEST ERIK2\",\r
+
+      \            \"email\": \"R3TEST.VICEP@PERTAMINA.COM\"\r
+
+      \        },\r
+
+      \        {\r
+
+      \            \"id\": \"MK.HARI.PRASETYO3\",\r
+
+      \            \"full_name\": \"Hari Prasetyo\",\r
+
+      \            \"email\": \"MK.HARI.PRASETYO3@PERTAMINA.COM\"\r
+
+      \        }\r
+
+      \    ],\r
+
+      \    \"additional_info\": {\r
+
+      \        \"pekerjaan\": \"QA\",\r
+
+      \        \"masa_pemeliharaan\": \"Sesuai ketentuan dalam kontrak\",\r
+
+      \        \"cost_element\": \"\"\r
+
+      \    },\r
+
+      \    \"sequence_number\": \"014\",\r
+
+      \    \"last_bast_date\": \"\",\r
+
+      \    \"cost_allocations\": []\r
+
+      }\r
+
+      \r\n"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: failed only draft SPK can be updated
+    request:
+      url: "{{base_url}}/api/v1/spks/2fccc9a3-6343-4238-a6a6-d60d3262f46e"
+      method: PUT
+      body:
+        type: json
+        data: "{\r
+
+          \    \"ro_no\": [\r
+
+          \        \"RO00002\",\r
+
+          \        \"RO00003\"\r
+
+          \    ],\r
+
+          \    \"spk_title\": \"SPK baru update\",\r
+
+          \    \"start_date\": \"02-10-2023\",\r
+
+          \    \"end_date\": \"29-11-2023\",\r
+
+          \    \"remark\": \"Create SPK baru update\",\r
+
+          \    \"additional_info\" : {\r
+
+          \        \"pekerjaan\": \"Piping work for compression\",\r
+
+          \        \"masa_pemeliharaan\": \"Sesuai ketentuan dalam kontrak\",\r
+
+          \        \"cost_element\": \"50053000032\"\r
+
+          \    }\r
+
+          }"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 16 Nov 2023 07:25:19 GMT
+        - name: Content-Length
+          value: "383"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "110ms",
+              "status": "failed",
+              "code": "17",
+              "message": "This operation only for SPK with status draft",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "This operation only for SPK with status draft",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/spks/e373e224-4701-4005-8af8-dd278ad3758f"
+      method: PUT
+      body:
+        type: json
+        data: "{\r
+
+          \    \"ro_no\": [\r
+
+          \        \"6666600\"\r
+
+          \    ],\r
+
+          \    \"spk_title\": \"SPK for test vendor dashboard 4 (edited by dany)\",\r
+
+          \    \"start_date\": \"20-02-2024\",\r
+
+          \    \"end_date\": \"21-02-2024\",\r
+
+          \    \"remark\": \"SPK for test vendor dashboard 4 (remark by)\",\r
+
+          \    \"user_field_inspectors\": [\r
+
+          \        \"2aac1b78-0e80-449b-a28d-d5025caa3003\",\r
+
+          \        \"f618d0ba-e726-494a-8e74-4e2063b2dda2\",\r
+
+          \        \"888a5e8a-6fb8-4b31-b279-4c75e69c231d\"\r
+
+          \    ],\r
+
+          \    \"additional_info\": {\r
+
+          \        \"pekerjaan\": \"Pekerjaan (edited by)\",\r
+
+          \        \"masa_pemeliharaan\": \"Sesuai ketentuan dalam kontrak (edited by)\",\r
+
+          \        \"cost_element\": \"\"\r
+
+          \    },\r
+
+          \    \"sequence_number\": \"004\",\r
+
+          \    \"last_bast_date\": \"24-06-2024\"\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 24 Jun 2024 03:04:57 GMT
+        - name: Content-Length
+          value: "84"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "14ms",
+              "status": "success",
+              "code": "",
+              "message": "Update spk succeed"
+          }
+  - name: success integrated with retina
+    request:
+      url: "{{base_url}}/api/v1/spks/e373e224-4701-4005-8af8-dd278ad3758f"
+      method: PUT
+      body:
+        type: json
+        data: "{\r
+
+          \    \"ro_no\": [\r
+
+          \        \"6666600\"\r
+
+          \    ],\r
+
+          \    \"spk_title\": \"SPK for test vendor dashboard 4 (edited by dany)\",\r
+
+          \    \"start_date\": \"20-02-2024\",\r
+
+          \    \"end_date\": \"21-02-2024\",\r
+
+          \    \"remark\": \"SPK for test vendor dashboard 4 (remark by)\",\r
+
+          \    \"user_field_inspectors\": [\r
+
+          \        {\r
+
+          \            \"id\": \"\",\r
+
+          \            \"full_name\": \"\",\r
+
+          \            \"email\": \"\"\r
+
+          \        }\r
+
+          \    ],\r
+
+          \    \"additional_info\": {\r
+
+          \        \"pekerjaan\": \"Pekerjaan (edited by)\",\r
+
+          \        \"masa_pemeliharaan\": \"Sesuai ketentuan dalam kontrak (edited by)\",\r
+
+          \        \"cost_element\": \"\"\r
+
+          \    },\r
+
+          \    \"sequence_number\": \"004\",\r
+
+          \    \"last_bast_date\": \"24-06-2024\"\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 24 Jun 2024 03:04:57 GMT
+        - name: Content-Length
+          value: "84"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "14ms",
+              "status": "success",
+              "code": "",
+              "message": "Update spk succeed"
+          }

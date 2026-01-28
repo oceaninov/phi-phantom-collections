@@ -1,0 +1,147 @@
+info:
+  name: Create Approval Route
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/approval-routes"
+  body:
+    type: json
+    data: |-
+      {
+          "title": "Approval route contract title",
+          "description": "Approval route contract description",
+          "category": "contract",
+          "approvers": [
+              {
+                  "level": 1,
+                  "user_id": [
+                      "bc35b04c-484c-4498-8707-9c410454526c",
+                      "b1ac6b1c-1727-4cc2-86f2-e4a2140b44cb",
+                      "e8e968e7-77ce-4668-b8d6-fc80e083af67"
+                  ]
+              },
+              {
+                  "level": 2,
+                  "user_id": [
+                      "fa7bd056-a197-4ba1-9096-9922f5f70cac",
+                      "80946615-9fe5-4e13-9ae0-07d1210b0d52",
+                      "e8e968e7-77ce-4668-b8d6-fc80e083af67"
+                  ]
+              }
+          ]
+      }
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/approval-routes"
+      method: POST
+      body:
+        type: json
+        data: |-
+          {
+              "title": "Approval route title",
+              "description": "Approval route description",
+              "category": "project",
+              "approvers": [
+                  {
+                      "level": 1,
+                      "user_id": [
+                          "bc35b04c-484c-4498-8707-9c410454526c",
+                          "b1ac6b1c-1727-4cc2-86f2-e4a2140b44cb"
+                      ]
+                  },
+                  {
+                      "level": 2,
+                      "user_id": [
+                          "fa7bd056-a197-4ba1-9096-9922f5f70cac",
+                          "80946615-9fe5-4e13-9ae0-07d1210b0d52"
+                      ]
+                  }
+              ]
+          }
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 18 Mar 2024 06:33:30 GMT
+        - name: Content-Length
+          value: "95"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "12ms",
+              "status": "success",
+              "code": "",
+              "message": "Create approval route succeed"
+          }
+  - name: success integrated with retina
+    request:
+      url: "{{base_url}}/api/v1/approval-routes"
+      method: POST
+      body:
+        type: json
+        data: |-
+          {
+              "title": "Approval route title",
+              "description": "Approval route description",
+              "category": "project",
+              "approvers": [
+                  {
+                      "level": 1,
+                      "users": [
+                          {
+                              "id": "",
+                              "full_name": "",
+                              "email": ""
+                          }
+                      ]
+                  },
+                  {
+                      "level": 2,
+                      "users": [
+                          {
+                              "id": "",
+                              "full_name": "",
+                              "email": ""
+                          }
+                      ]
+                  }
+              ]
+          }
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 18 Mar 2024 06:33:30 GMT
+        - name: Content-Length
+          value: "95"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "12ms",
+              "status": "success",
+              "code": "",
+              "message": "Create approval route succeed"
+          }

@@ -1,0 +1,140 @@
+info:
+  name: (Card Chart) Summary Contract Value
+  type: http
+  seq: 7
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/contracts/summary-value?search=PT. QA"
+  params:
+    - name: search
+      value: PT. QA
+      type: query
+      description: contracts.contract_no / contracts.contract_title/ contractors.name
+    - name: contract_value_start
+      value: "0"
+      type: query
+      disabled: true
+    - name: contract_value_end
+      value: "25000000"
+      type: query
+      disabled: true
+    - name: is_active
+      value: "0"
+      type: query
+      disabled: true
+    - name: is_active
+      value: "1"
+      type: query
+      disabled: true
+    - name: contract_working_area
+      value: PHSS
+      type: query
+      description: PHSS/TSS
+      disabled: true
+    - name: contract_working_area
+      value: TSS
+      type: query
+      description: PHSS/TSS
+      disabled: true
+    - name: work_end_date
+      value: 01-05-2024
+      type: query
+      disabled: true
+    - name: status
+      value: approved_active|approved_inactive|finished|canceled|draft|on hold
+      type: query
+      disabled: true
+    - name: contract_id
+      value: 94a513c8-ecdd-490e-976d-c60ffc63a9e7
+      type: query
+      disabled: true
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Success
+    request:
+      url: "{{base_url}}/api/v1/contracts/total-contract"
+      method: GET
+      params:
+        - name: search
+          value: pagi
+          type: query
+          description: contracts.contract_no / contracts.contract_title/ contractors.name
+          disabled: true
+        - name: contract_value_start
+          value: "0"
+          type: query
+          disabled: true
+        - name: contract_value_end
+          value: "25000000"
+          type: query
+          disabled: true
+        - name: is_active
+          value: "0"
+          type: query
+          disabled: true
+        - name: is_active
+          value: "1"
+          type: query
+          disabled: true
+        - name: contract_working_area
+          value: PHSS
+          type: query
+          description: PHSS/TSS
+          disabled: true
+        - name: contract_working_area
+          value: TSS
+          type: query
+          description: PHSS/TSS
+          disabled: true
+        - name: work_end_date
+          value: 01-05-2024
+          type: query
+          disabled: true
+        - name: percentage_start
+          value: "50"
+          type: query
+          disabled: true
+        - name: percentage_end
+          value: "100"
+          type: query
+          disabled: true
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 23 Aug 2023 03:03:20 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "0ms",
+              "status": "success",
+              "code": "",
+              "message": "Get summary of contract value succeed",
+              "data": {
+                  "summary": {
+                      "sp3_value": 1000000000,
+                      "invoice_value": 1000000000,
+                      "physical_progress_value": 3016378357666.2393,
+                      "sa_value": 1000000000,
+                      "spk_value": 17655214814.64,
+                      "contract_value": 73572000000
+                  }
+              }
+          }

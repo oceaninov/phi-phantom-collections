@@ -1,0 +1,59 @@
+info:
+  name: Restore
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/trash/restore"
+  body:
+    type: json
+    data: |-
+      [
+          {
+              "id": "340f2e71-1856-43d8-b850-97bc9dcf7366",
+              "category": "spk"
+          }
+      ]
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Success
+    request:
+      url: "{{base_url}}/api/v1/trash/restore"
+      method: POST
+      body:
+        type: json
+        data: |-
+          [
+              {
+                  "id": "340f2e71-1856-43d8-b850-97bc9dcf7366",
+                  "category": "spk"
+              }
+          ]
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Fri, 26 Apr 2024 08:14:48 GMT
+        - name: Content-Length
+          value: "87"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "60ms",
+              "status": "success",
+              "code": "",
+              "message": "Restore trash succeed"
+          }

@@ -1,0 +1,729 @@
+info:
+  name: Get BOQ Details
+  type: http
+  seq: 5
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/contracts/boqs/details?page=1&page_size=30&is_active=1&contract_id=ea98e56a-ed9e-4c20-88fc-78a4730ef492"
+  params:
+    - name: page
+      value: "1"
+      type: query
+    - name: page_size
+      value: "30"
+      type: query
+    - name: is_active
+      value: "1"
+      type: query
+    - name: sort_column
+      value: origin_number
+      type: query
+      description: origin_number,code
+      disabled: true
+    - name: sort_order
+      value: ASC
+      type: query
+      disabled: true
+    - name: boq_id
+      value: 4f122dd1-6bc9-4699-af65-426b94f87026
+      type: query
+      disabled: true
+    - name: origin_number
+      value: "1"
+      type: query
+      disabled: true
+    - name: breakdown
+      value: A.1.2.
+      type: query
+      disabled: true
+    - name: description
+      value: PROCESS & PROCESS SAFETY DELIVERABLE LIST
+      type: query
+      disabled: true
+    - name: contract_id
+      value: ea98e56a-ed9e-4c20-88fc-78a4730ef492
+      type: query
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: failed
+    request:
+      url: "{{base_url}}/api/v1/contracts/boqs/details?page=1&page_size=30&is_active=1&sort_column=origin_number&sort_order=ASCX"
+      method: GET
+      params:
+        - name: page
+          value: "1"
+          type: query
+        - name: page_size
+          value: "30"
+          type: query
+        - name: is_active
+          value: "1"
+          type: query
+        - name: sort_column
+          value: origin_number
+          type: query
+          description: origin_number,code
+        - name: sort_order
+          value: ASCX
+          type: query
+        - name: boq_id
+          value: 4f122dd1-6bc9-4699-af65-426b94f87026
+          type: query
+          disabled: true
+        - name: origin_number
+          value: "1"
+          type: query
+          disabled: true
+        - name: breakdown
+          value: A.1.2.
+          type: query
+          disabled: true
+        - name: description
+          value: PROCESS & PROCESS SAFETY DELIVERABLE LIST
+          type: query
+          disabled: true
+        - name: contract_id
+          value: 8181ffd8-1a86-4040-844d-228e4258930b
+          type: query
+          disabled: true
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "0ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Sort Order: must be a valid value.",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Sort Order: must be a valid value.",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/contracts/boqs/details?page=1&page_size=30&is_active=1&contract_id=8eb7345f-758d-4663-bb72-c99fabcd6e7a"
+      method: GET
+      params:
+        - name: page
+          value: "1"
+          type: query
+        - name: page_size
+          value: "30"
+          type: query
+        - name: is_active
+          value: "1"
+          type: query
+        - name: sort_column
+          value: origin_number
+          type: query
+          description: origin_number,code
+          disabled: true
+        - name: sort_order
+          value: ASC
+          type: query
+          disabled: true
+        - name: boq_id
+          value: 4f122dd1-6bc9-4699-af65-426b94f87026
+          type: query
+          disabled: true
+        - name: origin_number
+          value: "1"
+          type: query
+          disabled: true
+        - name: breakdown
+          value: A.1.2.
+          type: query
+          disabled: true
+        - name: description
+          value: PROCESS & PROCESS SAFETY DELIVERABLE LIST
+          type: query
+          disabled: true
+        - name: contract_id
+          value: 8eb7345f-758d-4663-bb72-c99fabcd6e7a
+          type: query
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 24 Jan 2024 08:55:10 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "192ms",
+              "status": "success",
+              "code": "",
+              "message": "Get BOQ detail succeed",
+              "data": {
+                  "list": [
+                      {
+                          "id": "42fab231-9e16-4745-adb2-0fcb0aa51a3c",
+                          "boq_id": "f430e92c-269c-4dcc-ae61-f665420f847c",
+                          "origin_number": 1,
+                          "breakdown": " Tbl.1.",
+                          "description": "INSPECTION SERVICES",
+                          "kind": "",
+                          "quantity": 0,
+                          "total": "0.00",
+                          "unit_price": "0.00",
+                          "remark": "",
+                          "data_type": "header",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "00000000-0000-0000-0000-000000000000",
+                              "name": ""
+                          }
+                      },
+                      {
+                          "id": "c0c09fe6-5168-4295-b8f8-97e76bdea5a4",
+                          "boq_id": "f430e92c-269c-4dcc-ae61-f665420f847c",
+                          "origin_number": 8,
+                          "breakdown": "  Tbl.1.1.",
+                          "description": "Paket jasa pengawasan QA/QC identifikasi dan pengumpulan data bidang document control dan material terkait pekerjaan inspeksi dan sertifikasi.",
+                          "kind": "Default",
+                          "quantity": 72,
+                          "total": "1186679886.00",
+                          "unit_price": "16481665.08",
+                          "remark": "",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "4241128e-fc94-4b2a-aebc-cd84d7f4aac2",
+                              "name": "Bulan Paket"
+                          }
+                      },
+                      {
+                          "id": "38735e5d-bfd3-4b40-9712-7e25a0e3dd9e",
+                          "boq_id": "f430e92c-269c-4dcc-ae61-f665420f847c",
+                          "origin_number": 9,
+                          "breakdown": "  Tbl.1.2.",
+                          "description": "Paket jasa pengawasan QA/QC identifikasi dan pengumpulan data, validasi, integrasi data, analisa data bidang document control dan material terkait pekerjaan inspeksi dan sertifikasi.",
+                          "kind": "Default",
+                          "quantity": 72,
+                          "total": "1442636089.00",
+                          "unit_price": "20036612.35",
+                          "remark": "",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "4241128e-fc94-4b2a-aebc-cd84d7f4aac2",
+                              "name": "Bulan Paket"
+                          }
+                      },
+                      {
+                          "id": "9d0d812f-6c1a-4e7a-9f1f-d62cfce26efb",
+                          "boq_id": "f430e92c-269c-4dcc-ae61-f665420f847c",
+                          "origin_number": 10,
+                          "breakdown": "  Tbl.1.3.",
+                          "description": "Paket jasa pengawasan QA/QC identifikasi dan pengumpulan data, validasi bidang project control / mechanical / piping / electrical / instrument / civil / Geodetic / process  terkait pekerjaan inspeksi dan sertifikasi.",
+                          "kind": "Default",
+                          "quantity": 72,
+                          "total": "1661494877.00",
+                          "unit_price": "23076317.74",
+                          "remark": "",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "4241128e-fc94-4b2a-aebc-cd84d7f4aac2",
+                              "name": "Bulan Paket"
+                          }
+                      },
+                      {
+                          "id": "5a827e8e-4713-4796-a2fe-55958c844c64",
+                          "boq_id": "f430e92c-269c-4dcc-ae61-f665420f847c",
+                          "origin_number": 11,
+                          "breakdown": "  Tbl.1.4.",
+                          "description": "Paket jasa pengawasan QA/QC identifikasi dan pengumpulan data, validasi, integrasi data bidang project control / mechanical / piping / electrical / instrument / civil / Geodetic / process  terkait pekerjaan inspeksi dan sertifikasi.",
+                          "kind": "Default",
+                          "quantity": 72,
+                          "total": "1926449432.00",
+                          "unit_price": "26756242.11",
+                          "remark": "",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "4241128e-fc94-4b2a-aebc-cd84d7f4aac2",
+                              "name": "Bulan Paket"
+                          }
+                      },
+                      {
+                          "id": "b389fedb-e7e0-4c6f-a84f-8f916c93b519",
+                          "boq_id": "f430e92c-269c-4dcc-ae61-f665420f847c",
+                          "origin_number": 12,
+                          "breakdown": "  Tbl.1.5.",
+                          "description": "Paket jasa pengawasan QA/QC identifikasi dan pengumpulan data, validasi, integrasi data, analisa data bidang project control / mechanical / piping / electrical / instrument / civil / Geodetic / process  terkait pekerjaan inspeksi dan sertifikasi.",
+                          "kind": "Default",
+                          "quantity": 72,
+                          "total": "2171044018.00",
+                          "unit_price": "30153389.14",
+                          "remark": "",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "4241128e-fc94-4b2a-aebc-cd84d7f4aac2",
+                              "name": "Bulan Paket"
+                          }
+                      },
+                      {
+                          "id": "66039d72-7a2e-4b1a-a2ab-c081ed96c461",
+                          "boq_id": "f430e92c-269c-4dcc-ae61-f665420f847c",
+                          "origin_number": 13,
+                          "breakdown": "  Tbl.1.6.",
+                          "description": "Paket jasa pengawasan QA/QC identifikasi dan pengumpulan data, validasi, integrasi data, analisa data, simulasi bidang project control / mechanical / piping / electrical / instrument / civil / Geodetic / process  terkait pekerjaan inspeksi dan sertifikasi.",
+                          "kind": "Default",
+                          "quantity": 72,
+                          "total": "2391024172.00",
+                          "unit_price": "33208669.06",
+                          "remark": "",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "4241128e-fc94-4b2a-aebc-cd84d7f4aac2",
+                              "name": "Bulan Paket"
+                          }
+                      },
+                      {
+                          "id": "44ccb1a0-fcf1-453e-a2e1-303835393b17",
+                          "boq_id": "f430e92c-269c-4dcc-ae61-f665420f847c",
+                          "origin_number": 14,
+                          "breakdown": "  Tbl.1.7.",
+                          "description": "Paket jasa pengawasan QA/QC identifikasi dan pengumpulan data, validasi, integrasi data, analisa data, simulasi dan rekomendasi bidang project control / mechanical / piping / electrical / instrument / civil / Geodetic / process  terkait  pekerjaan inspeksi dan sertifikasi.",
+                          "kind": "Default",
+                          "quantity": 72,
+                          "total": "2609882960.00",
+                          "unit_price": "36248374.44",
+                          "remark": "",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "4241128e-fc94-4b2a-aebc-cd84d7f4aac2",
+                              "name": "Bulan Paket"
+                          }
+                      },
+                      {
+                          "id": "33bd9974-2af9-4e48-b176-c93b3dbd9771",
+                          "boq_id": "f430e92c-269c-4dcc-ae61-f665420f847c",
+                          "origin_number": 15,
+                          "breakdown": "  Tbl.1.8.",
+                          "description": "Paket jasa pengawasan QA/QC identifikasi dan pengumpulan data, validasi, integrasi data, analisa data, simulasi, rekomendasi dan integrasi projects bidang project control / mechanical / piping / electrical / instrument / civil / Geodetic / process  terkait  pekerjaan inspeksi dan sertifikasi.",
+                          "kind": "Default",
+                          "quantity": 72,
+                          "total": "2901694678.00",
+                          "unit_price": "40301314.97",
+                          "remark": "",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "4241128e-fc94-4b2a-aebc-cd84d7f4aac2",
+                              "name": "Bulan Paket"
+                          }
+                      },
+                      {
+                          "id": "1d8d2438-2510-4be6-8981-8a6e2d5d7769",
+                          "boq_id": "f430e92c-269c-4dcc-ae61-f665420f847c",
+                          "origin_number": 16,
+                          "breakdown": "  Tbl.1.9.",
+                          "description": "Paket jasa pengawasan QA/QC identifikasi dan pengumpulan data, validasi, integrasi data, analisa data, simulasi, rekomendasi, integrasi projects dan recovery plan bidang project control / mechanical / piping / electrical / instrument / civil / Geodetic / process  terkait  pekerjaan inspeksi dan sertifikasi.",
+                          "kind": "Default",
+                          "quantity": 72,
+                          "total": "3193698705.00",
+                          "unit_price": "44356926.46",
+                          "remark": "",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "4241128e-fc94-4b2a-aebc-cd84d7f4aac2",
+                              "name": "Bulan Paket"
+                          }
+                      },
+                      {
+                          "id": "e41645ce-2502-43f3-bd22-5900d2171252",
+                          "boq_id": "f430e92c-269c-4dcc-ae61-f665420f847c",
+                          "origin_number": 17,
+                          "breakdown": " Tbl.2.",
+                          "description": "INSPECTION SERVICES",
+                          "kind": "",
+                          "quantity": 0,
+                          "total": "0.00",
+                          "unit_price": "0.00",
+                          "remark": "",
+                          "data_type": "header",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "00000000-0000-0000-0000-000000000000",
+                              "name": ""
+                          }
+                      },
+                      {
+                          "id": "778dee17-733f-4aeb-a09c-fa1210c0547d",
+                          "boq_id": "f430e92c-269c-4dcc-ae61-f665420f847c",
+                          "origin_number": 19,
+                          "breakdown": "  Tbl.2.1.",
+                          "description": "AREA SANGASANGA",
+                          "kind": "",
+                          "quantity": 0,
+                          "total": "0.00",
+                          "unit_price": "0.00",
+                          "remark": "",
+                          "data_type": "header",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "00000000-0000-0000-0000-000000000000",
+                              "name": ""
+                          }
+                      },
+                      {
+                          "id": "e75f20cf-0b00-436e-89f7-f708a29e15b8",
+                          "boq_id": "f430e92c-269c-4dcc-ae61-f665420f847c",
+                          "origin_number": 29,
+                          "breakdown": "   Tbl.2.1.A.",
+                          "description": "CERTIFICATION (PP/COI & PLO) - STATUTORY",
+                          "kind": "",
+                          "quantity": 0,
+                          "total": "0.00",
+                          "unit_price": "0.00",
+                          "remark": "",
+                          "data_type": "header",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "00000000-0000-0000-0000-000000000000",
+                              "name": ""
+                          }
+                      },
+                      {
+                          "id": "8d3a2d44-cf9c-4931-b8e4-09869bc8d62c",
+                          "boq_id": "f430e92c-269c-4dcc-ae61-f665420f847c",
+                          "origin_number": 30,
+                          "breakdown": "    Tbl.2.1.A.1.",
+                          "description": "PLO - SPU/MGS, PPP/MOS, TERMINAL STATION (PER INSTALASI)",
+                          "kind": "Default",
+                          "quantity": 1,
+                          "total": "85015500.00",
+                          "unit_price": "85015500.00",
+                          "remark": "",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "d93aef0a-2efc-47ac-8322-b95774bcfbe9",
+                              "name": "Unit"
+                          }
+                      },
+                      {
+                          "id": "bc3ead35-1763-4b10-9b7f-8183dda17f1d",
+                          "boq_id": "f430e92c-269c-4dcc-ae61-f665420f847c",
+                          "origin_number": 31,
+                          "breakdown": "    Tbl.2.1.A.2.",
+                          "description": "PLO - SP/GS, BLOCK STATION, GAS PLANT (PER INSTALASI)",
+                          "kind": "Default",
+                          "quantity": 1,
+                          "total": "75225750.00",
+                          "unit_price": "75225750.00",
+                          "remark": "",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "d93aef0a-2efc-47ac-8322-b95774bcfbe9",
+                              "name": "Unit"
+                          }
+                      },
+                      {
+                          "id": "b1fb0e27-720d-4064-88d3-a8d85db9c0a6",
+                          "boq_id": "f430e92c-269c-4dcc-ae61-f665420f847c",
+                          "origin_number": 32,
+                          "breakdown": "    Tbl.2.1.A.3.",
+                          "description": "COI + PLO - SERTIFIKASI PIPA PENYALUR (PER JALUR)",
+                          "kind": "Default",
+                          "quantity": 5,
+                          "total": "218960000.00",
+                          "unit_price": "43792000.00",
+                          "remark": "",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "d93aef0a-2efc-47ac-8322-b95774bcfbe9",
+                              "name": "Unit"
+                          }
+                      },
+                      {
+                          "id": "beff8cbd-68a6-4bf0-bb02-c5c4bd764a70",
+                          "boq_id": "f430e92c-269c-4dcc-ae61-f665420f847c",
+                          "origin_number": 33,
+                          "breakdown": "    Tbl.2.1.A.4.",
+                          "description": "SERTIFIKASI DIRMET (PERSKID SYSTEM METER)",
+                          "kind": "Default",
+                          "quantity": 1,
+                          "total": "65032000.00",
+                          "unit_price": "65032000.00",
+                          "remark": "",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "d93aef0a-2efc-47ac-8322-b95774bcfbe9",
+                              "name": "Unit"
+                          }
+                      },
+                      {
+                          "id": "0d32ce27-308c-4e5f-a123-8d4972616b98",
+                          "boq_id": "f430e92c-269c-4dcc-ae61-f665420f847c",
+                          "origin_number": 34,
+                          "breakdown": "    Tbl.2.1.A.5.",
+                          "description": "SERTIFIKASI PERUSAHAAN INSPEKSI (PERSKID SYSTEM METER)",
+                          "kind": "Default",
+                          "quantity": 1,
+                          "total": "42976000.00",
+                          "unit_price": "42976000.00",
+                          "remark": "",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "d93aef0a-2efc-47ac-8322-b95774bcfbe9",
+                              "name": "Unit"
+                          }
+                      },
+                      {
+                          "id": "79763125-0d46-4128-9621-1f2f73489ca3",
+                          "boq_id": "f430e92c-269c-4dcc-ae61-f665420f847c",
+                          "origin_number": 35,
+                          "breakdown": "    Tbl.2.1.A.6.",
+                          "description": "COI - SERTIFIKASI GENSET (PER UNIT)",
+                          "kind": "Default",
+                          "quantity": 1,
+                          "total": "15955000.00",
+                          "unit_price": "15955000.00",
+                          "remark": "",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "d93aef0a-2efc-47ac-8322-b95774bcfbe9",
+                              "name": "Unit"
+                          }
+                      },
+                      {
+                          "id": "d8f85786-90bd-4ea9-949a-dbd1f691dd37",
+                          "boq_id": "f430e92c-269c-4dcc-ae61-f665420f847c",
+                          "origin_number": 36,
+                          "breakdown": "    Tbl.2.1.A.7.",
+                          "description": "COI - SERTIFIKASI SWITCHGEAR (PER UNIT)",
+                          "kind": "Default",
+                          "quantity": 1,
+                          "total": "15479000.00",
+                          "unit_price": "15479000.00",
+                          "remark": "",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "d93aef0a-2efc-47ac-8322-b95774bcfbe9",
+                              "name": "Unit"
+                          }
+                      },
+                      {
+                          "id": "43c714f3-b2a1-4165-b1f0-1d49099ec381",
+                          "boq_id": "f430e92c-269c-4dcc-ae61-f665420f847c",
+                          "origin_number": 37,
+                          "breakdown": "    Tbl.2.1.A.8.",
+                          "description": "COI - SERTIFIKASI TRAFO (PER UNIT)",
+                          "kind": "Default",
+                          "quantity": 1,
+                          "total": "15932000.00",
+                          "unit_price": "15932000.00",
+                          "remark": "",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "d93aef0a-2efc-47ac-8322-b95774bcfbe9",
+                              "name": "Unit"
+                          }
+                      },
+                      {
+                          "id": "b47a7753-d647-43c5-befd-ccf08f89c0db",
+                          "boq_id": "f430e92c-269c-4dcc-ae61-f665420f847c",
+                          "origin_number": 38,
+                          "breakdown": "    Tbl.2.1.A.9.",
+                          "description": "COI - SERTIFIKASI MCC (PER UNIT)",
+                          "kind": "Default",
+                          "quantity": 1,
+                          "total": "15479000.00",
+                          "unit_price": "15479000.00",
+                          "remark": "",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "d93aef0a-2efc-47ac-8322-b95774bcfbe9",
+                              "name": "Unit"
+                          }
+                      },
+                      {
+                          "id": "34506aa0-b197-4217-85d0-f87528b3093f",
+                          "boq_id": "f430e92c-269c-4dcc-ae61-f665420f847c",
+                          "origin_number": 39,
+                          "breakdown": "    Tbl.2.1.A.10.",
+                          "description": "COI - SERTIFIKASI PESAWAT ANGKAT / CRANE (PER UNIT)",
+                          "kind": "Default",
+                          "quantity": 1,
+                          "total": "28554000.00",
+                          "unit_price": "28554000.00",
+                          "remark": "",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "d93aef0a-2efc-47ac-8322-b95774bcfbe9",
+                              "name": "Unit"
+                          }
+                      },
+                      {
+                          "id": "9aae11a1-beb0-4c2d-a629-71084eaf7d12",
+                          "boq_id": "f430e92c-269c-4dcc-ae61-f665420f847c",
+                          "origin_number": 40,
+                          "breakdown": "    Tbl.2.1.A.11.",
+                          "description": "COI - SERTIFIKASI PERALATAN ROTATING (PER UNIT)",
+                          "kind": "Default",
+                          "quantity": 5,
+                          "total": "86745000.00",
+                          "unit_price": "17349000.00",
+                          "remark": "",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "d93aef0a-2efc-47ac-8322-b95774bcfbe9",
+                              "name": "Unit"
+                          }
+                      },
+                      {
+                          "id": "c4fb3cce-e351-498d-a04e-5d9ba991fc8b",
+                          "boq_id": "f430e92c-269c-4dcc-ae61-f665420f847c",
+                          "origin_number": 41,
+                          "breakdown": "    Tbl.2.1.A.12.",
+                          "description": "COI - SERTIFIKASI PRESSURE VESSEL (PER UNIT)",
+                          "kind": "Default",
+                          "quantity": 5,
+                          "total": "85460000.00",
+                          "unit_price": "17092000.00",
+                          "remark": "",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "d93aef0a-2efc-47ac-8322-b95774bcfbe9",
+                              "name": "Unit"
+                          }
+                      },
+                      {
+                          "id": "92a79414-8eb3-463b-bca0-eaf1bfedea0e",
+                          "boq_id": "f430e92c-269c-4dcc-ae61-f665420f847c",
+                          "origin_number": 42,
+                          "breakdown": "    Tbl.2.1.A.13.",
+                          "description": "COI - SERTIFIKASI STORAGE TANK (PER UNIT)",
+                          "kind": "Default",
+                          "quantity": 5,
+                          "total": "275287500.00",
+                          "unit_price": "55057500.00",
+                          "remark": "",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "d93aef0a-2efc-47ac-8322-b95774bcfbe9",
+                              "name": "Unit"
+                          }
+                      },
+                      {
+                          "id": "360667ba-314e-4f2f-8cb6-45e32400ab89",
+                          "boq_id": "f430e92c-269c-4dcc-ae61-f665420f847c",
+                          "origin_number": 44,
+                          "breakdown": "   Tbl.2.1.B.",
+                          "description": "NON DESTRUCTIVE TEST (NDT) - VOLUNTARY",
+                          "kind": "",
+                          "quantity": 0,
+                          "total": "0.00",
+                          "unit_price": "0.00",
+                          "remark": "",
+                          "data_type": "header",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "00000000-0000-0000-0000-000000000000",
+                              "name": ""
+                          }
+                      },
+                      {
+                          "id": "c754ec36-37eb-4b65-b436-7859077c977f",
+                          "boq_id": "f430e92c-269c-4dcc-ae61-f665420f847c",
+                          "origin_number": 45,
+                          "breakdown": "    Tbl.2.1.B.1.",
+                          "description": "NDT RADIOGRAPHY TEST",
+                          "kind": "",
+                          "quantity": 0,
+                          "total": "0.00",
+                          "unit_price": "0.00",
+                          "remark": "",
+                          "data_type": "header",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "00000000-0000-0000-0000-000000000000",
+                              "name": ""
+                          }
+                      },
+                      {
+                          "id": "e9e99e1d-22a8-4caf-802d-222c250eb865",
+                          "boq_id": "f430e92c-269c-4dcc-ae61-f665420f847c",
+                          "origin_number": 46,
+                          "breakdown": "     Tbl.2.1.B.1.1.",
+                          "description": "1.1  Biaya per Film",
+                          "kind": "Default",
+                          "quantity": 500,
+                          "total": "80500000.00",
+                          "unit_price": "161000.00",
+                          "remark": "",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "12ac0a41-7e03-4ab0-852c-a5603161b741",
+                              "name": "FILM"
+                          }
+                      },
+                      {
+                          "id": "2916bd2f-5f41-4e6e-957a-9c1f635a349b",
+                          "boq_id": "f430e92c-269c-4dcc-ae61-f665420f847c",
+                          "origin_number": 47,
+                          "breakdown": "    Tbl.2.1.B.2.",
+                          "description": "NDT PENETRANT TEST (Per Joint Las)",
+                          "kind": "",
+                          "quantity": 0,
+                          "total": "0.00",
+                          "unit_price": "0.00",
+                          "remark": "",
+                          "data_type": "header",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "00000000-0000-0000-0000-000000000000",
+                              "name": ""
+                          }
+                      }
+                  ],
+                  "count": 135
+              }
+          }

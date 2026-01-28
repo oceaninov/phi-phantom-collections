@@ -1,0 +1,114 @@
+info:
+  name: Get Project Task Schedule
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/projects/tasks/b48263b8-c199-45f5-aa8d-b70c16106838/schedule?page=1&page_size=10"
+  params:
+    - name: page
+      value: "1"
+      type: query
+    - name: page_size
+      value: "10"
+      type: query
+    - name: start_date
+      value: 01-01-2023
+      type: query
+      disabled: true
+    - name: end_date
+      value: 02-01-2023
+      type: query
+      disabled: true
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/projects/tasks/99ee09eb-7e65-4c99-bb91-6ef2697bf8cb/schedule?page=1&page_size=10&start_date=01-01-2023&end_date=02-01-2023"
+      method: GET
+      params:
+        - name: page
+          value: "1"
+          type: query
+        - name: page_size
+          value: "10"
+          type: query
+        - name: start_date
+          value: 01-01-2023
+          type: query
+        - name: end_date
+          value: 02-01-2023
+          type: query
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Fri, 29 Sep 2023 03:09:21 GMT
+        - name: Content-Length
+          value: "1104"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "9ms",
+              "status": "success",
+              "code": "",
+              "message": "Get project task schedule succeed",
+              "data": {
+                  "list": [
+                      {
+                          "id": "9924c8c0-00e1-4c6a-80b4-4081db08cfd0",
+                          "project_task_id": "99ee09eb-7e65-4c99-bb91-6ef2697bf8cb",
+                          "date": "02-01-2023",
+                          "plan_weight": 0.02,
+                          "plan_weight_accumulation": 0.04,
+                          "plan_volume": 0,
+                          "plan_volume_accumulation": 0,
+                          "plan_progress": 8.33,
+                          "plan_progress_accumulation": 16.67,
+                          "plan_cost": 1650000,
+                          "actual_cost": 0,
+                          "actual_cost_weight": 0,
+                          "actual_cost_weight_accumulation": 0,
+                          "actual_cost_progress": 0,
+                          "actual_cost_progress_accumulation": 0,
+                          "actual_progress": 8.33,
+                          "actual_progress_accumulation": 16.67
+                      },
+                      {
+                          "id": "1ef63bbf-1169-4dc2-bf10-8b0e7a38233c",
+                          "project_task_id": "99ee09eb-7e65-4c99-bb91-6ef2697bf8cb",
+                          "date": "01-01-2023",
+                          "plan_weight": 0.02,
+                          "plan_weight_accumulation": 0.02,
+                          "plan_volume": 0,
+                          "plan_volume_accumulation": 0,
+                          "plan_progress": 8.33,
+                          "plan_progress_accumulation": 8.33,
+                          "plan_cost": 1650000,
+                          "actual_cost": 0,
+                          "actual_cost_weight": 0,
+                          "actual_cost_weight_accumulation": 0,
+                          "actual_cost_progress": 0,
+                          "actual_cost_progress_accumulation": 0,
+                          "actual_progress": 0,
+                          "actual_progress_accumulation": 0
+                      }
+                  ],
+                  "count": 2
+              }
+          }

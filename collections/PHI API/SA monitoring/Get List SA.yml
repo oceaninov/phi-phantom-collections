@@ -1,0 +1,1539 @@
+info:
+  name: Get List SA
+  type: http
+  seq: 3
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/service-acceptances?page_size=25&page=1"
+  params:
+    - name: contract_id
+      value: 2beb3f42-beb7-4a7e-81dc-96ddc8ba27fc
+      type: query
+      disabled: true
+    - name: spk_id
+      value: ff291308-45a0-4ed3-93b7-66dee1ac0b30
+      type: query
+      disabled: true
+    - name: ro_number
+      value: ""
+      type: query
+      disabled: true
+    - name: search
+      value: ""
+      type: query
+      disabled: true
+    - name: sa_number
+      value: ""
+      type: query
+      disabled: true
+    - name: page_size
+      value: "25"
+      type: query
+    - name: sort_column
+      value: ""
+      type: query
+      disabled: true
+    - name: sort_order
+      value: ""
+      type: query
+      disabled: true
+    - name: page
+      value: "1"
+      type: query
+  body:
+    type: json
+    data: ""
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Get List SA
+    request:
+      url: "{{base_url}}/api/v1/service-acceptances?page_size=25&page=1"
+      method: GET
+      params:
+        - name: contract_id
+          value: 392031e6-308e-4507-a7ee-c1e4d70a9bee
+          type: query
+          disabled: true
+        - name: spk_id
+          value: ff291308-45a0-4ed3-93b7-66dee1ac0b30
+          type: query
+          disabled: true
+        - name: ro_number
+          value: ""
+          type: query
+          disabled: true
+        - name: search
+          value: ""
+          type: query
+          disabled: true
+        - name: sa_number
+          value: ""
+          type: query
+          disabled: true
+        - name: page_size
+          value: "25"
+          type: query
+        - name: sort_column
+          value: ""
+          type: query
+          disabled: true
+        - name: sort_order
+          value: ""
+          type: query
+          disabled: true
+        - name: page
+          value: "1"
+          type: query
+      body:
+        type: json
+        data: ""
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 12 Mar 2024 08:19:03 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "804ms",
+              "status": "success",
+              "code": "",
+              "message": "Get service acceptance succeed",
+              "data": {
+                  "list": [
+                      {
+                          "id": "f1265575-1d5a-4b84-b9cb-edca11128050",
+                          "sa_no": "8",
+                          "contract": {
+                              "id": "392031e6-308e-4507-a7ee-c1e4d70a9bee",
+                              "contract_title": "Engineering OLD",
+                              "contract_no": "1231231111",
+                              "vendor_id": "a53dcb7e-a34d-4152-8a61-32b2d8aae261",
+                              "vendor_name": "PT. Berca Engineering",
+                              "bank_id": "",
+                              "bank_code": "",
+                              "bank_name": "",
+                              "bank_account_number": "",
+                              "bank_branch": "",
+                              "bank_account_name": ""
+                          },
+                          "ro": {
+                              "id": "0874d22a-06bd-4840-8733-f342360fda0d",
+                              "ro_no": "112",
+                              "ro_amount": "1600000"
+                          },
+                          "cost": "10000",
+                          "currency": "IDR",
+                          "document_date": "20-02-2024",
+                          "status": "unpaid",
+                          "working_area": "PHSS",
+                          "sa_remaining": "0",
+                          "invoice_amount": "0",
+                          "created_at": "07-03-2024",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin",
+                              "status": ""
+                          },
+                          "updated_at": "07-03-2024",
+                          "updated_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin",
+                              "status": ""
+                          }
+                      },
+                      {
+                          "id": "b0dfa936-f511-4c16-92c3-0038cfa48d29",
+                          "sa_no": "121312",
+                          "contract": {
+                              "id": "c7240515-4664-4f22-933b-78057dd318b7",
+                              "contract_title": "Test Contract Baru",
+                              "contract_no": "564/new/990/2023",
+                              "vendor_id": "eb8a9754-bc2f-43d3-805a-77113a1c73f3",
+                              "vendor_name": "PT. Kaliraya Sari",
+                              "bank_id": "df7c1ca3-9fe8-4bd0-bda1-ed0d16412d3b",
+                              "bank_code": "002",
+                              "bank_name": "BANK BRI",
+                              "bank_account_number": "1234321",
+                              "bank_branch": "",
+                              "bank_account_name": ""
+                          },
+                          "ro": {
+                              "id": "280e12ec-1f8c-420b-9e16-8943c4cf541e",
+                              "ro_no": "669",
+                              "ro_amount": "7504800"
+                          },
+                          "cost": "10000",
+                          "currency": "IDR",
+                          "document_date": "20-02-2024",
+                          "status": "unpaid",
+                          "working_area": "PHSS",
+                          "sa_remaining": "0",
+                          "invoice_amount": "0",
+                          "created_at": "07-03-2024",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin",
+                              "status": ""
+                          },
+                          "updated_at": "07-03-2024",
+                          "updated_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin",
+                              "status": ""
+                          }
+                      },
+                      {
+                          "id": "01e843bf-fd53-44a4-b62b-d6935a97a581",
+                          "sa_no": "2222",
+                          "contract": {
+                              "id": "c7240515-4664-4f22-933b-78057dd318b7",
+                              "contract_title": "Test Contract Baru",
+                              "contract_no": "564/new/990/2023",
+                              "vendor_id": "eb8a9754-bc2f-43d3-805a-77113a1c73f3",
+                              "vendor_name": "PT. Kaliraya Sari",
+                              "bank_id": "df7c1ca3-9fe8-4bd0-bda1-ed0d16412d3b",
+                              "bank_code": "002",
+                              "bank_name": "BANK BRI",
+                              "bank_account_number": "1234321",
+                              "bank_branch": "",
+                              "bank_account_name": ""
+                          },
+                          "ro": {
+                              "id": "280e12ec-1f8c-420b-9e16-8943c4cf541e",
+                              "ro_no": "669",
+                              "ro_amount": "7504800"
+                          },
+                          "cost": "100000",
+                          "currency": "IDR",
+                          "document_date": "08-03-2024",
+                          "status": "unpaid",
+                          "working_area": "PHSS",
+                          "sa_remaining": "0",
+                          "invoice_amount": "0",
+                          "created_at": "08-03-2024",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin",
+                              "status": ""
+                          },
+                          "updated_at": "08-03-2024",
+                          "updated_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin",
+                              "status": ""
+                          }
+                      }
+                  ],
+                  "count": 3
+              }
+          }
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/service-acceptances?page_size=25&page=1"
+      method: GET
+      params:
+        - name: contract_id
+          value: 2beb3f42-beb7-4a7e-81dc-96ddc8ba27fc
+          type: query
+          disabled: true
+        - name: spk_id
+          value: ff291308-45a0-4ed3-93b7-66dee1ac0b30
+          type: query
+          disabled: true
+        - name: ro_number
+          value: ""
+          type: query
+          disabled: true
+        - name: search
+          value: ""
+          type: query
+          disabled: true
+        - name: sa_number
+          value: ""
+          type: query
+          disabled: true
+        - name: page_size
+          value: "25"
+          type: query
+        - name: sort_column
+          value: ""
+          type: query
+          disabled: true
+        - name: sort_order
+          value: ""
+          type: query
+          disabled: true
+        - name: page
+          value: "1"
+          type: query
+      body:
+        type: json
+        data: ""
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 19 Jun 2024 10:05:48 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "48ms",
+              "status": "success",
+              "code": "",
+              "message": "Get service acceptance succeed",
+              "data": {
+                  "list": [
+                      {
+                          "id": "d6c350f9-2a1f-42bf-9f01-15f7d448e082",
+                          "sa_no": "SA00112347",
+                          "contract": {
+                              "id": "392031e6-308e-4507-a7ee-c1e4d70a9bee",
+                              "contract_title": "Engineering OLD",
+                              "contract_no": "1231231111",
+                              "vendor_id": "a53dcb7e-a34d-4152-8a61-32b2d8aae261",
+                              "vendor_name": "PT. Berca Engineering",
+                              "bank_id": "",
+                              "bank_code": "",
+                              "bank_name": "",
+                              "bank_account_number": "",
+                              "bank_branch": "",
+                              "bank_account_name": ""
+                          },
+                          "ro": {
+                              "id": "3f5c566f-29bb-4df4-986f-9e8b6834afdd",
+                              "ro_no": "13122023",
+                              "ro_amount": "1060000",
+                              "has_sa": false
+                          },
+                          "cost": "10000",
+                          "currency": "IDR",
+                          "document_date": "18-06-2024",
+                          "status": "unpaid",
+                          "working_area": "PHSS",
+                          "sa_remaining": "10000",
+                          "invoice_amount": "0",
+                          "created_at": "19-06-2024",
+                          "created_by": {
+                              "id": "7ae8e931-1628-4562-bf24-1c2cdd2b4cf4",
+                              "full_name": "Dany M Pradana",
+                              "status": ""
+                          },
+                          "updated_at": "19-06-2024",
+                          "updated_by": {
+                              "id": "7ae8e931-1628-4562-bf24-1c2cdd2b4cf4",
+                              "full_name": "Dany M Pradana",
+                              "status": ""
+                          },
+                          "project": {
+                              "id": "cb92ae99-ee99-45d0-88f1-448904e16913",
+                              "project_no": "1106241",
+                              "description": "Project Unjuk rasa",
+                              "wbs": "WBS Unjuk Rasa"
+                          },
+                          "line_item": 4
+                      },
+                      {
+                          "id": "3bc8764f-d4c2-4d21-824c-71d3b9ab7826",
+                          "sa_no": "SA00112347",
+                          "contract": {
+                              "id": "392031e6-308e-4507-a7ee-c1e4d70a9bee",
+                              "contract_title": "Engineering OLD",
+                              "contract_no": "1231231111",
+                              "vendor_id": "a53dcb7e-a34d-4152-8a61-32b2d8aae261",
+                              "vendor_name": "PT. Berca Engineering",
+                              "bank_id": "",
+                              "bank_code": "",
+                              "bank_name": "",
+                              "bank_account_number": "",
+                              "bank_branch": "",
+                              "bank_account_name": ""
+                          },
+                          "ro": {
+                              "id": "3f5c566f-29bb-4df4-986f-9e8b6834afdd",
+                              "ro_no": "13122023",
+                              "ro_amount": "1060000",
+                              "has_sa": false
+                          },
+                          "cost": "15000",
+                          "currency": "IDR",
+                          "document_date": "19-06-2028",
+                          "status": "unpaid",
+                          "working_area": "PHSS",
+                          "sa_remaining": "15000",
+                          "invoice_amount": "0",
+                          "created_at": "18-06-2024",
+                          "created_by": {
+                              "id": "7ae8e931-1628-4562-bf24-1c2cdd2b4cf4",
+                              "full_name": "Dany M Pradana",
+                              "status": ""
+                          },
+                          "updated_at": "18-06-2024",
+                          "updated_by": {
+                              "id": "7ae8e931-1628-4562-bf24-1c2cdd2b4cf4",
+                              "full_name": "Dany M Pradana",
+                              "status": ""
+                          },
+                          "project": {
+                              "id": "3dd623f3-1a84-4dc7-a37c-c970b2953ddb",
+                              "project_no": "u78889",
+                              "description": "tes 3",
+                              "wbs": "u87789"
+                          },
+                          "line_item": 3
+                      },
+                      {
+                          "id": "ef7f8438-ee35-4dca-883b-dc2fe2963334",
+                          "sa_no": "SA00112346",
+                          "contract": {
+                              "id": "392031e6-308e-4507-a7ee-c1e4d70a9bee",
+                              "contract_title": "Engineering OLD",
+                              "contract_no": "1231231111",
+                              "vendor_id": "a53dcb7e-a34d-4152-8a61-32b2d8aae261",
+                              "vendor_name": "PT. Berca Engineering",
+                              "bank_id": "",
+                              "bank_code": "",
+                              "bank_name": "",
+                              "bank_account_number": "",
+                              "bank_branch": "",
+                              "bank_account_name": ""
+                          },
+                          "ro": {
+                              "id": "3f5c566f-29bb-4df4-986f-9e8b6834afdd",
+                              "ro_no": "13122023",
+                              "ro_amount": "1060000",
+                              "has_sa": false
+                          },
+                          "cost": "10000",
+                          "currency": "IDR",
+                          "document_date": "18-06-2024",
+                          "status": "unpaid",
+                          "working_area": "PHSS",
+                          "sa_remaining": "10000",
+                          "invoice_amount": "0",
+                          "created_at": "18-06-2024",
+                          "created_by": {
+                              "id": "7ae8e931-1628-4562-bf24-1c2cdd2b4cf4",
+                              "full_name": "Dany M Pradana",
+                              "status": ""
+                          },
+                          "updated_at": "18-06-2024",
+                          "updated_by": {
+                              "id": "7ae8e931-1628-4562-bf24-1c2cdd2b4cf4",
+                              "full_name": "Dany M Pradana",
+                              "status": ""
+                          },
+                          "project": {
+                              "id": "3dd623f3-1a84-4dc7-a37c-c970b2953ddb",
+                              "project_no": "u78889",
+                              "description": "tes 3",
+                              "wbs": "u87789"
+                          },
+                          "line_item": 2
+                      },
+                      {
+                          "id": "86ccb2d5-97e6-43b8-bcad-f9d9b1cdf4ed",
+                          "sa_no": "SA00112345",
+                          "contract": {
+                              "id": "392031e6-308e-4507-a7ee-c1e4d70a9bee",
+                              "contract_title": "Engineering OLD",
+                              "contract_no": "1231231111",
+                              "vendor_id": "a53dcb7e-a34d-4152-8a61-32b2d8aae261",
+                              "vendor_name": "PT. Berca Engineering",
+                              "bank_id": "",
+                              "bank_code": "",
+                              "bank_name": "",
+                              "bank_account_number": "",
+                              "bank_branch": "",
+                              "bank_account_name": ""
+                          },
+                          "ro": {
+                              "id": "3f5c566f-29bb-4df4-986f-9e8b6834afdd",
+                              "ro_no": "13122023",
+                              "ro_amount": "1060000",
+                              "has_sa": false
+                          },
+                          "cost": "10000",
+                          "currency": "IDR",
+                          "document_date": "18-06-2024",
+                          "status": "unpaid",
+                          "working_area": "PHSS",
+                          "sa_remaining": "10000",
+                          "invoice_amount": "0",
+                          "created_at": "18-06-2024",
+                          "created_by": {
+                              "id": "7ae8e931-1628-4562-bf24-1c2cdd2b4cf4",
+                              "full_name": "Dany M Pradana",
+                              "status": ""
+                          },
+                          "updated_at": "18-06-2024",
+                          "updated_by": {
+                              "id": "7ae8e931-1628-4562-bf24-1c2cdd2b4cf4",
+                              "full_name": "Dany M Pradana",
+                              "status": ""
+                          },
+                          "project": {
+                              "id": "3dd623f3-1a84-4dc7-a37c-c970b2953ddb",
+                              "project_no": "u78889",
+                              "description": "tes 3",
+                              "wbs": "u87789"
+                          },
+                          "line_item": 1
+                      },
+                      {
+                          "id": "88e94bc4-b49b-45ea-b227-a62e4ee7e374",
+                          "sa_no": "SA1000268444",
+                          "contract": {
+                              "id": "ab161bc0-0741-4b16-9a73-0b55a39c9899",
+                              "contract_title": "Contract Demo",
+                              "contract_no": "445559",
+                              "vendor_id": "01a8849d-1798-4c02-a0bc-9f45913cd0e8",
+                              "vendor_name": "PT. JAYA ABADI",
+                              "bank_id": "3c61c7b8-a664-4565-ac55-e86a6890b7b9",
+                              "bank_code": "008",
+                              "bank_name": "BANK MANDIRI",
+                              "bank_account_number": "3321",
+                              "bank_branch": "",
+                              "bank_account_name": "Jaya abadi"
+                          },
+                          "ro": {
+                              "id": "1317c11b-2de3-4047-ba65-afa7e6f0877c",
+                              "ro_no": "232321",
+                              "ro_amount": "25000000",
+                              "has_sa": false
+                          },
+                          "cost": "6000000",
+                          "currency": "IDR",
+                          "document_date": "01-05-2024",
+                          "status": "paid",
+                          "working_area": "PHSS",
+                          "sa_remaining": "0",
+                          "invoice_amount": "6000000",
+                          "created_at": "10-06-2024",
+                          "created_by": {
+                              "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                              "full_name": "Diyank Shabira",
+                              "status": ""
+                          },
+                          "updated_at": "14-06-2024",
+                          "updated_by": {
+                              "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                              "full_name": "Diyank Shabira",
+                              "status": ""
+                          },
+                          "project": {
+                              "id": "",
+                              "project_no": "",
+                              "description": "",
+                              "wbs": ""
+                          },
+                          "line_item": 0
+                      },
+                      {
+                          "id": "4b7eca69-0dea-4592-bb4f-69f5fcfdd64a",
+                          "sa_no": "SA1000265254",
+                          "contract": {
+                              "id": "ab161bc0-0741-4b16-9a73-0b55a39c9899",
+                              "contract_title": "Contract Demo",
+                              "contract_no": "445559",
+                              "vendor_id": "01a8849d-1798-4c02-a0bc-9f45913cd0e8",
+                              "vendor_name": "PT. JAYA ABADI",
+                              "bank_id": "3c61c7b8-a664-4565-ac55-e86a6890b7b9",
+                              "bank_code": "008",
+                              "bank_name": "BANK MANDIRI",
+                              "bank_account_number": "3321",
+                              "bank_branch": "",
+                              "bank_account_name": "Jaya abadi"
+                          },
+                          "ro": {
+                              "id": "1317c11b-2de3-4047-ba65-afa7e6f0877c",
+                              "ro_no": "232321",
+                              "ro_amount": "25000000",
+                              "has_sa": false
+                          },
+                          "cost": "5000000",
+                          "currency": "IDR",
+                          "document_date": "01-05-2024",
+                          "status": "partially_paid",
+                          "working_area": "PHSS",
+                          "sa_remaining": "4993000",
+                          "invoice_amount": "7000",
+                          "created_at": "10-06-2024",
+                          "created_by": {
+                              "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                              "full_name": "Diyank Shabira",
+                              "status": ""
+                          },
+                          "updated_at": "13-06-2024",
+                          "updated_by": {
+                              "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                              "full_name": "Diyank Shabira",
+                              "status": ""
+                          },
+                          "project": {
+                              "id": "",
+                              "project_no": "",
+                              "description": "",
+                              "wbs": ""
+                          },
+                          "line_item": 0
+                      },
+                      {
+                          "id": "4488fbcb-4eed-4f94-bedd-78579ef2df43",
+                          "sa_no": "SA1000265250",
+                          "contract": {
+                              "id": "ab161bc0-0741-4b16-9a73-0b55a39c9899",
+                              "contract_title": "Contract Demo",
+                              "contract_no": "445559",
+                              "vendor_id": "01a8849d-1798-4c02-a0bc-9f45913cd0e8",
+                              "vendor_name": "PT. JAYA ABADI",
+                              "bank_id": "3c61c7b8-a664-4565-ac55-e86a6890b7b9",
+                              "bank_code": "008",
+                              "bank_name": "BANK MANDIRI",
+                              "bank_account_number": "3321",
+                              "bank_branch": "",
+                              "bank_account_name": "Jaya abadi"
+                          },
+                          "ro": {
+                              "id": "1317c11b-2de3-4047-ba65-afa7e6f0877c",
+                              "ro_no": "232321",
+                              "ro_amount": "25000000",
+                              "has_sa": false
+                          },
+                          "cost": "4000000",
+                          "currency": "IDR",
+                          "document_date": "01-05-2024",
+                          "status": "partially_paid",
+                          "working_area": "PHSS",
+                          "sa_remaining": "2000000",
+                          "invoice_amount": "2000000",
+                          "created_at": "10-06-2024",
+                          "created_by": {
+                              "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                              "full_name": "Diyank Shabira",
+                              "status": ""
+                          },
+                          "updated_at": "10-06-2024",
+                          "updated_by": {
+                              "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                              "full_name": "Diyank Shabira",
+                              "status": ""
+                          },
+                          "project": {
+                              "id": "",
+                              "project_no": "",
+                              "description": "",
+                              "wbs": ""
+                          },
+                          "line_item": 0
+                      },
+                      {
+                          "id": "d76de87d-8dd8-4120-9b76-634918100adf",
+                          "sa_no": "SA1000265221",
+                          "contract": {
+                              "id": "ab161bc0-0741-4b16-9a73-0b55a39c9899",
+                              "contract_title": "Contract Demo",
+                              "contract_no": "445559",
+                              "vendor_id": "01a8849d-1798-4c02-a0bc-9f45913cd0e8",
+                              "vendor_name": "PT. JAYA ABADI",
+                              "bank_id": "3c61c7b8-a664-4565-ac55-e86a6890b7b9",
+                              "bank_code": "008",
+                              "bank_name": "BANK MANDIRI",
+                              "bank_account_number": "3321",
+                              "bank_branch": "",
+                              "bank_account_name": "Jaya abadi"
+                          },
+                          "ro": {
+                              "id": "1317c11b-2de3-4047-ba65-afa7e6f0877c",
+                              "ro_no": "232321",
+                              "ro_amount": "25000000",
+                              "has_sa": false
+                          },
+                          "cost": "3000000",
+                          "currency": "IDR",
+                          "document_date": "01-06-2024",
+                          "status": "partially_paid",
+                          "working_area": "PHSS",
+                          "sa_remaining": "2700000",
+                          "invoice_amount": "300000",
+                          "created_at": "10-06-2024",
+                          "created_by": {
+                              "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                              "full_name": "Diyank Shabira",
+                              "status": ""
+                          },
+                          "updated_at": "10-06-2024",
+                          "updated_by": {
+                              "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                              "full_name": "Diyank Shabira",
+                              "status": ""
+                          },
+                          "project": {
+                              "id": "",
+                              "project_no": "",
+                              "description": "",
+                              "wbs": ""
+                          },
+                          "line_item": 0
+                      },
+                      {
+                          "id": "379fb6a6-b8f5-4e88-9e68-92df9067d1e7",
+                          "sa_no": "SA1000265214",
+                          "contract": {
+                              "id": "ab161bc0-0741-4b16-9a73-0b55a39c9899",
+                              "contract_title": "Contract Demo",
+                              "contract_no": "445559",
+                              "vendor_id": "01a8849d-1798-4c02-a0bc-9f45913cd0e8",
+                              "vendor_name": "PT. JAYA ABADI",
+                              "bank_id": "3c61c7b8-a664-4565-ac55-e86a6890b7b9",
+                              "bank_code": "008",
+                              "bank_name": "BANK MANDIRI",
+                              "bank_account_number": "3321",
+                              "bank_branch": "",
+                              "bank_account_name": "Jaya abadi"
+                          },
+                          "ro": {
+                              "id": "1317c11b-2de3-4047-ba65-afa7e6f0877c",
+                              "ro_no": "232321",
+                              "ro_amount": "25000000",
+                              "has_sa": false
+                          },
+                          "cost": "2000000",
+                          "currency": "IDR",
+                          "document_date": "01-05-2024",
+                          "status": "unpaid",
+                          "working_area": "PHSS",
+                          "sa_remaining": "2000000",
+                          "invoice_amount": "0",
+                          "created_at": "10-06-2024",
+                          "created_by": {
+                              "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                              "full_name": "Diyank Shabira",
+                              "status": ""
+                          },
+                          "updated_at": "10-06-2024",
+                          "updated_by": {
+                              "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                              "full_name": "Diyank Shabira",
+                              "status": ""
+                          },
+                          "project": {
+                              "id": "",
+                              "project_no": "",
+                              "description": "",
+                              "wbs": ""
+                          },
+                          "line_item": 0
+                      },
+                      {
+                          "id": "3a38ad9d-46bb-4c3f-bdf3-026082a7ba18",
+                          "sa_no": "SAM001",
+                          "contract": {
+                              "id": "ab161bc0-0741-4b16-9a73-0b55a39c9899",
+                              "contract_title": "Contract Demo",
+                              "contract_no": "445559",
+                              "vendor_id": "01a8849d-1798-4c02-a0bc-9f45913cd0e8",
+                              "vendor_name": "PT. JAYA ABADI",
+                              "bank_id": "3c61c7b8-a664-4565-ac55-e86a6890b7b9",
+                              "bank_code": "008",
+                              "bank_name": "BANK MANDIRI",
+                              "bank_account_number": "3321",
+                              "bank_branch": "",
+                              "bank_account_name": "Jaya abadi"
+                          },
+                          "ro": {
+                              "id": "1317c11b-2de3-4047-ba65-afa7e6f0877c",
+                              "ro_no": "232321",
+                              "ro_amount": "25000000",
+                              "has_sa": false
+                          },
+                          "cost": "1789000",
+                          "currency": "IDR",
+                          "document_date": "01-05-2024",
+                          "status": "paid",
+                          "working_area": "PHSS",
+                          "sa_remaining": "0",
+                          "invoice_amount": "1789000",
+                          "created_at": "08-06-2024",
+                          "created_by": {
+                              "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                              "full_name": "Diyank Shabira",
+                              "status": ""
+                          },
+                          "updated_at": "08-06-2024",
+                          "updated_by": {
+                              "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                              "full_name": "Diyank Shabira",
+                              "status": ""
+                          },
+                          "project": {
+                              "id": "",
+                              "project_no": "",
+                              "description": "",
+                              "wbs": ""
+                          },
+                          "line_item": 0
+                      },
+                      {
+                          "id": "c873e4e2-3d28-4ee2-b296-554038bcaf53",
+                          "sa_no": "SA231234",
+                          "contract": {
+                              "id": "ab161bc0-0741-4b16-9a73-0b55a39c9899",
+                              "contract_title": "Contract Demo",
+                              "contract_no": "445559",
+                              "vendor_id": "01a8849d-1798-4c02-a0bc-9f45913cd0e8",
+                              "vendor_name": "PT. JAYA ABADI",
+                              "bank_id": "3c61c7b8-a664-4565-ac55-e86a6890b7b9",
+                              "bank_code": "008",
+                              "bank_name": "BANK MANDIRI",
+                              "bank_account_number": "3321",
+                              "bank_branch": "",
+                              "bank_account_name": "Jaya abadi"
+                          },
+                          "ro": {
+                              "id": "1317c11b-2de3-4047-ba65-afa7e6f0877c",
+                              "ro_no": "232321",
+                              "ro_amount": "25000000",
+                              "has_sa": false
+                          },
+                          "cost": "1789000",
+                          "currency": "IDR",
+                          "document_date": "01-06-2024",
+                          "status": "unpaid",
+                          "working_area": "PHSS",
+                          "sa_remaining": "1789000",
+                          "invoice_amount": "0",
+                          "created_at": "08-06-2024",
+                          "created_by": {
+                              "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                              "full_name": "Diyank Shabira",
+                              "status": ""
+                          },
+                          "updated_at": "10-06-2024",
+                          "updated_by": {
+                              "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                              "full_name": "Diyank Shabira",
+                              "status": ""
+                          },
+                          "project": {
+                              "id": "",
+                              "project_no": "",
+                              "description": "",
+                              "wbs": ""
+                          },
+                          "line_item": 0
+                      },
+                      {
+                          "id": "50a6e5c8-fcd5-4990-8d93-de3d720426b8",
+                          "sa_no": "SA33345",
+                          "contract": {
+                              "id": "ab161bc0-0741-4b16-9a73-0b55a39c9899",
+                              "contract_title": "Contract Demo",
+                              "contract_no": "445559",
+                              "vendor_id": "01a8849d-1798-4c02-a0bc-9f45913cd0e8",
+                              "vendor_name": "PT. JAYA ABADI",
+                              "bank_id": "3c61c7b8-a664-4565-ac55-e86a6890b7b9",
+                              "bank_code": "008",
+                              "bank_name": "BANK MANDIRI",
+                              "bank_account_number": "3321",
+                              "bank_branch": "",
+                              "bank_account_name": "Jaya abadi"
+                          },
+                          "ro": {
+                              "id": "1317c11b-2de3-4047-ba65-afa7e6f0877c",
+                              "ro_no": "232321",
+                              "ro_amount": "25000000",
+                              "has_sa": false
+                          },
+                          "cost": "250000",
+                          "currency": "IDR",
+                          "document_date": "01-06-2024",
+                          "status": "unpaid",
+                          "working_area": "PHSS",
+                          "sa_remaining": "250000",
+                          "invoice_amount": "0",
+                          "created_at": "08-06-2024",
+                          "created_by": {
+                              "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                              "full_name": "Diyank Shabira",
+                              "status": ""
+                          },
+                          "updated_at": "10-06-2024",
+                          "updated_by": {
+                              "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                              "full_name": "Diyank Shabira",
+                              "status": ""
+                          },
+                          "project": {
+                              "id": "",
+                              "project_no": "",
+                              "description": "",
+                              "wbs": ""
+                          },
+                          "line_item": 0
+                      },
+                      {
+                          "id": "37208301-2b7b-42fa-b5f8-fe31d35c67d0",
+                          "sa_no": "333sa",
+                          "contract": {
+                              "id": "56b92475-1f9b-4941-89cd-250090c03429",
+                              "contract_title": "Contract Depletion Warning (editable)",
+                              "contract_no": "555599",
+                              "vendor_id": "eb8a9754-bc2f-43d3-805a-77113a1c73f3",
+                              "vendor_name": "PT. Kaliraya Sari",
+                              "bank_id": "3e6647f4-9f5d-4698-93a3-f61e87b1710f",
+                              "bank_code": "020",
+                              "bank_name": "BANK ARTA NIAGA KENCANA",
+                              "bank_account_number": "463636",
+                              "bank_branch": "",
+                              "bank_account_name": "Tarum"
+                          },
+                          "ro": {
+                              "id": "ba5c8ddd-981a-429f-8261-e9715c1d2755",
+                              "ro_no": "5444",
+                              "ro_amount": "250000000",
+                              "has_sa": false
+                          },
+                          "cost": "1098000",
+                          "currency": "IDR",
+                          "document_date": "01-05-2024",
+                          "status": "partially_paid",
+                          "working_area": "PHSS",
+                          "sa_remaining": "1048000",
+                          "invoice_amount": "50000",
+                          "created_at": "04-06-2024",
+                          "created_by": {
+                              "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                              "full_name": "Diyank Shabira",
+                              "status": ""
+                          },
+                          "updated_at": "04-06-2024",
+                          "updated_by": {
+                              "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                              "full_name": "Diyank Shabira",
+                              "status": ""
+                          },
+                          "project": {
+                              "id": "",
+                              "project_no": "",
+                              "description": "",
+                              "wbs": ""
+                          },
+                          "line_item": 0
+                      },
+                      {
+                          "id": "5da1e774-b7bb-4e4e-8c8d-b9b94f902379",
+                          "sa_no": "SA9876582",
+                          "contract": {
+                              "id": "61f44139-04a5-47ec-8c1a-d5bea85f47c4",
+                              "contract_title": "contract without beneficiaryname",
+                              "contract_no": "contractwithoutbeneficiaryname001",
+                              "vendor_id": "c7e57e76-ceda-4cd7-94e1-b42e63c22725",
+                              "vendor_name": "SCM",
+                              "bank_id": "a66149b2-2a55-46c7-8a1f-a6f0f4aeafc3",
+                              "bank_code": "003",
+                              "bank_name": "BANK EKSPOR INDONESIA",
+                              "bank_account_number": "73264987238",
+                              "bank_branch": "",
+                              "bank_account_name": ""
+                          },
+                          "ro": {
+                              "id": "6efa91d6-7bc4-424c-a2a4-c8f5296a5e66",
+                              "ro_no": "4444",
+                              "ro_amount": "100000000",
+                              "has_sa": false
+                          },
+                          "cost": "200000000",
+                          "currency": "IDR",
+                          "document_date": "03-05-2024",
+                          "status": "unpaid",
+                          "working_area": "TSS",
+                          "sa_remaining": "200000000",
+                          "invoice_amount": "0",
+                          "created_at": "03-05-2024",
+                          "created_by": {
+                              "id": "76b2cda5-023b-4d40-880a-beacffa41c1a",
+                              "full_name": "AEka",
+                              "status": ""
+                          },
+                          "updated_at": "25-05-2024",
+                          "updated_by": {
+                              "id": "76b2cda5-023b-4d40-880a-beacffa41c1a",
+                              "full_name": "AEka",
+                              "status": ""
+                          },
+                          "project": {
+                              "id": "",
+                              "project_no": "",
+                              "description": "",
+                              "wbs": ""
+                          },
+                          "line_item": 0
+                      },
+                      {
+                          "id": "5486d06b-af08-4a9c-a4c9-988885f64170",
+                          "sa_no": "SA304250",
+                          "contract": {
+                              "id": "e5f9eebf-5072-4af9-bf3e-1227b80175cc",
+                              "contract_title": "BOQ Under 1000 test",
+                              "contract_no": "BOQUnder1000",
+                              "vendor_id": "a53dcb7e-a34d-4152-8a61-32b2d8aae261",
+                              "vendor_name": "PT. Berca Engineering",
+                              "bank_id": "944febc9-9d77-4c37-9106-c29ee1ded1fb",
+                              "bank_code": "422",
+                              "bank_name": "BANK BRI SYARIAH",
+                              "bank_account_number": "8237163786",
+                              "bank_branch": "",
+                              "bank_account_name": ""
+                          },
+                          "ro": {
+                              "id": "0f32c07f-ad0f-4900-b173-1104c02ef366",
+                              "ro_no": "264241",
+                              "ro_amount": "16200000",
+                              "has_sa": false
+                          },
+                          "cost": "500000",
+                          "currency": "IDR",
+                          "document_date": "30-04-2024",
+                          "status": "partially_paid",
+                          "working_area": "PHSS",
+                          "sa_remaining": "250000",
+                          "invoice_amount": "250000",
+                          "created_at": "30-04-2024",
+                          "created_by": {
+                              "id": "90c23335-5d2d-495d-baa9-f419cae43cdc",
+                              "full_name": "Fadhylah Fil-Ardh",
+                              "status": ""
+                          },
+                          "updated_at": "02-05-2024",
+                          "updated_by": {
+                              "id": "90c23335-5d2d-495d-baa9-f419cae43cdc",
+                              "full_name": "Fadhylah Fil-Ardh",
+                              "status": ""
+                          },
+                          "project": {
+                              "id": "",
+                              "project_no": "",
+                              "description": "",
+                              "wbs": ""
+                          },
+                          "line_item": 0
+                      },
+                      {
+                          "id": "7beeee96-f7d1-4ccd-80e8-7146a3f25b6f",
+                          "sa_no": "SA304249",
+                          "contract": {
+                              "id": "e5f9eebf-5072-4af9-bf3e-1227b80175cc",
+                              "contract_title": "BOQ Under 1000 test",
+                              "contract_no": "BOQUnder1000",
+                              "vendor_id": "a53dcb7e-a34d-4152-8a61-32b2d8aae261",
+                              "vendor_name": "PT. Berca Engineering",
+                              "bank_id": "944febc9-9d77-4c37-9106-c29ee1ded1fb",
+                              "bank_code": "422",
+                              "bank_name": "BANK BRI SYARIAH",
+                              "bank_account_number": "8237163786",
+                              "bank_branch": "",
+                              "bank_account_name": ""
+                          },
+                          "ro": {
+                              "id": "0f32c07f-ad0f-4900-b173-1104c02ef366",
+                              "ro_no": "264241",
+                              "ro_amount": "16200000",
+                              "has_sa": false
+                          },
+                          "cost": "500000",
+                          "currency": "IDR",
+                          "document_date": "30-04-2024",
+                          "status": "paid",
+                          "working_area": "PHSS",
+                          "sa_remaining": "0",
+                          "invoice_amount": "500000",
+                          "created_at": "30-04-2024",
+                          "created_by": {
+                              "id": "90c23335-5d2d-495d-baa9-f419cae43cdc",
+                              "full_name": "Fadhylah Fil-Ardh",
+                              "status": ""
+                          },
+                          "updated_at": "02-05-2024",
+                          "updated_by": {
+                              "id": "90c23335-5d2d-495d-baa9-f419cae43cdc",
+                              "full_name": "Fadhylah Fil-Ardh",
+                              "status": ""
+                          },
+                          "project": {
+                              "id": "",
+                              "project_no": "",
+                              "description": "",
+                              "wbs": ""
+                          },
+                          "line_item": 0
+                      },
+                      {
+                          "id": "96c88b88-0faf-42ba-92a1-58b01c261bf1",
+                          "sa_no": "SA304247",
+                          "contract": {
+                              "id": "e5f9eebf-5072-4af9-bf3e-1227b80175cc",
+                              "contract_title": "BOQ Under 1000 test",
+                              "contract_no": "BOQUnder1000",
+                              "vendor_id": "a53dcb7e-a34d-4152-8a61-32b2d8aae261",
+                              "vendor_name": "PT. Berca Engineering",
+                              "bank_id": "944febc9-9d77-4c37-9106-c29ee1ded1fb",
+                              "bank_code": "422",
+                              "bank_name": "BANK BRI SYARIAH",
+                              "bank_account_number": "8237163786",
+                              "bank_branch": "",
+                              "bank_account_name": ""
+                          },
+                          "ro": {
+                              "id": "0f32c07f-ad0f-4900-b173-1104c02ef366",
+                              "ro_no": "264241",
+                              "ro_amount": "16200000",
+                              "has_sa": false
+                          },
+                          "cost": "50000",
+                          "currency": "IDR",
+                          "document_date": "30-04-2024",
+                          "status": "partially_paid",
+                          "working_area": "PHSS",
+                          "sa_remaining": "38000",
+                          "invoice_amount": "12000",
+                          "created_at": "30-04-2024",
+                          "created_by": {
+                              "id": "90c23335-5d2d-495d-baa9-f419cae43cdc",
+                              "full_name": "Fadhylah Fil-Ardh",
+                              "status": ""
+                          },
+                          "updated_at": "30-04-2024",
+                          "updated_by": {
+                              "id": "b1ac6b1c-1727-4cc2-86f2-e4a2140b44cb",
+                              "full_name": "Apri Ega",
+                              "status": ""
+                          },
+                          "project": {
+                              "id": "",
+                              "project_no": "",
+                              "description": "",
+                              "wbs": ""
+                          },
+                          "line_item": 0
+                      },
+                      {
+                          "id": "50a1cdb7-edf3-4190-bbef-461c4f15ff22",
+                          "sa_no": "SA304246",
+                          "contract": {
+                              "id": "e5f9eebf-5072-4af9-bf3e-1227b80175cc",
+                              "contract_title": "BOQ Under 1000 test",
+                              "contract_no": "BOQUnder1000",
+                              "vendor_id": "a53dcb7e-a34d-4152-8a61-32b2d8aae261",
+                              "vendor_name": "PT. Berca Engineering",
+                              "bank_id": "944febc9-9d77-4c37-9106-c29ee1ded1fb",
+                              "bank_code": "422",
+                              "bank_name": "BANK BRI SYARIAH",
+                              "bank_account_number": "8237163786",
+                              "bank_branch": "",
+                              "bank_account_name": ""
+                          },
+                          "ro": {
+                              "id": "0f32c07f-ad0f-4900-b173-1104c02ef366",
+                              "ro_no": "264241",
+                              "ro_amount": "16200000",
+                              "has_sa": false
+                          },
+                          "cost": "500000",
+                          "currency": "IDR",
+                          "document_date": "30-04-2024",
+                          "status": "unpaid",
+                          "working_area": "PHSS",
+                          "sa_remaining": "500000",
+                          "invoice_amount": "0",
+                          "created_at": "30-04-2024",
+                          "created_by": {
+                              "id": "90c23335-5d2d-495d-baa9-f419cae43cdc",
+                              "full_name": "Fadhylah Fil-Ardh",
+                              "status": ""
+                          },
+                          "updated_at": "30-04-2024",
+                          "updated_by": {
+                              "id": "90c23335-5d2d-495d-baa9-f419cae43cdc",
+                              "full_name": "Fadhylah Fil-Ardh",
+                              "status": ""
+                          },
+                          "project": {
+                              "id": "",
+                              "project_no": "",
+                              "description": "",
+                              "wbs": ""
+                          },
+                          "line_item": 0
+                      },
+                      {
+                          "id": "b5bef747-1d3f-43ef-84d4-fcc490c6e9a7",
+                          "sa_no": "SA304245",
+                          "contract": {
+                              "id": "e5f9eebf-5072-4af9-bf3e-1227b80175cc",
+                              "contract_title": "BOQ Under 1000 test",
+                              "contract_no": "BOQUnder1000",
+                              "vendor_id": "a53dcb7e-a34d-4152-8a61-32b2d8aae261",
+                              "vendor_name": "PT. Berca Engineering",
+                              "bank_id": "944febc9-9d77-4c37-9106-c29ee1ded1fb",
+                              "bank_code": "422",
+                              "bank_name": "BANK BRI SYARIAH",
+                              "bank_account_number": "8237163786",
+                              "bank_branch": "",
+                              "bank_account_name": ""
+                          },
+                          "ro": {
+                              "id": "0f32c07f-ad0f-4900-b173-1104c02ef366",
+                              "ro_no": "264241",
+                              "ro_amount": "16200000",
+                              "has_sa": false
+                          },
+                          "cost": "500000",
+                          "currency": "IDR",
+                          "document_date": "30-04-2024",
+                          "status": "unpaid",
+                          "working_area": "PHSS",
+                          "sa_remaining": "500000",
+                          "invoice_amount": "0",
+                          "created_at": "30-04-2024",
+                          "created_by": {
+                              "id": "90c23335-5d2d-495d-baa9-f419cae43cdc",
+                              "full_name": "Fadhylah Fil-Ardh",
+                              "status": ""
+                          },
+                          "updated_at": "30-04-2024",
+                          "updated_by": {
+                              "id": "90c23335-5d2d-495d-baa9-f419cae43cdc",
+                              "full_name": "Fadhylah Fil-Ardh",
+                              "status": ""
+                          },
+                          "project": {
+                              "id": "",
+                              "project_no": "",
+                              "description": "",
+                              "wbs": ""
+                          },
+                          "line_item": 0
+                      },
+                      {
+                          "id": "d9c562f6-9e6f-4a5a-a81f-17a39bfde930",
+                          "sa_no": "SA304244",
+                          "contract": {
+                              "id": "e5f9eebf-5072-4af9-bf3e-1227b80175cc",
+                              "contract_title": "BOQ Under 1000 test",
+                              "contract_no": "BOQUnder1000",
+                              "vendor_id": "a53dcb7e-a34d-4152-8a61-32b2d8aae261",
+                              "vendor_name": "PT. Berca Engineering",
+                              "bank_id": "944febc9-9d77-4c37-9106-c29ee1ded1fb",
+                              "bank_code": "422",
+                              "bank_name": "BANK BRI SYARIAH",
+                              "bank_account_number": "8237163786",
+                              "bank_branch": "",
+                              "bank_account_name": ""
+                          },
+                          "ro": {
+                              "id": "0f32c07f-ad0f-4900-b173-1104c02ef366",
+                              "ro_no": "264241",
+                              "ro_amount": "16200000",
+                              "has_sa": false
+                          },
+                          "cost": "500000",
+                          "currency": "IDR",
+                          "document_date": "30-04-2024",
+                          "status": "unpaid",
+                          "working_area": "PHSS",
+                          "sa_remaining": "500000",
+                          "invoice_amount": "0",
+                          "created_at": "30-04-2024",
+                          "created_by": {
+                              "id": "90c23335-5d2d-495d-baa9-f419cae43cdc",
+                              "full_name": "Fadhylah Fil-Ardh",
+                              "status": ""
+                          },
+                          "updated_at": "30-04-2024",
+                          "updated_by": {
+                              "id": "90c23335-5d2d-495d-baa9-f419cae43cdc",
+                              "full_name": "Fadhylah Fil-Ardh",
+                              "status": ""
+                          },
+                          "project": {
+                              "id": "",
+                              "project_no": "",
+                              "description": "",
+                              "wbs": ""
+                          },
+                          "line_item": 0
+                      },
+                      {
+                          "id": "a9aa0398-6f9a-405d-af20-e0ee7dc0e943",
+                          "sa_no": "SA304243",
+                          "contract": {
+                              "id": "e5f9eebf-5072-4af9-bf3e-1227b80175cc",
+                              "contract_title": "BOQ Under 1000 test",
+                              "contract_no": "BOQUnder1000",
+                              "vendor_id": "a53dcb7e-a34d-4152-8a61-32b2d8aae261",
+                              "vendor_name": "PT. Berca Engineering",
+                              "bank_id": "944febc9-9d77-4c37-9106-c29ee1ded1fb",
+                              "bank_code": "422",
+                              "bank_name": "BANK BRI SYARIAH",
+                              "bank_account_number": "8237163786",
+                              "bank_branch": "",
+                              "bank_account_name": ""
+                          },
+                          "ro": {
+                              "id": "0f32c07f-ad0f-4900-b173-1104c02ef366",
+                              "ro_no": "264241",
+                              "ro_amount": "16200000",
+                              "has_sa": false
+                          },
+                          "cost": "500000",
+                          "currency": "IDR",
+                          "document_date": "30-04-2024",
+                          "status": "unpaid",
+                          "working_area": "PHSS",
+                          "sa_remaining": "500000",
+                          "invoice_amount": "0",
+                          "created_at": "30-04-2024",
+                          "created_by": {
+                              "id": "90c23335-5d2d-495d-baa9-f419cae43cdc",
+                              "full_name": "Fadhylah Fil-Ardh",
+                              "status": ""
+                          },
+                          "updated_at": "30-04-2024",
+                          "updated_by": {
+                              "id": "90c23335-5d2d-495d-baa9-f419cae43cdc",
+                              "full_name": "Fadhylah Fil-Ardh",
+                              "status": ""
+                          },
+                          "project": {
+                              "id": "",
+                              "project_no": "",
+                              "description": "",
+                              "wbs": ""
+                          },
+                          "line_item": 0
+                      },
+                      {
+                          "id": "26a71e57-91b6-4f4a-816e-3bb1c22d0546",
+                          "sa_no": "SA304242",
+                          "contract": {
+                              "id": "e5f9eebf-5072-4af9-bf3e-1227b80175cc",
+                              "contract_title": "BOQ Under 1000 test",
+                              "contract_no": "BOQUnder1000",
+                              "vendor_id": "a53dcb7e-a34d-4152-8a61-32b2d8aae261",
+                              "vendor_name": "PT. Berca Engineering",
+                              "bank_id": "944febc9-9d77-4c37-9106-c29ee1ded1fb",
+                              "bank_code": "422",
+                              "bank_name": "BANK BRI SYARIAH",
+                              "bank_account_number": "8237163786",
+                              "bank_branch": "",
+                              "bank_account_name": ""
+                          },
+                          "ro": {
+                              "id": "0f32c07f-ad0f-4900-b173-1104c02ef366",
+                              "ro_no": "264241",
+                              "ro_amount": "16200000",
+                              "has_sa": false
+                          },
+                          "cost": "500000",
+                          "currency": "IDR",
+                          "document_date": "30-04-2024",
+                          "status": "unpaid",
+                          "working_area": "PHSS",
+                          "sa_remaining": "500000",
+                          "invoice_amount": "0",
+                          "created_at": "30-04-2024",
+                          "created_by": {
+                              "id": "90c23335-5d2d-495d-baa9-f419cae43cdc",
+                              "full_name": "Fadhylah Fil-Ardh",
+                              "status": ""
+                          },
+                          "updated_at": "30-04-2024",
+                          "updated_by": {
+                              "id": "90c23335-5d2d-495d-baa9-f419cae43cdc",
+                              "full_name": "Fadhylah Fil-Ardh",
+                              "status": ""
+                          },
+                          "project": {
+                              "id": "",
+                              "project_no": "",
+                              "description": "",
+                              "wbs": ""
+                          },
+                          "line_item": 0
+                      },
+                      {
+                          "id": "d5e73a28-8ca6-41a7-9c79-a135542aaf91",
+                          "sa_no": "SA304241",
+                          "contract": {
+                              "id": "e5f9eebf-5072-4af9-bf3e-1227b80175cc",
+                              "contract_title": "BOQ Under 1000 test",
+                              "contract_no": "BOQUnder1000",
+                              "vendor_id": "a53dcb7e-a34d-4152-8a61-32b2d8aae261",
+                              "vendor_name": "PT. Berca Engineering",
+                              "bank_id": "944febc9-9d77-4c37-9106-c29ee1ded1fb",
+                              "bank_code": "422",
+                              "bank_name": "BANK BRI SYARIAH",
+                              "bank_account_number": "8237163786",
+                              "bank_branch": "",
+                              "bank_account_name": ""
+                          },
+                          "ro": {
+                              "id": "0f32c07f-ad0f-4900-b173-1104c02ef366",
+                              "ro_no": "264241",
+                              "ro_amount": "16200000",
+                              "has_sa": false
+                          },
+                          "cost": "200000000",
+                          "currency": "IDR",
+                          "document_date": "30-04-2024",
+                          "status": "partially_paid",
+                          "working_area": "PHSS",
+                          "sa_remaining": "150000000",
+                          "invoice_amount": "50000000",
+                          "created_at": "30-04-2024",
+                          "created_by": {
+                              "id": "90c23335-5d2d-495d-baa9-f419cae43cdc",
+                              "full_name": "Fadhylah Fil-Ardh",
+                              "status": ""
+                          },
+                          "updated_at": "31-05-2024",
+                          "updated_by": {
+                              "id": "90c23335-5d2d-495d-baa9-f419cae43cdc",
+                              "full_name": "Fadhylah Fil-Ardh",
+                              "status": ""
+                          },
+                          "project": {
+                              "id": "",
+                              "project_no": "",
+                              "description": "",
+                              "wbs": ""
+                          },
+                          "line_item": 0
+                      },
+                      {
+                          "id": "b1df2693-c37f-41d0-a357-bce92131dbe0",
+                          "sa_no": "SA2024324",
+                          "contract": {
+                              "id": "2beb3f42-beb7-4a7e-81dc-96ddc8ba27fc",
+                              "contract_title": "ENGINEERING SERVICE AND QUALITY ASSURANCE PROJECTS ZONA 9",
+                              "contract_no": "0001800513",
+                              "vendor_id": "a53dcb7e-a34d-4152-8a61-32b2d8aae261",
+                              "vendor_name": "PT. Berca Engineering",
+                              "bank_id": "",
+                              "bank_code": "",
+                              "bank_name": "",
+                              "bank_account_number": "",
+                              "bank_branch": "",
+                              "bank_account_name": ""
+                          },
+                          "ro": {
+                              "id": "eeb1f6f9-ecf4-4f0c-9491-a17dd46ad144",
+                              "ro_no": "765675",
+                              "ro_amount": "140557725",
+                              "has_sa": false
+                          },
+                          "cost": "1888888888",
+                          "currency": "IDR",
+                          "document_date": "02-04-2024",
+                          "status": "paid",
+                          "working_area": "PHSS",
+                          "sa_remaining": "0",
+                          "invoice_amount": "1888888888",
+                          "created_at": "04-04-2024",
+                          "created_by": {
+                              "id": "595f7f1c-5087-469a-9fb4-cacce94de557",
+                              "full_name": "AekaWah",
+                              "status": ""
+                          },
+                          "updated_at": "04-04-2024",
+                          "updated_by": {
+                              "id": "595f7f1c-5087-469a-9fb4-cacce94de557",
+                              "full_name": "AekaWah",
+                              "status": ""
+                          },
+                          "project": {
+                              "id": "",
+                              "project_no": "",
+                              "description": "",
+                              "wbs": ""
+                          },
+                          "line_item": 0
+                      },
+                      {
+                          "id": "14f65a05-b0f9-4209-aca7-dea899e28be7",
+                          "sa_no": "SA20277771",
+                          "contract": {
+                              "id": "2beb3f42-beb7-4a7e-81dc-96ddc8ba27fc",
+                              "contract_title": "ENGINEERING SERVICE AND QUALITY ASSURANCE PROJECTS ZONA 9",
+                              "contract_no": "0001800513",
+                              "vendor_id": "a53dcb7e-a34d-4152-8a61-32b2d8aae261",
+                              "vendor_name": "PT. Berca Engineering",
+                              "bank_id": "",
+                              "bank_code": "",
+                              "bank_name": "",
+                              "bank_account_number": "",
+                              "bank_branch": "",
+                              "bank_account_name": ""
+                          },
+                          "ro": {
+                              "id": "c90d3992-2e3d-480e-ac6e-8e6b19662920",
+                              "ro_no": "15032402",
+                              "ro_amount": "233585572.5",
+                              "has_sa": false
+                          },
+                          "cost": "1999999",
+                          "currency": "IDR",
+                          "document_date": "02-04-2024",
+                          "status": "unpaid",
+                          "working_area": "PHSS",
+                          "sa_remaining": "1999999",
+                          "invoice_amount": "0",
+                          "created_at": "03-04-2024",
+                          "created_by": {
+                              "id": "ad3854d6-8c02-4886-8f80-28e33b740f16",
+                              "full_name": "hafid BE ",
+                              "status": ""
+                          },
+                          "updated_at": "03-04-2024",
+                          "updated_by": {
+                              "id": "ad3854d6-8c02-4886-8f80-28e33b740f16",
+                              "full_name": "hafid BE ",
+                              "status": ""
+                          },
+                          "project": {
+                              "id": "",
+                              "project_no": "",
+                              "description": "",
+                              "wbs": ""
+                          },
+                          "line_item": 0
+                      }
+                  ],
+                  "count": 157
+              }
+          }

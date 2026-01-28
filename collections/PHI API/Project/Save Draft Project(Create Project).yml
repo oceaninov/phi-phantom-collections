@@ -1,0 +1,203 @@
+info:
+  name: Save Draft Project(Create Project)
+  type: http
+  seq: 9
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/projects"
+  body:
+    type: json
+    data: |-
+      {
+          "project_no": "AST/APRT01/2024",
+          "description":"Project Test Approval Route",
+          "category": "fasprod", 
+          "wbs":"WBS/APRT",
+          "working_area": ["PHSS"],
+          "field": "1f2495d8-f76e-4268-b9c5-09753709fc4f",
+          "start_date": "25-04-2024",
+          "end_date": "01-12-2024",
+          "rk": ["b6f5c5fb-da8a-4d9c-9e71-590aed5776de"],
+          "remarks": "Project Test Approval Route",
+          "status": "draft",
+          "budget_forecast": 90000000.000,
+          "approvers": [
+              {
+                  "level": 1,
+                  "user_id": [
+                      "bc35b04c-484c-4498-8707-9c410454526c",
+                      "b1ac6b1c-1727-4cc2-86f2-e4a2140b44cb"
+                  ]
+              },
+              {
+                  "level": 2,
+                  "user_id": [
+                      "fa7bd056-a197-4ba1-9096-9922f5f70cac",
+                      "80946615-9fe5-4e13-9ae0-07d1210b0d52"
+                  ]
+              }
+          ]
+
+      }
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/projects"
+      method: POST
+      body:
+        type: json
+        data: |-
+          {
+              "project_no": "AST/PT11/2323",
+              "description":"Project Tower 3232323",
+              "category": "fasprod", 
+              "wbs":"MM",
+              "working_area": "Mutiara",
+              "field": "9cf1f1e6-76b5-4f1a-b25d-bf53293121bd",
+              "start_date": "01-04-2021",
+              "end_date": "01-12-2021",
+              "rk": ["0b43fe7d-1ffe-4a2b-bbd0-2cccb0dde811", "15dbe425-2cfd-48c8-938a-abbd7cd30f2f"],
+              "remarks": "RK baseline1",
+              "status": "draft",
+              "budget_forecast": 90000000.000
+          }
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Fri, 01 Sep 2023 14:27:28 GMT
+        - name: Content-Length
+          value: "88"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "21ms",
+              "status": "success",
+              "code": "",
+              "message": "Create project succeed"
+          }
+  - name: failed request validation
+    request:
+      url: "{{base_url}}/api/v1/projects"
+      method: POST
+      body:
+        type: json
+        data: |-
+          {
+              "project_no": "AST/PT11/2323",
+              "description":"Project Tower 3232323",
+              "category": "fasprod", 
+              "wbs":"MM",
+              "working_area": ["PHSS"],
+              "field": "9cf1f1e6-76b5-4f1a-b25d-bf53293121bd",
+              "start_date": "01-04-2021",
+              "end_date": "01-12-2021",
+              "rk": ["0b43fe7d-1ffe-4a2b-bbd0-2cccb0dde811", "15dbe425-2cfd-48c8-938a-abbd7cd30f2f"],
+              "remarks": "RK baseline1",
+              "status": "draft",
+              "budget_forecast": 90000000.000
+          }
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 21 Nov 2023 04:15:51 GMT
+        - name: Content-Length
+          value: "481"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "3ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Project Number: the length must be between 1 and 12; Working Area: (0: must be a valid value.).",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Project Number: the length must be between 1 and 12; Working Area: (0: must be a valid value.).",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }
+  - name: success with approval route
+    request:
+      url: "{{base_url}}/api/v1/projects"
+      method: POST
+      body:
+        type: json
+        data: |-
+          {
+              "project_no": "AST/APRT01/2024",
+              "description":"Project Test Approval Route",
+              "category": "fasprod", 
+              "wbs":"WBS/APRT",
+              "working_area": ["PHSS"],
+              "field": "1f2495d8-f76e-4268-b9c5-09753709fc4f",
+              "start_date": "25-04-2024",
+              "end_date": "01-12-2024",
+              "rk": ["b6f5c5fb-da8a-4d9c-9e71-590aed5776de"],
+              "remarks": "Project Test Approval Route",
+              "status": "draft",
+              "budget_forecast": 90000000.000,
+              "approvers": [
+                  {
+                      "level": 1,
+                      "user_id": [
+                          "bc35b04c-484c-4498-8707-9c410454526c",
+                          "b1ac6b1c-1727-4cc2-86f2-e4a2140b44cb"
+                      ]
+                  },
+                  {
+                      "level": 2,
+                      "user_id": [
+                          "fa7bd056-a197-4ba1-9096-9922f5f70cac",
+                          "80946615-9fe5-4e13-9ae0-07d1210b0d52"
+                      ]
+                  }
+              ]
+
+          }
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 19 Mar 2024 06:47:47 GMT
+        - name: Content-Length
+          value: "88"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "59ms",
+              "status": "success",
+              "code": "",
+              "message": "Create project succeed"
+          }

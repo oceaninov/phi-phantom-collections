@@ -1,0 +1,199 @@
+info:
+  name: Create Project Task
+  type: http
+  seq: 14
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/projects/tasks"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"project_id\": \"6ccb5f25-11a7-479d-a224-666c9b4876f5\",\r
+
+      \    \"breakdown\": \"5.1.1\",\r
+
+      \    \"description\": \"sub task 5.1\",\r
+
+      \    \"remarks\": \"sub task 5.1\",\r
+
+      \    \"weight\": 1000,\r
+
+      \    \"start_date\": \"18-10-2023\",\r
+
+      \    \"end_date\": \"19-10-2023\",\r
+
+      \    \"estimated_cost\": 50,\r
+
+      \    \"unique_id\": 0\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/projects/tasks"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"project_id\": \"291f25a9-43c7-46e4-bef2-048cfc5c3698\",\r
+
+          \    \"breakdown\": \"1.1.1.\",\r
+
+          \    \"description\": \"PROCESS - SIMULATIONS REPORTS\",\r
+
+          \    \"remarks\": \"PROCESS - SIMULATIONS REPORTS\",\r
+
+          \    \"weight\": 0.23,\r
+
+          \    \"start_date\": \"02-01-2023\",\r
+
+          \    \"end_date\": \"13-01-2023\"\r
+
+          }"
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 13 Sep 2023 09:59:27 GMT
+        - name: Content-Length
+          value: "94"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "383ms",
+              "status": "success",
+              "code": "",
+              "message": "Create project task succeed"
+          }
+  - name: failed only draft project allowed to add task
+    request:
+      url: "{{base_url}}/api/v1/projects/tasks"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"project_id\": \"6ccb5f25-11a7-479d-a224-666c9b4876f5\",\r
+
+          \    \"breakdown\": \"5.1.1\",\r
+
+          \    \"description\": \"sub task 5.1\",\r
+
+          \    \"remarks\": \"sub task 5.1\",\r
+
+          \    \"weight\": 1000,\r
+
+          \    \"start_date\": \"18-10-2023\",\r
+
+          \    \"end_date\": \"19-10-2023\",\r
+
+          \    \"estimated_cost\": 50,\r
+
+          \    \"unique_id\": 0\r
+
+          }"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 20 Nov 2023 08:46:36 GMT
+        - name: Content-Length
+          value: "391"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "100ms",
+              "status": "failed",
+              "code": "17",
+              "message": "This operation only for project with status draft",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "This operation only for project with status draft",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }
+  - name: failed request validation
+    request:
+      url: "{{base_url}}/api/v1/projects/tasks"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"project_id\": \"6ccb5f25-11a7-479d-a224-666c9b4876f5\",\r
+
+          \    \"breakdown\": \"\",\r
+
+          \    \"description\": \"sub task 5.1\",\r
+
+          \    \"remarks\": \"sub task 5.1\",\r
+
+          \    \"weight\": 1000,\r
+
+          \    \"start_date\": \"18-10-2023\",\r
+
+          \    \"end_date\": \"19-10-2023\",\r
+
+          \    \"estimated_cost\": 50,\r
+
+          \    \"unique_id\": 0\r
+
+          }"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 20 Nov 2023 08:50:39 GMT
+        - name: Content-Length
+          value: "345"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "0ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Breakdown: cannot be blank.",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Breakdown: cannot be blank.",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

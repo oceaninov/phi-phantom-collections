@@ -1,0 +1,113 @@
+info:
+  name: Get Role Approval Tierings
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/roles/1/approval-tierings"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/roles/1/approval-tierings"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Fri, 22 Sep 2023 07:24:04 GMT
+        - name: Content-Length
+          value: "522"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "118ms",
+              "status": "success",
+              "code": "",
+              "message": "Get role's approval tierings succeed",
+              "data": [
+                  {
+                      "approval_flow": "Project",
+                      "levels": [
+                          {
+                              "id": "a87e5ca2-467c-4762-9c3b-1232a78b2a3f",
+                              "level": 1
+                          },
+                          {
+                              "id": "eccf9d9b-aeaa-42e9-bcef-2f831573761f",
+                              "level": 2
+                          },
+                          {
+                              "id": "9ee70621-7c98-484a-b1c4-18661cc1ebe8",
+                              "level": 3
+                          }
+                      ]
+                  },
+                  {
+                      "approval_flow": "SPK",
+                      "levels": [
+                          {
+                              "id": "2eb77f5d-e7a8-4feb-9019-51b9eb6f0fc2",
+                              "level": 1
+                          },
+                          {
+                              "id": "14beb175-2c25-4104-90a9-bca9d17d385b",
+                              "level": 2
+                          },
+                          {
+                              "id": "a82cbe10-02f0-45f7-8a40-4d8e27a35f78",
+                              "level": 3
+                          }
+                      ]
+                  }
+              ]
+          }
+  - name: failed role approval tierings not found
+    request:
+      url: "{{base_url}}/api/v1/roles/100/approval-tierings"
+      method: GET
+    response:
+      statusText: "404"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 15 Nov 2023 03:00:05 GMT
+        - name: Content-Length
+          value: "320"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "39ms",
+              "status": "failed",
+              "code": "05",
+              "message": "Data not found",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Data not found",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

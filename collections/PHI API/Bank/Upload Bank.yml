@@ -1,0 +1,91 @@
+info:
+  name: Upload Bank
+  type: http
+  seq: 5
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/banks/upload"
+  body:
+    type: multipart-form
+    data:
+      - name: file
+        type: file
+        value:
+          - /C:/Users/user/Downloads/bank-upload.xlsx
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/banks/upload"
+      method: POST
+      body:
+        type: multipart-form
+        data:
+          - name: file
+            type: file
+            value:
+              - /C:/Users/user/Downloads/bank-upload.xlsx
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "1296ms",
+              "status": "success",
+              "code": "",
+              "message": "Upload banks succeed"
+          }
+  - name: failed invalid file to upload
+    request:
+      url: "{{base_url}}/api/v1/banks/upload"
+      method: POST
+      body:
+        type: multipart-form
+        data:
+          - name: file
+            type: file
+            value: []
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 16 Nov 2023 03:51:54 GMT
+        - name: Content-Length
+          value: "322"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "15ms",
+              "status": "failed",
+              "code": "17",
+              "message": "File is invalid",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "File is invalid",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

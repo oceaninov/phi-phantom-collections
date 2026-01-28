@@ -1,0 +1,99 @@
+info:
+  name: Get Profile
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/users/profile"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/users/profile"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Sun, 06 Aug 2023 13:49:28 GMT
+        - name: Content-Length
+          value: "522"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "137ms",
+              "status": "success",
+              "code": "",
+              "message": "Get profile succeed",
+              "data": {
+                  "id": "fa7bd056-a197-4ba1-9096-9922f5f70cac",
+                  "full_name": "Gustaman",
+                  "email": "gustaman@anu.com",
+                  "status": "active",
+                  "zone": "Zona-9",
+                  "working_area": "PHSS",
+                  "role": {
+                      "id": 1,
+                      "name": "Super Admin"
+                  },
+                  "created_at": "04-08-2023 12:57:32",
+                  "created_by": {
+                      "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                      "full_name": "Super Admin"
+                  },
+                  "updated_at": "04-08-2023 14:00:15",
+                  "updated_by": {
+                      "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                      "full_name": "Super Admin"
+                  }
+              }
+          }
+  - name: failed invalid access token
+    request:
+      url: "{{base_url}}/api/v1/users/profile"
+      method: GET
+    response:
+      statusText: "401"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 15 Nov 2023 03:07:22 GMT
+        - name: Content-Length
+          value: "388"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "",
+              "status": "failed",
+              "code": "07",
+              "message": "Your account does not have access to this resource",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Your account does not have access to this resource",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

@@ -1,0 +1,16 @@
+opencollection: 1.0.0
+
+info:
+  name: PHI API
+
+request:
+  variables:
+    - name: base_url
+      value: https://apix-dev.phizona9-digital.com
+    - name: access_token
+      value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NfdXVpZCI6ImYzYmVlMmJlLTU1N2MtNGJkZC05MmM3LThiMGY2NGJlMjYxYiIsImF1dGhvcml6ZWQiOnRydWUsImV4cCI6MTcxMzk3NjExMywidXNlcl9pZCI6ImU4ZTk2OGU3LTc3Y2UtNDY2OC1iOGQ2LWZjODBlMDgzYWY2NyJ9.aBDz9NNrYHwaIkBzQmFGR2zFrNkVzElgXrKSL_FOqO8
+bundled: false
+extensions:
+  ignore:
+    - node_modules
+    - .git

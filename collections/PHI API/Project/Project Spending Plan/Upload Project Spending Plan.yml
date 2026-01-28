@@ -1,0 +1,91 @@
+info:
+  name: Upload Project Spending Plan
+  type: http
+  seq: 5
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/projects/spending-plans/upload"
+  body:
+    type: multipart-form
+    data:
+      - name: project_id
+        type: text
+        value: ""
+      - name: rkap_id
+        type: text
+        value: ""
+      - name: file
+        type: file
+        value: []
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/projects/spending-plans/366f3196-16e3-45d0-a6e5-885714129a1b"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: "{\r
+
+          \    \"process_time\": \"11ms\",\r
+
+          \    \"status\": \"success\",\r
+
+          \    \"code\": \"\",\r
+
+          \    \"message\": \"Get project spending plan succeed\",\r
+
+          \    \"data\": {\r
+
+          \        \"id\": \"366f3196-16e3-45d0-a6e5-885714129a1b\",\r
+
+          \        \"project_id\": \"291f25a9-43c7-46e4-bef2-048cfc5c3698\",\r
+
+          \        \"rkap_id\": \"2c6ee92d-5427-4253-b5da-891ed0b6f5fb\",\r
+
+          \        \"date\": \"01-01-2023 00:00:00\",\r
+
+          \        \"plan_cost\": 10,\r
+
+          \        \"actual_cost\": 0,\r
+
+          \        \"remarks\": \"\",\r
+
+          \        \"created_at\": \"15-09-2023 13:17:30\",\r
+
+          \        \"created_by\": {\r
+
+          \            \"id\": \"b279b3e0-0dea-40a0-96c4-97f5b0e49d8a\",\r
+
+          \            \"full_name\": \"Indra Lasmana\"\r
+
+          \        },\r
+
+          \        \"updated_at\": \"15-09-2023 13:42:00\",\r
+
+          \        \"updated_by\": {\r
+
+          \            \"id\": \"b279b3e0-0dea-40a0-96c4-97f5b0e49d8a\",\r
+
+          \            \"full_name\": \"Indra Lasmana\"\r
+
+          \        }\r
+
+          \    }\r
+
+          }"

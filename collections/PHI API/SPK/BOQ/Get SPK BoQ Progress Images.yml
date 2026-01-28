@@ -1,0 +1,119 @@
+info:
+  name: Get SPK BoQ Progress Images
+  type: http
+  seq: 10
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/spks/boqs/:ID/progress-images"
+  params:
+    - name: ID
+      value: 6b0b563e-0ac4-4ab0-b1c7-ec0b69181ebb
+      type: path
+      description: SPK BoQ ID
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Success
+    request:
+      url: "{{base_url}}/api/v1/spks/boqs/:ID/progress-images"
+      method: GET
+      params:
+        - name: ID
+          value: 22798787-8ac7-4250-919c-99e67b98ca1b
+          type: path
+          description: SPK BoQ ID
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 19 Mar 2024 09:32:26 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "1111ms",
+              "status": "success",
+              "code": "",
+              "message": "Get spk boq progresses succeed",
+              "data": [
+                  {
+                      "id": "a8d314a9-7635-4ec2-ac98-8bed8fce0a4a",
+                      "spk_boq_id": "22798787-8ac7-4250-919c-99e67b98ca1b",
+                      "spk_boq_schedule_id": "8d602987-c3ac-4764-bfd8-8729bcfc87fd",
+                      "date": "05-12-2023",
+                      "volume_addition": "2.00",
+                      "remarks": "",
+                      "unit": "Hours",
+                      "file_url": "https://storage.googleapis.com/phi-dev-bucket/progress/22d7370f-38fe-41ca-ba85-ca245895e515_B4A6C6BD5B4E1040.jpg",
+                      "updated_at": "05-12-2023 11:03:14",
+                      "updated_by": {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira",
+                          "status": ""
+                      }
+                  },
+                  {
+                      "id": "a8d314a9-7635-4ec2-ac98-8bed8fce0a4a",
+                      "spk_boq_id": "22798787-8ac7-4250-919c-99e67b98ca1b",
+                      "spk_boq_schedule_id": "8d602987-c3ac-4764-bfd8-8729bcfc87fd",
+                      "date": "05-12-2023",
+                      "volume_addition": "2.00",
+                      "remarks": "",
+                      "unit": "Hours",
+                      "file_url": "https://storage.googleapis.com/phi-dev-bucket/progress/29ea57a8-e248-49c5-9b49-29678348c6fe_B4A6C6BD5B4E1040.jpg",
+                      "updated_at": "05-12-2023 11:03:14",
+                      "updated_by": {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira",
+                          "status": ""
+                      }
+                  },
+                  {
+                      "id": "06e81e45-5708-4f92-833d-fff43ff681e6",
+                      "spk_boq_id": "22798787-8ac7-4250-919c-99e67b98ca1b",
+                      "spk_boq_schedule_id": "6fc15a5b-e81d-4132-95ff-ed429a8470b9",
+                      "date": "06-12-2023",
+                      "volume_addition": "3.00",
+                      "remarks": "",
+                      "unit": "Hours",
+                      "file_url": "https://storage.googleapis.com/phi-dev-bucket/progress/4c1e9101-3672-4e26-9c75-2bb6ce70ba77_BABB94ADF922E4D4.jpg",
+                      "updated_at": "05-12-2023 11:04:35",
+                      "updated_by": {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira",
+                          "status": ""
+                      }
+                  },
+                  {
+                      "id": "06e81e45-5708-4f92-833d-fff43ff681e6",
+                      "spk_boq_id": "22798787-8ac7-4250-919c-99e67b98ca1b",
+                      "spk_boq_schedule_id": "6fc15a5b-e81d-4132-95ff-ed429a8470b9",
+                      "date": "06-12-2023",
+                      "volume_addition": "3.00",
+                      "remarks": "",
+                      "unit": "Hours",
+                      "file_url": "https://storage.googleapis.com/phi-dev-bucket/progress/c5469848-2de8-4098-89b2-835bb68e2f0d_BABB94ADF922E4D4.jpg",
+                      "updated_at": "05-12-2023 11:04:35",
+                      "updated_by": {
+                          "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                          "full_name": "Diyank Shabira",
+                          "status": ""
+                      }
+                  }
+              ]
+          }

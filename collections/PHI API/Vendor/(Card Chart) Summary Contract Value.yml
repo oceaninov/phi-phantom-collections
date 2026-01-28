@@ -1,0 +1,2065 @@
+info:
+  name: (Card Chart) Summary Contract Value
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/vendors/contracts/summary-value"
+  params:
+    - name: search
+      value: pagi
+      type: query
+      description: contracts.contract_no / contracts.contract_title/ contractors.name
+      disabled: true
+    - name: contract_value_start
+      value: "0"
+      type: query
+      disabled: true
+    - name: contract_value_end
+      value: "25000000"
+      type: query
+      disabled: true
+    - name: is_active
+      value: "0"
+      type: query
+      disabled: true
+    - name: is_active
+      value: "1"
+      type: query
+      disabled: true
+    - name: contract_working_area
+      value: PHSS
+      type: query
+      description: PHSS/TSS
+      disabled: true
+    - name: contract_working_area
+      value: TSS
+      type: query
+      description: PHSS/TSS
+      disabled: true
+    - name: work_end_date
+      value: 01-05-2024
+      type: query
+      disabled: true
+    - name: status
+      value: approved_active|approved_inactive|finished|canceled|draft|on hold
+      type: query
+      description: approved_active|approved_inactive|finished|canceled|draft|on hold
+      disabled: true
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Success
+    request:
+      url: "{{base_url}}/api/v1/contracts/total-contract"
+      method: GET
+      params:
+        - name: search
+          value: pagi
+          type: query
+          description: contracts.contract_no / contracts.contract_title/ contractors.name
+          disabled: true
+        - name: contract_value_start
+          value: "0"
+          type: query
+          disabled: true
+        - name: contract_value_end
+          value: "25000000"
+          type: query
+          disabled: true
+        - name: is_active
+          value: "0"
+          type: query
+          disabled: true
+        - name: is_active
+          value: "1"
+          type: query
+          disabled: true
+        - name: contract_working_area
+          value: PHSS
+          type: query
+          description: PHSS/TSS
+          disabled: true
+        - name: contract_working_area
+          value: TSS
+          type: query
+          description: PHSS/TSS
+          disabled: true
+        - name: work_end_date
+          value: 01-05-2024
+          type: query
+          disabled: true
+        - name: percentage_start
+          value: "50"
+          type: query
+          disabled: true
+        - name: percentage_end
+          value: "100"
+          type: query
+          disabled: true
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 23 Aug 2023 03:03:20 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "33ms",
+              "status": "success",
+              "code": "",
+              "message": "Get sum contract value contractor succeed",
+              "data": {
+                  "contractors": [
+                      {
+                          "name": "3e723d77a711f82210fb1d21cd355b1f",
+                          "contractor_id": "007a7701-5257-4c1d-8ca9-32c2dc297d3c",
+                          "total": 12313,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "6a7845b9531fc21cc80cf22529bf404e",
+                          "contractor_id": "00f0bd78-662c-4060-a12b-cf09a0dfb376",
+                          "total": 5050050,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "336bd03dd4bf779921ac5d7ca6686b78",
+                          "contractor_id": "0143a1c3-a13c-40a6-afa7-be848bf45ca4",
+                          "total": 5099056,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "55868bb428c5ae1863783a92f562603d",
+                          "contractor_id": "014b84eb-9bb2-499d-9efb-8454a174e8b8",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "1f1fa85b82b679e98fafb51ae4a3d87e",
+                          "contractor_id": "03b0d26a-6b42-4c5a-851d-64a67593a870",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "048cb5b0f46610c39ef88aec88e70ce1",
+                          "contractor_id": "049caf6c-f217-4ff8-82b4-2cc4273ec740",
+                          "total": 86000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "8d904feaa328ff1ef6d8bafb53de57aa",
+                          "contractor_id": "0507bc42-a934-404b-aeaa-1739ed49e131",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "71b821b995b604063f06991b40413af9",
+                          "contractor_id": "0578e417-5b9d-4c6a-87ce-021cb85c2ace",
+                          "total": 21001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "9cb02b1820e4c9289543c97bd2311e05",
+                          "contractor_id": "05a29595-4751-4144-bf81-cc5fe4a80d84",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "329977bf7a5a87f55c5933956cc2ce99",
+                          "contractor_id": "0613a8dd-a59d-416f-af1d-0b80012f8b0a",
+                          "total": 28000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "8d77c1f63e00598a055f28ad9da0d950",
+                          "contractor_id": "070c89aa-c8e4-4a94-8b0f-c5840cfd7697",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "79b20d62690f4706568bc89f124558a1",
+                          "contractor_id": "07a494f3-bc11-43a0-98aa-92942d444c69",
+                          "total": 53000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "0c10c917355e52cb18f7ef3ed0312c18",
+                          "contractor_id": "07de6483-0f07-4be2-b3a6-5eee26fa3eb1",
+                          "total": 51001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "60b38d01cd9325e11689719e6cb44a50",
+                          "contractor_id": "07f1a200-ff14-4a18-b3dc-83d2c0f79c68",
+                          "total": 45000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "b16fabc1b934916ecf277f53bfeb2e81",
+                          "contractor_id": "08efa265-940a-4b81-93aa-25e36d349c35",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "32d84f59aa6996d6f7af533b1b65397a",
+                          "contractor_id": "09433d77-f112-4942-af47-13ea975aca76",
+                          "total": 12313,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "563a3485da3e2530f27c2d477a74b5fb",
+                          "contractor_id": "0b657a00-cebc-481f-88a2-3eb5138acbca",
+                          "total": 12313,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "4f1e2cacdd01456419296bfd34db00ab",
+                          "contractor_id": "0c75a5f2-f47a-4e81-a0d0-aea4d9e60e0d",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "6e6e590bd5a9b496391e54cb738f31b8",
+                          "contractor_id": "0c9eaccc-9e35-44a5-93f7-ed8986ec5e82",
+                          "total": 64000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "ec3e564f988e75af3af0ade4847d809a",
+                          "contractor_id": "0dfb6102-f93d-487b-a045-ea4a437447a7",
+                          "total": 15000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "8d289c8339f58249508980544fa9f939",
+                          "contractor_id": "0e3ec8bd-541a-456b-9075-3dac13349062",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "b865bf0c8b6694e85c74ca7a4fef6cb6",
+                          "contractor_id": "0ea416ec-a02f-43c9-a447-aa14b3e9c8d5",
+                          "total": 38001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "b28414a06d73b8ece66c158183d224f0",
+                          "contractor_id": "11082378-f25c-4a20-b051-ccb68faf861a",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "c481f955a6589fabdb611b8323bb1c90",
+                          "contractor_id": "12f4517b-28f3-4c28-8102-64e37a149c3f",
+                          "total": 94000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "fab19814511e9ed1d8fee25ca7f6fba4",
+                          "contractor_id": "13a24af4-6e95-4d9a-910e-c28faee27b82",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "a155599b75e7515f91598ca8aea13325",
+                          "contractor_id": "14f0bf10-ed71-4bb7-9c2b-23dfe91cb99c",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "8e6bfb21eb3da53f404dc577101f239b",
+                          "contractor_id": "15018ff2-ae5e-4209-84eb-9e73c029016c",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "0b0b7ad50ea9e4d006eebaf0752713d3",
+                          "contractor_id": "161e5b53-32b2-4841-ad08-54218e1e4f03",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "cbcce84bb0c5aec3fea1dae8371e481e",
+                          "contractor_id": "165b6eb5-5213-4480-abef-b3192e780bfa",
+                          "total": 13001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "4ec29be15a1f50420254ea0f5660ef29",
+                          "contractor_id": "17052ea9-67cd-41d9-8dd7-2814b303b15f",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "2eaf989e90b9f918ad7ae1ad487d856f",
+                          "contractor_id": "17398b47-0316-42eb-91ea-f6333c441809",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "b77c581ea5127876e5f83d2fecbb63b3",
+                          "contractor_id": "178bbec4-b8c2-4689-abc7-6b3188dee800",
+                          "total": 12313,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "da729e8345d2fa12d04a6299f5212cee",
+                          "contractor_id": "180b70f9-06ec-4250-9d05-5f11090d81f8",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "2baa5d3b71d76e44839beb3806d970b8",
+                          "contractor_id": "1a4ee14a-42ba-488c-935c-b3cd505c5e0d",
+                          "total": 10000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "f269908e7c923f52cd0d16ccae30b52e",
+                          "contractor_id": "1ac21702-395a-4585-9afb-a0754a434831",
+                          "total": 92001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "ab4f0b04d8316813c9e233a3a27bebb1",
+                          "contractor_id": "1aea8c19-368f-4bd7-948c-29629a143941",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "e4b7006dfcecef6d89dbd304c53a77fe",
+                          "contractor_id": "1b9c3aa5-2dce-4eb8-83c6-e614ba3db6ee",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "f4c71f8f01c1957c76947f68587acbed",
+                          "contractor_id": "1bbef7de-5d11-4b84-bd68-557b02c9b072",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "39aa6c72e26814654fcb96ee44a1ef2d",
+                          "contractor_id": "1bf817b3-480e-48b9-87cd-99f08b327131",
+                          "total": 69001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "df8a40059cdc3e45b9b566c2f920d11d",
+                          "contractor_id": "1c0519e2-f732-4374-803f-93747a81e511",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "01f5df9944b1e2e16951dbc13e1cdc9d",
+                          "contractor_id": "1ca6dd6a-d39d-4460-96b9-bbab3ece32f9",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "3069b0b20c76616f43cf846a28e29273",
+                          "contractor_id": "1ce98b9a-d7d5-413b-86b4-c170f77305f6",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "959d93a68b01fdf5390a7795b9a27562",
+                          "contractor_id": "1d4a2312-3933-4693-8664-d89bc702ba89",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "49f339abee36bdaaa0b923058c6d6fbb",
+                          "contractor_id": "1dce7bb6-4d89-4b96-b7ee-076fb8afd51a",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "45c92019eaca76f371441e20fdaa26a5",
+                          "contractor_id": "1ef6f40f-6487-4077-b9fd-72f7fdde63d5",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "f01803f92772a6475c690632e9af439e",
+                          "contractor_id": "1fdf2fcb-516b-43b6-995b-3b53099e9af6",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "3c51dbd3b5524e2cbb296a2810e44971",
+                          "contractor_id": "202b3441-9e2b-47c7-8b28-3f99775e25b0",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "8f8caa90c0cf2f8571cb235e4fd399ce",
+                          "contractor_id": "21a6dfec-833b-47ea-af60-393903216b00",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "4ae69b17c0b4aaafcb6777983871b4a5",
+                          "contractor_id": "221028a9-d27c-48d7-b02d-fc1c9be31722",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "f297c9837d147a232f4b6a01ab2d2ae4",
+                          "contractor_id": "23156291-1de9-4645-951c-d0037bc27b4e",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "6323aabfec9e70376533f16f4829df8b",
+                          "contractor_id": "233cc562-146f-45c2-80dd-b671c0c48c45",
+                          "total": 79001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "606a543c4d37c0b714b73a8aa5aff0fd",
+                          "contractor_id": "23a50adf-46e7-4b27-807f-29fb75989a35",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "814093f065fd4aaf843d11a88acba19d",
+                          "contractor_id": "258504bd-5cef-4940-a216-3b7b87b0f016",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "552f2bb891700ee95e239f2051fcfea2",
+                          "contractor_id": "258adca3-7a3f-49c1-ab9e-6c5d36640be1",
+                          "total": 18001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "6950064e9eaf7dabf89315920e3d4c8d",
+                          "contractor_id": "2649a600-ac6d-4701-b429-840643e280e9",
+                          "total": 75000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "4dccbfa56085c5c0dd7ef2bf8fbd9142",
+                          "contractor_id": "2712996e-6e09-42f3-adb7-6b8b8c4dbd13",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "d89bfe12a3e6f3edeffc270f0beee422",
+                          "contractor_id": "27532027-72b0-48aa-8f4d-ea104163e5ab",
+                          "total": 36000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "b55572701e79f8194645203cd6f5d038",
+                          "contractor_id": "27cec142-0849-4a7e-ae72-d79338333ffa",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "fae86dcd613ada607e2f1eb8281eb2c7",
+                          "contractor_id": "287f282f-a74d-46aa-8a9f-31a012c7969e",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "43d2cdc57017a31d8cda923ed669d3e6",
+                          "contractor_id": "2952bcb4-8bcb-48f7-b94d-66cef5ffc373",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "6d2a7bd7e8911bf023a33be69319d67d",
+                          "contractor_id": "2aca05be-f82e-493a-b002-13b44593d5e6",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "09fdffd343dac5bc869cd2f1b83ca7b9",
+                          "contractor_id": "2bd023b7-f5ab-4081-afd1-60d7069de7a6",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "5247a44131a0d293ba3dde3f50f00a4b",
+                          "contractor_id": "2bf96bf8-0210-4b45-b289-0f992c651e55",
+                          "total": 48001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "e4871cc6cb6210ac8a67550b8ee1d012",
+                          "contractor_id": "2c492706-1c92-49af-ad0c-0421465ff0fc",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "7cf43612a371b64b8fda87b875736395",
+                          "contractor_id": "2c9e4ce2-0dff-4691-b1fd-c3f626082e94",
+                          "total": 74001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "0e714908b106311a328060fc40cf7a4a",
+                          "contractor_id": "2d25d69d-516f-43c0-a390-f0202f6a06fe",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "055e99a8a8ed08d536c0c96e1f896234",
+                          "contractor_id": "2dfeaedf-7010-4e8e-acb5-0e4409ef23a6",
+                          "total": 1000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "9d73e04d6116e87f8356f526f83577d5",
+                          "contractor_id": "2e29f6d4-5ce6-40d8-9c43-38fb2f99c935",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "76a60e60b7a050dd770fa1fb42eb63d2",
+                          "contractor_id": "2efa9189-134b-4d22-a2c6-339744f905bd",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "7f75440fabb1d4bfc893d6e776fd2bc0",
+                          "contractor_id": "305d9294-3290-42c2-8001-28765f58be87",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "8fb7c1fddbb023319805e27f31ad6e76",
+                          "contractor_id": "3071a9a1-659f-4753-accb-582967c5a794",
+                          "total": 65000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "42c5e5887f12a60644a50d8282935174",
+                          "contractor_id": "33f54e2a-43c7-40c0-a658-21238da5776f",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "31617d36371dc56f4c203517a319a1d1",
+                          "contractor_id": "345e6f50-7304-41eb-9e7c-bae817543b40",
+                          "total": 55000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "cd771ad3055d0ab44dcec67b6e51b526",
+                          "contractor_id": "35067b3e-d7f4-41de-b5cb-77c96b95e43b",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "60c2d63be9fa0fbbf237c158130e6c33",
+                          "contractor_id": "355ed3a4-f738-44b3-aee5-65f2440c294b",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "1f5b85b675c617938ae18092f3bad451",
+                          "contractor_id": "35e01bf1-3548-4c6c-b581-f05fc75a9ac9",
+                          "total": 7000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "831424017c08e8c6ea7b0c402decbe32",
+                          "contractor_id": "36208194-0035-4726-8835-c28116396fb2",
+                          "total": 16000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "baf94475c5ad2ff0b6900f3f0064f26f",
+                          "contractor_id": "36676542-7396-43d5-98cc-794142eaea1d",
+                          "total": 72000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "2d2eb0e243e891f2daa701234df8badb",
+                          "contractor_id": "36d111cc-616f-4323-91fb-91632160d231",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "66aaf4c4036ce4b632bf66db1bbda9aa",
+                          "contractor_id": "36ed1a9b-c31f-4579-ad8e-9964cfecadd1",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "fd8eab78a4e0b9333367a6b9dc57b73f",
+                          "contractor_id": "37339699-d76e-46da-aa59-9755b866ba01",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "24b417ac46f96965a48a91987e62eddc",
+                          "contractor_id": "3796d593-0f3e-4c2b-b57f-255e618016e6",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "82d28f2c6acbe57d51978d7c49bb7d7d",
+                          "contractor_id": "383bda5f-de39-4dff-985b-dd056cfd434e",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "e02bfd0c5becfc9a29710d744053aae6",
+                          "contractor_id": "39027864-1c01-4f5e-bb04-d37ce9a739c0",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "7e01a74f3b0cba2f4cadabe270d2d08c",
+                          "contractor_id": "391b38ad-5171-4d6a-a1f0-00e455e17c6a",
+                          "total": 12000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "74cc205c87f518e9d52495447ac33ed6",
+                          "contractor_id": "392ccf4c-a848-4726-945b-f9603049913f",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "f5babd3e628b15d435a597c9b7f3b817",
+                          "contractor_id": "39dbf8c8-22a3-41c9-8d0b-db33dd26607c",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "6adb79bef1b51449889aa5ead4c6c246",
+                          "contractor_id": "3cc7c539-200e-460a-92eb-980caa83b42f",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "f9a2a6c055719cc81b1a4275c9b86e66",
+                          "contractor_id": "3dd0ac36-7106-40be-b845-bcd05d7d79fa",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "0724ea818ffb358682a2c6c4e3ff4244",
+                          "contractor_id": "3e9d403e-c45a-402f-bd17-979694f78f92",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "cfc0311ebba16b79985451a8ae617d16",
+                          "contractor_id": "409c338f-41af-4450-b78b-a19b73d7db4b",
+                          "total": 14000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "5de1a59e9090aa53a3f2907b8729f140",
+                          "contractor_id": "43182385-853b-43dd-9b53-2de426465450",
+                          "total": 22001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "204f2e9b2aa6c8f0c161540efd85f3d9",
+                          "contractor_id": "4528199c-8e57-4748-b486-e1245e05e77c",
+                          "total": 83001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "1fa48873d15fc3fccf50854917d68957",
+                          "contractor_id": "46a9c518-d3c5-4759-9beb-65cf4a6679f7",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "32a71193873c897608e45342f2988324",
+                          "contractor_id": "4847cf2f-55a2-48c3-ae11-073a0f20a083",
+                          "total": 40000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "6d3a03c636039864259226bde23910c0",
+                          "contractor_id": "491199b4-616a-4fcc-9408-70465e540f0d",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "dc55ec2996a09fa4b83a4abfd1f905c3",
+                          "contractor_id": "4ad36355-a98d-464f-bfd0-3a1ea50df7d0",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "457f9e249dfb05cda6dd41d51f2e6b6b",
+                          "contractor_id": "4d0e18d3-a039-48d6-9847-afe774cb7510",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "ce28b2385f99ba4436ea25890e1f8679",
+                          "contractor_id": "4f665764-8729-4a0e-aabb-9f8327fe766c",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "PT MEINDO ELANG INDAH",
+                          "contractor_id": "50b1b65e-b4fe-4ae2-8670-caf9ba1a4826",
+                          "total": 79352845500,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "320aa9a666ba4c819595f1682b068824",
+                          "contractor_id": "50ec5d09-7197-4506-994b-3d6df43a0e14",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "4f6b0c5eb46e9837b44d14c30a9ad4ed",
+                          "contractor_id": "52b11bcd-1e6c-4a7a-b5a2-55366cee1490",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "b5d2e1d16453aa0df6e22737efe2e1d2",
+                          "contractor_id": "5336292d-76c9-41fa-9ce1-454119c1d5d5",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "5341b82e9a77b7649b9a88af2459523c",
+                          "contractor_id": "54820bd5-67ac-4429-b08b-ac7ca3119040",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "16e154c678895e0f082b53c4f7222de3",
+                          "contractor_id": "54b26671-f030-4c75-bcac-ef06ca220a88",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "3501236537a6b09324eb1be9b7485295",
+                          "contractor_id": "5532effb-8be5-4cb7-ac8b-d89f352d7d5e",
+                          "total": 97001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "21e747fc66138e10f09dba58c85ffbfe",
+                          "contractor_id": "55945be2-3779-4e16-ac40-8af724194f8c",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "9cd11b9885e406b0cdb4bbfdb82514f9",
+                          "contractor_id": "55e4d6bf-13b0-4123-bbe4-0dd26e03b33d",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "ac10ff5bbb7424b91af1931928062a52",
+                          "contractor_id": "55e6de28-b62c-43fc-a7cf-bbd17e392d68",
+                          "total": 99000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "a7dee0277db7aa0fc11a50fd1e315622",
+                          "contractor_id": "56e2744a-f093-4981-b15c-11e88f778a8c",
+                          "total": 82001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "f63753b2b141be5b4e6d4d7bf16e8b5f",
+                          "contractor_id": "572d095b-c74a-4743-92fa-e46b28cd7f8d",
+                          "total": 34000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "60c254064cc9bbfa0c38e1f0ee879499",
+                          "contractor_id": "5805e92d-c3a0-4836-926a-27fe43c4af31",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "1f382daeee82781709dca25f1190e62f",
+                          "contractor_id": "58ba4a08-1ad5-4368-b9b8-a86fc7b66a78",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "c466771e5cb16fef25237e8b8fd7cd91",
+                          "contractor_id": "5a23ae48-c838-4426-aa01-5a0fd2e54eb0",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "44b62b877b735632465b5efddd601cb5",
+                          "contractor_id": "5ada13ac-cdb9-43b3-8d33-667829d686d0",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "c4e25108a9cfbe62f6448269316ee6a4",
+                          "contractor_id": "5b7e8970-2d2c-4085-ba65-eb49c2332ced",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "4eaeaa4b69a2caaa8f174d5bbeb026c4",
+                          "contractor_id": "5b92771e-b328-492d-9f3f-74b1515a4103",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "6f21c9d9b71aacc3a57255c875b34c78",
+                          "contractor_id": "5c3b69cc-2b18-4985-a359-937fd4e8ca01",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "ba15f0944eefb4a1b5d0aa6c922a03d5",
+                          "contractor_id": "5c4f0711-3f3e-4fe7-bc42-4a1da90a8730",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "acff98ace4fcec3adbb3a800f0d8964f",
+                          "contractor_id": "5d56e301-e23b-4fd8-a7b5-08b851bf7bce",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "0722cb3ccff84f4e09a048cb8ea6aa8c",
+                          "contractor_id": "5e0c72c1-459b-4aaa-a387-688a3503c105",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "4143f8a56ef7b825a446a68e361ae7e3",
+                          "contractor_id": "5f6a65ff-a004-48b6-a8f3-abf105763bb4",
+                          "total": 41000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "0bd99f7d1d9d4fd5d5889b4fcec3990e",
+                          "contractor_id": "60440b80-00a6-40e2-b183-272122bf7919",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "e348ec4e49947bb56fa4ae434db29df5",
+                          "contractor_id": "613ba52c-bd64-4a5b-87e6-482c1e154ffb",
+                          "total": 24001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "55a994ce3170aa46620e0e64fe772863",
+                          "contractor_id": "61771131-0bba-4c97-bede-0418935a486d",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "1917cb8edad23021df6fe00bdb81604f",
+                          "contractor_id": "6382e680-33e4-4769-aa54-bf9a7ed391b2",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "4c43d36b080d38c7c494fef525575da6",
+                          "contractor_id": "64329e41-7329-4716-93cd-105371725175",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "6b2e33511f8ec4c6481dfec1e6f5ba54",
+                          "contractor_id": "644866b6-9bca-45ef-81c9-fba9410aff3f",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "8f0553847b297c35bbbd4cdc67d606f6",
+                          "contractor_id": "64ea1287-6825-4334-b41d-8e6f2a5ef51c",
+                          "total": 35001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "cae068fbf10b1c766707a572985551d2",
+                          "contractor_id": "6541a3bc-fea3-4fd2-9d87-feb6a5d12850",
+                          "total": 87000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "e381cb1dc0a014f5397e86c8d432fa35",
+                          "contractor_id": "6548a758-406a-4a30-9659-b27bfbbe3913",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "7bc136d9fadd8617d2c16eb8347b1ea5",
+                          "contractor_id": "658d73be-f291-475c-852c-8d437c689318",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "7fed33551d1fb4af3a0d3308b04b2c14",
+                          "contractor_id": "6674b599-1932-4b27-8b9a-a57b69d835e9",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "7a22989dc1e908b2b29d2fcb87425dfe",
+                          "contractor_id": "66b8bd72-3549-4e95-9996-e55062310e71",
+                          "total": 12313,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "9cc1c245f08b5d9417f8982c30c1c0c0",
+                          "contractor_id": "67c6c2b5-fed9-479f-a46f-8fdae05570ab",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "c8fc493cce2dd5cd968d32ca16996c24",
+                          "contractor_id": "6817bb2a-cfbc-4ffb-bf07-aaf532b729d7",
+                          "total": 67000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "a5f617204a9f8e21cb2f3cac8f11fdd8",
+                          "contractor_id": "687abd01-6203-4aab-98ae-f5200f72b6af",
+                          "total": 59001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "41041b07c9c2bdbff970f3bf365e1de9",
+                          "contractor_id": "6ceac3c1-6001-445c-8188-2daa2d56d129",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "3770ff29c1ee57ee3bff7eaa58a4f6b5",
+                          "contractor_id": "6ced93ae-b7f2-485e-8fdd-79ba0a800c10",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "86e325d5ae289d3f5b256816149196bc",
+                          "contractor_id": "6d214746-f85e-471c-afbb-32f64155cbec",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "c82372f0ebf86da0968ffe180f082a72",
+                          "contractor_id": "6ffd5185-7cd3-4bf7-b9b2-f5254a4c20e3",
+                          "total": 42001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "c75eebdd76a02c20a4abe30cebfded13",
+                          "contractor_id": "70796a4f-29f3-44cc-9e7d-820cc394bc34",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "599d9cea7af625e573cc91808e31c2bf",
+                          "contractor_id": "7083a054-7154-4bac-a590-8c45ceb7eacd",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "f4b342a7ca6c94959d0754ab04988996",
+                          "contractor_id": "70882ba8-7723-4eb2-829d-f74b75e0ce88",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "44069bfe3cd7522df74a69865bb1db58",
+                          "contractor_id": "72200abb-3268-48a9-b0d4-e28022dc1749",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "81bfefa7b85ecd863f84704b055be657",
+                          "contractor_id": "723e4346-5606-4d3b-b715-18b31be4c1f5",
+                          "total": 56001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "901b4b182cd10f06c248812d6b27e6b1",
+                          "contractor_id": "72fb061d-1f52-44e9-9f8f-b01d1bd8a834",
+                          "total": 37000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "8dcbb6a3039ae979e4dcbfe08c31e527",
+                          "contractor_id": "7418bf45-59b3-48f9-8e63-ec049199d341",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "4aed7744bd61c3245633ed0b55ba9df2",
+                          "contractor_id": "74ed70c7-7f01-4bc7-92fa-68121f2b058f",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "4df71044e81912776c740cc12e732838",
+                          "contractor_id": "757c51e9-49ca-4b77-9cd8-575107f85bd6",
+                          "total": 43001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "5f90171866bfd67bc9fc0c922d94b595",
+                          "contractor_id": "7688cb9e-76dc-4ae4-b391-a52d6f5e720c",
+                          "total": 84001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "607dd8a2df995e0a3b18ad2d52ca6401",
+                          "contractor_id": "76fa5032-aa48-40a6-ab28-9647f57ce2a2",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "511c01ae3c2b4087e93aeff66dce1a62",
+                          "contractor_id": "7934f739-8163-4b3a-950f-11c443c615b4",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "ad19082e5ab2d55e2442c985ba4ea6b1",
+                          "contractor_id": "79e9eebd-53f7-4097-8811-7d8d7b0a9096",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "4ae9dec0ffde39aeec9c42a312b62618",
+                          "contractor_id": "7af96f75-bf62-4231-b5d0-a0b78a516547",
+                          "total": 12313,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "096f3cf90a39a8b64ba604751fa7aa38",
+                          "contractor_id": "7b4dfb7c-3ce9-456f-8616-2ed3ff569321",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "3c978b4dc01a25bd0186f890c71867f1",
+                          "contractor_id": "7b79645c-bd17-4f63-8525-f0e1690251f6",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "9942f780e4c74ef4741aaffd1d25ad00",
+                          "contractor_id": "7fb34744-5ec8-45ce-ac26-8fb56d774db7",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "6b605d43913e01ba9a6d6b455579595c",
+                          "contractor_id": "815123aa-5213-4a06-8af8-553dbf464e46",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "42b50aad0da70f91a17beb6c8babfaec",
+                          "contractor_id": "826eb27a-3431-41fc-9c17-2cb0ed6a9bc8",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "b5232184a9738ecea23225adad4fd7c7",
+                          "contractor_id": "8286edf3-66bc-4d10-9a0f-16eb307dbf99",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "a3a28fe8c521fc60f307c5c2d2e8e047",
+                          "contractor_id": "83dc6117-acce-419b-8185-4866d599fdbc",
+                          "total": 8000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "53a02a8b06f5b9d0d2f4883fe23b249f",
+                          "contractor_id": "84206f16-97a6-4147-95f6-be1880298287",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "9ae7e6da0bc50396a7a7ca831ba9506f",
+                          "contractor_id": "844414f1-8836-44f6-b64f-e6b5cebf3963",
+                          "total": 71001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "03a9f82dca0eedd301619142494602e2",
+                          "contractor_id": "86f9da4c-f2f5-4024-af92-dfd0eb949c63",
+                          "total": 46000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "46555c3ff68bd32c7ca5526b59833f2c",
+                          "contractor_id": "881c56a5-945d-4b55-a9b7-4cd87fb862d1",
+                          "total": 54001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "362f9446e56365252b43a5d41e7cef88",
+                          "contractor_id": "887b4c00-0625-4eb1-87b4-c07bbffacaf5",
+                          "total": 47001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "f41a729b05438aac022994c6bd95981f",
+                          "contractor_id": "889612f3-9c76-45a2-925c-3263d949a588",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "38a53bb8f49903b27286f9703549233a",
+                          "contractor_id": "890d1180-7c50-4448-87d9-afe7f9799962",
+                          "total": 25000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "901de2ced711bdeca2f61481430f1baa",
+                          "contractor_id": "8c2457c6-7146-4f39-be54-fdcacbbb4e7c",
+                          "total": 60001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "c98caad6b3c805fc60fc204a12eb4bba",
+                          "contractor_id": "8c55c24a-cec4-4ea1-9652-3acde2c7e536",
+                          "total": 70001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "a2fe609a68dcc82985867ad424eabad9",
+                          "contractor_id": "9241cf32-27e8-4922-b882-285d36c751d2",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "a6e7e0bb833397787d802a851d261e8c",
+                          "contractor_id": "924490e3-ff7a-4c2e-880c-63a08a57b0fc",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "67763c7076962e45c516988a15e7a069",
+                          "contractor_id": "9265bad5-a98c-49e1-bea4-e395ebafe3d3",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "1d79f4ff0f187491c3a1a2b38aec2f20",
+                          "contractor_id": "92cd6c53-4ca0-45a2-aa5d-0d1d31bd6245",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "3a8445ab47204490397aae9e68382e46",
+                          "contractor_id": "9311fe36-796c-41eb-aa4c-cb014a31ce8f",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "a017b34712b96f23d7b89377eea09219",
+                          "contractor_id": "9312ef17-46de-4090-b888-67ae846a75dd",
+                          "total": 4000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "f013208b9452c5a7c9f88bb6c7532653",
+                          "contractor_id": "94db5cdf-e246-4c2f-9e90-65ba06b72cf5",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "1f1a5682325675b029c099e7cf3e3e5e",
+                          "contractor_id": "964150c0-a104-4738-878f-9de81f39ec36",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "2d4e2e92c90e2918087fbdb3ccbae36a",
+                          "contractor_id": "9730d5db-11f1-4e7e-9f39-c169b1bcc2b6",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "23ce5b093f341727df7a34c05fdda274",
+                          "contractor_id": "98456580-91ed-4f8b-857b-df07cb0cb7c1",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "7c9af445098bec7a7e6ebaf271417448",
+                          "contractor_id": "98d73cbd-709c-436f-8754-629a768c6c5c",
+                          "total": 3000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "5748f2fef1b308d6858bb307ff96dfa1",
+                          "contractor_id": "98eefcb8-4beb-47a8-a926-f0435922563c",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "98a2a862be8cc75f3b45121f501476e1",
+                          "contractor_id": "992a7329-443e-4935-8313-2d4e96f7e3d2",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "1228201b666cbaec76b60c150df9ec5b",
+                          "contractor_id": "99e56205-80b9-42bf-82a1-92b7b9f4a1b6",
+                          "total": 58000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "148a39365a6d1ca3bee31ad11ee90ad1",
+                          "contractor_id": "9a574b01-12a2-4058-9ea9-681d9b8f0d3f",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "10879e4412b9df48e9631124c303f0a3",
+                          "contractor_id": "9bc0730a-5e3e-4c9f-b09a-87b51445264e",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "8430483385e856a14d6c84f7bf3e9511",
+                          "contractor_id": "9bf687ca-e1ca-433a-94e6-a62364ab90cf",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "4ca58f6cd5c52797c4faebd30511f164",
+                          "contractor_id": "9d378db4-4761-4908-978f-f06c9150f171",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "c8f191a0e51d79b370f7765b131dd817",
+                          "contractor_id": "9f3fda13-15d3-44ed-9124-c91b6d7a8b95",
+                          "total": 27000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "cd75045e9d394bc7b23adf1575bd0d61",
+                          "contractor_id": "9f9c1855-f1c5-4338-b4e3-46b08a5c0707",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "81bb77c08ef16a865cd0f781cf0c4203",
+                          "contractor_id": "9fd4e512-2bed-413d-b846-67bcc4628f65",
+                          "total": 33000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "9cf62dcf1ae189d51bc4cdb2603dcc87",
+                          "contractor_id": "a0432549-1393-4bd7-a1f0-4ed72afa4093",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "adbe5429a8ba750a07964a2654cbca5f",
+                          "contractor_id": "a0b798be-ab6d-4629-8992-55d9976f9abf",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "3a246e84771665a2c0e0edb68f1ce1f9",
+                          "contractor_id": "a18e433b-3109-4f63-8504-30ebc2b9145a",
+                          "total": 12313,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "925800dc86e837aa39f48afd177b46f1",
+                          "contractor_id": "a1c5cb98-a0b6-4d86-ab69-713b5b732c5e",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "3a704716a1775a1eb88e714fe2a62476",
+                          "contractor_id": "a277a20d-5c5a-46e1-8a92-1be5b26f4984",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "148fc49101dacef2c45ba857a4de9c2f",
+                          "contractor_id": "a290acb9-5c09-4a46-bf87-eb0837bb794e",
+                          "total": 2000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "4c9bc22bcbb2a9f2b7c7a6d35810586b",
+                          "contractor_id": "a56b7adf-08d3-4ad1-b5f7-76c5b7a65303",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "29bbf898d847b1c589463256cbe467c8",
+                          "contractor_id": "a59f0b8a-fdaa-4765-8ea1-008efa9242ac",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "e793caf3e42864be5aece982976d7ffc",
+                          "contractor_id": "a806f746-62f0-4bfe-a8c1-f1453675d924",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "ad19791e1c5791b5ee6753ef2ceea38d",
+                          "contractor_id": "a80770a5-f2f7-4f19-bcc0-30fb69c39e0f",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "abca39fd479d5d7bf41b15593e7510b6",
+                          "contractor_id": "a85a5569-ee17-4256-af89-713e6913bf18",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "9067c30b61f4ef22e1e7ad8c2e3973b6",
+                          "contractor_id": "a9b6c076-8843-4080-9f70-ed39770bdafd",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "1c94039004e971b66654964ac06999ec",
+                          "contractor_id": "a9f10682-456f-4d98-be3f-9f77013397bd",
+                          "total": 63001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "7419bf077a34c6588ebeaf781a366e15",
+                          "contractor_id": "aa7aeaec-0b9a-4d16-a4e9-5d4e378af561",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "6f27738c0e2a886f796883687521b130",
+                          "contractor_id": "aaf0a30d-ad97-4add-b023-4fe665a3e7b9",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "82feec796a8af26d4d16a679aea10a43",
+                          "contractor_id": "abcc6bf9-6a94-4f8a-b75e-c1e03e2d95d2",
+                          "total": 6001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "91b74fc443ec3d1647c947535cf4d2fc",
+                          "contractor_id": "ac6f6eea-590b-41bd-964a-da674b4be45f",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "cef8f4a57572c7eb4be7ee93a87447fb",
+                          "contractor_id": "ad8978ce-6032-4b37-8fd6-018a3bd0fd73",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "a71813bde34e6a36d11326b3429f83e9",
+                          "contractor_id": "b002f890-72b4-4548-b1d3-f6965fecfaca",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "PT. SYNERGY ENGINEERING",
+                          "contractor_id": "b01e5f9b-c6bd-460c-a7b9-4a87e9f217d5",
+                          "total": 20563000000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "2f7c231113f9ec0cda9054bd31731c49",
+                          "contractor_id": "b0c71c92-2915-4150-9cb2-4e919c4057a7",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "2317c251f0fe65c2021a5c20bbb0b9d5",
+                          "contractor_id": "b1713b70-15f8-4fb1-818c-ecb0a6ba4bb5",
+                          "total": 44001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "0d1dd5adbc5f8d0a288844733a022f27",
+                          "contractor_id": "b1dddbb5-dc68-4038-b8d5-1301ea5ffa2c",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "0f378b33dec47e3675bc73c76062d7ce",
+                          "contractor_id": "b2093d98-4755-49ce-be8b-46815ca5c2fb",
+                          "total": 9000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "e214472e05669d00718b9dec5df705c7",
+                          "contractor_id": "b20c226d-8bcb-4a65-ac2a-a2ebede77ec6",
+                          "total": 11001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "0c4d3a44ecae05780e799676c094efff",
+                          "contractor_id": "b25b7da1-9f66-4e95-af74-1a9ac91a34c6",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "c3a1fef854f3b6c5a04b596bce47436f",
+                          "contractor_id": "b2b0f354-14cc-4441-a58b-5dbe0571a8f3",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "646060ed93a90afbd525835fe80566ad",
+                          "contractor_id": "b399979a-1310-435b-9dce-06492762125b",
+                          "total": 77000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "b00d97364d1a6df37933702c9696305e",
+                          "contractor_id": "b438dfc0-11ea-47fa-8d7c-8501a6a4fc6e",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "bad6530430c50222e4d1f1a96d5343f6",
+                          "contractor_id": "b52cf345-ab9e-4522-95b8-fa4fb7b8e59e",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "e654270132ad03724b8951758b070515",
+                          "contractor_id": "b6786174-1890-4e62-8edf-2a8f89ee2831",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "476261911ca419ba065a0c784b789a06",
+                          "contractor_id": "b7a20d8e-b4ad-4a34-89d3-e42995367506",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "f64fa09130e15c56193b677a1ee3d48f",
+                          "contractor_id": "b842d146-fdb3-4189-b11b-4e27f15d7cd0",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "281d8ca047cd2e2ce82ae4d759cd2b6e",
+                          "contractor_id": "b86a50c4-0d91-46d9-a2b1-e60553fa6ed4",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "7114e5ec1eb9ea11288df2aba75e34e4",
+                          "contractor_id": "b8db4a80-56b4-4a1e-b6e3-0b828de9a00c",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "5c625b03686bf516b920334ec01493a8",
+                          "contractor_id": "bb5eca60-772c-4cb5-ae58-de559868dbac",
+                          "total": 17001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "7d93e90c30a1950b9ea9d416e74dd759",
+                          "contractor_id": "bba9b457-a3d8-41c5-9554-48326c0674e6",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "e1a692db4d2cacdd05d94cd900be8d9b",
+                          "contractor_id": "bca1846a-4d75-4828-bd34-70ad6aa4a73d",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "3880b97f68cfef565118538e0d594bde",
+                          "contractor_id": "bd154231-b3b6-468e-9fac-95ab127f6068",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "6c7d1dea6b3349ebd8037b65368facb2",
+                          "contractor_id": "bdb5255e-9a01-4c25-8d99-ac6b6ec59e74",
+                          "total": 12313,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "a3b962239bb94f1eaf0e475dac52b870",
+                          "contractor_id": "be03ea32-ad26-4fd3-a0bc-5829ea04cd08",
+                          "total": 19000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "f1f614150d3a4d8046b829ee75429f85",
+                          "contractor_id": "c010e9d2-556e-4821-933f-12600095536c",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "f21b5a39712e75227081b66ff0d86bf9",
+                          "contractor_id": "c0430569-7ea2-4a3c-a853-5a3c9430758b",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "8b7549ae1c07ae772bdb526126f65325",
+                          "contractor_id": "c0776992-e7e3-4974-80ee-56c659f6146a",
+                          "total": 98001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "574333b793e6edb186670fa1fd8390d2",
+                          "contractor_id": "c10bef7f-0968-4c24-8294-73baa0378d24",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "c9a58ba6aa98088745cb5bde9e010c49",
+                          "contractor_id": "c216974f-c007-47fa-9bc1-83fa479fa2a0",
+                          "total": 78000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "9bcf8f021992b2fd08700bb38a4f54e9",
+                          "contractor_id": "c24d7fdf-3dc0-45bf-800f-12c183fc7066",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "8c08b6e1665796930adb4791657f9e44",
+                          "contractor_id": "c2660108-a5ba-44e9-b878-a4394bdb428b",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "0b77fb78f4cbca99042e9f86b71dc2cc",
+                          "contractor_id": "c29e1f03-ed08-42bf-a532-efc865fd8728",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "ef052229f05e09f1ed775b52d73d1597",
+                          "contractor_id": "c2ae2a96-1fff-4d02-b0a0-524ab4a69a2a",
+                          "total": 90000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "c7c880c4c2a6b3b709d7f1ce2863b588",
+                          "contractor_id": "c602e1ba-2c23-4a70-a91e-33a6e2f0e929",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "14fd2bb39ca53e4a0fe7d5466132da8c",
+                          "contractor_id": "c6805242-9861-45f2-bf5d-7de427275917",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "8ca48294489bdfe37effaa82e8cf5971",
+                          "contractor_id": "c6859cba-6e66-4a87-8cae-714d2ae922a0",
+                          "total": 76000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "9f678cb2453918f176d237115bb8708e",
+                          "contractor_id": "c6fedf76-cd1c-4100-87f1-5583805b70e6",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "f8c9de7a2b486b92dc12f73b4f6d984f",
+                          "contractor_id": "c7654289-042c-4932-a037-f08602ed667d",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "35163e0879d93af330bc89bc102c86fe",
+                          "contractor_id": "c7c4c54f-0331-4040-904d-13ce6cd03467",
+                          "total": 93001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "12edd39a723afe9fc81f038cbfbce476",
+                          "contractor_id": "c7efa2e5-29b3-4e82-aa69-769e7a21a6e8",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "be55e8fa4e80bb7900e3fdff2fa56159",
+                          "contractor_id": "c87ba91f-bb63-4c42-b924-05932a5c9110",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "0babc199577b62c377947fa95ed68067",
+                          "contractor_id": "c89cbfa8-ff6c-43e1-a12d-052ab2a90940",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "5e6d4b992cb83060d06c707a20afc939",
+                          "contractor_id": "c8e99ab2-04f6-41a2-a7e3-dab3dc7b1d11",
+                          "total": 91001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "4719ca4599f32bf12f149429d4c58917",
+                          "contractor_id": "c9042989-1f2a-445d-b4f1-09441d5389ec",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "5838a6ac589f0c18f25bce2cef72f7c5",
+                          "contractor_id": "c9d92db8-be47-402e-a3d0-793e1130e013",
+                          "total": 80000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "09233f8681cad667663b3e7ef3b7f53f",
+                          "contractor_id": "cb22ef22-5162-443f-8e7a-ae245c1d818e",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "6cd8ae6e7ba785292ca5a2b4b2213a86",
+                          "contractor_id": "cb8ad809-cad0-490b-b54e-cd06c135e849",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "03fe7cb433c99362ccfa656efdb76c18",
+                          "contractor_id": "cba15784-4b15-452b-ae4d-accbc43241c3",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "64f810a1458d22a3929e84a4f127550c",
+                          "contractor_id": "cc070b34-81a7-4c97-a171-71cbf5f4e3a6",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "8ab414ded60f03e77887492e1b8fdde2",
+                          "contractor_id": "cca5c2a9-e3bd-403f-b5e5-818c251f569c",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "93b97a865547b1d158567d05d7ebafce",
+                          "contractor_id": "cca924c2-dc79-4773-87ae-7cbbee5f5c6d",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "16a7c7194c44a4ecfe9efe8e9143b1ce",
+                          "contractor_id": "cdeaf1ba-47c1-4dee-bc65-48a6b244cccc",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "29e0e86e4fa7297250b7ecb72056019b",
+                          "contractor_id": "ce94d94f-afd9-413b-9fcf-5971ddfef5dc",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "ad01063574900ed7c6b246bd30e70aa9",
+                          "contractor_id": "cf2d441c-5418-4860-864b-b7c0678479de",
+                          "total": 20001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "ebbe40d79dc17cde201d4c3e5d50b66d",
+                          "contractor_id": "d0285d95-def6-4be7-a563-d6497a764ba0",
+                          "total": 57000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "b3be89f9a866847fd5d671ac36b3008d",
+                          "contractor_id": "d03ff357-756c-49a1-82a2-b998483e6848",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "a04e53c71d3616bd5e876d9fba11307e",
+                          "contractor_id": "d1019bab-ddea-4ff1-bb4e-d73dcaa1ce79",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "158afcb13e399ae090369eb94a1d3dfe",
+                          "contractor_id": "d1023b62-1474-4d78-8996-5dd3514311b1",
+                          "total": 88000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "5732fc045cc318190d9e728898b1ff77",
+                          "contractor_id": "d288c683-e54d-41a8-8824-dfcb681e28eb",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "d02230cc17456ad9c23c6494e2adbeb1",
+                          "contractor_id": "d451fa68-e6a6-4bde-b0bc-5fc859148b0c",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "3b7e9f502af4914a1f12a900b2666cb8",
+                          "contractor_id": "d52dda05-6bb0-43fe-8813-21dc295ed33f",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "7043a98ee27e34bfc523cad85f4d988d",
+                          "contractor_id": "d5daf843-70dc-4ed7-a8c4-56e72b5de4df",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "e38759edcb7d075c93ee0ad6e822f306",
+                          "contractor_id": "d62790fe-0975-40b6-8ec6-0ed9ba43aeb4",
+                          "total": 31001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "5195772e47ab0f4b36c0f1d7c5044e14",
+                          "contractor_id": "d709d8d1-5862-42e0-af07-67b7cd17afe3",
+                          "total": 62001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "1fa7c0b871984371da66ae1f1ae85a1c",
+                          "contractor_id": "d79ed4c7-f71f-42f8-8643-12c410abb526",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "400d1d55dab0a13337ce2a34ddec3afa",
+                          "contractor_id": "d7c82dc7-7b54-410b-9bc6-ef72d05c5b68",
+                          "total": 12313,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "515e72befd80e343d806fd0d26dca0d3",
+                          "contractor_id": "d9c9a7f3-7ad2-4506-8cba-7f68c7a883f4",
+                          "total": 61001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "4e41075d2371b83a6ccf5768567556c7",
+                          "contractor_id": "da6a6c1a-8c9f-4641-9ef4-6d7e7d972848",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "dfd6c1d0a7c7a30627a83c71ac0feff4",
+                          "contractor_id": "dc87686e-2196-4fb3-a4f7-5a9d179ed74a",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "97e9c6aea3946e9af3dcb7b695ab284d",
+                          "contractor_id": "df0d6563-bc78-4a6f-8713-ba66ac0f2549",
+                          "total": 26001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "3bab52dbbf10fed7e975a6969333d660",
+                          "contractor_id": "df2024c6-7a59-42db-8e41-b54b22831327",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "50ac644dacdc2ab903402939f69d673e",
+                          "contractor_id": "dfee8571-4190-4d2a-846d-387cad19b61d",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "f4a92d93f546d7ed96b4f903b7d2ed1d",
+                          "contractor_id": "e023a62d-0174-4847-8c52-94a7fdfa13d5",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "e5eaaf8d7b30c3a4df8742691a9fc7eb",
+                          "contractor_id": "e03810b8-7ea2-4599-9043-435d3305bae0",
+                          "total": 96001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "3295ee81501907419ba5fc1496d9d898",
+                          "contractor_id": "e0b04de9-69fa-49df-9d83-cb95c793e376",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "190f7fd216bc2364ef2d01210762cb92",
+                          "contractor_id": "e20e3d68-a275-4a77-b69f-14718f805800",
+                          "total": 5001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "3ddb1e74c018f275994f03128f67e872",
+                          "contractor_id": "e22cd5e6-1e1f-4c41-8601-7477d0b3c076",
+                          "total": 32000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "448025a8b36a923e8590e015b3940c7f",
+                          "contractor_id": "e31a2de5-3196-48d3-9b71-461702b9b496",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "7b24b0a825b4965e8a2c0ac10026fae0",
+                          "contractor_id": "e5ccb180-faba-45e7-921f-d749f7561118",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "24fc43b7a828fea00d7a67bf96e95abc",
+                          "contractor_id": "e6de4cbe-726d-4616-9342-b1a1b8cc91b8",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "a4cdac105283093c50df2d252a0ac9c4",
+                          "contractor_id": "e75d5e98-03a2-425f-a176-d2bfe2cfd03d",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "6a18e637c098be609bf0b40458574da8",
+                          "contractor_id": "e778406d-f536-43db-af62-634c9835b311",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "a47796199e55a16d24c7bd156b484d2e",
+                          "contractor_id": "e7f3c2ce-4e2e-4931-90d8-2d39aaa1b8de",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "f9ee47568bd36185bd02c6a5de42e904",
+                          "contractor_id": "e8408e4f-36e6-4da1-9fa2-c2175259757f",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "f4ab7162e6e84838a8da30425945190f",
+                          "contractor_id": "ebcf16f7-0090-48af-bc3b-21d017feed0f",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "b77db49f397e3bba9df56fe93cd4b64b",
+                          "contractor_id": "ec692de3-b36f-4f0d-994c-49aed2247e26",
+                          "total": 23000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "86af975096bb889118544c07bd53c01d",
+                          "contractor_id": "ed15e1e1-2928-4805-a422-ffa00985d7a3",
+                          "total": 12313,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "4fdb7712da7f7397ba38d9e64dd01f3a",
+                          "contractor_id": "ed65d7ac-6a9f-46d3-a0fc-ee6b24496b15",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "d45fab8a8615633c3cd9da2f3e3fffea",
+                          "contractor_id": "ed79b16e-e0a1-4ce9-860c-6e81635f4fd5",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "cfd3ae44bffe02f91098109dc35ba676",
+                          "contractor_id": "ee255b55-a3a0-4dec-9783-dcd52d86e86a",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "5d26dd9f42e23e186be9de1df59a40ef",
+                          "contractor_id": "ee3cb38b-4901-4eaa-90e6-b25f859d75d7",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "4cdcdc1a2fa430689a01f0eb9f341a3f",
+                          "contractor_id": "f0e2db03-f50d-4575-acf0-f28803f50a64",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "2501714caa24afc9d5b573e64c60eabb",
+                          "contractor_id": "f1b1194a-525c-4cd6-8873-227abcc40627",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "9485321512fe2c0ae6c4f0364b965534",
+                          "contractor_id": "f441659d-2c7b-464f-b6e3-ce6f713a865d",
+                          "total": 73000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "c47292e9ad158dc3f724050a05ed0d16",
+                          "contractor_id": "f554a1f0-79ce-40c1-9991-acf37dbe60c3",
+                          "total": 95001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "0719d07a02668a03977757366fb51a82",
+                          "contractor_id": "f5c89c26-0680-45d7-a717-f48066e35246",
+                          "total": 85001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "a5f1b1c9b0778fffb27bdbb383325223",
+                          "contractor_id": "f5ce79fd-9230-4b64-8e78-139cce926243",
+                          "total": 30000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "8230a0d1071e30f2b0df428bd3b39b3c",
+                          "contractor_id": "f64302a7-fabe-471b-b2d4-fa461e1ab777",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "e540e0888e15465fdd22c5ed4190cd47",
+                          "contractor_id": "f65b365a-dd4b-4292-9a43-88d0a8cf20e7",
+                          "total": 100001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "4b567a7633aab038bf1f425ca63e68df",
+                          "contractor_id": "f69451f5-66dd-4607-b22a-e1f20615ad8b",
+                          "total": 39000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "abfc9bea25a9db3ef9f8b86f4f3364df",
+                          "contractor_id": "f73642b6-ecf2-45db-9992-c6e9b5fc610d",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "c0006ba6ed1d9cb3a849972e0227d84f",
+                          "contractor_id": "f753a2e3-cf23-415b-b441-45c6f842bc0d",
+                          "total": 0,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "ee365679ab6503bfbced744cad68d03b",
+                          "contractor_id": "f92e4d89-d2f3-4c1e-8eb4-dbb674cdfe7e",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "24acf013ce184ae2cb9208e6d0fe8440",
+                          "contractor_id": "f93b206b-2ad0-4a81-bd1d-35b69efd2c0f",
+                          "total": 89000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "fe0793d4596533c40e4dfbab102c25e1",
+                          "contractor_id": "f984b3c2-9b80-427f-997d-dd2fd7e7bae4",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "c53ecb5bf40377956279db2bd890b394",
+                          "contractor_id": "fa1df04b-1a10-4af8-a8b6-177b78e0dec7",
+                          "total": 81000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "7fb3c1bffef76aa3b85cf321f76cdc4c",
+                          "contractor_id": "fba3cdb9-fe42-41d9-a6a1-bac9d3fef8da",
+                          "total": 29001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "cac833dc1fbcd0248c651d15dec9a645",
+                          "contractor_id": "fc3dfcd1-05d2-4229-aa20-79227a14d7f0",
+                          "total": 68001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "e01c8b9238f26d9732db0c7e62beb1c5",
+                          "contractor_id": "fd0b6707-6ac2-45c6-9213-395f1580de06",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "185f8360fe5fc69f9f91c075564982ac",
+                          "contractor_id": "fd3fb52f-ec5c-4ed9-a467-c8be66bfac68",
+                          "total": 1,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "992747cbece4e3f9018c4bd934de67e5",
+                          "contractor_id": "fe02ded5-5e95-471b-91dd-9bd521509b12",
+                          "total": 66000,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "08f26f43c1f54c9d6b438b3524ae6f4f",
+                          "contractor_id": "ff044079-0377-4d16-b949-6791f774acee",
+                          "total": 50001,
+                          "total_contract": 99931118897
+                      },
+                      {
+                          "name": "c0d2d4706c81c9ae4b3201c88616e58c",
+                          "contractor_id": "ffce5073-8be8-4ea3-8c5d-e4c97bb8831f",
+                          "total": 52000,
+                          "total_contract": 99931118897
+                      }
+                  ],
+                  "total_contractor": 4
+              }
+          }

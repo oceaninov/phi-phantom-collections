@@ -1,0 +1,71 @@
+info:
+  name: Refresh Token
+  type: http
+  seq: 5
+
+http:
+  method: POST
+  url: https://api.phss.pertamina.com/auth-be/r3/oauth/refresh_token
+  body:
+    type: json
+    data: |-
+      {
+          "refresh_token": "eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJiMzQ0YWIzYi03ZTc5LTQyNmUtYjc1NS0xMzVlNzUzZDZjMWQifQ.eyJleHAiOjE3NDE5Mjg4ODgsImlhdCI6MTc0MDYzMjg4OCwianRpIjoiZWIxODMzYzUtMzNhNS00YmNhLTlkMmUtZGU4ODBmOGYxODc0IiwiaXNzIjoiaHR0cDovL2ludHJhLnBoaS5wZXJ0YW1pbmEuY29tL3Izb2F1dGgvcmVhbG1zL1IzTEFYIiwiYXVkIjoiaHR0cDovL2ludHJhLnBoaS5wZXJ0YW1pbmEuY29tL3Izb2F1dGgvcmVhbG1zL1IzTEFYIiwic3ViIjoiNDUzOThiNjgtODRkZC00NjZjLWJjN2MtMTIxMWI5OTZhOTM5IiwidHlwIjoiUmVmcmVzaCIsImF6cCI6IlIzTEFYIiwic2lkIjoiM2Y5N2QyNjQtZDllMS00NDk0LTk3OTgtOTg0YTZlOWRiMjFhIiwic2NvcGUiOiJyb2xlcyBlbWFpbCBiYXNpYyBwcm9maWxlIHdlYi1vcmlnaW5zIGFjciJ9.EDMabfiN3GfHRz6te2iX7ChLVXIRu7GVRHPbn8cpTJWc_gYUGzSKmUUoDLO2g0twFwPuhr9sdmmhCM61TimXaw"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: https://api.phss.pertamina.com/auth-be/r3/oauth/refresh_token
+      method: POST
+      body:
+        type: json
+        data: |-
+          {
+              "refresh_token": "eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJiMzQ0YWIzYi03ZTc5LTQyNmUtYjc1NS0xMzVlNzUzZDZjMWQifQ.eyJleHAiOjE3NDE5Mjg4ODgsImlhdCI6MTc0MDYzMjg4OCwianRpIjoiZWIxODMzYzUtMzNhNS00YmNhLTlkMmUtZGU4ODBmOGYxODc0IiwiaXNzIjoiaHR0cDovL2ludHJhLnBoaS5wZXJ0YW1pbmEuY29tL3Izb2F1dGgvcmVhbG1zL1IzTEFYIiwiYXVkIjoiaHR0cDovL2ludHJhLnBoaS5wZXJ0YW1pbmEuY29tL3Izb2F1dGgvcmVhbG1zL1IzTEFYIiwic3ViIjoiNDUzOThiNjgtODRkZC00NjZjLWJjN2MtMTIxMWI5OTZhOTM5IiwidHlwIjoiUmVmcmVzaCIsImF6cCI6IlIzTEFYIiwic2lkIjoiM2Y5N2QyNjQtZDllMS00NDk0LTk3OTgtOTg0YTZlOWRiMjFhIiwic2NvcGUiOiJyb2xlcyBlbWFpbCBiYXNpYyBwcm9maWxlIHdlYi1vcmlnaW5zIGFjciJ9.EDMabfiN3GfHRz6te2iX7ChLVXIRu7GVRHPbn8cpTJWc_gYUGzSKmUUoDLO2g0twFwPuhr9sdmmhCM61TimXaw"
+          }
+    response:
+      statusText: "200"
+      headers:
+        - name: Date
+          value: Thu, 27 Feb 2025 05:08:21 GMT
+        - name: Content-Type
+          value: application/json; charset=utf-8
+        - name: Vary
+          value: Accept-Encoding
+        - name: Content-Encoding
+          value: gzip
+        - name: Access-Control-Allow-Origin
+          value: "*"
+        - name: Keep-Alive
+          value: timeout=2, max=65
+        - name: Connection
+          value: Keep-Alive
+        - name: Strict-Transport-Security
+          value: max-age=16070400; includeSubdomains; preload
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJWZ1BCMDVobV9EbllROWNYOUJSeldOYkpMWFV0T19KTWtmSjJRdVdfQUVrIn0.eyJleHAiOjE3NDE4NDI1MDEsImlhdCI6MTc0MDYzMjkwMSwianRpIjoiMzBiOTY0ZWYtMjAzNS00ZWJiLTlmMTItYmVmYjJiMDY2ODFkIiwiaXNzIjoiaHR0cDovL2ludHJhLnBoaS5wZXJ0YW1pbmEuY29tL3Izb2F1dGgvcmVhbG1zL1IzTEFYIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjQ1Mzk4YjY4LTg0ZGQtNDY2Yy1iYzdjLTEyMTFiOTk2YTkzOSIsInR5cCI6IkJlYXJlciIsImF6cCI6IlIzTEFYIiwic2lkIjoiM2Y5N2QyNjQtZDllMS00NDk0LTk3OTgtOTg0YTZlOWRiMjFhIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIqIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsImRlZmF1bHQtcm9sZXMtcjNsYXgiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6InIzdGVzdC52aWNlcCIsInByZWZlcnJlZF91c2VybmFtZSI6InIzdGVzdC52aWNlcCIsImdpdmVuX25hbWUiOiJyM3Rlc3QudmljZXAifQ.XYSnFFb_6ri5JjFTmxc4I2DaZ5Fk9Mct8Pmzmv9jusfKvlYbGZW7vITOAaV_PhUATEw3v0vKKaTMbW882jk9uilj87JYZvgSRkbg7fi5S7-jDbReDUBYXPf01f0MrIAqzGF-Rh16Qe6xg-K99r4MU5jAewCy83Bg5JLnNlm6HfaUDkr2EZ28nSsXp8Ujy3pTXrrhtAgiGhRGoTytuicHQDzA3rBkoIsQPNknGJvqkuoXmihff5h7LXi6CUHMfWCxuUVpCt7HAZId2LuNKGag3F8-RHtFtj0Bg4dTuqU6NXwpK08NbsEdI9Cwe6GH7qRPoCa-zIuJXwCGS3_Wb1pTPg",
+              "expires_in": 1209600,
+              "refresh_expires_in": 1296000,
+              "refresh_token": "eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJiMzQ0YWIzYi03ZTc5LTQyNmUtYjc1NS0xMzVlNzUzZDZjMWQifQ.eyJleHAiOjE3NDE5Mjg5MDEsImlhdCI6MTc0MDYzMjkwMSwianRpIjoiYjZlNmI1ODctMGU4Zi00MGU3LTkxYjYtZTM4MDczNTI2MThlIiwiaXNzIjoiaHR0cDovL2ludHJhLnBoaS5wZXJ0YW1pbmEuY29tL3Izb2F1dGgvcmVhbG1zL1IzTEFYIiwiYXVkIjoiaHR0cDovL2ludHJhLnBoaS5wZXJ0YW1pbmEuY29tL3Izb2F1dGgvcmVhbG1zL1IzTEFYIiwic3ViIjoiNDUzOThiNjgtODRkZC00NjZjLWJjN2MtMTIxMWI5OTZhOTM5IiwidHlwIjoiUmVmcmVzaCIsImF6cCI6IlIzTEFYIiwic2lkIjoiM2Y5N2QyNjQtZDllMS00NDk0LTk3OTgtOTg0YTZlOWRiMjFhIiwic2NvcGUiOiJyb2xlcyBlbWFpbCBiYXNpYyBwcm9maWxlIHdlYi1vcmlnaW5zIGFjciJ9.p8pJGgFpydLZ1EKxbd7emy9dhVchccWT8aemhBz9jXe82SCBny3zBpwtSKmVTSAy6X9lnWZANZ6UduE7r6ouQw",
+              "token_type": "Bearer",
+              "session_state": "3f97d264-d9e1-4494-9798-984a6e9db21a",
+              "scoope": null,
+              "users": null,
+              "func": null,
+              "subfunc": null,
+              "posname": null,
+              "role": null
+          }

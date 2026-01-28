@@ -1,0 +1,142 @@
+info:
+  name: Delete Invoice
+  type: http
+  seq: 5
+
+http:
+  method: DELETE
+  url: "{{base_url}}/api/v1/invoices/58fa2351-01b4-4445-afcd-4f7589f6b536"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/invoices/ba4075c2-7d13-459c-8e6f-6c4901d3089b"
+      method: DELETE
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: "{\r
+
+          \    \"process_time\": \"152ms\",\r
+
+          \    \"status\": \"success\",\r
+
+          \    \"code\": \"\",\r
+
+          \    \"message\": \"Delete invoice succeed\"\r
+
+          }"
+  - name: data not found
+    request:
+      url: "{{base_url}}/api/v1/invoices/ba4075c2-7d13-459c-8e6f-6c4901d3089b"
+      method: DELETE
+    response:
+      statusText: "404"
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "3ms",
+              "status": "failed",
+              "code": "05",
+              "message": "Data not found",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Data not found",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }
+  - name: failed
+    request:
+      url: "{{base_url}}/api/v1/invoices/ba4075c2-7d13-459c-8e6f-6c4901d3089bcc"
+      method: DELETE
+    response:
+      statusText: "400"
+      body:
+        type: text
+        data: "{\r
+
+          \    \"process_time\": \"0ms\",\r
+
+          \    \"status\": \"failed\",\r
+
+          \    \"code\": \"17\",\r
+
+          \    \"message\": \"ID: must be a valid UUID.\",\r
+
+          \    \"error_data\": {\r
+
+          \        \"title\": \"Failed\",\r
+
+          \        \"description\": \"ID: must be a valid UUID.\",\r
+
+          \        \"icon\": \"https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png\",\r
+
+          \        \"primary_text\": \"OK\",\r
+
+          \        \"secondary_text\": \"\",\r
+
+          \        \"primary_link\": \"\",\r
+
+          \        \"secondary_link\": \"\",\r
+
+          \        \"dismissed_link\": \"\"\r
+
+          \    }\r
+
+          }"
+  - name: failed has paid retention
+    request:
+      url: "{{base_url}}/api/v1/invoices/58fa2351-01b4-4445-afcd-4f7589f6b536"
+      method: DELETE
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 25 Jun 2024 10:09:12 GMT
+        - name: Content-Length
+          value: "494"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "78ms",
+              "status": "failed",
+              "code": "17",
+              "message": "This invoice can't be deleted because has retention that already paid in invoice:INV/PHI00025/2024-06",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "This invoice can't be deleted because has retention that already paid in invoice:INV/PHI00025/2024-06",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

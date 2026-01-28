@@ -1,0 +1,85 @@
+info:
+  name: Delete File
+  type: http
+  seq: 6
+
+http:
+  method: DELETE
+  url: "{{base_url}}/api/v1/file-uploads/e948c784-6e53-4767-b11d-9a34dbd4aba1"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/file-uploads/e948c784-6e53-4767-b11d-9a34dbd4aba1"
+      method: DELETE
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Sun, 01 Oct 2023 15:42:59 GMT
+        - name: Content-Length
+          value: "86"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "358ms",
+              "status": "success",
+              "code": "",
+              "message": "Delete file succeed"
+          }
+  - name: failed data not found
+    request:
+      url: "{{base_url}}/api/v1/file-uploads/e948c784-6e53-4767-b11d-9a34dbd4aba2"
+      method: DELETE
+    response:
+      statusText: "404"
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: "{\r
+
+          \    \"process_time\": \"13ms\",\r
+
+          \    \"status\": \"failed\",\r
+
+          \    \"code\": \"05\",\r
+
+          \    \"message\": \"Data not found\",\r
+
+          \    \"error_data\": {\r
+
+          \        \"title\": \"Failed\",\r
+
+          \        \"description\": \"Data not found\",\r
+
+          \        \"icon\": \"https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png\",\r
+
+          \        \"primary_text\": \"OK\",\r
+
+          \        \"secondary_text\": \"\",\r
+
+          \        \"primary_link\": \"\",\r
+
+          \        \"secondary_link\": \"\",\r
+
+          \        \"dismissed_link\": \"\"\r
+
+          \    }\r
+
+          }"

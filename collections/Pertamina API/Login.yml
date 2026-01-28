@@ -1,0 +1,82 @@
+info:
+  name: Login
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: https://api.phss.pertamina.com/auth-be/r3/oauth/login
+  params:
+    - name: ""
+      value: ""
+      type: query
+      disabled: true
+  body:
+    type: json
+    data: |-
+      {
+          "username": "r3test.vicep",
+          "password": "Pertamina@321",
+          "otp": "257367"
+      }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: https://api.phss.pertamina.com/auth-be/r3/oauth/login
+      method: POST
+      params:
+        - name: ""
+          value: ""
+          type: query
+          disabled: true
+      body:
+        type: json
+        data: |-
+          {
+              "username": "r3test.vicep",
+              "password": "Pertamina@321",
+              "otp": "428312"
+          }
+    response:
+      statusText: "200"
+      headers:
+        - name: Date
+          value: Thu, 10 Apr 2025 03:55:24 GMT
+        - name: Content-Type
+          value: application/json
+        - name: Vary
+          value: Accept-Encoding
+        - name: Content-Encoding
+          value: gzip
+        - name: Access-Control-Allow-Origin
+          value: "*"
+        - name: Keep-Alive
+          value: timeout=2, max=65
+        - name: Connection
+          value: Keep-Alive
+        - name: Set-Cookie
+          value: TS0172a445=016b270e6f4bdc283862af2404da267ce508eaf58b6d185739d9ef178cc99c1a51250c4b5aced6d02c8ee07f82b594c42e9dbff4b3; Path=/; Domain=.api.phss.pertamina.com;
+        - name: Strict-Transport-Security
+          value: max-age=16070400; includeSubdomains; preload
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJWZ1BCMDVobV9EbllROWNYOUJSeldOYkpMWFV0T19KTWtmSjJRdVdfQUVrIn0.eyJleHAiOjE3NDU0NjY5MjQsImlhdCI6MTc0NDI1NzMyNCwianRpIjoiZWQ1ZmQ0YjgtYWFhNy00ZTJjLTk0MmMtY2M4YThiZTNjMTNlIiwiaXNzIjoiaHR0cDovL2ludHJhLnBoaS5wZXJ0YW1pbmEuY29tL3Izb2F1dGgvcmVhbG1zL1IzTEFYIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjQ1Mzk4YjY4LTg0ZGQtNDY2Yy1iYzdjLTEyMTFiOTk2YTkzOSIsInR5cCI6IkJlYXJlciIsImF6cCI6IlIzTEFYIiwic2lkIjoiMThkNDQ0MDAtZDJiMC00ZDRjLWFjZjYtMDlhZTYxMDQzYmI1IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIqIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsImRlZmF1bHQtcm9sZXMtcjNsYXgiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6InIzdGVzdC52aWNlcCIsInByZWZlcnJlZF91c2VybmFtZSI6InIzdGVzdC52aWNlcCIsImdpdmVuX25hbWUiOiJyM3Rlc3QudmljZXAifQ.cAPsJTmdWSgSTk63zYEmLhmIuGIzt8ZvC_5LKzOfftW2Ir8svbsbjSKr3PvOnnfhG8bAtZnHOJy7otNKMR1ZIl-sxm25c4e0DvjqLpR7Aoj3hFqTwA7hn-8kTV1FWESbDBoAZEh2ltuMclsbxc0Qsj2QEk5hqYS-I1xcj_jLkdCr9eClSOwKnK5nefxKncO7C0qsH86-bs5u3A6vjveJtT5oWp19DtckjcLMMbj815qfEbZtLMr0RLg5c9p54s-ZkuLfMCSVKYUiOkaFzehiFoOKWD6-WHEim2Rrd2j3LJorE-mwmQqG9R4bQJTfwXWzqCDRkPR8MV2rcfTfvPN_wQ",
+              "expires_in": 1209600,
+              "refresh_expires_in": 1296000,
+              "refresh_token": "eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJiMzQ0YWIzYi03ZTc5LTQyNmUtYjc1NS0xMzVlNzUzZDZjMWQifQ.eyJleHAiOjE3NDU1NTMzMjQsImlhdCI6MTc0NDI1NzMyNCwianRpIjoiMWQ5YzBmY2YtMzViMi00OTBiLWJhNTUtZjEwM2VlYWM1MDE1IiwiaXNzIjoiaHR0cDovL2ludHJhLnBoaS5wZXJ0YW1pbmEuY29tL3Izb2F1dGgvcmVhbG1zL1IzTEFYIiwiYXVkIjoiaHR0cDovL2ludHJhLnBoaS5wZXJ0YW1pbmEuY29tL3Izb2F1dGgvcmVhbG1zL1IzTEFYIiwic3ViIjoiNDUzOThiNjgtODRkZC00NjZjLWJjN2MtMTIxMWI5OTZhOTM5IiwidHlwIjoiUmVmcmVzaCIsImF6cCI6IlIzTEFYIiwic2lkIjoiMThkNDQ0MDAtZDJiMC00ZDRjLWFjZjYtMDlhZTYxMDQzYmI1Iiwic2NvcGUiOiJyb2xlcyBlbWFpbCBiYXNpYyBwcm9maWxlIHdlYi1vcmlnaW5zIGFjciJ9.n0oK8yzECBsl29x3tGOesF8MMJ1eySuioVqmEPwE8OTKgrfPh4H9ub_0OH3AiHGaaUl2CWl5qFtUnGT390PSRw",
+              "token_type": "Bearer",
+              "not-before-policy": 0,
+              "session_state": "18d44400-d2b0-4d4c-acf6-09ae61043bb5",
+              "scope": "email profile"
+          }

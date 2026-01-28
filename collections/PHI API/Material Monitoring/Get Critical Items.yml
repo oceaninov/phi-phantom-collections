@@ -1,0 +1,213 @@
+info:
+  name: Get Critical Items
+  type: http
+  seq: 5
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/material-monitoring/critical-items"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: empty data
+    request:
+      url: "{{base_url}}/api/v1/material-monitoring/critical-items"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 21 May 2024 02:52:29 GMT
+        - name: Content-Length
+          value: "115"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "154ms",
+              "status": "success",
+              "code": "",
+              "message": "Get material monitoring critical items",
+              "data": []
+          }
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/material-monitoring/critical-items"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 04 Jul 2024 03:47:26 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "140ms",
+              "status": "success",
+              "code": "",
+              "message": "Get material monitoring critical items",
+              "data": [
+                  {
+                      "project": "Didi",
+                      "items": [
+                          {
+                              "id": "17041421-69f9-452a-a986-2e410d667243",
+                              "material_monitoring_id": "2f177382-4140-4442-941d-c1226fb34b5b",
+                              "number": 2,
+                              "rev": "IFC",
+                              "project": "Didi",
+                              "comodities": "Aw",
+                              "kimap": "123893893",
+                              "description": "nih",
+                              "bom_received": "10.00",
+                              "sourcing_or_reservation": "10.00",
+                              "spk_or_contract": "10.00",
+                              "po_or_ro": "10.00",
+                              "material_onsite": "10.00",
+                              "target_ready_on_site": "16-06-2024",
+                              "target_po_date": "05-06-2024",
+                              "eta": "05-06-2024",
+                              "size": "1 1/2",
+                              "bom_qty": "6.00",
+                              "unit": "M",
+                              "procurement_status": "RESERVASI WHSE",
+                              "reservation_number": "1191634",
+                              "reservation_qty": "6.00",
+                              "spk_qty": "0.00",
+                              "spk_number": "SPK-093292",
+                              "po_number": "PO-231824",
+                              "po_qty": "24.00",
+                              "deviation": 24,
+                              "note": "2. today = 15 juni, jarak ready onsite 1 hari dari today -> critical",
+                              "status": "critical",
+                              "status_description": "The ETA is close to Ready On Site within 4 weeks"
+                          },
+                          {
+                              "id": "5032a9fd-a2a7-499e-9b2c-e2ff1699328b",
+                              "material_monitoring_id": "2f177382-4140-4442-941d-c1226fb34b5b",
+                              "number": 3,
+                              "rev": "IFC",
+                              "project": "Didi",
+                              "comodities": "Aw",
+                              "kimap": "123893893",
+                              "description": "nih",
+                              "bom_received": "10.00",
+                              "sourcing_or_reservation": "10.00",
+                              "spk_or_contract": "10.00",
+                              "po_or_ro": "10.00",
+                              "material_onsite": "10.00",
+                              "target_ready_on_site": "16-06-2024",
+                              "target_po_date": "05-06-2024",
+                              "eta": "05-06-2024",
+                              "size": "1 1/2",
+                              "bom_qty": "6.00",
+                              "unit": "M",
+                              "procurement_status": "RESERVASI WHSE",
+                              "reservation_number": "1191634",
+                              "reservation_qty": "6.00",
+                              "spk_qty": "0.00",
+                              "spk_number": "SPK-093292",
+                              "po_number": "PO-231824",
+                              "po_qty": "24.00",
+                              "deviation": 24,
+                              "note": "2. today = 15 juni, jarak ready onsite 1 hari dari today -> critical",
+                              "status": "critical",
+                              "status_description": "The ETA is close to Ready On Site within 4 weeks"
+                          }
+                      ]
+                  },
+                  {
+                      "project": "Dedii",
+                      "items": [
+                          {
+                              "id": "2ca3f708-7b73-4295-9b73-9c2829109ddb",
+                              "material_monitoring_id": "2f177382-4140-4442-941d-c1226fb34b5b",
+                              "number": 4,
+                              "rev": "IFC",
+                              "project": "Dedii",
+                              "comodities": "qwe",
+                              "kimap": "123893893",
+                              "description": "tuch",
+                              "bom_received": "10.00",
+                              "sourcing_or_reservation": "10.00",
+                              "spk_or_contract": "10.00",
+                              "po_or_ro": "10.00",
+                              "material_onsite": "10.00",
+                              "target_ready_on_site": "16-06-2024",
+                              "target_po_date": "05-06-2024",
+                              "eta": "05-06-2024",
+                              "size": "1 1/2",
+                              "bom_qty": "6.00",
+                              "unit": "M",
+                              "procurement_status": "RESERVASI WHSE",
+                              "reservation_number": "1191634",
+                              "reservation_qty": "6.00",
+                              "spk_qty": "0.00",
+                              "spk_number": "SPK-093292",
+                              "po_number": "PO-231824",
+                              "po_qty": "24.00",
+                              "deviation": 24,
+                              "note": "2. today = 15 juni, jarak ready onsite 1 hari dari today -> critical",
+                              "status": "critical",
+                              "status_description": "The ETA is close to Ready On Site within 4 weeks"
+                          }
+                      ]
+                  },
+                  {
+                      "project": "Dedi",
+                      "items": [
+                          {
+                              "id": "11549156-3c20-4135-bf92-0dabb538adab",
+                              "material_monitoring_id": "2f177382-4140-4442-941d-c1226fb34b5b",
+                              "number": 5,
+                              "rev": "IFC",
+                              "project": "Dedi",
+                              "comodities": "qwe",
+                              "kimap": "123893893",
+                              "description": "tuch",
+                              "bom_received": "10.00",
+                              "sourcing_or_reservation": "10.00",
+                              "spk_or_contract": "10.00",
+                              "po_or_ro": "10.00",
+                              "material_onsite": "10.00",
+                              "target_ready_on_site": "16-06-2024",
+                              "target_po_date": "05-06-2024",
+                              "eta": "05-06-2024",
+                              "size": "1 1/2",
+                              "bom_qty": "6.00",
+                              "unit": "M",
+                              "procurement_status": "RESERVASI WHSE",
+                              "reservation_number": "1191634",
+                              "reservation_qty": "6.00",
+                              "spk_qty": "0.00",
+                              "spk_number": "SPK-093292",
+                              "po_number": "PO-231824",
+                              "po_qty": "24.00",
+                              "deviation": 24,
+                              "note": "2. today = 15 juni, jarak ready onsite 1 hari dari today -> critical",
+                              "status": "critical",
+                              "status_description": "The ETA is close to Ready On Site within 4 weeks"
+                          }
+                      ]
+                  }
+              ]
+          }

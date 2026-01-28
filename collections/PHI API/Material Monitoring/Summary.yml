@@ -1,0 +1,266 @@
+info:
+  name: Summary
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/material-monitoring/summary"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/material-monitoring/summary"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 27 May 2024 07:16:25 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "116ms",
+              "status": "success",
+              "code": "",
+              "message": "Get material monitoring summary",
+              "data": [
+                  {
+                      "material_monitoring_id": "8675227e-bae5-4e6e-a046-8c39166e68b1",
+                      "project": "C-09 RELOCATION",
+                      "total_item": 303,
+                      "sum_bom_received": "100.00",
+                      "sum_sourcing_or_reservation": "100.00",
+                      "sum_spk_or_contract": "50.99",
+                      "sum_po_or_ro": "42.24",
+                      "sum_material_onsite": "30.03",
+                      "progress_last_week": "43.84",
+                      "progress_this_week": "43.84",
+                      "status": "constant"
+                  },
+                  {
+                      "material_monitoring_id": "8675227e-bae5-4e6e-a046-8c39166e68b1",
+                      "project": "MCP",
+                      "total_item": 471,
+                      "sum_bom_received": "100.00",
+                      "sum_sourcing_or_reservation": "100.00",
+                      "sum_spk_or_contract": "100.00",
+                      "sum_po_or_ro": "100.00",
+                      "sum_material_onsite": "100.00",
+                      "progress_last_week": "100.00",
+                      "progress_this_week": "100.00",
+                      "status": "constant"
+                  },
+                  {
+                      "material_monitoring_id": "8675227e-bae5-4e6e-a046-8c39166e68b1",
+                      "project": "BCP HP PURCHASE",
+                      "total_item": 395,
+                      "sum_bom_received": "100.00",
+                      "sum_sourcing_or_reservation": "100.00",
+                      "sum_spk_or_contract": "100.00",
+                      "sum_po_or_ro": "24.05",
+                      "sum_material_onsite": "7.09",
+                      "progress_last_week": "32.01",
+                      "progress_this_week": "32.01",
+                      "status": "constant"
+                  },
+                  {
+                      "material_monitoring_id": "8675227e-bae5-4e6e-a046-8c39166e68b1",
+                      "project": "SEMBERAH 14 NEW HP COMP",
+                      "total_item": 599,
+                      "sum_bom_received": "54.01",
+                      "sum_sourcing_or_reservation": "100.00",
+                      "sum_spk_or_contract": "100.00",
+                      "sum_po_or_ro": "29.22",
+                      "sum_material_onsite": "8.68",
+                      "progress_last_week": "31.26",
+                      "progress_this_week": "31.26",
+                      "status": "constant"
+                  },
+                  {
+                      "material_monitoring_id": "8675227e-bae5-4e6e-a046-8c39166e68b1",
+                      "project": "PAMAGUAN RENTAL",
+                      "total_item": 229,
+                      "sum_bom_received": "100.00",
+                      "sum_sourcing_or_reservation": "100.00",
+                      "sum_spk_or_contract": "100.00",
+                      "sum_po_or_ro": "96.72",
+                      "sum_material_onsite": "83.84",
+                      "progress_last_week": "89.17",
+                      "progress_this_week": "89.17",
+                      "status": "constant"
+                  },
+                  {
+                      "material_monitoring_id": "8675227e-bae5-4e6e-a046-8c39166e68b1",
+                      "project": "PAMAGUAN PURCHASE",
+                      "total_item": 469,
+                      "sum_bom_received": "73.88",
+                      "sum_sourcing_or_reservation": "100.00",
+                      "sum_spk_or_contract": "100.00",
+                      "sum_po_or_ro": "30.28",
+                      "sum_material_onsite": "8.42",
+                      "progress_last_week": "32.20",
+                      "progress_this_week": "32.20",
+                      "status": "constant"
+                  },
+                  {
+                      "material_monitoring_id": "8675227e-bae5-4e6e-a046-8c39166e68b1",
+                      "project": "M6",
+                      "total_item": 386,
+                      "sum_bom_received": "100.00",
+                      "sum_sourcing_or_reservation": "100.00",
+                      "sum_spk_or_contract": "100.00",
+                      "sum_po_or_ro": "99.87",
+                      "sum_material_onsite": "98.70",
+                      "progress_last_week": "99.15",
+                      "progress_this_week": "99.15",
+                      "status": "constant"
+                  },
+                  {
+                      "material_monitoring_id": "8675227e-bae5-4e6e-a046-8c39166e68b1",
+                      "project": "LEMPAKE UPGRADING",
+                      "total_item": 168,
+                      "sum_bom_received": "100.00",
+                      "sum_sourcing_or_reservation": "100.00",
+                      "sum_spk_or_contract": "100.00",
+                      "sum_po_or_ro": "100.00",
+                      "sum_material_onsite": "100.00",
+                      "progress_last_week": "99.99",
+                      "progress_this_week": "100.00",
+                      "status": "increase"
+                  },
+                  {
+                      "material_monitoring_id": "8675227e-bae5-4e6e-a046-8c39166e68b1",
+                      "project": "C-09 UPGRADING",
+                      "total_item": 372,
+                      "sum_bom_received": "100.00",
+                      "sum_sourcing_or_reservation": "99.19",
+                      "sum_spk_or_contract": "54.17",
+                      "sum_po_or_ro": "42.61",
+                      "sum_material_onsite": "22.58",
+                      "progress_last_week": "39.27",
+                      "progress_this_week": "39.27",
+                      "status": "constant"
+                  },
+                  {
+                      "material_monitoring_id": "8675227e-bae5-4e6e-a046-8c39166e68b1",
+                      "project": "LEMPAKE PURCHASE",
+                      "total_item": 516,
+                      "sum_bom_received": "100.00",
+                      "sum_sourcing_or_reservation": "100.00",
+                      "sum_spk_or_contract": "37.60",
+                      "sum_po_or_ro": "6.78",
+                      "sum_material_onsite": "6.78",
+                      "progress_last_week": "23.85",
+                      "progress_this_week": "23.85",
+                      "status": "constant"
+                  },
+                  {
+                      "material_monitoring_id": "8675227e-bae5-4e6e-a046-8c39166e68b1",
+                      "project": "NCP HP PURCHASE",
+                      "total_item": 430,
+                      "sum_bom_received": "100.00",
+                      "sum_sourcing_or_reservation": "100.00",
+                      "sum_spk_or_contract": "100.00",
+                      "sum_po_or_ro": "26.74",
+                      "sum_material_onsite": "8.37",
+                      "progress_last_week": "33.12",
+                      "progress_this_week": "33.12",
+                      "status": "constant"
+                  },
+                  {
+                      "material_monitoring_id": "8675227e-bae5-4e6e-a046-8c39166e68b1",
+                      "project": "SEMBERAH 14 VLP COMP",
+                      "total_item": 539,
+                      "sum_bom_received": "51.39",
+                      "sum_sourcing_or_reservation": "99.63",
+                      "sum_spk_or_contract": "99.63",
+                      "sum_po_or_ro": "27.09",
+                      "sum_material_onsite": "6.68",
+                      "progress_last_week": "29.55",
+                      "progress_this_week": "29.55",
+                      "status": "constant"
+                  },
+                  {
+                      "material_monitoring_id": "8675227e-bae5-4e6e-a046-8c39166e68b1",
+                      "project": "LEMPAKE UPGRADING ",
+                      "total_item": 1,
+                      "sum_bom_received": "100.00",
+                      "sum_sourcing_or_reservation": "100.00",
+                      "sum_spk_or_contract": "100.00",
+                      "sum_po_or_ro": "100.00",
+                      "sum_material_onsite": "100.00",
+                      "progress_last_week": "100.00",
+                      "progress_this_week": "100.00",
+                      "status": "constant"
+                  },
+                  {
+                      "material_monitoring_id": "8675227e-bae5-4e6e-a046-8c39166e68b1",
+                      "project": "RELOCATION M8",
+                      "total_item": 514,
+                      "sum_bom_received": "100.00",
+                      "sum_sourcing_or_reservation": "100.00",
+                      "sum_spk_or_contract": "100.00",
+                      "sum_po_or_ro": "59.82",
+                      "sum_material_onsite": "28.60",
+                      "progress_last_week": "49.57",
+                      "progress_this_week": "49.57",
+                      "status": "constant"
+                  },
+                  {
+                      "material_monitoring_id": "8675227e-bae5-4e6e-a046-8c39166e68b1",
+                      "project": "LAMPAKE BORDERLESS",
+                      "total_item": 223,
+                      "sum_bom_received": "100.00",
+                      "sum_sourcing_or_reservation": "100.00",
+                      "sum_spk_or_contract": "85.20",
+                      "sum_po_or_ro": "58.74",
+                      "sum_material_onsite": "48.88",
+                      "progress_last_week": "61.17",
+                      "progress_this_week": "61.17",
+                      "status": "constant"
+                  },
+                  {
+                      "material_monitoring_id": "8675227e-bae5-4e6e-a046-8c39166e68b1",
+                      "project": "TANGKI T3 BADAK",
+                      "total_item": 314,
+                      "sum_bom_received": "100.00",
+                      "sum_sourcing_or_reservation": "100.00",
+                      "sum_spk_or_contract": "100.00",
+                      "sum_po_or_ro": "21.34",
+                      "sum_material_onsite": "3.18",
+                      "progress_last_week": "29.20",
+                      "progress_this_week": "29.20",
+                      "status": "constant"
+                  },
+                  {
+                      "material_monitoring_id": "8675227e-bae5-4e6e-a046-8c39166e68b1",
+                      "project": "SEMBERAH -14 RELOCATION",
+                      "total_item": 516,
+                      "sum_bom_received": "100.00",
+                      "sum_sourcing_or_reservation": "100.00",
+                      "sum_spk_or_contract": "99.90",
+                      "sum_po_or_ro": "96.61",
+                      "sum_material_onsite": "66.57",
+                      "progress_last_week": "77.92",
+                      "progress_this_week": "77.92",
+                      "status": "constant"
+                  }
+              ]
+          }

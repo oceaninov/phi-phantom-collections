@@ -1,0 +1,184 @@
+info:
+  name: Get Role's Permissions Insert Query
+  type: http
+  seq: 10
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/roles/1/gen-insert-query"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/roles/1/gen-insert-query"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 13 Feb 2025 04:34:24 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "333ms",
+              "status": "success",
+              "code": "",
+              "message": "Get role's permissions insert query succeed",
+              "data": {
+                  "role_insert_query": "INSERT INTO R3TINA.ROLEACL (ACLID, SYSNAME, SYSROLE, SEQ_ROLE) VALUES({ACLID}, 'Super Admin', NULL);",
+                  "permission_insert_queries": [
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'User','User',0,0,0,1,'Read');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'User','User',0,0,0,2,'Set User Role');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'User','User',0,0,0,3,'Update');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'User','User',0,0,0,4,'Create');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Role','Role',0,0,0,5,'Read');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Role','Role',0,0,0,6,'Update');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Role','Role',0,0,0,7,'Delete');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Role','Role',0,0,0,8,'Create');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Role','Role',0,0,0,9,'Read Permissions');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Role','Role',0,0,0,10,'Set Permissions');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Contractor','Contractor',0,0,0,11,'Read');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Contractor','Contractor',0,0,0,12,'Create');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Contractor','Contractor',0,0,0,13,'Update');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Contractor','Contractor',0,0,0,14,'Delete');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Unit','Unit',0,0,0,15,'Read');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Unit','Unit',0,0,0,16,'Create');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Unit','Unit',0,0,0,17,'Update');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Unit','Unit',0,0,0,18,'Delete');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Contract','Contract',0,0,0,19,'Read');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Contract','Contract',0,0,0,20,'Create');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Contract','Contract',0,0,0,21,'Update');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Contract','Contract',0,0,0,22,'Delete');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Contract','Contract',0,0,0,31,'Upload Contract BOQ');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Contract','Contract',0,0,0,32,'Read Contract BOQ');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Contract','Contract',0,0,0,62,'Submit');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Contract','Contract',0,0,0,63,'Contract Approval');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Contract','Contract',0,0,0,64,'Cancel Contract');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Contract','Contract',0,0,0,65,'Finish Contract');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Contract','Contract',0,0,0,96,'Create Contract Document');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Contract','Contract',0,0,0,97,'Read Contract Document');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Contract','Contract',0,0,0,98,'Update Contract Document');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Contract','Contract',0,0,0,99,'Delete Contract Document');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Contract','Contract',0,0,0,118,'Update Contract Approver');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Contract','Contract',0,0,0,124,'Manage Contract Depletion Value Warning Notification');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'SPK','SPK',0,0,0,23,'Read');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'SPK','SPK',0,0,0,24,'Create');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'SPK','SPK',0,0,0,25,'Update');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'SPK','SPK',0,0,0,26,'Delete');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'SPK','SPK',0,0,0,57,'Submit SPK');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'SPK','SPK',0,0,0,58,'SPK Approval');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'SPK','SPK',0,0,0,60,'Cancel SPK');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'SPK','SPK',0,0,0,66,'Finish SPK');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'SPK','SPK',0,0,0,67,'Input Progress');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'SPK','SPK',0,0,0,69,'Release SPK');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'SPK','SPK',0,0,0,70,'SPK BoQ Progress Approval');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'SPK','SPK',0,0,0,87,'Update SPK Remark');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'SPK','SPK',0,0,0,104,'Create SPK Document');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'SPK','SPK',0,0,0,105,'Read SPK Document');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'SPK','SPK',0,0,0,106,'Update SPK Document');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'SPK','SPK',0,0,0,107,'Delete SPK Document');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'SPK','SPK',0,0,0,108,'Create SPK BoQ Document');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'SPK','SPK',0,0,0,109,'Read SPK BoQ Document');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'SPK','SPK',0,0,0,110,'Update SPK BoQ Document');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'SPK','SPK',0,0,0,111,'Delete SPK BoQ Document');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'SPK','SPK',0,0,0,123,'Update SPK Approver');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'SPK','SPK',0,0,0,134,'Update SPK Cost Allocation');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Field','Field',0,0,0,27,'Read');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Field','Field',0,0,0,28,'Create');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Field','Field',0,0,0,29,'Update');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Field','Field',0,0,0,30,'Delete');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Rkap','Rkap',0,0,0,33,'Read Single Data');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Rkap','Rkap',0,0,0,34,'Update Data');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Rkap','Rkap',0,0,0,35,'Delete');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Rkap','Rkap',0,0,0,36,'Create');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Project','Project',0,0,0,37,'Read ');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Project','Project',0,0,0,38,'Create');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Project','Project',0,0,0,39,'Update ');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Project','Project',0,0,0,40,'Delete');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Project','Project',0,0,0,45,'Upload Project Tasks');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Project','Project',0,0,0,46,'Read Project Tasks');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Project','Project',0,0,0,47,'Set Project Task Remarks');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Project','Project',0,0,0,48,'Update Project Task Status');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Project','Project',0,0,0,49,'Set Project Task Assignee');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Project','Project',0,0,0,50,'Create Project Task');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Project','Project',0,0,0,51,'Set Project Task BoQ');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Project','Project',0,0,0,52,'Get Project Task BoQ');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Project','Project',0,0,0,53,'Submit Project');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Project','Project',0,0,0,54,'Project Approval');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Project','Project',0,0,0,55,'Read Project Spending Plan');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Project','Project',0,0,0,56,'Update Project Spending Plan');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Project','Project',0,0,0,59,'Cancel Project');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Project','Project',0,0,0,61,'Finish Project');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Project','Project',0,0,0,100,'Create Project Document');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Project','Project',0,0,0,101,'Read Project Document');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Project','Project',0,0,0,102,'Update Project Document');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Project','Project',0,0,0,103,'Delete Project Document');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Project','Project',0,0,0,112,'Create Project Rebaseline');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Project','Project',0,0,0,117,'Update Project Approver');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Project','Project',0,0,0,127,'Manage Project Reminder via Email and In App notif');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Project','Project',0,0,0,136,'Add Project Task Progress');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Bank','Bank',0,0,0,41,'Read');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Bank','Bank',0,0,0,42,'Create');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Bank','Bank',0,0,0,43,'Update');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Bank','Bank',0,0,0,44,'Delete');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Dashboard','Dashboard',0,0,0,68,'Read Dashboard');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Tender','Tender',0,0,0,71,'Get tender process categories');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Tender','Tender',0,0,0,72,'Create tender process categories');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Tender','Tender',0,0,0,73,'Update tender process categories');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Tender','Tender',0,0,0,74,'Delete tender process categories');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Tender','Tender',0,0,0,75,'Get tender processes');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Tender','Tender',0,0,0,76,'Create tender processes');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Tender','Tender',0,0,0,77,'Update tender processes');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Tender','Tender',0,0,0,78,'Delete tender processes');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Tender','Tender',0,0,0,79,'Get Tender');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Tender','Tender',0,0,0,80,'Create Tender');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Tender','Tender',0,0,0,81,'Update Tender');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Tender','Tender',0,0,0,82,'Update Tender Contract');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Tender','Tender',0,0,0,83,'Delete Tender');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Tender','Tender',0,0,0,84,'Update Tender Actual Timeline');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Tender','Tender',0,0,0,85,'Get Process Histories');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Tender','Tender',0,0,0,86,'Skip Process');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Tender','Tender',0,0,0,135,'Show Tender Value');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Service Acceptance','Service Acceptance',0,0,0,88,'Read');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Service Acceptance','Service Acceptance',0,0,0,89,'Update');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Service Acceptance','Service Acceptance',0,0,0,90,'Delete');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Service Acceptance','Service Acceptance',0,0,0,91,'Create');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Service Acceptance','Service Acceptance',0,0,0,113,'Create Service Acceptance Document');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Service Acceptance','Service Acceptance',0,0,0,114,'Read Service Acceptance Document');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Service Acceptance','Service Acceptance',0,0,0,115,'Update Service Acceptance Document');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Service Acceptance','Service Acceptance',0,0,0,116,'Delete Service Acceptance Document');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Invoice','Invoice',0,0,0,92,'Read');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Invoice','Invoice',0,0,0,93,'Create');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Invoice','Invoice',0,0,0,94,'Update');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Invoice','Invoice',0,0,0,95,'Delete');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Approval Route','Approval Route',0,0,0,119,'Read Approval Route');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Approval Route','Approval Route',0,0,0,120,'Update Approval Route');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Approval Route','Approval Route',0,0,0,121,'Delete Approval Route');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Approval Route','Approval Route',0,0,0,122,'Create Approval Route');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Trash Bin','Trash Bin',0,0,0,125,'Read Trash Bin');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Trash Bin','Trash Bin',0,0,0,126,'Restore Trash Bin');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Manage Custom Configurations','Manage Custom Configurations',0,0,0,128,'Read');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Manage Custom Configurations','Manage Custom Configurations',0,0,0,129,'Update');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Manage Custom Configurations','Manage Custom Configurations',0,0,0,130,'Delete');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Manage Custom Configurations','Manage Custom Configurations',0,0,0,131,'Create');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Material Monitoring','Material Monitoring',0,0,0,132,'Upload File');",
+                      "INSERT INTO R3TINA.ACL (ACLID, URLPATH, COMPONENTID, HIDDEN, READONLY, DISABLED, SEQ, PAGE) VALUES({ACLID},'Material Monitoring','Material Monitoring',0,0,0,133,'Read');"
+                  ]
+              }
+          }

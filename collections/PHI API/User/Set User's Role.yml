@@ -1,0 +1,113 @@
+info:
+  name: Set User's Role
+  type: http
+  seq: 12
+
+http:
+  method: PUT
+  url: "{{base_url}}/api/v1/users/7ae8e931-1628-4562-bf24-1c2cdd2b4cf7/role"
+  body:
+    type: json
+    data: "{\r\n    \"role_id\": 2\r\n}"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: failed role not found
+    request:
+      url: "{{base_url}}/users/3/role"
+      method: PUT
+      body:
+        type: json
+        data: "{\r\n    \"role_id\": 2\r\n}"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 03 Aug 2023 03:36:06 GMT
+        - name: Content-Length
+          value: "82"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "140ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Role not found"
+          }
+  - name: Set User's Role
+    request:
+      url: "{{base_url}}/users/3/role"
+      method: PUT
+      body:
+        type: json
+        data: "{\r\n    \"role_id\": 1\r\n}"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 03 Aug 2023 03:36:21 GMT
+        - name: Content-Length
+          value: "93"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "714ms",
+              "status": "success",
+              "code": "",
+              "message": "Update user's role succeed"
+          }
+  - name: failed user not found
+    request:
+      url: "{{base_url}}/api/v1/users/7ae8e931-1628-4562-bf24-1c2cdd2b4cf7/role"
+      method: PUT
+      body:
+        type: json
+        data: "{\r\n    \"role_id\": 2\r\n}"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 15 Nov 2023 03:17:40 GMT
+        - name: Content-Length
+          value: "320"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "24ms",
+              "status": "failed",
+              "code": "17",
+              "message": "User not found",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "User not found",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

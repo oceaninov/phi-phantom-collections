@@ -1,0 +1,104 @@
+info:
+  name: Cancel Contract
+  type: http
+  seq: 18
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/contracts/cancel"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"contract_id\": \"6ded2533-dea9-427c-a860-f7bdc35582ea\",\r
+
+      \    \"note\": \"Cancel contract 1234555556\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/contracts/cancel"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"contract_id\": \"6ded2533-dea9-427c-a860-f7bdc35582ea\",\r
+
+          \    \"note\": \"Cancel contract 1234555556\"\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Sun, 15 Oct 2023 05:01:39 GMT
+        - name: Content-Length
+          value: "90"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "249ms",
+              "status": "success",
+              "code": "",
+              "message": "Cancel contract succeed"
+          }
+  - name: failed request validation
+    request:
+      url: "{{base_url}}/api/v1/contracts/cancel"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"contract_id\": \"6ded2533-dea9-427c-a860-f7bdc35582ea\",\r
+
+          \    \"note\": \"\"\r
+
+          }"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 16 Nov 2023 07:10:01 GMT
+        - name: Content-Length
+          value: "335"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "9ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Note: cannot be blank.",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Note: cannot be blank.",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

@@ -1,0 +1,664 @@
+info:
+  name: Get BOQ Details
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/vendors/contracts/boqs/details?page=1&page_size=30&is_active=1&contract_id=d51afa0c-d2b7-4c5f-bcca-7b1f37dcd3b1"
+  params:
+    - name: page
+      value: "1"
+      type: query
+    - name: page_size
+      value: "30"
+      type: query
+    - name: is_active
+      value: "1"
+      type: query
+    - name: sort_column
+      value: origin_number
+      type: query
+      description: origin_number,code
+      disabled: true
+    - name: sort_order
+      value: ASC
+      type: query
+      disabled: true
+    - name: boq_id
+      value: 4f122dd1-6bc9-4699-af65-426b94f87026
+      type: query
+      disabled: true
+    - name: origin_number
+      value: "1"
+      type: query
+      disabled: true
+    - name: breakdown
+      value: A.1.2.
+      type: query
+      disabled: true
+    - name: description
+      value: PROCESS & PROCESS SAFETY DELIVERABLE LIST
+      type: query
+      disabled: true
+    - name: contract_id
+      value: d51afa0c-d2b7-4c5f-bcca-7b1f37dcd3b1
+      type: query
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Get BOQ Details
+    request:
+      url: "{{base_url}}/api/v1/contracts/boqs/details?page=1&page_size=30&is_active=1&contract_id=8181ffd8-1a86-4040-844d-228e4258930b"
+      method: GET
+      params:
+        - name: page
+          value: "1"
+          type: query
+        - name: page_size
+          value: "30"
+          type: query
+        - name: is_active
+          value: "1"
+          type: query
+        - name: sort_column
+          value: origin_number
+          type: query
+          description: origin_number,code
+          disabled: true
+        - name: sort_order
+          value: ASC
+          type: query
+          disabled: true
+        - name: boq_id
+          value: 4f122dd1-6bc9-4699-af65-426b94f87026
+          type: query
+          disabled: true
+        - name: origin_number
+          value: "1"
+          type: query
+          disabled: true
+        - name: breakdown
+          value: A.1.2.
+          type: query
+          disabled: true
+        - name: description
+          value: PROCESS & PROCESS SAFETY DELIVERABLE LIST
+          type: query
+          disabled: true
+        - name: contract_id
+          value: 8181ffd8-1a86-4040-844d-228e4258930b
+          type: query
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 18 Oct 2023 08:14:49 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "227ms",
+              "status": "success",
+              "code": "",
+              "message": "Get BOQ detail succeed",
+              "data": {
+                  "list": [
+                      {
+                          "id": "e318b652-a581-466b-b146-9a64f9ea7ed8",
+                          "boq_id": "1b341b3a-896e-46d9-ae53-08caa34d7e17",
+                          "origin_number": 1,
+                          "breakdown": "A.",
+                          "description": "A. PEKERJAAN PERSIAPAN DAN ADMINISTRASI",
+                          "kind": "",
+                          "quantity": 0,
+                          "total": "0.00",
+                          "unit_price": "0.00",
+                          "remark": "|  |  |  |",
+                          "data_type": "header",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "00000000-0000-0000-0000-000000000000",
+                              "name": ""
+                          }
+                      },
+                      {
+                          "id": "faa758be-feec-4cd7-9179-3f9e3f57797f",
+                          "boq_id": "1b341b3a-896e-46d9-ae53-08caa34d7e17",
+                          "origin_number": 2,
+                          "breakdown": " A.1.",
+                          "description": "1. Survey, Laporan Survey dan Engineering",
+                          "kind": "Upah",
+                          "quantity": 12,
+                          "total": "162000000.00",
+                          "unit_price": "13500000.00",
+                          "remark": "|  |  |  |",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "4eba7051-8ef7-4deb-9b21-7b5ed914568e",
+                              "name": "Paket"
+                          }
+                      },
+                      {
+                          "id": "a03853d4-da2c-4e50-8c01-dbe590a902b3",
+                          "boq_id": "1b341b3a-896e-46d9-ae53-08caa34d7e17",
+                          "origin_number": 3,
+                          "breakdown": " A.2.",
+                          "description": "2. Pembuatan Dokumen Prosedur Instalasi / Konstruksi dan Commisioning",
+                          "kind": "Material",
+                          "quantity": 12,
+                          "total": "108000000.00",
+                          "unit_price": "9000000.00",
+                          "remark": "|  |  |  |",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "7e51efee-b75e-43e4-8533-a622bb034685",
+                              "name": "Doc"
+                          }
+                      },
+                      {
+                          "id": "28db2258-2961-43f0-8041-8ab4823459f7",
+                          "boq_id": "1b341b3a-896e-46d9-ae53-08caa34d7e17",
+                          "origin_number": 3,
+                          "breakdown": " A.2.",
+                          "description": "2. Pembuatan Dokumen Prosedur Instalasi / Konstruksi dan Commisioning",
+                          "kind": "Upah",
+                          "quantity": 12,
+                          "total": "185400000.00",
+                          "unit_price": "15450000.00",
+                          "remark": "|  |  |  |",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "7e51efee-b75e-43e4-8533-a622bb034685",
+                              "name": "Doc"
+                          }
+                      },
+                      {
+                          "id": "d0fca54f-3e82-43b1-83fd-7d9301535d0f",
+                          "boq_id": "1b341b3a-896e-46d9-ae53-08caa34d7e17",
+                          "origin_number": 4,
+                          "breakdown": " A.3.",
+                          "description": "3. Laporan Pekerjaan, Dokumentasi Pekerjaan, As Built Drawing, MDR",
+                          "kind": "Upah",
+                          "quantity": 12,
+                          "total": "216000000.00",
+                          "unit_price": "18000000.00",
+                          "remark": "|  |  |  |",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "4eba7051-8ef7-4deb-9b21-7b5ed914568e",
+                              "name": "Paket"
+                          }
+                      },
+                      {
+                          "id": "aa0521d9-ec46-4cd7-bdee-de483b11677b",
+                          "boq_id": "1b341b3a-896e-46d9-ae53-08caa34d7e17",
+                          "origin_number": 8,
+                          "breakdown": "B.",
+                          "description": "B. PEKERJAAN PENGADAAN DAN PEMASANGAN MATERIAL LISTRIK",
+                          "kind": "",
+                          "quantity": 0,
+                          "total": "0.00",
+                          "unit_price": "0.00",
+                          "remark": "|  |  |  |",
+                          "data_type": "header",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "00000000-0000-0000-0000-000000000000",
+                              "name": ""
+                          }
+                      },
+                      {
+                          "id": "b79a4785-a5eb-4f0a-955c-9bb3310098a3",
+                          "boq_id": "1b341b3a-896e-46d9-ae53-08caa34d7e17",
+                          "origin_number": 9,
+                          "breakdown": " B.1.",
+                          "description": "B.1  TRAFO",
+                          "kind": "",
+                          "quantity": 0,
+                          "total": "0.00",
+                          "unit_price": "0.00",
+                          "remark": "|  |  |  | 'Note : untuk semua Trafo mempunyai dua output 440 Volt dan 380 Volt",
+                          "data_type": "header",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "00000000-0000-0000-0000-000000000000",
+                              "name": ""
+                          }
+                      },
+                      {
+                          "id": "a25445fe-f8ec-4253-afe2-e0ae82aa7d13",
+                          "boq_id": "1b341b3a-896e-46d9-ae53-08caa34d7e17",
+                          "origin_number": 10,
+                          "breakdown": "  B.1.1.",
+                          "description": "1. Immersed oil Trafo 250 KVA, 6.6kV/0.44-0.38kV, Dyn 5, insulation class B, as per datasheet (attached)",
+                          "kind": "Material",
+                          "quantity": 2,
+                          "total": "850000000.00",
+                          "unit_price": "425000000.00",
+                          "remark": "B & D | Trafo 250 KVA, 6.6kV/0.44-0.38kV |  |  | Data teknis terlampir",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "d93aef0a-2efc-47ac-8322-b95774bcfbe9",
+                              "name": "Unit"
+                          }
+                      },
+                      {
+                          "id": "04d97fb1-911d-4b79-a3ec-48c3ccd0d406",
+                          "boq_id": "1b341b3a-896e-46d9-ae53-08caa34d7e17",
+                          "origin_number": 10,
+                          "breakdown": "  B.1.1.",
+                          "description": "1. Immersed oil Trafo 250 KVA, 6.6kV/0.44-0.38kV, Dyn 5, insulation class B, as per datasheet (attached)",
+                          "kind": "Upah",
+                          "quantity": 2,
+                          "total": "10000000.00",
+                          "unit_price": "5000000.00",
+                          "remark": "B & D | Trafo 250 KVA, 6.6kV/0.44-0.38kV |  |  | Data teknis terlampir",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "d93aef0a-2efc-47ac-8322-b95774bcfbe9",
+                              "name": "Unit"
+                          }
+                      },
+                      {
+                          "id": "bc37e3b4-845b-4b2d-bb74-03770392f05e",
+                          "boq_id": "1b341b3a-896e-46d9-ae53-08caa34d7e17",
+                          "origin_number": 11,
+                          "breakdown": "  B.1.2.",
+                          "description": "2. Trafo 300 KVA, 6.6kV/0.44-0.38kV as per datasheet (attached)",
+                          "kind": "Upah",
+                          "quantity": 2,
+                          "total": "10000000.00",
+                          "unit_price": "5000000.00",
+                          "remark": "B & D | Trafo 300 KVA, 6.6kV/0.44-0.38kV |  |  | Data teknis terlampir",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "d93aef0a-2efc-47ac-8322-b95774bcfbe9",
+                              "name": "Unit"
+                          }
+                      },
+                      {
+                          "id": "7ce7acd5-6aa9-4c30-897d-7f711a7fe592",
+                          "boq_id": "1b341b3a-896e-46d9-ae53-08caa34d7e17",
+                          "origin_number": 11,
+                          "breakdown": "  B.1.2.",
+                          "description": "2. Trafo 300 KVA, 6.6kV/0.44-0.38kV as per datasheet (attached)",
+                          "kind": "Material",
+                          "quantity": 2,
+                          "total": "920000000.00",
+                          "unit_price": "460000000.00",
+                          "remark": "B & D | Trafo 300 KVA, 6.6kV/0.44-0.38kV |  |  | Data teknis terlampir",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "d93aef0a-2efc-47ac-8322-b95774bcfbe9",
+                              "name": "Unit"
+                          }
+                      },
+                      {
+                          "id": "9d2f5118-9667-4750-a3aa-7b77eb2aab7c",
+                          "boq_id": "1b341b3a-896e-46d9-ae53-08caa34d7e17",
+                          "origin_number": 12,
+                          "breakdown": "  B.1.3.",
+                          "description": "3. Trafo 500 KVA, 6.6kV/0.44-0.38kV as per datasheet (attached)",
+                          "kind": "Upah",
+                          "quantity": 2,
+                          "total": "14000000.00",
+                          "unit_price": "7000000.00",
+                          "remark": "B & D | Trafo 500 KVA, 6.6kV/0.44-0.38kV |  |  | Data teknis terlampir",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "d93aef0a-2efc-47ac-8322-b95774bcfbe9",
+                              "name": "Unit"
+                          }
+                      },
+                      {
+                          "id": "48343fc7-4944-430b-b14f-5036dbb10c07",
+                          "boq_id": "1b341b3a-896e-46d9-ae53-08caa34d7e17",
+                          "origin_number": 12,
+                          "breakdown": "  B.1.3.",
+                          "description": "3. Trafo 500 KVA, 6.6kV/0.44-0.38kV as per datasheet (attached)",
+                          "kind": "Material",
+                          "quantity": 2,
+                          "total": "1050000000.00",
+                          "unit_price": "525000000.00",
+                          "remark": "B & D | Trafo 500 KVA, 6.6kV/0.44-0.38kV |  |  | Data teknis terlampir",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "d93aef0a-2efc-47ac-8322-b95774bcfbe9",
+                              "name": "Unit"
+                          }
+                      },
+                      {
+                          "id": "20e30cff-3159-4780-ba5c-5dc226aa1f95",
+                          "boq_id": "1b341b3a-896e-46d9-ae53-08caa34d7e17",
+                          "origin_number": 13,
+                          "breakdown": "  B.1.4.",
+                          "description": "4. Trafo 800 KVA, 6.6kV/0.44-0.38kV as per datasheet (attached)",
+                          "kind": "Upah",
+                          "quantity": 2,
+                          "total": "14000000.00",
+                          "unit_price": "7000000.00",
+                          "remark": "B & D | Trafo 800 KVA, 6.6kV/0.44-0.38kV |  |  | Data teknis terlampir",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "d93aef0a-2efc-47ac-8322-b95774bcfbe9",
+                              "name": "Unit"
+                          }
+                      },
+                      {
+                          "id": "a211af99-4b58-470c-8260-791f94c4e728",
+                          "boq_id": "1b341b3a-896e-46d9-ae53-08caa34d7e17",
+                          "origin_number": 13,
+                          "breakdown": "  B.1.4.",
+                          "description": "4. Trafo 800 KVA, 6.6kV/0.44-0.38kV as per datasheet (attached)",
+                          "kind": "Material",
+                          "quantity": 2,
+                          "total": "1210000000.00",
+                          "unit_price": "605000000.00",
+                          "remark": "B & D | Trafo 800 KVA, 6.6kV/0.44-0.38kV |  |  | Data teknis terlampir",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "d93aef0a-2efc-47ac-8322-b95774bcfbe9",
+                              "name": "Unit"
+                          }
+                      },
+                      {
+                          "id": "f5b3de0b-2ddf-4f94-af38-f7d38583a32e",
+                          "boq_id": "1b341b3a-896e-46d9-ae53-08caa34d7e17",
+                          "origin_number": 14,
+                          "breakdown": "  B.1.5.",
+                          "description": "5. Trafo 1000 KVA, 6.6kV/0.44-0.38kV as per datasheet (attached)",
+                          "kind": "Material",
+                          "quantity": 2,
+                          "total": "1410000000.00",
+                          "unit_price": "705000000.00",
+                          "remark": "B & D | Trafo 1000 KVA, 6.6kV/0.44-0.38kV |  |  | Data teknis terlampir",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "d93aef0a-2efc-47ac-8322-b95774bcfbe9",
+                              "name": "Unit"
+                          }
+                      },
+                      {
+                          "id": "267181d1-20b9-464d-b239-87a0e60ead61",
+                          "boq_id": "1b341b3a-896e-46d9-ae53-08caa34d7e17",
+                          "origin_number": 14,
+                          "breakdown": "  B.1.5.",
+                          "description": "5. Trafo 1000 KVA, 6.6kV/0.44-0.38kV as per datasheet (attached)",
+                          "kind": "Upah",
+                          "quantity": 2,
+                          "total": "20000000.00",
+                          "unit_price": "10000000.00",
+                          "remark": "B & D | Trafo 1000 KVA, 6.6kV/0.44-0.38kV |  |  | Data teknis terlampir",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "d93aef0a-2efc-47ac-8322-b95774bcfbe9",
+                              "name": "Unit"
+                          }
+                      },
+                      {
+                          "id": "81660403-95b5-4ced-9fd0-b734365647bc",
+                          "boq_id": "1b341b3a-896e-46d9-ae53-08caa34d7e17",
+                          "origin_number": 17,
+                          "breakdown": " B.2.",
+                          "description": "B.2  PANEL TM SWITCHGEAR",
+                          "kind": "",
+                          "quantity": 0,
+                          "total": "0.00",
+                          "unit_price": "0.00",
+                          "remark": "|  |  |  |",
+                          "data_type": "header",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "00000000-0000-0000-0000-000000000000",
+                              "name": ""
+                          }
+                      },
+                      {
+                          "id": "a2ca540e-ef6a-44d7-94d7-abf92c35a5ba",
+                          "boq_id": "1b341b3a-896e-46d9-ae53-08caa34d7e17",
+                          "origin_number": 18,
+                          "breakdown": "  B.2.1.",
+                          "description": "1. Panel Switchgear TM Incoming/Outgoing 7.2kV, VCB 630A, 16kA 3 sec, Metal Enclosed, IP 41, indication lamp, CT/VT, Protection module relay, RAL 7035, nameplate, selector switch, digital metering \nInc/Out : VCB 630A",
+                          "kind": "Material",
+                          "quantity": 2,
+                          "total": "750000000.00",
+                          "unit_price": "375000000.00",
+                          "remark": "ABB | Incoming CB Panel Type SBC |  |  | Data teknis terlampir",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "60f87a3e-e1f6-4ef5-86b4-e19e584a2451",
+                              "name": "Set"
+                          }
+                      },
+                      {
+                          "id": "e46ee77a-f395-4e46-b3e8-5fff52aee184",
+                          "boq_id": "1b341b3a-896e-46d9-ae53-08caa34d7e17",
+                          "origin_number": 18,
+                          "breakdown": "  B.2.1.",
+                          "description": "1. Panel Switchgear TM Incoming/Outgoing 7.2kV, VCB 630A, 16kA 3 sec, Metal Enclosed, IP 41, indication lamp, CT/VT, Protection module relay, RAL 7035, nameplate, selector switch, digital metering \nInc/Out : VCB 630A",
+                          "kind": "Upah",
+                          "quantity": 2,
+                          "total": "8000000.00",
+                          "unit_price": "4000000.00",
+                          "remark": "ABB | Incoming CB Panel Type SBC |  |  | Data teknis terlampir",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "60f87a3e-e1f6-4ef5-86b4-e19e584a2451",
+                              "name": "Set"
+                          }
+                      },
+                      {
+                          "id": "71cebaf8-7da5-4c36-b480-ed7f1de1b73b",
+                          "boq_id": "1b341b3a-896e-46d9-ae53-08caa34d7e17",
+                          "origin_number": 19,
+                          "breakdown": "  B.2.2.",
+                          "description": "2. Panel MV Switchgear Outgoing 7.2kV, VCB 630A, 16kA 3 sec, Metal Enclosed, IP 41, indication lamp, CT/VT, Protection module relay, RAL 7035, nameplate, selector switch, digital metering \nOutgoing : VCB 100A",
+                          "kind": "Upah",
+                          "quantity": 4,
+                          "total": "16000000.00",
+                          "unit_price": "4000000.00",
+                          "remark": "ABB | Outgoing CB Panel type SBC |  |  | Data teknis terlampir",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "60f87a3e-e1f6-4ef5-86b4-e19e584a2451",
+                              "name": "Set"
+                          }
+                      },
+                      {
+                          "id": "d3a2d549-bba3-4646-a8eb-2730557e2534",
+                          "boq_id": "1b341b3a-896e-46d9-ae53-08caa34d7e17",
+                          "origin_number": 19,
+                          "breakdown": "  B.2.2.",
+                          "description": "2. Panel MV Switchgear Outgoing 7.2kV, VCB 630A, 16kA 3 sec, Metal Enclosed, IP 41, indication lamp, CT/VT, Protection module relay, RAL 7035, nameplate, selector switch, digital metering \nOutgoing : VCB 100A",
+                          "kind": "Material",
+                          "quantity": 4,
+                          "total": "1500000000.00",
+                          "unit_price": "375000000.00",
+                          "remark": "ABB | Outgoing CB Panel type SBC |  |  | Data teknis terlampir",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "60f87a3e-e1f6-4ef5-86b4-e19e584a2451",
+                              "name": "Set"
+                          }
+                      },
+                      {
+                          "id": "d1671f5a-32cf-4d2c-9b19-116b06b85a2e",
+                          "boq_id": "1b341b3a-896e-46d9-ae53-08caa34d7e17",
+                          "origin_number": 20,
+                          "breakdown": "  B.2.3.",
+                          "description": "3. Panel CT/VT",
+                          "kind": "Material",
+                          "quantity": 2,
+                          "total": "360000000.00",
+                          "unit_price": "180000000.00",
+                          "remark": "ABB | Panel Metering Type SFV |  |  | Data teknis terlampir",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "60f87a3e-e1f6-4ef5-86b4-e19e584a2451",
+                              "name": "Set"
+                          }
+                      },
+                      {
+                          "id": "1b5e8b89-53b1-4b36-8dbf-185882d41eea",
+                          "boq_id": "1b341b3a-896e-46d9-ae53-08caa34d7e17",
+                          "origin_number": 20,
+                          "breakdown": "  B.2.3.",
+                          "description": "3. Panel CT/VT",
+                          "kind": "Upah",
+                          "quantity": 2,
+                          "total": "7000000.00",
+                          "unit_price": "3500000.00",
+                          "remark": "ABB | Panel Metering Type SFV |  |  | Data teknis terlampir",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "60f87a3e-e1f6-4ef5-86b4-e19e584a2451",
+                              "name": "Set"
+                          }
+                      },
+                      {
+                          "id": "ab752af9-72c4-4901-8257-6959be4ef6fe",
+                          "boq_id": "1b341b3a-896e-46d9-ae53-08caa34d7e17",
+                          "origin_number": 21,
+                          "breakdown": "  B.2.4.",
+                          "description": "4. Panel Bus Tie 6.6 kV",
+                          "kind": "Upah",
+                          "quantity": 2,
+                          "total": "10000000.00",
+                          "unit_price": "5000000.00",
+                          "remark": "ABB | Panel Bustie CB Panel Type SBM |  |  | Data teknis terlampir",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "60f87a3e-e1f6-4ef5-86b4-e19e584a2451",
+                              "name": "Set"
+                          }
+                      },
+                      {
+                          "id": "729b9dec-489e-4adf-ac72-d64bf6590512",
+                          "boq_id": "1b341b3a-896e-46d9-ae53-08caa34d7e17",
+                          "origin_number": 21,
+                          "breakdown": "  B.2.4.",
+                          "description": "4. Panel Bus Tie 6.6 kV",
+                          "kind": "Material",
+                          "quantity": 2,
+                          "total": "850000000.00",
+                          "unit_price": "425000000.00",
+                          "remark": "ABB | Panel Bustie CB Panel Type SBM |  |  | Data teknis terlampir",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "60f87a3e-e1f6-4ef5-86b4-e19e584a2451",
+                              "name": "Set"
+                          }
+                      },
+                      {
+                          "id": "80af8eb9-3a5f-4953-97af-11995973f0a0",
+                          "boq_id": "1b341b3a-896e-46d9-ae53-08caa34d7e17",
+                          "origin_number": 23,
+                          "breakdown": " B.3.",
+                          "description": "B.3  KABEL TEGANGAN RENDAH",
+                          "kind": "",
+                          "quantity": 0,
+                          "total": "0.00",
+                          "unit_price": "0.00",
+                          "remark": "|  |  |  |",
+                          "data_type": "header",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "00000000-0000-0000-0000-000000000000",
+                              "name": ""
+                          }
+                      },
+                      {
+                          "id": "7c1697a2-6fdd-4614-aab5-aefa8c4d145a",
+                          "boq_id": "1b341b3a-896e-46d9-ae53-08caa34d7e17",
+                          "origin_number": 24,
+                          "breakdown": "  B.3.1.",
+                          "description": ". POWER CABLE ( ARMOUR )",
+                          "kind": "",
+                          "quantity": 0,
+                          "total": "0.00",
+                          "unit_price": "0.00",
+                          "remark": "|  |  |  |",
+                          "data_type": "header",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "00000000-0000-0000-0000-000000000000",
+                              "name": ""
+                          }
+                      },
+                      {
+                          "id": "03ee4a7b-911f-42ec-89f4-83d8bce09e60",
+                          "boq_id": "1b341b3a-896e-46d9-ae53-08caa34d7e17",
+                          "origin_number": 25,
+                          "breakdown": "   B.3.1.1.",
+                          "description": "1. Kabel TR, NYFGbY, 0.6/1kV, 2Cx2,5 sqmm + 2,5 sqmm (earth)",
+                          "kind": "Upah",
+                          "quantity": 200,
+                          "total": "1000000.00",
+                          "unit_price": "5000.00",
+                          "remark": "Voksel | NYRGbY (Cu/PVC/SWA/PVC) 2 x 2.5 + 2.5 mm² Str 0.6/1 (1.2) kV |  |  |",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "d7190ea2-d2c1-407a-b45f-6e710bb3e8cc",
+                              "name": "m"
+                          }
+                      },
+                      {
+                          "id": "56e3a04b-005d-41f5-a359-61de9a3b8390",
+                          "boq_id": "1b341b3a-896e-46d9-ae53-08caa34d7e17",
+                          "origin_number": 25,
+                          "breakdown": "   B.3.1.1.",
+                          "description": "1. Kabel TR, NYFGbY, 0.6/1kV, 2Cx2,5 sqmm + 2,5 sqmm (earth)",
+                          "kind": "Material",
+                          "quantity": 200,
+                          "total": "9000000.00",
+                          "unit_price": "45000.00",
+                          "remark": "Voksel | NYRGbY (Cu/PVC/SWA/PVC) 2 x 2.5 + 2.5 mm² Str 0.6/1 (1.2) kV |  |  |",
+                          "data_type": "item",
+                          "boq_library_id": "",
+                          "unit": {
+                              "id": "d7190ea2-d2c1-407a-b45f-6e710bb3e8cc",
+                              "name": "m"
+                          }
+                      }
+                  ],
+                  "count": 969
+              }
+          }

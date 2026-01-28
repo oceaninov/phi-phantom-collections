@@ -1,0 +1,104 @@
+info:
+  name: Update Project Task Boq (Description & Remarks)
+  type: http
+  seq: 3
+
+http:
+  method: PUT
+  url: "{{base_url}}/api/v1/projects/tasks/boqs/ceab12f6-0f03-4cfc-9c47-0ad3dc9d23ef"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"description\": \"Survey dan Pembuatan Dokumen Lanjutan\",\r
+
+      \    \"remarks\": \"coba remark\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/projects/tasks/boqs/ceab12f6-0f03-4cfc-9c47-0ad3dc9d23ef"
+      method: PUT
+      body:
+        type: json
+        data: "{\r
+
+          \    \"description\": \"Survey dan Pembuatan Dokumen Lanjutan\",\r
+
+          \    \"remarks\": \"coba remark\"\r
+
+          }"
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 20 Nov 2023 09:38:32 GMT
+        - name: Content-Length
+          value: "105"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "469ms",
+              "status": "success",
+              "code": "",
+              "message": "Update project task boq detail succeed"
+          }
+  - name: failed request validation
+    request:
+      url: "{{base_url}}/api/v1/projects/tasks/boqs/ceab12f6-0f03-4cfc-9c47-0ad3dc9d23ef"
+      method: PUT
+      body:
+        type: json
+        data: "{\r
+
+          \    \"description\": \"\",\r
+
+          \    \"remarks\": \"coba remark\"\r
+
+          }"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 20 Nov 2023 09:39:16 GMT
+        - name: Content-Length
+          value: "349"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "0ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Description: cannot be blank.",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Description: cannot be blank.",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

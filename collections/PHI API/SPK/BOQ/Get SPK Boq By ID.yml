@@ -1,0 +1,171 @@
+info:
+  name: Get SPK Boq By ID
+  type: http
+  seq: 7
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/spks/boqs/4cdf8a34-f3b8-4c58-84db-ad522bab37a9"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: failed
+    request:
+      url: "{{base_url}}/api/v1/spks/boqs/f888dfd1-d3b5-43d2-99d1-aaeb95ce1f12"
+      method: GET
+    response:
+      statusText: "404"
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "2ms",
+              "status": "failed",
+              "code": "05",
+              "message": "Data not found",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Data not found",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/spks/boqs/4cdf8a34-f3b8-4c58-84db-ad522bab37a9"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Fri, 02 Feb 2024 07:31:25 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "319ms",
+              "status": "success",
+              "code": "",
+              "message": "Get spk boq succeed",
+              "data": {
+                  "id": "4cdf8a34-f3b8-4c58-84db-ad522bab37a9",
+                  "description": "Tes",
+                  "start_date": "02-02-2024",
+                  "end_date": "31-08-2024",
+                  "weighted_project_task": "96.62",
+                  "weighted_spk": "96.62",
+                  "physical_progress": "0.00",
+                  "physical_progress_weighted": "0.00",
+                  "actual_volume": "0.00",
+                  "volume": "15.50",
+                  "unit": {
+                      "id": "1b60d8a6-338c-48e6-b71d-297bb71ea588",
+                      "name": "Terminal"
+                  },
+                  "total_price": "1284750000.00",
+                  "actual_progress_cost": "0.00",
+                  "remarks": "test come",
+                  "type": "custom",
+                  "project_task_id": "654b55fd-a69d-4a94-9794-f68f07dcfd29",
+                  "spk_id": "ff291308-45a0-4ed3-93b7-66dee1ac0b30",
+                  "project_task_boq_id": "52b1d12d-2538-4979-a98e-bb070b04d47b",
+                  "spk_boq_details": [
+                      {
+                          "id": "",
+                          "boq": {
+                              "id": "8bb88096-139f-4829-9c45-0d24f79a7da0",
+                              "boq_id": "5781a2a5-40d6-46ee-b2e9-5f97047aac26",
+                              "origin_number": 2,
+                              "breakdown": " A.1.",
+                              "description": "1. Survey, Laporan Survey dan Engineering",
+                              "kind": "Upah",
+                              "quantity": 12,
+                              "total": "162000000.00",
+                              "unit_price": "",
+                              "remark": "| | | |",
+                              "data_type": "item",
+                              "boq_library_id": "",
+                              "unit": {
+                                  "id": "4eba7051-8ef7-4deb-9b21-7b5ed914568e",
+                                  "name": "Paket"
+                              }
+                          },
+                          "unit": {
+                              "id": "4eba7051-8ef7-4deb-9b21-7b5ed914568e",
+                              "name": "Paket"
+                          },
+                          "volume": "0.50",
+                          "unit_price": "13500000.00",
+                          "total_price": "6750000.00"
+                      },
+                      {
+                          "id": "",
+                          "boq": {
+                              "id": "34cdfa9c-77ab-4d75-8e23-ca8486cdeaa8",
+                              "boq_id": "5781a2a5-40d6-46ee-b2e9-5f97047aac26",
+                              "origin_number": 20,
+                              "breakdown": "  B.2.3.",
+                              "description": "3. Panel CT/VT",
+                              "kind": "Material",
+                              "quantity": 2,
+                              "total": "360000000.00",
+                              "unit_price": "",
+                              "remark": "ABB | Panel Metering Type SFV | | | Data teknis terlampir",
+                              "data_type": "item",
+                              "boq_library_id": "",
+                              "unit": {
+                                  "id": "60f87a3e-e1f6-4ef5-86b4-e19e584a2451",
+                                  "name": "Set"
+                              }
+                          },
+                          "unit": {
+                              "id": "60f87a3e-e1f6-4ef5-86b4-e19e584a2451",
+                              "name": "Set"
+                          },
+                          "volume": "7.10",
+                          "unit_price": "180000000.00",
+                          "total_price": "1278000000.00"
+                      }
+                  ],
+                  "created_at": "02-02-2024 11:02:29",
+                  "created_by": {
+                      "id": "76b2cda5-023b-4d40-880a-beacffa41c1a",
+                      "full_name": "AEka",
+                      "status": ""
+                  },
+                  "updated_at": "02-02-2024 11:02:29",
+                  "updated_by": {
+                      "id": "76b2cda5-023b-4d40-880a-beacffa41c1a",
+                      "full_name": "AEka",
+                      "status": ""
+                  },
+                  "plan_volume": "0.07",
+                  "spk": {
+                      "id": "ff291308-45a0-4ed3-93b7-66dee1ac0b30",
+                      "spk_no": "002/SPK/D6647326/PPZ9/2024",
+                      "spk_title": "Eka SPK 1 approver input progress ",
+                      "status": "released"
+                  }
+              }
+          }

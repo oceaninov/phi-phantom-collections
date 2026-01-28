@@ -1,0 +1,147 @@
+info:
+  name: SPK Approval Action
+  type: http
+  seq: 14
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/spks/approval"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"spk_id\": \"a88aafe7-5132-425e-bedb-9a558250f353\",\r
+
+      \    \"approval_process_id\": \"971cddcb-0542-4138-951d-1b22f1ab281a\",\r
+
+      \    \"remarks\": \"Test approve level 2\",\r
+
+      \    \"action\": \"approve\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: reject success
+    request:
+      url: "{{base_url}}/api/v1/spks/approval"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"spk_id\": \"eea573e4-6173-4679-af37-7a2c3a8b3d5a\",\r
+
+          \    \"approval_process_id\": \"d8e19e5f-da8e-449a-a53b-d06fd9ee71c3\",\r
+
+          \    \"remarks\": \"Test reject level 1\",\r
+
+          \    \"action\": \"reject\"\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 19 Sep 2023 15:05:46 GMT
+        - name: Content-Length
+          value: "93"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "470ms",
+              "status": "success",
+              "code": "",
+              "message": "Process reject SPK succeed"
+          }
+  - name: approve success
+    request:
+      url: "{{base_url}}/api/v1/spks/approval"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"spk_id\": \"eea573e4-6173-4679-af37-7a2c3a8b3d5a\",\r
+
+          \    \"approval_process_id\": \"d8e19e5f-da8e-449a-a53b-d06fd9ee71c3\",\r
+
+          \    \"remarks\": \"Test approve level 1\",\r
+
+          \    \"action\": \"approve\"\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 19 Sep 2023 15:08:01 GMT
+        - name: Content-Length
+          value: "94"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "475ms",
+              "status": "success",
+              "code": "",
+              "message": "Process approve SPK succeed"
+          }
+  - name: failed
+    request:
+      url: "{{base_url}}/api/v1/spks/approval"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"spk_id\": \"2fccc9a3-6343-4238-a6a6-d60d3262f465\",\r
+
+          \    \"approval_process_id\": \"9b9b9878-212d-4304-93b2-4c30f94a983f\",\r
+
+          \    \"remarks\": \"Test approve level 3\",\r
+
+          \    \"action\": \"approve\"\r
+
+          }"
+    response:
+      statusText: "404"
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "1ms",
+              "status": "failed",
+              "code": "05",
+              "message": "Data not found",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Data not found",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

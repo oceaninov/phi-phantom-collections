@@ -1,0 +1,49 @@
+info:
+  name: Trigger Notification
+  type: http
+  seq: 3
+
+http:
+  method: GET
+  url: "{{base_url}}/trigger_notif"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Trigger Notification
+    request:
+      url: http://localhost:8080/trigger_notif
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: date
+          value: Mon, 06 May 2024 01:27:21 GMT
+        - name: server
+          value: uvicorn
+        - name: content-length
+          value: "363"
+        - name: content-type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          [
+              {
+                  "ContractId": "9cec5173-7d24-456f-8338-9ebf2b69df1a",
+                  "EndDate": "2025-02-23T00:00:00+00:00",
+                  "WarningDate": "2025-02-02T00:00:00+00:00",
+                  "UpdatedAt": "2024-05-06T01:26:03.982862+00:00"
+              },
+              {
+                  "ContractId": "744e19f3-7948-4494-95d8-b6cbe4ffc5e5",
+                  "EndDate": "2025-02-23T00:00:00+00:00",
+                  "WarningDate": "2025-02-02T00:00:00+00:00",
+                  "UpdatedAt": "2024-05-06T01:26:03.982862+00:00"
+              }
+          ]

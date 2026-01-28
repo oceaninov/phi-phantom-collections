@@ -1,0 +1,212 @@
+info:
+  name: Get Audit Logs
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/audit-logs?table_name=invoices&page=1&object_id=21536c2b-e2b8-4a99-8787-ff8a0226a88a&page_size=500"
+  params:
+    - name: table_name
+      value: invoices
+      type: query
+    - name: object_id
+      value: f9bf4a9b-c73e-4d78-a06f-aa5ae76866b6
+      type: query
+      disabled: true
+    - name: search
+      value: INV/PHI00018/2024-04
+      type: query
+      disabled: true
+    - name: page
+      value: "1"
+      type: query
+    - name: page_size
+      value: "10"
+      type: query
+      disabled: true
+    - name: object_id
+      value: 21536c2b-e2b8-4a99-8787-ff8a0226a88a
+      type: query
+    - name: page_size
+      value: "500"
+      type: query
+  body:
+    type: json
+    data: ""
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/audit-logs?table_name=invoices&page=1&page_size=10"
+      method: GET
+      params:
+        - name: table_name
+          value: invoices
+          type: query
+        - name: object_id
+          value: 21536c2b-e2b8-4a99-8787-ff8a0226a88a
+          type: query
+          disabled: true
+        - name: operation_type
+          value: create|delete
+          type: query
+          description: create|update|delete
+          disabled: true
+        - name: date
+          value: 28-06-2024
+          type: query
+          disabled: true
+        - name: search
+          value: INV/PHI00018/2024-04
+          type: query
+          disabled: true
+        - name: page
+          value: "1"
+          type: query
+        - name: page_size
+          value: "10"
+          type: query
+      body:
+        type: json
+        data: ""
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "67ms",
+              "status": "success",
+              "code": "",
+              "message": "Get audit logs succeed",
+              "data": {
+                  "list": [
+                      {
+                          "id": "6ad05f30-316b-430d-be3d-87d9c4c0d3bb",
+                          "table_name": "invoices",
+                          "operation_type": "create",
+                          "object_id": "253c276b-6489-4777-8ea0-815c35e2004b",
+                          "invoice_no": "INV/PHI00047/2024-04",
+                          "created_at": "04-07-2024 15:22:37",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin",
+                              "status": "",
+                              "email": "super_admin@gmail.com"
+                          }
+                      },
+                      {
+                          "id": "243828f1-9b0d-4fce-950a-7db8fd0c23c5",
+                          "table_name": "invoices",
+                          "operation_type": "create",
+                          "object_id": "bde1e91f-1bf3-4ef0-b617-47775a0d1131",
+                          "invoice_no": "INV/PHI00046/2024-04",
+                          "created_at": "04-07-2024 15:00:00",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin",
+                              "status": "",
+                              "email": "super_admin@gmail.com"
+                          }
+                      },
+                      {
+                          "id": "0662d7b6-051e-42ba-a8e7-6bc6c1e94c7f",
+                          "table_name": "invoices",
+                          "operation_type": "delete",
+                          "object_id": "a54757f7-e131-4632-96a4-3d6062c9f261",
+                          "invoice_no": "INV/PHI00045/2024-04",
+                          "created_at": "04-07-2024 14:42:13",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin",
+                              "status": "",
+                              "email": "super_admin@gmail.com"
+                          }
+                      },
+                      {
+                          "id": "7e8422fa-5b20-4c91-a5c5-394cefcfd961",
+                          "table_name": "invoices",
+                          "operation_type": "delete",
+                          "object_id": "4c1133ad-536a-4981-9d99-bf506b4b4367",
+                          "invoice_no": "INV/PHI00044/2024-04",
+                          "created_at": "04-07-2024 14:39:02",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin",
+                              "status": "",
+                              "email": "super_admin@gmail.com"
+                          }
+                      },
+                      {
+                          "id": "258d50f5-02fa-4988-ac84-3d0a6cffe019",
+                          "table_name": "invoices",
+                          "operation_type": "create",
+                          "object_id": "a54757f7-e131-4632-96a4-3d6062c9f261",
+                          "invoice_no": "INV/PHI00045/2024-04",
+                          "created_at": "04-07-2024 14:07:35",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin",
+                              "status": "",
+                              "email": "super_admin@gmail.com"
+                          }
+                      },
+                      {
+                          "id": "bcbc47b8-aa17-4f24-8a8f-1837f194d91c",
+                          "table_name": "invoices",
+                          "operation_type": "create",
+                          "object_id": "4c1133ad-536a-4981-9d99-bf506b4b4367",
+                          "invoice_no": "INV/PHI00044/2024-04",
+                          "created_at": "04-07-2024 11:11:29",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin",
+                              "status": "",
+                              "email": "super_admin@gmail.com"
+                          }
+                      },
+                      {
+                          "id": "26eaf7c3-3f08-452d-9f7c-e2d97696f34e",
+                          "table_name": "invoices",
+                          "operation_type": "delete",
+                          "object_id": "f9bf4a9b-c73e-4d78-a06f-aa5ae76866b6",
+                          "invoice_no": "INV/PHI00018/2024-04",
+                          "created_at": "28-06-2024 14:24:55",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin",
+                              "status": "",
+                              "email": "super_admin@gmail.com"
+                          }
+                      },
+                      {
+                          "id": "57c4fc98-d64e-404b-86ff-ded96567d800",
+                          "table_name": "invoices",
+                          "operation_type": "create",
+                          "object_id": "f9bf4a9b-c73e-4d78-a06f-aa5ae76866b6",
+                          "invoice_no": "INV/PHI00018/2024-04",
+                          "created_at": "27-06-2024 12:55:20",
+                          "created_by": {
+                              "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                              "full_name": "Super Admin",
+                              "status": "",
+                              "email": "super_admin@gmail.com"
+                          }
+                      }
+                  ],
+                  "count": 8
+              }
+          }

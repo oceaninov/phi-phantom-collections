@@ -1,0 +1,75 @@
+info:
+  name: Get Role Permissions
+  type: http
+  seq: 3
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/roles/3/permissions"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/roles/1/permissions"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 01 Aug 2023 14:19:54 GMT
+        - name: Content-Length
+          value: "204"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "20ms",
+              "status": "success",
+              "code": "",
+              "message": "Get role permissions succeed",
+              "data": {
+                  "1": [
+                      "1"
+                  ],
+                  "2": [
+                      "1"
+                  ],
+                  "3": [
+                      "1"
+                  ],
+                  "4": [
+                      "1"
+                  ],
+                  "5": [
+                      "2"
+                  ],
+                  "6": [
+                      "2"
+                  ],
+                  "7": [
+                      "2"
+                  ],
+                  "8": [
+                      "2"
+                  ],
+                  "9": [
+                      "2"
+                  ],
+                  "10": [
+                      "2"
+                  ]
+              }
+          }

@@ -1,0 +1,77 @@
+info:
+  name: Delete Contractor
+  type: http
+  seq: 6
+
+http:
+  method: DELETE
+  url: "{{base_url}}/api/v1/contractors/50b1b65e-b4fe-4ae2-8670-caf9ba1a4826"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/contractors/50b1b65e-b4fe-4ae2-8670-caf9ba1a4826"
+      method: DELETE
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 17 Oct 2023 04:49:42 GMT
+        - name: Content-Length
+          value: "91"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "65ms",
+              "status": "success",
+              "code": "",
+              "message": "Delete contractor succeed"
+          }
+  - name: failed delete contractor has active contract
+    request:
+      url: "{{base_url}}/api/v1/contractors/50b1b65e-b4fe-4ae2-8670-caf9ba1a4826"
+      method: DELETE
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 17 Oct 2023 04:51:09 GMT
+        - name: Content-Length
+          value: "382"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "60ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Contractor has active contracts can't deleted",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Contractor has active contracts can't deleted",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

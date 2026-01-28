@@ -1,0 +1,64 @@
+info:
+  name: Delete Contract
+  type: http
+  seq: 11
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/contracts/"
+  body:
+    type: json
+    data: |-
+      {
+          "id": [
+              "b80a2f91-70f0-46df-81d2-c618737c1b6f",
+              "b80a2f91-70f0-46df-81d2-c618737c1b6f"
+          ]
+      }
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/contracts/"
+      method: POST
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+              "id": [
+                  "b80a2f91-70f0-46df-81d2-c618737c1b6f",
+                  "b80a2f91-70f0-46df-81d2-c618737c1b6f"
+              ]
+          }
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 16 Nov 2023 06:58:23 GMT
+        - name: Content-Length
+          value: "90"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "111ms",
+              "status": "success",
+              "code": "",
+              "message": "Delete contract succeed"
+          }

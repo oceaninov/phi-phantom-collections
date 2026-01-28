@@ -1,0 +1,49 @@
+info:
+  name: Delete
+  type: http
+  seq: 6
+
+http:
+  method: DELETE
+  url: "{{base_url}}/api/v1/tenders/processes/:ID"
+  params:
+    - name: ID
+      value: 0fdc9250-1ef1-4ada-9f37-391fda73257b
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Succcess
+    request:
+      url: "{{base_url}}/api/v1/tenders/processes/:ID"
+      method: DELETE
+      params:
+        - name: ID
+          value: 0fdc9250-1ef1-4ada-9f37-391fda73257b
+          type: path
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 11 Jan 2024 16:58:13 GMT
+        - name: Content-Length
+          value: "96"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "6ms",
+              "status": "success",
+              "code": "",
+              "message": "Delete tender processes succeed"
+          }

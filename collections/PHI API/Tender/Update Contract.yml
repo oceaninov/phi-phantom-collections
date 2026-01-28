@@ -1,0 +1,91 @@
+info:
+  name: Update Contract
+  type: http
+  seq: 8
+
+http:
+  method: PUT
+  url: "{{base_url}}/api/v1/tenders/contract/:ID"
+  params:
+    - name: ID
+      value: 90d23caf-4674-4df0-958c-c776301840f5
+      type: path
+      description: Tender Contract ID
+  body:
+    type: json
+    data: |-
+      {
+          "tender_id": "29fde9d9-b758-4354-a5f1-a69a5d5a2db1",
+          "description": "Gedung",
+          "request_numbers": [],
+          "working_area": [
+              "PHSS"
+          ],
+          "contract_value": 1200000000,
+          "ndp": "",
+          "proclist_year": "",
+          "sc": "SC-01A",
+          "type": [
+              "Material",
+              "Services"
+          ],
+          "tender_plan_date": "17-08-2024",
+          "contract_start_date": "17-08-2024",
+          "contract_end_date": "31-12-2024"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Success
+    request:
+      url: "{{base_url}}/api/v1/tenders/contract/:ID"
+      method: PUT
+      params:
+        - name: ID
+          value: b718f76e-1a6d-4662-aa06-41f6443d910e
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+              "tender_id": "036f9085-956b-4893-b27e-b28a0402c296",
+              "description": "description 1",
+              "request_numbers": [
+                  "100000001",
+                  "100000002"
+              ],
+              "working_area": ["TSS"],
+              "contract_value": 100000000,
+              "ndp": "A001-01-A000001",
+              "proclist_year": "2024",
+              "sc": "SC-01A",
+              "tender_plan_date": "05-01-2024",
+              "contract_start_date": "09-01-2024",
+              "contract_end_date": "18-01-2024"
+          }
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 18 Jan 2024 05:46:50 GMT
+        - name: Content-Length
+          value: "98"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "7956ms",
+              "status": "success",
+              "code": "",
+              "message": "Update tender contract succeed"
+          }

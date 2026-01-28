@@ -1,0 +1,19 @@
+info:
+  name: Get Contractror Perf Analysis plot
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: "{{base_url}}/contractor-perf?contractor_id=ce238a0e-ec7c-41ad-ad5b-7950712647a8"
+  params:
+    - name: contractor_id
+      value: ce238a0e-ec7c-41ad-ad5b-7950712647a8
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

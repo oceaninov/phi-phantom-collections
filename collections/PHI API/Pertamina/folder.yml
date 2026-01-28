@@ -1,0 +1,7 @@
+info:
+  name: Pertamina
+  type: folder
+  seq: 27
+
+request:
+  auth: inherit

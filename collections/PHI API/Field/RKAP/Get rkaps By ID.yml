@@ -1,0 +1,163 @@
+info:
+  name: Get rkaps By ID
+  type: http
+  seq: 3
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/rkaps/afcde8ed-eb56-4da8-b385-5b7e25828b23"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/rkaps/afcde8ed-eb56-4da8-b385-5b7e25828b22"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 31 Aug 2023 08:07:05 GMT
+        - name: Content-Length
+          value: "1543"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "52ms",
+              "status": "success",
+              "code": "",
+              "message": "Get rkap succeed",
+              "data": {
+                  "field_id": "00000000-0000-0000-0000-000000000000",
+                  "code": "",
+                  "start_date": "0001-01-01T00:00:00Z",
+                  "end_date": "0001-01-01T00:00:00Z",
+                  "description": "",
+                  "is_active": null,
+                  "created_at": "0001-01-01T00:00:00Z",
+                  "created_by": "",
+                  "updated_at": "0001-01-01T00:00:00Z",
+                  "updated_by": "",
+                  "deleted_at": null,
+                  "deleted_by": {
+                      "String": "",
+                      "Valid": false
+                  },
+                  "UserCreate": {
+                      "ID": "00000000-0000-0000-0000-000000000000",
+                      "FullName": "",
+                      "Email": "",
+                      "PasswordHash": "",
+                      "RoleID": 0,
+                      "Status": "",
+                      "Zone": "",
+                      "WorkingArea": "",
+                      "CreatedAt": "0001-01-01T00:00:00Z",
+                      "UpdatedAt": "0001-01-01T00:00:00Z",
+                      "DeletedAt": null,
+                      "CreatedBy": "",
+                      "UpdatedBy": "",
+                      "DeletedBy": {
+                          "String": "",
+                          "Valid": false
+                      },
+                      "UserCreate": null,
+                      "UserUpdate": null,
+                      "UserDelete": null,
+                      "Role": null
+                  },
+                  "UserUpdate": {
+                      "ID": "00000000-0000-0000-0000-000000000000",
+                      "FullName": "",
+                      "Email": "",
+                      "PasswordHash": "",
+                      "RoleID": 0,
+                      "Status": "",
+                      "Zone": "",
+                      "WorkingArea": "",
+                      "CreatedAt": "0001-01-01T00:00:00Z",
+                      "UpdatedAt": "0001-01-01T00:00:00Z",
+                      "DeletedAt": null,
+                      "CreatedBy": "",
+                      "UpdatedBy": "",
+                      "DeletedBy": {
+                          "String": "",
+                          "Valid": false
+                      },
+                      "UserCreate": null,
+                      "UserUpdate": null,
+                      "UserDelete": null,
+                      "Role": null
+                  },
+                  "UserDelete": {
+                      "ID": "00000000-0000-0000-0000-000000000000",
+                      "FullName": "",
+                      "Email": "",
+                      "PasswordHash": "",
+                      "RoleID": 0,
+                      "Status": "",
+                      "Zone": "",
+                      "WorkingArea": "",
+                      "CreatedAt": "0001-01-01T00:00:00Z",
+                      "UpdatedAt": "0001-01-01T00:00:00Z",
+                      "DeletedAt": null,
+                      "CreatedBy": "",
+                      "UpdatedBy": "",
+                      "DeletedBy": {
+                          "String": "",
+                          "Valid": false
+                      },
+                      "UserCreate": null,
+                      "UserUpdate": null,
+                      "UserDelete": null,
+                      "Role": null
+                  }
+              }
+          }
+  - name: failed data not found
+    request:
+      url: "{{base_url}}/api/v1/rkaps/afcde8ed-eb56-4da8-b385-5b7e25828b23"
+      method: GET
+    response:
+      statusText: "404"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 16 Nov 2023 06:16:56 GMT
+        - name: Content-Length
+          value: "321"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "119ms",
+              "status": "failed",
+              "code": "05",
+              "message": "Data not found",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Data not found",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

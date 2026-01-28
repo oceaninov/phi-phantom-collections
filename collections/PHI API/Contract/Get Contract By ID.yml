@@ -1,0 +1,583 @@
+info:
+  name: Get Contract By ID
+  type: http
+  seq: 8
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/contracts/:contractID"
+  params:
+    - name: contractID
+      value: 40ccc42c-df67-4ef3-beb0-814149479962
+      type: path
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success on hold
+    request:
+      url: "{{base_url}}/api/v1/contracts/6c967c29-1cc1-44d0-897a-645efcccb1e7"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 15 Nov 2023 08:18:52 GMT
+        - name: Content-Length
+          value: "1469"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "270ms",
+              "status": "success",
+              "code": "",
+              "message": "Get contract succeed",
+              "data": {
+                  "id": "6c967c29-1cc1-44d0-897a-645efcccb1e7",
+                  "contractor": {
+                      "id": "db7f0270-1b01-4991-b7df-d25da581ff83",
+                      "code": "01082021",
+                      "name": "PT.Samudra Inovasi Teknologi"
+                  },
+                  "contract_no": "7888749340",
+                  "contract_title": "Contract Development Phase 2 ",
+                  "contract_working_area": [
+                      {
+                          "id": "085af331-c31c-4de9-8b41-121148b129f8",
+                          "working_area": "PHSS"
+                      }
+                  ],
+                  "start_date": "01-01-2024",
+                  "contract_end_date": "01-07-2024",
+                  "work_end_date": "30-06-2024",
+                  "contract_duration": 182,
+                  "contract_progress": 0,
+                  "contract_remaining": 228,
+                  "contract_value": "75000000000.00",
+                  "spk_count": 0,
+                  "spk_value": "0.00",
+                  "spk_value_remaining": "75000000000.00",
+                  "physical_progress_value": "114500000.00",
+                  "sa_value": "0.00",
+                  "sa_value_remaining": "75000000000.00",
+                  "invoice_value": "0.00",
+                  "invoice_value_remaining": "75000000000.00",
+                  "percentage": "0.00",
+                  "is_active": false,
+                  "status": "on hold",
+                  "created_at": "14-11-2023 14:03:57",
+                  "created_by": {
+                      "id": "76b2cda5-023b-4d40-880a-beacffa41c1a",
+                      "full_name": "AEka"
+                  },
+                  "updated_at": "15-11-2023 13:55:58",
+                  "updated_by": {
+                      "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                      "full_name": "Super Admin"
+                  },
+                  "spk_summary": {
+                      "total_spk": 1,
+                      "finished": {
+                          "total": 1,
+                          "total_spk_value": 114500000.00000001
+                      },
+                      "draft": {
+                          "total": 0,
+                          "total_spk_value": 0
+                      },
+                      "released": {
+                          "total": 0,
+                          "total_spk_value": 0
+                      }
+                  },
+                  "approval_process": {
+                      "approval_process_id": "f4832c90-0f4a-4be1-928c-703dfba7f990",
+                      "latest_approval_level": 1,
+                      "status": "active",
+                      "approval_flow": "Contract"
+                  }
+              }
+          }
+  - name: failed data not found
+    request:
+      url: "{{base_url}}/api/v1/contracts/6c967c29-1cc1-44d0-897a-645efcccb1e8"
+      method: GET
+    response:
+      statusText: "404"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 16 Nov 2023 06:33:54 GMT
+        - name: Content-Length
+          value: "320"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "16ms",
+              "status": "failed",
+              "code": "05",
+              "message": "Data not found",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Data not found",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }
+  - name: success with approval route
+    request:
+      url: "{{base_url}}/api/v1/contracts/27f99728-e7a8-4b64-aa01-dac2a44527e4"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 20 Mar 2024 02:30:05 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "28ms",
+              "status": "success",
+              "code": "",
+              "message": "Get contract succeed",
+              "data": {
+                  "id": "27f99728-e7a8-4b64-aa01-dac2a44527e4",
+                  "contractor": {
+                      "id": "a53dcb7e-a34d-4152-8a61-32b2d8aae261",
+                      "code": "123123",
+                      "name": "PT. Berca Engineering"
+                  },
+                  "contract_no": "CAPRT710",
+                  "contract_title": "Pengeboran minyak Lanjutan",
+                  "contract_working_area": [
+                      {
+                          "id": "42776657-88e6-4caf-ab08-b7b2a524b274",
+                          "working_area": "TSS"
+                      }
+                  ],
+                  "start_date": "01-05-2024",
+                  "contract_end_date": "01-05-2025",
+                  "work_end_date": "01-05-2025",
+                  "contract_duration": 366,
+                  "contract_progress": 0,
+                  "contract_remaining": 407,
+                  "contract_value": "26000000000.00",
+                  "spk_count": 0,
+                  "spk_value": "0.00",
+                  "spk_value_remaining": "26000000000.00",
+                  "physical_progress_value": "0.00",
+                  "sa_value": "0.00",
+                  "sa_value_remaining": "26000000000.00",
+                  "invoice_value": "0.00",
+                  "invoice_value_remaining": "26000000000.00",
+                  "percentage": "0.00",
+                  "is_active": false,
+                  "status": "draft",
+                  "created_at": "20-03-2024 09:26:28",
+                  "created_by": {
+                      "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                      "full_name": "Super Admin",
+                      "status": ""
+                  },
+                  "updated_at": "20-03-2024 09:26:28",
+                  "updated_by": {
+                      "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                      "full_name": "Super Admin",
+                      "status": ""
+                  },
+                  "spk_summary": {
+                      "total_spk": 0,
+                      "draft": {
+                          "total": 0,
+                          "total_spk_value": 0
+                      },
+                      "on_hold": {
+                          "total": 0,
+                          "total_spk_value": 0
+                      },
+                      "approved": {
+                          "total": 0,
+                          "total_spk_value": 0
+                      },
+                      "released": {
+                          "total": 0,
+                          "total_spk_value": 0
+                      },
+                      "finished": {
+                          "total": 0,
+                          "total_spk_value": 0
+                      }
+                  },
+                  "bank": {
+                      "id": "7388c92c-c96f-4b41-bf0b-b345f6671c7b",
+                      "code": "bca",
+                      "name": "Bank Central Asia"
+                  },
+                  "bank_branch": "Meruya",
+                  "bank_key": "001002",
+                  "bank_account_name": "PT. Berca Engineering",
+                  "approvers": null,
+                  "approval_route": [
+                      {
+                          "level": 1,
+                          "users": [
+                              {
+                                  "id": "bc35b04c-484c-4498-8707-9c410454526c",
+                                  "full_name": "Gustaman",
+                                  "status": "inactive"
+                              },
+                              {
+                                  "id": "b1ac6b1c-1727-4cc2-86f2-e4a2140b44cb",
+                                  "full_name": "Apri Ega",
+                                  "status": "active"
+                              },
+                              {
+                                  "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                                  "full_name": "Super Admin",
+                                  "status": "active"
+                              }
+                          ]
+                      },
+                      {
+                          "level": 2,
+                          "users": [
+                              {
+                                  "id": "fa7bd056-a197-4ba1-9096-9922f5f70cac",
+                                  "full_name": "Dany Marita Pradana Oldie",
+                                  "status": "inactive"
+                              },
+                              {
+                                  "id": "80946615-9fe5-4e13-9ae0-07d1210b0d52",
+                                  "full_name": "Indana Rishi",
+                                  "status": "inactive"
+                              },
+                              {
+                                  "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                                  "full_name": "Super Admin",
+                                  "status": "active"
+                              }
+                          ]
+                      }
+                  ]
+              }
+          }
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/contracts/:contractID"
+      method: GET
+      params:
+        - name: contractID
+          value: c22df1f9-df3e-4717-8193-87f792c2b1f6
+          type: path
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Fri, 31 May 2024 06:37:23 GMT
+        - name: Content-Length
+          value: "1876"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "370ms",
+              "status": "success",
+              "code": "",
+              "message": "Get contract succeed",
+              "data": {
+                  "id": "c22df1f9-df3e-4717-8193-87f792c2b1f6",
+                  "contractor": {
+                      "id": "eb8a9754-bc2f-43d3-805a-77113a1c73f3",
+                      "code": "123111",
+                      "name": "PT. Kaliraya Sari"
+                  },
+                  "contract_no": "222",
+                  "contract_title": "Contract inactive",
+                  "contract_working_area": [
+                      {
+                          "id": "47c50bf5-4b8b-4d48-8a34-10f349ae1909",
+                          "working_area": "PHSS"
+                      }
+                  ],
+                  "contract_types": [
+                      "Material"
+                  ],
+                  "start_date": "23-05-2024",
+                  "contract_end_date": "30-05-2024",
+                  "work_end_date": "30-05-2024",
+                  "contract_remark": "",
+                  "contract_duration": 8,
+                  "contract_progress": 8,
+                  "contract_remaining": 0,
+                  "contract_value": "1000000000.00",
+                  "spk_count": 0,
+                  "spk_value": "0.00",
+                  "spk_value_remaining": "1000000000.00",
+                  "physical_progress_value": "0.00",
+                  "sa_value": "0.00",
+                  "sa_value_remaining": "1000000000.00",
+                  "invoice_value": "0.00",
+                  "invoice_value_remaining": "1000000000.00",
+                  "percentage": "0.00",
+                  "is_active": false,
+                  "status": "approved",
+                  "created_at": "31-05-2024 10:44:08",
+                  "created_by": {
+                      "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                      "full_name": "Diyank Shabira",
+                      "status": ""
+                  },
+                  "updated_at": "31-05-2024 10:44:50",
+                  "updated_by": {
+                      "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                      "full_name": "Diyank Shabira",
+                      "status": ""
+                  },
+                  "spk_summary": {
+                      "total_spk": 0,
+                      "draft": {
+                          "total": 0,
+                          "total_spk_value": 0
+                      },
+                      "on_hold": {
+                          "total": 0,
+                          "total_spk_value": 0
+                      },
+                      "approved": {
+                          "total": 0,
+                          "total_spk_value": 0
+                      },
+                      "released": {
+                          "total": 0,
+                          "total_spk_value": 0
+                      },
+                      "finished": {
+                          "total": 0,
+                          "total_spk_value": 0
+                      }
+                  },
+                  "bank": {
+                      "id": "78ef54a3-12a3-42d9-92b3-4ee45947fdff",
+                      "code": "009",
+                      "name": "BANK BNI",
+                      "is_active": 1
+                  },
+                  "bank_branch": "Jakarta Barat",
+                  "bank_key": "123123123",
+                  "bank_account_name": "PT. JAYA ABADI",
+                  "approvers": null,
+                  "approval_route": [
+                      {
+                          "level": 1,
+                          "users": [
+                              {
+                                  "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                                  "full_name": "Diyank Shabira",
+                                  "status": "active"
+                              }
+                          ]
+                      },
+                      {
+                          "level": 2,
+                          "users": [
+                              {
+                                  "id": "e85150eb-d10c-4435-b695-a519f1c7d3cd",
+                                  "full_name": "Diyank Shabira",
+                                  "status": "active"
+                              },
+                              {
+                                  "id": "d6ef115d-88de-4ff8-8998-51f97e7dd575",
+                                  "full_name": "Fia PHI",
+                                  "status": "active"
+                              }
+                          ]
+                      }
+                  ],
+                  "autogenerated_spk_number": false
+              }
+          }
+  - name: success with retention percentage
+    request:
+      url: "{{base_url}}/api/v1/contracts/:contractID"
+      method: GET
+      params:
+        - name: contractID
+          value: 40ccc42c-df67-4ef3-beb0-814149479962
+          type: path
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 25 Jun 2024 13:14:51 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "6ms",
+              "status": "success",
+              "code": "",
+              "message": "Get contract succeed",
+              "data": {
+                  "id": "40ccc42c-df67-4ef3-beb0-814149479962",
+                  "contractor": {
+                      "id": "a53dcb7e-a34d-4152-8a61-32b2d8aae261",
+                      "code": "123123",
+                      "name": "PT. Berca Engineering"
+                  },
+                  "contract_no": "ContractTestRetention",
+                  "contract_title": "Contract Test Retention",
+                  "contract_working_area": [
+                      {
+                          "id": "ce0e1d00-470c-43d8-b054-5b7cff1d704c",
+                          "working_area": "PHSS"
+                      }
+                  ],
+                  "contract_types": [
+                      "Material"
+                  ],
+                  "start_date": "01-07-2024",
+                  "contract_end_date": "01-07-2025",
+                  "work_end_date": "01-07-2025",
+                  "contract_remark": "",
+                  "contract_duration": 366,
+                  "contract_progress": 0,
+                  "contract_remaining": 371,
+                  "contract_value": "26000000000.00",
+                  "spk_count": 0,
+                  "spk_value": "0.00",
+                  "spk_value_remaining": "26000000000.00",
+                  "physical_progress_value": "0.00",
+                  "sa_value": "0.00",
+                  "sa_value_remaining": "26000000000.00",
+                  "invoice_value": "0.00",
+                  "invoice_value_remaining": "26000000000.00",
+                  "percentage": "0.00",
+                  "is_active": false,
+                  "status": "draft",
+                  "created_at": "13-06-2024 11:21:30",
+                  "created_by": {
+                      "id": "90c23335-5d2d-495d-baa9-f419cae43cdc",
+                      "full_name": "Fadhylah Fil-Ardh",
+                      "status": ""
+                  },
+                  "updated_at": "13-06-2024 11:38:03",
+                  "updated_by": {
+                      "id": "90c23335-5d2d-495d-baa9-f419cae43cdc",
+                      "full_name": "Fadhylah Fil-Ardh",
+                      "status": ""
+                  },
+                  "spk_summary": {
+                      "total_spk": 0,
+                      "draft": {
+                          "total": 0,
+                          "total_spk_value": 0
+                      },
+                      "on_hold": {
+                          "total": 0,
+                          "total_spk_value": 0
+                      },
+                      "approved": {
+                          "total": 0,
+                          "total_spk_value": 0
+                      },
+                      "released": {
+                          "total": 0,
+                          "total_spk_value": 0
+                      },
+                      "finished": {
+                          "total": 0,
+                          "total_spk_value": 0
+                      }
+                  },
+                  "bank": {
+                      "id": "7388c92c-c96f-4b41-bf0b-b345f6671c7b",
+                      "code": "bca",
+                      "name": "Bank Central Asia"
+                  },
+                  "bank_branch": "Jakarta Timur",
+                  "bank_key": "001002003",
+                  "bank_account_name": "Budi",
+                  "approvers": null,
+                  "approval_route": [
+                      {
+                          "level": 1,
+                          "users": [
+                              {
+                                  "id": "bc35b04c-484c-4498-8707-9c410454526c",
+                                  "full_name": "Gustaman",
+                                  "status": "inactive"
+                              },
+                              {
+                                  "id": "b1ac6b1c-1727-4cc2-86f2-e4a2140b44cb",
+                                  "full_name": "Apri Ega",
+                                  "status": "active"
+                              },
+                              {
+                                  "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                                  "full_name": "Super Admin",
+                                  "status": "active"
+                              }
+                          ]
+                      },
+                      {
+                          "level": 2,
+                          "users": [
+                              {
+                                  "id": "fa7bd056-a197-4ba1-9096-9922f5f70cac",
+                                  "full_name": "Dany Marita Pradana Oldie",
+                                  "status": "inactive"
+                              },
+                              {
+                                  "id": "80946615-9fe5-4e13-9ae0-07d1210b0d52",
+                                  "full_name": "Indana Rishi",
+                                  "status": "inactive"
+                              },
+                              {
+                                  "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                                  "full_name": "Super Admin",
+                                  "status": "active"
+                              }
+                          ]
+                      }
+                  ],
+                  "autogenerated_spk_number": true,
+                  "retention_percentage": "5"
+              }
+          }

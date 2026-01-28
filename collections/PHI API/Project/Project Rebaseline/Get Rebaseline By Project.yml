@@ -1,0 +1,197 @@
+info:
+  name: Get Rebaseline By Project
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/projects/rebaseline/e7ac5f77-8c84-4eab-88f5-b8fe30d4f34a"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/projects/rebaseline/e7ac5f77-8c84-4eab-88f5-b8fe30d4f34a"
+      method: GET
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Fri, 08 Mar 2024 03:51:28 GMT
+        - name: Transfer-Encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "22ms",
+              "status": "success",
+              "code": "",
+              "message": "Get project rebaseline succeed",
+              "data": [
+                  {
+                      "id": "1428bc3c-6bcb-449f-b05e-c0989aee1205",
+                      "description": "Rebaseline tengah tahun",
+                      "file_name": "Relocation VLP Compressor Nilam Satelite 6 to Mutiara 6 Station_Updated 18042023.mpp",
+                      "file_url": "https://storage.googleapis.com/phi-dev-bucket/project_rebaseline/00402f94-03d9-4300-ad9c-1665057d46b4_1C454C1DF991D58A.mpp",
+                      "status": "done",
+                      "project": {
+                          "id": "e7ac5f77-8c84-4eab-88f5-b8fe30d4f34a",
+                          "project_no": "7788753",
+                          "description": "Project test SPK BoQ Bulk Upload ",
+                          "wbs": "WBS008"
+                      },
+                      "created_at": "07-03-2024 17:16:33",
+                      "created_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin",
+                          "status": "done"
+                      }
+                  },
+                  {
+                      "id": "301c1542-4ccf-4eb5-9503-07caf64168da",
+                      "description": "Rebaseline tengah tahun",
+                      "file_name": "Relocation VLP Compressor Nilam Satelite 6 to Mutiara 6 Station_Updated 18042023.mpp",
+                      "file_url": "https://storage.googleapis.com/phi-dev-bucket/project_rebaseline/82c00860-df86-40b3-a7d4-64ad1e2d59d5_EAD1B3EA6EFBEED1.mpp",
+                      "status": "done",
+                      "project": {
+                          "id": "e7ac5f77-8c84-4eab-88f5-b8fe30d4f34a",
+                          "project_no": "7788753",
+                          "description": "Project test SPK BoQ Bulk Upload ",
+                          "wbs": "WBS008"
+                      },
+                      "created_at": "07-03-2024 17:13:58",
+                      "created_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin",
+                          "status": "done"
+                      }
+                  },
+                  {
+                      "id": "0121792f-2c19-4391-adde-3112ea6a813b",
+                      "description": "Rebaseline tengah tahun",
+                      "file_name": "Relocation VLP Compressor Nilam Satelite 6 to Mutiara 6 Station_Updated 18042023.mpp",
+                      "file_url": "https://storage.googleapis.com/phi-dev-bucket/project_rebaseline/1f3fe880-6b53-4bf7-899b-d80a0f4980dc_DA56CF6A2192FD17.mpp",
+                      "status": "done",
+                      "project": {
+                          "id": "e7ac5f77-8c84-4eab-88f5-b8fe30d4f34a",
+                          "project_no": "7788753",
+                          "description": "Project test SPK BoQ Bulk Upload ",
+                          "wbs": "WBS008"
+                      },
+                      "created_at": "07-03-2024 17:09:56",
+                      "created_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin",
+                          "status": "done"
+                      }
+                  },
+                  {
+                      "id": "74c10186-11bf-49a7-acf5-c65cc5724411",
+                      "description": "Rebaseline tengah tahun",
+                      "file_name": "Relocation VLP Compressor Nilam Satelite 6 to Mutiara 6 Station_Updated 18042023.mpp",
+                      "file_url": "https://storage.googleapis.com/phi-dev-bucket/project_rebaseline/8ae347b4-2b72-4fb8-82e8-179cffcd75c3_F32840EF4AC74043.mpp",
+                      "status": "done",
+                      "project": {
+                          "id": "e7ac5f77-8c84-4eab-88f5-b8fe30d4f34a",
+                          "project_no": "7788753",
+                          "description": "Project test SPK BoQ Bulk Upload ",
+                          "wbs": "WBS008"
+                      },
+                      "created_at": "07-03-2024 16:55:41",
+                      "created_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin",
+                          "status": "done"
+                      }
+                  },
+                  {
+                      "id": "fc44a2b3-8709-44c3-b77c-37a5420b5302",
+                      "description": "Rebaseline tengah tahun",
+                      "file_name": "Relocation VLP Compressor Nilam Satelite 6 to Mutiara 6 Station_Updated 18042023.mpp",
+                      "file_url": "https://storage.googleapis.com/phi-dev-bucket/project_rebaseline/6162abc5-e92b-4dea-b1f8-60d589bb528a_72177B6E05A66A26.mpp",
+                      "status": "done",
+                      "project": {
+                          "id": "e7ac5f77-8c84-4eab-88f5-b8fe30d4f34a",
+                          "project_no": "7788753",
+                          "description": "Project test SPK BoQ Bulk Upload ",
+                          "wbs": "WBS008"
+                      },
+                      "created_at": "07-03-2024 16:52:50",
+                      "created_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin",
+                          "status": "done"
+                      }
+                  },
+                  {
+                      "id": "e7aeb728-46b0-4e19-8718-c1b0897913bd",
+                      "description": "Rebaseline tengah tahun",
+                      "file_name": "Relocation VLP Compressor Nilam Satelite 6 to Mutiara 6 Station_Updated 18042023.mpp",
+                      "file_url": "https://storage.googleapis.com/phi-dev-bucket/project_rebaseline/e5b9def8-eebd-4499-9e75-3c6c67fe0360_1BC2392F9240FFEE.mpp",
+                      "status": "done",
+                      "project": {
+                          "id": "e7ac5f77-8c84-4eab-88f5-b8fe30d4f34a",
+                          "project_no": "7788753",
+                          "description": "Project test SPK BoQ Bulk Upload ",
+                          "wbs": "WBS008"
+                      },
+                      "created_at": "07-03-2024 16:15:56",
+                      "created_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin",
+                          "status": "done"
+                      }
+                  },
+                  {
+                      "id": "1c61566c-4562-4130-8c9f-5a456f709914",
+                      "description": "Rebaseline tengah tahun",
+                      "file_name": "Relocation VLP Compressor Nilam Satelite 6 to Mutiara 6 Station_Updated 18042023.mpp",
+                      "file_url": "https://storage.googleapis.com/phi-dev-bucket/project_rebaseline/3a0f9344-cfed-4487-b35a-596cb1d0fde7_3871A37A43D676A6.mpp",
+                      "status": "done",
+                      "project": {
+                          "id": "e7ac5f77-8c84-4eab-88f5-b8fe30d4f34a",
+                          "project_no": "7788753",
+                          "description": "Project test SPK BoQ Bulk Upload ",
+                          "wbs": "WBS008"
+                      },
+                      "created_at": "07-03-2024 15:55:51",
+                      "created_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin",
+                          "status": "done"
+                      }
+                  },
+                  {
+                      "id": "425ff94c-536e-4c00-90f0-3b90ea94c177",
+                      "description": "Rebaseline tengah tahun",
+                      "file_name": "Relocation VLP Compressor Nilam Satelite 6 to Mutiara 6 Station_Updated 18042023.mpp",
+                      "file_url": "https://storage.googleapis.com/phi-dev-bucket/project_rebaseline/c2ab1ba6-35ee-4851-bf0e-c29f976e9252_C58E5663CE27BD7E.mpp",
+                      "status": "done",
+                      "project": {
+                          "id": "e7ac5f77-8c84-4eab-88f5-b8fe30d4f34a",
+                          "project_no": "7788753",
+                          "description": "Project test SPK BoQ Bulk Upload ",
+                          "wbs": "WBS008"
+                      },
+                      "created_at": "07-03-2024 15:54:20",
+                      "created_by": {
+                          "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                          "full_name": "Super Admin",
+                          "status": "done"
+                      }
+                  }
+              ]
+          }

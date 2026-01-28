@@ -1,0 +1,118 @@
+info:
+  name: Update File
+  type: http
+  seq: 2
+
+http:
+  method: PUT
+  url: "{{base_url}}/api/v1/file-uploads/6679ed36-1678-4245-b925-74b4141660a7"
+  body:
+    type: multipart-form
+    data:
+      - name: file
+        type: file
+        value:
+          - /Users/ocean.innovation/Downloads/Telegram Desktop/contract-template.xlsx
+        description: Filename must be same with existin file
+      - name: description
+        type: text
+        value: Contract Template
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/file-uploads/e948c784-6e53-4767-b11d-9a34dbd4aba1"
+      method: PUT
+      body:
+        type: multipart-form
+        data:
+          - name: file
+            type: file
+            value:
+              - /D:/Project/PHI/Documents/project-task-template.xlsx
+          - name: description
+            type: text
+            value: Project Task Template File Update
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Mon, 02 Oct 2023 09:08:25 GMT
+        - name: Content-Length
+          value: "86"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "520ms",
+              "status": "success",
+              "code": "",
+              "message": "Update file succeed"
+          }
+  - name: failed request validation
+    request:
+      url: "{{base_url}}/api/v1/file-uploads/e948c784-6e53-4767-b11d-9a34dbd4aba1"
+      method: PUT
+      body:
+        type: multipart-form
+        data:
+          - name: file
+            type: file
+            value:
+              - /C:/Users/danympradana/Downloads/project-task-template.xlsx
+            description: Filename must be same with existin file
+          - name: description
+            type: text
+            value: Project Task Template File Update
+            disabled: true
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: "{\r
+
+          \    \"process_time\": \"13ms\",\r
+
+          \    \"status\": \"failed\",\r
+
+          \    \"code\": \"17\",\r
+
+          \    \"message\": \"Description can't be empty\",\r
+
+          \    \"error_data\": {\r
+
+          \        \"title\": \"Failed\",\r
+
+          \        \"description\": \"Description can't be empty\",\r
+
+          \        \"icon\": \"https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png\",\r
+
+          \        \"primary_text\": \"OK\",\r
+
+          \        \"secondary_text\": \"\",\r
+
+          \        \"primary_link\": \"\",\r
+
+          \        \"secondary_link\": \"\",\r
+
+          \        \"dismissed_link\": \"\"\r
+
+          \    }\r
+
+          }"

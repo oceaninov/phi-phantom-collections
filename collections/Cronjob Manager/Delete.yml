@@ -1,0 +1,44 @@
+info:
+  name: Delete
+  type: http
+  seq: 5
+
+http:
+  method: DELETE
+  url: "{{base_url}}/cronjobs/5"
+  auth:
+    type: basic
+    username: "{{basic_auth_username}}"
+    password: "{{basic_auth_password}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: http://localhost:8002/cronjobs/5
+      method: DELETE
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 30 Apr 2024 02:25:33 GMT
+        - name: Content-Length
+          value: "88"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "25ms",
+              "status": "success",
+              "code": "",
+              "message": "Delete cronjob succeed"
+          }

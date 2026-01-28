@@ -1,0 +1,75 @@
+info:
+  name: Set Notification Configuration
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/projects/tasks/notifications"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"frequency\": \"weekly\",\r
+
+      \    \"recipients\": [\r
+
+      \        {\r
+
+      \            \"full_name\": \"Mumnu Manaa\",\r
+
+      \            \"email\": \"aman@yaohoo.com\",\r
+
+      \            \"id\": \"sdfa\",\r
+
+      \            \"status\": \"active\"\r
+
+      \        }\r
+
+      \    ]\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/projects/tasks/notifications"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \    \"frequency\": \"weekly\",\r
+
+          \    \"recipients\": [\r
+
+          \        \"e8e968e7-77ce-4668-b8d6-fc80e083af67\",\r
+
+          \        \"110ba4e4-b7d3-4df7-8f71-15ce625b9bfe\"\r
+
+          \    ]\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "2479ms",
+              "status": "success",
+              "code": "",
+              "message": "Set project task notification succeed"
+          }

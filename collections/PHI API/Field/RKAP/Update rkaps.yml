@@ -1,0 +1,220 @@
+info:
+  name: Update rkaps
+  type: http
+  seq: 5
+
+http:
+  method: PUT
+  url: "{{base_url}}/api/v1/rkaps/7fce2d25-757a-4d44-a27c-cb724c465298"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"code\" : \"22222\",\r
+
+      \    \"is_active\": 1,\r
+
+      \    \"description\": \"dfdfdsdfsdfsdfdsfsdfsdsdfsd\",\r
+
+      \    \"start_date\": \"01-01-2022\",\r
+
+      \    \"end_date\": \"30-12-2022\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/rkaps/7fce2d25-757a-4d44-a27c-cb724c465298"
+      method: PUT
+      body:
+        type: json
+        data: "{\r
+
+          \    \"code\" : \"22222\",\r
+
+          \    \"is_active\": 1,\r
+
+          \    \"description\": \"dfdfdsdfsdfsdfdsfsdfsdsdfsd\",\r
+
+          \    \"start_date\": \"01-01-2022\",\r
+
+          \    \"end_date\": \"30-12-2022\"\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 31 Aug 2023 08:07:53 GMT
+        - name: Content-Length
+          value: "86"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "195ms",
+              "status": "success",
+              "code": "",
+              "message": "Update rkap succeed"
+          }
+  - name: failed code already used
+    request:
+      url: "{{base_url}}/api/v1/rkaps/7fce2d25-757a-4d44-a27c-cb724c465298"
+      method: PUT
+      body:
+        type: json
+        data: "{\r
+
+          \    \"code\" : \"22222\",\r
+
+          \    \"is_active\": 1,\r
+
+          \    \"description\": \"dfdfdsdfsdfsdfdsfsdfsdsdfsd\",\r
+
+          \    \"start_date\": \"01-01-2022\",\r
+
+          \    \"end_date\": \"30-12-2022\"\r
+
+          }"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 16 Nov 2023 06:22:36 GMT
+        - name: Content-Length
+          value: "359"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "141ms",
+              "status": "failed",
+              "code": "17",
+              "message": "code already used by another rkap",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "code already used by another rkap",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }
+  - name: failed request validation
+    request:
+      url: "{{base_url}}/api/v1/rkaps/7fce2d25-757a-4d44-a27c-cb724c465298"
+      method: PUT
+      body:
+        type: json
+        data: "{\r
+
+          \    \"code\" : \"\",\r
+
+          \    \"is_active\": 1,\r
+
+          \    \"description\": \"dfdfdsdfsdfsdfdsfsdfsdsdfsd\",\r
+
+          \    \"start_date\": \"01-01-2022\",\r
+
+          \    \"end_date\": \"30-12-2022\"\r
+
+          }"
+    response:
+      statusText: "400"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 16 Nov 2023 06:23:00 GMT
+        - name: Content-Length
+          value: "335"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "0ms",
+              "status": "failed",
+              "code": "17",
+              "message": "Code: cannot be blank.",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Code: cannot be blank.",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }
+  - name: failed data not found
+    request:
+      url: "{{base_url}}/api/v1/rkaps/7fce2d25-757a-4d44-a27c-cb724c465299"
+      method: PUT
+      body:
+        type: json
+        data: "{\r
+
+          \    \"code\" : \"22222\",\r
+
+          \    \"is_active\": 1,\r
+
+          \    \"description\": \"dfdfdsdfsdfsdfdsfsdfsdsdfsd\",\r
+
+          \    \"start_date\": \"01-01-2022\",\r
+
+          \    \"end_date\": \"30-12-2022\"\r
+
+          }"
+    response:
+      statusText: "404"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 16 Nov 2023 06:23:48 GMT
+        - name: Content-Length
+          value: "321"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "112ms",
+              "status": "failed",
+              "code": "05",
+              "message": "Data not found",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Data not found",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

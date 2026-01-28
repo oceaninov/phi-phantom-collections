@@ -1,0 +1,70 @@
+info:
+  name: Export Projects
+  type: http
+  seq: 7
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/projects/export?status=in%20progress%7Cfinished"
+  params:
+    - name: category
+      value: fasprod|flowline
+      type: query
+      disabled: true
+    - name: field
+      value: ""
+      type: query
+      disabled: true
+    - name: status
+      value: in%20progress%7Cfinished
+      type: query
+    - name: working_area
+      value: phss
+      type: query
+      disabled: true
+    - name: search
+      value: air
+      type: query
+      disabled: true
+    - name: rkap
+      value: ""
+      type: query
+      disabled: true
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/projects/export?category=fasprod|flowline&field=&status=draft&working_area=phss&search=air&rkap"
+      method: GET
+      params:
+        - name: category
+          value: fasprod|flowline
+          type: query
+        - name: field
+          value: ""
+          type: query
+        - name: status
+          value: draft
+          type: query
+        - name: working_area
+          value: phss
+          type: query
+        - name: search
+          value: air
+          type: query
+        - name: rkap
+          value: ""
+          type: query
+    response:
+      body:
+        type: text
+        data: ""

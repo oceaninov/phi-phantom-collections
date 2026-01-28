@@ -1,0 +1,85 @@
+info:
+  name: Reset Project Task BoQ
+  type: http
+  seq: 13
+
+http:
+  method: GET
+  url: "{{base_url}}/api/v1/projects/tasks/d51f8f69-2693-408a-abd1-d6e17e4a8575/reset-boq"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/projects/tasks/b48263b8-c199-45f5-aa8d-b70c16106838/reset-boq"
+      method: GET
+    response:
+      statusText: "201"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Thu, 07 Dec 2023 09:32:05 GMT
+        - name: Content-Length
+          value: "97"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "515ms",
+              "status": "success",
+              "code": "",
+              "message": "Reset project task BoQ succeed"
+          }
+  - name: failed data not found
+    request:
+      url: "{{base_url}}/api/v1/projects/tasks/b48263b8-c199-45f5-aa8d-b70c16106854/reset-boq"
+      method: GET
+    response:
+      statusText: "404"
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: "{\r
+
+          \    \"process_time\": \"17ms\",\r
+
+          \    \"status\": \"failed\",\r
+
+          \    \"code\": \"05\",\r
+
+          \    \"message\": \"Data not found\",\r
+
+          \    \"error_data\": {\r
+
+          \        \"title\": \"Failed\",\r
+
+          \        \"description\": \"Data not found\",\r
+
+          \        \"icon\": \"https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png\",\r
+
+          \        \"primary_text\": \"OK\",\r
+
+          \        \"secondary_text\": \"\",\r
+
+          \        \"primary_link\": \"\",\r
+
+          \        \"secondary_link\": \"\",\r
+
+          \        \"dismissed_link\": \"\"\r
+
+          \    }\r
+
+          }"

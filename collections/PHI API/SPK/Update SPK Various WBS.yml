@@ -1,0 +1,87 @@
+info:
+  name: Update SPK Various WBS
+  type: http
+  seq: 22
+
+http:
+  method: PUT
+  url: "{{base_url}}/api/v1/spks/various-wbs/d96ca630-b54e-414d-8e0d-114f8c1e5c1c"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"cost_allocations\": [\r
+
+      \        {\r
+
+      \            \"project_id\": \"5835b93a-67e6-4310-8b78-8a518ba7100b\",\r
+
+      \            \"cost\": \"150000000\"\r
+
+      \        },\r
+
+      \        {\r
+
+      \            \"project_id\": \"d069c3a6-0bcc-402a-8ecd-498cc222d520\",\r
+
+      \            \"cost\": \"150000000\"\r
+
+      \        }\r
+
+      \    ]\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/api/v1/spks/various-wbs/d96ca630-b54e-414d-8e0d-114f8c1e5c1c"
+      method: PUT
+      body:
+        type: json
+        data: "{\r
+
+          \    \"cost_allocations\": [\r
+
+          \        {\r
+
+          \            \"project_id\": \"5835b93a-67e6-4310-8b78-8a518ba7100b\",\r
+
+          \            \"cost\": \"170000000\"\r
+
+          \        },\r
+
+          \        {\r
+
+          \            \"project_id\": \"d069c3a6-0bcc-402a-8ecd-498cc222d520\",\r
+
+          \            \"cost\": \"170000000\"\r
+
+          \        }\r
+
+          \    ]\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "48ms",
+              "status": "success",
+              "code": "",
+              "message": "Update spk succeed"
+          }

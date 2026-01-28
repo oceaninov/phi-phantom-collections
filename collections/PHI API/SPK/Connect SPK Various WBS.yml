@@ -1,0 +1,26 @@
+info:
+  name: Connect SPK Various WBS
+  type: http
+  seq: 23
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/spks/various-wbs/connect-project-task"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"spk_boq_id\": \"66b8bbc0-881a-4292-914c-a2e2b8575857\",\r
+
+      \    \"project_task_id\": \"f1399bcd-359e-4d02-9984-3b09ac4dceb8\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

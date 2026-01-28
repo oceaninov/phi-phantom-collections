@@ -1,0 +1,142 @@
+info:
+  name: Set Role's Permissions
+  type: http
+  seq: 8
+
+http:
+  method: PUT
+  url: "{{base_url}}/api/v1/roles/33/permissions"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"role_permissions\": []\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{base_url}}/roles/1/permissions"
+      method: PUT
+      body:
+        type: json
+        data: "{\r
+
+          \    \"role_permissions\": [\r
+
+          \        {\"permission_group_id\": 1, \"permission_id\": 1},\r
+
+          \        {\"permission_group_id\": 1, \"permission_id\": 2},\r
+
+          \        {\"permission_group_id\": 1, \"permission_id\": 3},\r
+
+          \        {\"permission_group_id\": 1, \"permission_id\": 4},\r
+
+          \        {\"permission_group_id\": 2, \"permission_id\": 5},\r
+
+          \        {\"permission_group_id\": 2, \"permission_id\": 6},\r
+
+          \        {\"permission_group_id\": 2, \"permission_id\": 7},\r
+
+          \        {\"permission_group_id\": 2, \"permission_id\": 8},\r
+
+          \        {\"permission_group_id\": 2, \"permission_id\": 9},\r
+
+          \        {\"permission_group_id\": 2, \"permission_id\": 10}\r
+
+          \    ]\r
+
+          }"
+    response:
+      statusText: "200"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Tue, 01 Aug 2023 14:12:42 GMT
+        - name: Content-Length
+          value: "96"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "1390ms",
+              "status": "success",
+              "code": "",
+              "message": "Set role permissions succeed"
+          }
+  - name: failed role not found
+    request:
+      url: "{{base_url}}/api/v1/roles/100/permissions"
+      method: PUT
+      body:
+        type: json
+        data: "{\r
+
+          \    \"role_permissions\": [\r
+
+          \        {\"permission_group_id\": 1, \"permission_id\": 1},\r
+
+          \        {\"permission_group_id\": 1, \"permission_id\": 2},\r
+
+          \        {\"permission_group_id\": 1, \"permission_id\": 3},\r
+
+          \        {\"permission_group_id\": 1, \"permission_id\": 4},\r
+
+          \        {\"permission_group_id\": 2, \"permission_id\": 5},\r
+
+          \        {\"permission_group_id\": 2, \"permission_id\": 6},\r
+
+          \        {\"permission_group_id\": 2, \"permission_id\": 7},\r
+
+          \        {\"permission_group_id\": 2, \"permission_id\": 8},\r
+
+          \        {\"permission_group_id\": 2, \"permission_id\": 9},\r
+
+          \        {\"permission_group_id\": 2, \"permission_id\": 10}\r
+
+          \    ]\r
+
+          }"
+    response:
+      statusText: "404"
+      headers:
+        - name: Content-Type
+          value: application/json; charset=UTF-8
+        - name: Vary
+          value: Origin
+        - name: Date
+          value: Wed, 15 Nov 2023 03:03:50 GMT
+        - name: Content-Length
+          value: "321"
+      body:
+        type: json
+        data: |-
+          {
+              "process_time": "179ms",
+              "status": "failed",
+              "code": "05",
+              "message": "Data not found",
+              "error_data": {
+                  "title": "Failed",
+                  "description": "Data not found",
+                  "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                  "primary_text": "OK",
+                  "secondary_text": "",
+                  "primary_link": "",
+                  "secondary_link": "",
+                  "dismissed_link": ""
+              }
+          }

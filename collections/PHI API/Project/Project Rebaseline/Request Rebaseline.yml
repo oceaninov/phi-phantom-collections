@@ -1,0 +1,31 @@
+info:
+  name: Request Rebaseline
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/api/v1/projects/rebaseline"
+  body:
+    type: multipart-form
+    data:
+      - name: project_id
+        type: text
+        value: 701d963b-f3cb-42e4-b91d-88163b243615
+      - name: description
+        type: text
+        value: Test rebaseline move to header 1
+      - name: file
+        type: file
+        value:
+          - /Users/ocean.innovation/Downloads/fd3b46c1-33e2-4bd8-a406-ff405f1bd05e_89757B317C614982.mpp
+        description: xlsx and mpp file only
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
