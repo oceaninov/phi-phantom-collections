@@ -1,0 +1,144 @@
+meta {
+  name: Update Contractor
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{base_url}}/api/v1/contractors/d81ad1bf-9fa3-4246-9f8f-1afbb9d3d678
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{access_token}}
+}
+
+body:json {
+  {
+      "code": "7842368747",
+      "name": "PT. Maju Bersama",
+      "address": "Jl. Maju",
+      "telephone": "081285873854",
+      "fax": "021-888548735",
+      "email": "tqamdr2@gmail.com",
+      "is_active": 1
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+}
+
+example {
+  name: failed inactive contractor has active contract
+  
+  request: {
+    url: {{base_url}}/api/v1/contractors/50b1b65e-b4fe-4ae2-8670-caf9ba1a4826
+    method: PUT
+    mode: json
+    body:json: {
+      {
+          "code": "100001",
+          "name": "PT MEINDO ELANG INDAH",
+          "address": "address",
+          "telephone": "021000001",
+          "fax": "021000002",
+          "email": "syn@test.com",
+          "bank_id": "7388c92c-c96f-4b41-bf0b-b345f6671c7b",
+          "bank_branch": "jakarta",
+          "bank_key": "111111",
+          "is_active":0
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json; charset=UTF-8
+      Vary: Origin
+      Date: Tue, 17 Oct 2023 04:54:20 GMT
+      Content-Length: 404
+    }
+  
+    status: {
+      code: null
+      text: 400
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "85ms",
+            "status": "failed",
+            "code": "17",
+            "message": "Contractor has active contracts can't be set to inactive",
+            "error_data": {
+                "title": "Failed",
+                "description": "Contractor has active contracts can't be set to inactive",
+                "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                "primary_text": "OK",
+                "secondary_text": "",
+                "primary_link": "",
+                "secondary_link": "",
+                "dismissed_link": ""
+            }
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: success
+  
+  request: {
+    url: {{base_url}}/api/v1/contractors/d81ad1bf-9fa3-4246-9f8f-1afbb9d3d678
+    method: PUT
+    mode: json
+    body:json: {
+      {
+          "code": "7842368747",
+          "name": "PT. Maju Bersama",
+          "address": "Jl. Maju",
+          "telephone": "081285873854",
+          "fax": "021-888548735",
+          "email": "tqamdr2@gmail.com",
+          "bank_id": "7388c92c-c96f-4b41-bf0b-b345f6671c7b",
+          "bank_branch": "Meruya",
+          "bank_key": "001002",
+          "is_active": 1
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json; charset=UTF-8
+      Vary: Origin
+      Date: Thu, 16 Nov 2023 04:06:30 GMT
+      Content-Length: 92
+    }
+  
+    status: {
+      code: null
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "144ms",
+            "status": "success",
+            "code": "",
+            "message": "Update contractor succeed"
+        }
+      '''
+    }
+  }
+}

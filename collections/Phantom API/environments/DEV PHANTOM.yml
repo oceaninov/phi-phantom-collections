@@ -1,0 +1,4 @@
+name: DEV PHANTOM
+variables:
+  - name: base-url
+    value: http://192.168.191.189:5071

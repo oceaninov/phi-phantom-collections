@@ -1,0 +1,104 @@
+meta {
+  name: Delete Contractor
+  type: http
+  seq: 6
+}
+
+delete {
+  url: {{base_url}}/api/v1/contractors/50b1b65e-b4fe-4ae2-8670-caf9ba1a4826
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{access_token}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+}
+
+example {
+  name: success
+  
+  request: {
+    url: {{base_url}}/api/v1/contractors/50b1b65e-b4fe-4ae2-8670-caf9ba1a4826
+    method: DELETE
+    mode: none
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json; charset=UTF-8
+      Vary: Origin
+      Date: Tue, 17 Oct 2023 04:49:42 GMT
+      Content-Length: 91
+    }
+  
+    status: {
+      code: null
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "65ms",
+            "status": "success",
+            "code": "",
+            "message": "Delete contractor succeed"
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: failed delete contractor has active contract
+  
+  request: {
+    url: {{base_url}}/api/v1/contractors/50b1b65e-b4fe-4ae2-8670-caf9ba1a4826
+    method: DELETE
+    mode: none
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json; charset=UTF-8
+      Vary: Origin
+      Date: Tue, 17 Oct 2023 04:51:09 GMT
+      Content-Length: 382
+    }
+  
+    status: {
+      code: null
+      text: 400
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "60ms",
+            "status": "failed",
+            "code": "17",
+            "message": "Contractor has active contracts can't deleted",
+            "error_data": {
+                "title": "Failed",
+                "description": "Contractor has active contracts can't deleted",
+                "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                "primary_text": "OK",
+                "secondary_text": "",
+                "primary_link": "",
+                "secondary_link": "",
+                "dismissed_link": ""
+            }
+        }
+      '''
+    }
+  }
+}
