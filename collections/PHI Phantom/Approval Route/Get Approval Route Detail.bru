@@ -1,0 +1,109 @@
+meta {
+  name: Get Approval Route Detail
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{base_url}}/api/v1/approval-routes/597caca0-c993-4fc0-9cb2-6b23bc96a9c3
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{access_token}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+}
+
+example {
+  name: success
+  
+  request: {
+    url: {{base_url}}/api/v1/approval-routes/597caca0-c993-4fc0-9cb2-6b23bc96a9c3
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json; charset=UTF-8
+      Vary: Origin
+      Date: Tue, 19 Mar 2024 02:11:06 GMT
+      Content-Length: 891
+    }
+  
+    status: {
+      code: null
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "7ms",
+            "status": "success",
+            "code": "",
+            "message": "Get approval route succeed",
+            "data": {
+                "id": "597caca0-c993-4fc0-9cb2-6b23bc96a9c3",
+                "status": "active",
+                "title": "Approval route title",
+                "description": "Approval route description",
+                "category": "project",
+                "created_at": "18-03-2024 13:44:21",
+                "created_by": {
+                    "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                    "full_name": "Super Admin",
+                    "status": "active"
+                },
+                "updated_at": "18-03-2024 15:24:14",
+                "updated_by": {
+                    "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                    "full_name": "Super Admin",
+                    "status": "active"
+                },
+                "users": [
+                    {
+                        "level": 1,
+                        "users": [
+                            {
+                                "id": "bc35b04c-484c-4498-8707-9c410454526c",
+                                "full_name": "Gustaman",
+                                "status": "inactive"
+                            }
+                        ]
+                    },
+                    {
+                        "level": 2,
+                        "users": [
+                            {
+                                "id": "fa7bd056-a197-4ba1-9096-9922f5f70cac",
+                                "full_name": "Dany Marita Pradana Oldie",
+                                "status": "inactive"
+                            }
+                        ]
+                    },
+                    {
+                        "level": 3,
+                        "users": [
+                            {
+                                "id": "319c22af-4121-4905-8b0a-5701189b170d",
+                                "full_name": "diyank",
+                                "status": "inactive"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+      '''
+    }
+  }
+}

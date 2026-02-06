@@ -1,0 +1,115 @@
+meta {
+  name: Update Approval Route
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{base_url}}/api/v1/approval-routes/597caca0-c993-4fc0-9cb2-6b23bc96a9c3
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{access_token}}
+}
+
+body:json {
+  {
+      "title": "Approval route title",
+      "description": "Approval route description",
+      "category": "project",
+      "status": "active",
+      "approvers": [
+          {
+              "level": 1,
+              "user_id": [
+                  "bc35b04c-484c-4498-8707-9c410454526c"
+              ]
+          },
+          {
+              "level": 2,
+              "user_id": [
+                  "fa7bd056-a197-4ba1-9096-9922f5f70cac"
+              ]
+          },
+          {
+              "level": 3,
+              "user_id": [
+                  "319c22af-4121-4905-8b0a-5701189b170d"
+              ]
+          }
+      ]
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+}
+
+example {
+  name: success
+  
+  request: {
+    url: {{base_url}}/api/v1/approval-routes/597caca0-c993-4fc0-9cb2-6b23bc96a9c3
+    method: PUT
+    mode: json
+    body:json: {
+      {
+          "title": "Approval route titles",
+          "description": "Approval route descriptions",
+          "category": "project",
+          "status": "inactive",
+          "approvers": [
+              {
+                  "level": 1,
+                  "user_id": [
+                      "bc35b04c-484c-4498-8707-9c410454526c"
+                  ]
+              },
+              {
+                  "level": 2,
+                  "user_id": [
+                      "fa7bd056-a197-4ba1-9096-9922f5f70cac"
+                  ]
+              },
+              {
+                  "level": 3,
+                  "user_id": [
+                      "319c22af-4121-4905-8b0a-5701189b170d"
+                  ]
+              }
+          ]
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json; charset=UTF-8
+      Vary: Origin
+      Date: Mon, 18 Mar 2024 08:04:20 GMT
+      Content-Length: 95
+    }
+  
+    status: {
+      code: null
+      text: 201
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "45ms",
+            "status": "success",
+            "code": "",
+            "message": "Update approval route succeed"
+        }
+      '''
+    }
+  }
+}

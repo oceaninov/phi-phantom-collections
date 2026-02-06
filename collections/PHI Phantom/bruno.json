@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "PHI Phantom",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

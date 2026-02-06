@@ -1,0 +1,134 @@
+meta {
+  name: Get Contractor By ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{base_url}}/api/v1/contractors/f54e4d53-5217-496c-a063-46db80fd02f5
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{access_token}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+}
+
+example {
+  name: success
+  
+  request: {
+    url: {{base_url}}/api/v1/contractors/582ed2eb-73ab-4a78-b314-d71c2de6da70
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: null
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "17ms",
+            "status": "success",
+            "code": "",
+            "message": "Get contractor succeed",
+            "data": {
+                "id": "f54e4d53-5217-496c-a063-46db80fd02f6",
+                "code": "10005",
+                "name": "PT. SYNERGY ENGINEERING 5",
+                "address": "address",
+                "telephone": "021000001",
+                "fax": "021000002",
+                "email": "syn@test.com",
+                "bank": {
+                    "id": "7388c92c-c96f-4b41-bf0b-b345f6671c7b",
+                    "code": "bca",
+                    "name": "Bank Central Asia"
+                },
+                "bank_branch": "jakarta",
+                "bank_key": "111111",
+                "is_active": 1,
+                "created_at": "17-10-2023 07:24:46",
+                "created_by": {
+                    "id": "b279b3e0-0dea-40a0-96c4-97f5b0e49d8a",
+                    "full_name": "Indra Lasmana"
+                },
+                "updated_at": "17-10-2023 07:24:46",
+                "updated_by": {
+                    "id": "b279b3e0-0dea-40a0-96c4-97f5b0e49d8a",
+                    "full_name": "Indra Lasmana"
+                },
+                "user":{
+                            "id": "50b1b65e-b4fe-4ae2-8670-caf9ba1a4826",
+                            "full_name": "TAME IMPALA",
+                            "status": "active",
+                            "email": "tameimpale@getnada.com"
+                        }
+            }
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: failed data not found
+  
+  request: {
+    url: {{base_url}}/api/v1/contractors/f54e4d53-5217-496c-a063-46db80fd02f5
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json; charset=UTF-8
+      Vary: Origin
+      Date: Thu, 16 Nov 2023 03:53:00 GMT
+      Content-Length: 320
+    }
+  
+    status: {
+      code: null
+      text: 404
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "18ms",
+            "status": "failed",
+            "code": "05",
+            "message": "Data not found",
+            "error_data": {
+                "title": "Failed",
+                "description": "Data not found",
+                "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                "primary_text": "OK",
+                "secondary_text": "",
+                "primary_link": "",
+                "secondary_link": "",
+                "dismissed_link": ""
+            }
+        }
+      '''
+    }
+  }
+}

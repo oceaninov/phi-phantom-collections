@@ -1,0 +1,79 @@
+meta {
+  name: Get All
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base_url}}/api/v1/approval-tierings/all
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{access_token}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+}
+
+example {
+  name: success
+  
+  request: {
+    url: {{base_url}}/api/v1/approval-tierings/all
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json; charset=UTF-8
+      Vary: Origin
+      Date: Thu, 07 Sep 2023 02:43:09 GMT
+      Content-Length: 320
+    }
+  
+    status: {
+      code: null
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "40ms",
+            "status": "success",
+            "code": "",
+            "message": "Get approval tierings succeed",
+            "data": {
+                "data": [
+                    {
+                        "approval_flow": "Project",
+                        "levels": [
+                            {
+                                "id": "a87e5ca2-467c-4762-9c3b-1232a78b2a3f",
+                                "level": 1
+                            },
+                            {
+                                "id": "eccf9d9b-aeaa-42e9-bcef-2f831573761f",
+                                "level": 2
+                            },
+                            {
+                                "id": "9ee70621-7c98-484a-b1c4-18661cc1ebe8",
+                                "level": 3
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+      '''
+    }
+  }
+}

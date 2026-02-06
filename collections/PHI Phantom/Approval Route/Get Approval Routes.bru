@@ -1,0 +1,276 @@
+meta {
+  name: Get Approval Routes
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{base_url}}/api/v1/approval-routes?page=1&page_size=25&status=active&category=contract|project|spk
+  body: none
+  auth: bearer
+}
+
+params:query {
+  page: 1
+  page_size: 25
+  status: active
+  category: contract|project|spk
+  ~search: title
+}
+
+auth:bearer {
+  token: {{access_token}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+}
+
+example {
+  name: success
+  
+  request: {
+    url: {{base_url}}/api/v1/approval-routes?page=1&page_size=25&status=active&category=contract|project|spk
+    method: GET
+    mode: none
+    params:query: {
+      page: 1
+      page_size: 25
+      ~search: title
+      status: active
+      category: contract|project|spk
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json; charset=UTF-8
+      Vary: Origin
+      Date: Tue, 07 May 2024 04:39:46 GMT
+      Transfer-Encoding: chunked
+    }
+  
+    status: {
+      code: null
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "68ms",
+            "status": "success",
+            "code": "",
+            "message": "Get approval routes succeed",
+            "data": {
+                "list": [
+                    {
+                        "id": "f7e9bd74-1298-43f3-8719-9daac63c3fa2",
+                        "status": "active",
+                        "title": "Project Approval Route",
+                        "description": "This is an approval route for project",
+                        "category": "project",
+                        "created_at": "27-03-2024 08:13:36",
+                        "created_by": {
+                            "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                            "full_name": "Super Admin",
+                            "status": "active"
+                        },
+                        "updated_at": "27-03-2024 08:13:36",
+                        "updated_by": {
+                            "id": "e8e968e7-77ce-4668-b8d6-fc80e083af67",
+                            "full_name": "Super Admin",
+                            "status": "active"
+                        },
+                        "users": [
+                            {
+                                "level": 1,
+                                "users": [
+                                    {
+                                        "id": "2aac1b78-0e80-449b-a28d-d5025caa3003",
+                                        "full_name": "Field Inspector AE",
+                                        "status": "active"
+                                    },
+                                    {
+                                        "id": "f618d0ba-e726-494a-8e74-4e2063b2dda2",
+                                        "full_name": "Inspector",
+                                        "status": "active"
+                                    },
+                                    {
+                                        "id": "22b1b889-0a92-4fa1-8a36-1938470d1039",
+                                        "full_name": "Sofi Testing",
+                                        "status": "active"
+                                    }
+                                ]
+                            },
+                            {
+                                "level": 2,
+                                "users": [
+                                    {
+                                        "id": "d17f4006-cb04-4813-b2dc-29b1e9d8d037",
+                                        "full_name": "finspector",
+                                        "status": "active"
+                                    },
+                                    {
+                                        "id": "1ff35107-ab01-4c3a-a04b-8552a94372eb",
+                                        "full_name": "Lisa Inspector",
+                                        "status": "active"
+                                    }
+                                ]
+                            },
+                            {
+                                "level": 3,
+                                "users": [
+                                    {
+                                        "id": "1ff35107-ab01-4c3a-a04b-8552a94372eb",
+                                        "full_name": "Lisa Inspector",
+                                        "status": "active"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": "ed840997-5783-499f-9f44-8809f7498e03",
+                        "status": "active",
+                        "title": "SPK",
+                        "description": "SPK",
+                        "category": "spk",
+                        "created_at": "27-03-2024 14:20:16",
+                        "created_by": {
+                            "id": "a4b047b1-457f-4d7a-911e-94aa908a3132",
+                            "full_name": "Rinaldy",
+                            "status": "active"
+                        },
+                        "updated_at": "24-04-2024 14:16:13",
+                        "updated_by": {
+                            "id": "a4b047b1-457f-4d7a-911e-94aa908a3132",
+                            "full_name": "Rinaldy",
+                            "status": "active"
+                        },
+                        "users": [
+                            {
+                                "level": 1,
+                                "users": [
+                                    {
+                                        "id": "2aac1b78-0e80-449b-a28d-d5025caa3003",
+                                        "full_name": "Field Inspector AE",
+                                        "status": "active"
+                                    },
+                                    {
+                                        "id": "1ff35107-ab01-4c3a-a04b-8552a94372eb",
+                                        "full_name": "Lisa Inspector",
+                                        "status": "active"
+                                    }
+                                ]
+                            },
+                            {
+                                "level": 2,
+                                "users": [
+                                    {
+                                        "id": "1ff35107-ab01-4c3a-a04b-8552a94372eb",
+                                        "full_name": "Lisa Inspector",
+                                        "status": "active"
+                                    }
+                                ]
+                            },
+                            {
+                                "level": 3,
+                                "users": [
+                                    {
+                                        "id": "1ff35107-ab01-4c3a-a04b-8552a94372eb",
+                                        "full_name": "Lisa Inspector",
+                                        "status": "active"
+                                    }
+                                ]
+                            },
+                            {
+                                "level": 4,
+                                "users": [
+                                    {
+                                        "id": "1ff35107-ab01-4c3a-a04b-8552a94372eb",
+                                        "full_name": "Lisa Inspector",
+                                        "status": "active"
+                                    },
+                                    {
+                                        "id": "2aac1b78-0e80-449b-a28d-d5025caa3003",
+                                        "full_name": "Field Inspector AE",
+                                        "status": "active"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": "56b91760-3e92-40f9-96f7-8bdf767185fe",
+                        "status": "active",
+                        "title": "Contract Approval Route",
+                        "description": "This is an approval route for contract",
+                        "category": "contract",
+                        "created_at": "22-04-2024 11:04:58",
+                        "created_by": {
+                            "id": "df1b1315-ed06-4aa8-a252-9c2b6a290885",
+                            "full_name": "Indana Rishi",
+                            "status": "active"
+                        },
+                        "updated_at": "06-05-2024 17:48:18",
+                        "updated_by": {
+                            "id": "595f7f1c-5087-469a-9fb4-cacce94de557",
+                            "full_name": "AekaWah",
+                            "status": "active"
+                        },
+                        "users": [
+                            {
+                                "level": 1,
+                                "users": [
+                                    {
+                                        "id": "2aac1b78-0e80-449b-a28d-d5025caa3003",
+                                        "full_name": "Field Inspector AE",
+                                        "status": "active"
+                                    },
+                                    {
+                                        "id": "f618d0ba-e726-494a-8e74-4e2063b2dda2",
+                                        "full_name": "Inspector",
+                                        "status": "active"
+                                    }
+                                ]
+                            },
+                            {
+                                "level": 2,
+                                "users": [
+                                    {
+                                        "id": "22b1b889-0a92-4fa1-8a36-1938470d1039",
+                                        "full_name": "Sofi Testing",
+                                        "status": "active"
+                                    },
+                                    {
+                                        "id": "d17f4006-cb04-4813-b2dc-29b1e9d8d037",
+                                        "full_name": "finspector",
+                                        "status": "active"
+                                    }
+                                ]
+                            },
+                            {
+                                "level": 3,
+                                "users": [
+                                    {
+                                        "id": "1ff35107-ab01-4c3a-a04b-8552a94372eb",
+                                        "full_name": "Lisa Inspector",
+                                        "status": "active"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "count": 3
+            }
+        }
+      '''
+    }
+  }
+}

@@ -1,0 +1,202 @@
+meta {
+  name: Create Contractor
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{base_url}}/api/v1/contractors
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{access_token}}
+}
+
+body:json {
+  {
+      "code": "7842368747",
+      "name": "PT. Maju Bersama",
+      "address": "Jl. Maju",
+      "telephone": "081285873854",
+      "fax": "021-888548735",
+      "email": "tqamdr2@gmail.com",
+      "user_email": "ttaa@gmail.com",
+      "user_name": "tame impala"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+}
+
+example {
+  name: failed request validation
+  
+  request: {
+    url: {{base_url}}/api/v1/contractors
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "code": "",
+          "name": "PT. SYNERGY ENGINEERING 3",
+          "address": "address",
+          "telephone": "021000001",
+          "fax": "021000002",
+          "email": "syn@test.com",
+          "bank_id": "7388c92c-c96f-4b41-bf0b-b345f6671c7b",
+          "bank_branch": "jakarta",
+          "bank_key": "111111"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json; charset=UTF-8
+      Vary: Origin
+      Date: Thu, 16 Nov 2023 03:54:50 GMT
+      Content-Length: 336
+    }
+  
+    status: {
+      code: null
+      text: 400
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "59ms",
+            "status": "failed",
+            "code": "17",
+            "message": "Code: cannot be blank.",
+            "error_data": {
+                "title": "Failed",
+                "description": "Code: cannot be blank.",
+                "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                "primary_text": "OK",
+                "secondary_text": "",
+                "primary_link": "",
+                "secondary_link": "",
+                "dismissed_link": ""
+            }
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: code already used
+  
+  request: {
+    url: {{base_url}}/api/v1/contractors
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "code": "7842368747",
+          "name": "PT. Maju Bersama",
+          "address": "Jl. Maju",
+          "telephone": "081285873854",
+          "fax": "021-888548735",
+          "email": "tqamdr2@gmail.com",
+          "bank_id": "7388c92c-c96f-4b41-bf0b-b345f6671c7b",
+          "bank_branch": "Meruya",
+          "bank_key": "001002"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json; charset=UTF-8
+      Vary: Origin
+      Date: Thu, 16 Nov 2023 03:57:45 GMT
+      Content-Length: 370
+    }
+  
+    status: {
+      code: null
+      text: 400
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "44ms",
+            "status": "failed",
+            "code": "17",
+            "message": "code already used by another contractor",
+            "error_data": {
+                "title": "Failed",
+                "description": "code already used by another contractor",
+                "icon": "https://storage.googleapis.com/phi-dev-bucket/assets/failed-icon.png",
+                "primary_text": "OK",
+                "secondary_text": "",
+                "primary_link": "",
+                "secondary_link": "",
+                "dismissed_link": ""
+            }
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: success
+  
+  request: {
+    url: {{base_url}}/api/v1/contractors
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "code": "7842368747",
+          "name": "PT. Maju Bersama",
+          "address": "Jl. Maju",
+          "telephone": "081285873854",
+          "fax": "021-888548735",
+          "email": "tqamdr2@gmail.com",
+          "bank_id": "7388c92c-c96f-4b41-bf0b-b345f6671c7b",
+          "bank_branch": "Meruya",
+          "bank_key": "001002"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json; charset=UTF-8
+      Vary: Origin
+      Date: Thu, 16 Nov 2023 03:58:16 GMT
+      Content-Length: 91
+    }
+  
+    status: {
+      code: null
+      text: 201
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "82ms",
+            "status": "success",
+            "code": "",
+            "message": "Create contractor succeed"
+        }
+      '''
+    }
+  }
+}
