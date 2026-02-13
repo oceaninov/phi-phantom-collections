@@ -1,0 +1,85 @@
+info:
+  name: Get User Info
+  type: http
+  seq: 6
+
+http:
+  method: POST
+  url: https://api.phss.pertamina.com/proxyrestr3/api-auth-proxy-soa/APIR3tina/ProxyService/globalQueryRest/query
+  headers:
+    - name: client-id
+      value: R3LAX
+    - name: client-secret
+      value: AScMiHW8plK14fy1EVN7JpfO4t8F0P1y
+    - name: realm-name
+      value: R3LAX
+  body:
+    type: json
+    data: |-
+      {
+          "QUERYID": "99",
+          "PARAM": [
+              {
+                  "PARAMNUMBER": 1,
+                  "VALUE": "R3TEST.VICEP",
+                  "TYPE": "STRING"
+              }
+          ]
+      }
+  auth:
+    type: bearer
+    token: eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJWZ1BCMDVobV9EbllROWNYOUJSeldOYkpMWFV0T19KTWtmSjJRdVdfQUVrIn0.eyJleHAiOjE3NDA3MjM4OTUsImlhdCI6MTczOTUxNDI5NSwianRpIjoiM2QyOTZjZWItNWM0Yy00Y2I3LTk0OGItODU4YmIxYWU1NzJhIiwiaXNzIjoiaHR0cDovL2ludHJhLnBoaS5wZXJ0YW1pbmEuY29tL3Izb2F1dGgvcmVhbG1zL1IzTEFYIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjQ1Mzk4YjY4LTg0ZGQtNDY2Yy1iYzdjLTEyMTFiOTk2YTkzOSIsInR5cCI6IkJlYXJlciIsImF6cCI6IlIzTEFYIiwic2lkIjoiMGNkNDY1ZWEtNGMzNy00OGY0LTkzOTUtMWNiMTZjNjBmMTVlIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIqIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsImRlZmF1bHQtcm9sZXMtcjNsYXgiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6InIzdGVzdC52aWNlcCIsInByZWZlcnJlZF91c2VybmFtZSI6InIzdGVzdC52aWNlcCIsImdpdmVuX25hbWUiOiJyM3Rlc3QudmljZXAifQ.idNxxAuj7xPN872yfK5o6ZQqA3I_ABhsIWXp7wsopAcgt9qtbBkGSxsq6wfy_Ht_z304WboYbqDLnXgkMfx7TVbfXhawVZDdqgoVQt-w2rL4OerWMRUk8GT5tcYqggkBQY3wD2h0fjKH4iW4-pusFm75pdV7SxZT92weBadtkSHGqIfkmeiB4Azl4_jI72Ky5aCnHilGd9cKoNjT3_OqAfKnNNAcGjQ1qaf7nUD5E_99KrJP50WHy4BSUOlSaFa_9sA6Cc-eH28OLmkUUKI0ydlkmZhiuafMUlD1Qpc2qLOH-bImSQMauIplDNqvdWCTKOPrPAFHtccm8huqqZKj-Q
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Get single user
+    request:
+      url: https://api.phss.pertamina.com/proxyrestr3/api-auth-proxy-soa/APIR3tina/ProxyService/globalQueryRest/query
+      method: POST
+      headers:
+        - name: client-id
+          value: R3LAX
+        - name: client-secret
+          value: AScMiHW8plK14fy1EVN7JpfO4t8F0P1y
+        - name: realm-name
+          value: R3LAX
+      body:
+        type: json
+        data: |-
+          {
+              "QUERYID": "99",
+              "PARAM": [
+                  {
+                      "PARAMNUMBER": 1,
+                      "VALUE": "R3TEST.VICEP",
+                      "TYPE": "STRING"
+                  }
+              ]
+          }
+    response:
+      statusText: OK
+      body:
+        type: text
+        data: |-
+          {
+              "resultData": [
+                  {
+                      "ROW": {
+                          "@num": "1",
+                          "USERNAME": "Test User 1",
+                          "USERID": "R3TEST.VICEP",
+                          "EMAIL": "R3TEST.VICEP@PERTAMINA.COM",
+                          "POSNAME": "ELECTRICAL ENGINEER MUTIARA",
+                          "POSID": "100005474",
+                          "DIVISION": "Zona 9",
+                          "SUBDIVISION": "Production & Projects",
+                          "DEPARTMENT": "Projects"
+                      }
+                  }
+              ]
+          }

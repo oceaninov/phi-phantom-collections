@@ -305,3 +305,243 @@ examples:
                   ]
               }
           }
+  - name: success (Phantom)
+    request:
+      url: https://api.phss.pertamina.com/proxyrestr3/api-auth-proxy-soa/APIR3tina/ProxyService/getUserSessionRest/session/r3test.vicep/IPMS
+      method: GET
+      headers:
+        - name: Content-Type
+          value: application/json
+        - name: client-id
+          value: R3LAX
+        - name: client-secret
+          value: AScMiHW8plK14fy1EVN7JpfO4t8F0P1y
+        - name: realm-name
+          value: R3LAX
+    response:
+      statusText: "200"
+      headers:
+        - name: Date
+          value: Mon, 10 Feb 2025 10:12:42 GMT
+        - name: Content-Type
+          value: application/json
+        - name: X-ORACLE-DMS-ECID
+          value: 3a78d050-a7be-49e3-b5ea-8654ab09a4ca-00008772
+        - name: X-ORACLE-DMS-RID
+          value: "0"
+        - name: Vary
+          value: Origin,Accept-Encoding,Access-Control-Request-Method,Access-Control-Request-Headers
+        - name: Content-Encoding
+          value: gzip
+        - name: Access-Control-Allow-Origin
+          value: "*"
+        - name: Content-Length
+          value: "860"
+        - name: Keep-Alive
+          value: timeout=2, max=65
+        - name: Connection
+          value: Keep-Alive
+        - name: Strict-Transport-Security
+          value: max-age=16070400; includeSubdomains; preload
+      body:
+        type: json
+        data: |-
+          {
+              "userInformation": {
+                  "USERID": "R3TEST.VICEP",
+                  "USERNAME": "TEST ERIK2",
+                  "EMPNUM": "test erik5",
+                  "EMAIL": "R3TEST.VICEP@PERTAMINA.COM",
+                  "POSID": "100001920",
+                  "POSNAME": "PROGRAMMER",
+                  "UNITID": "10145444",
+                  "UNITNAME": "ANALYST IT SOLUTION",
+                  "COYCODE": "2181",
+                  "COYNAME": "PHI",
+                  "AREAID": "PHI1",
+                  "AREANAME": "Upstream Reg 3 Head Office",
+                  "SUBAREAID": "PHI1",
+                  "SUBAREANAME": "Jakarta",
+                  "SECTION": "IT Business Solutions",
+                  "CCID": "2181D4005",
+                  "CCNAME": "R3 Manager IT Business Solutions",
+                  "BACKTOBACK": null,
+                  "POSCATEGORY": "STAFF",
+                  "AUTHSERVER1": "PERSERO",
+                  "AUTHSERVER2": null,
+                  "KBO": "PHI53120",
+                  "UIDTYPE": "LDAP",
+                  "RESIDENCESTATUS": null,
+                  "PARENTUSERID": "SILA.PUTRI",
+                  "LOCGROUP": "REGIONAL 3",
+                  "LOCCATEGORY": "OFFICE",
+                  "SUBFUNGSI": "IT BUSINESS SOLUTIONS",
+                  "FUNGSI": "INFORMATION TECHNOLOGY"
+              },
+              "doaInformation": null,
+              "roleInformation": {
+                  "role": [
+                      {
+                          "SYSNAME": "PHANTOM",
+                          "SYSROLE": "Coordinator - Engineering, Planning & Execution",
+                          "acl": [
+                              {
+                                  "COMPONENTID": "IPMS_Read_Contract",
+                                  "URLPATH": "Contract",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "Read",
+                                  "SEQ": 19
+                              },
+                              {
+                                  "COMPONENTID": "IPMS_Read Contract BOQ_Contract",
+                                  "URLPATH": "Contract",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "Read Contract BOQ",
+                                  "SEQ": 32
+                              },
+                              {
+                                  "COMPONENTID": "IPMS_Submit_Contract",
+                                  "URLPATH": "Contract",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "Submit",
+                                  "SEQ": 62
+                              },
+                              {
+                                  "COMPONENTID": "IPMS_Contract Approval_Contract",
+                                  "URLPATH": "Contract",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "Contract Approval",
+                                  "SEQ": 63
+                              },
+                              {
+                                  "COMPONENTID": "IPMS_Cancel Contract_Contract",
+                                  "URLPATH": "Contract",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "Cancel Contract",
+                                  "SEQ": 64
+                              },
+                              {
+                                  "COMPONENTID": "IPMS_Finish Contract_Contract",
+                                  "URLPATH": "Contract",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "Finish Contract",
+                                  "SEQ": 65
+                              },
+                              {
+                                  "COMPONENTID": "IPMS_Read Dashboard_Dashboard",
+                                  "URLPATH": "Dashboard",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "Read Dashboard",
+                                  "SEQ": 68
+                              },
+                              {
+                                  "COMPONENTID": "IPMS_Read _Project",
+                                  "URLPATH": "Project",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "Read ",
+                                  "SEQ": 37
+                              },
+                              {
+                                  "COMPONENTID": "IPMS_Read Project Tasks_Project",
+                                  "URLPATH": "Project",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "Read Project Tasks",
+                                  "SEQ": 46
+                              },
+                              {
+                                  "COMPONENTID": "IPMS_Get Project Task BoQ_Project",
+                                  "URLPATH": "Project",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "Get Project Task BoQ",
+                                  "SEQ": 52
+                              },
+                              {
+                                  "COMPONENTID": "IPMS_Project Approval_Project",
+                                  "URLPATH": "Project",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "Project Approval",
+                                  "SEQ": 54
+                              },
+                              {
+                                  "COMPONENTID": "IPMS_Read Project Spending Plan_Project",
+                                  "URLPATH": "Project",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "Read Project Spending Plan",
+                                  "SEQ": 55
+                              },
+                              {
+                                  "COMPONENTID": "IPMS_Read_SPK",
+                                  "URLPATH": "SPK",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "Read",
+                                  "SEQ": 23
+                              },
+                              {
+                                  "COMPONENTID": "IPMS_Submit SPK_SPK",
+                                  "URLPATH": "SPK",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "Submit SPK",
+                                  "SEQ": 57
+                              },
+                              {
+                                  "COMPONENTID": "IPMS_SPK Approval_SPK",
+                                  "URLPATH": "SPK",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "SPK Approval",
+                                  "SEQ": 58
+                              },
+                              {
+                                  "COMPONENTID": "IPMS_Cancel SPK_SPK",
+                                  "URLPATH": "SPK",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "Cancel SPK",
+                                  "SEQ": 60
+                              },
+                              {
+                                  "COMPONENTID": "IPMS_Finish SPK_SPK",
+                                  "URLPATH": "SPK",
+                                  "HIDDEN": 0,
+                                  "READONLY": 0,
+                                  "DISABLED": 0,
+                                  "PAGE": "Finish SPK",
+                                  "SEQ": 66
+                              }
+                          ],
+                          "COMPANY": null,
+                          "SEQROLE": 0
+                      }
+                  ]
+              }
+          }
